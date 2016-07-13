@@ -1,7 +1,9 @@
-package br.com.battista.arcadiacaller;
+package br.com.battista.arcadiacaller.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.com.battista.arcadiacaller.R;
 
 public class MainActivity extends AppCompatActivity {
 
