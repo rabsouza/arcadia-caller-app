@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ArcadiaCaller</string>
+    <string name="title_app">Arcadia Caller</string>
+    <string name="hint_btn_login">Digite seu login</string>
+    <string name="btn_login">ENTRAR</string>
+    <string name="btn_sign_in">CRIAR CONTA</string>
 </resources>

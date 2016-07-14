@@ -3,7 +3,13 @@ package br.com.battista.arcadiacaller;
 import android.app.Application;
 import android.util.Log;
 
-import br.com.battista.arcadiacaller.override.FontsOverride;
+import br.com.battista.arcadiacaller.adapter.FontsAdapter;
+
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
 
 /**
  * Created by rabsouza on 18/06/16.
@@ -23,12 +29,16 @@ public class MainApplication extends Application {
         super.onCreate();
         Log.d(TAG, "onCreate: MainApplication!");
 
-        FontsOverride.setDefaultFont(this, "DEFAULT", "fonts/Litterbox-ICG-Regular.ttf");
-        FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Litterbox-ICG-Regular.ttf");
-        FontsOverride.setDefaultFont(this, "SERIF", "fonts/Litterbox-ICG-Regular.ttf");
-        FontsOverride.setDefaultFont(this, "SANS_SERIF", "fonts/Litterbox-ICG-Regular.ttf");
+        changeSystemFont();
 
         instance = this;
+    }
+
+    private void changeSystemFont() {
+        FontsAdapter.setDefaultFont(this, DEFAULT, DEFAULT_FONT);
+        FontsAdapter.setDefaultFont(this, MONOSPACE, DEFAULT_FONT);
+        FontsAdapter.setDefaultFont(this, SERIF, DEFAULT_FONT);
+        FontsAdapter.setDefaultFont(this, SANS_SERIF, DEFAULT_FONT);
     }
 
     @Override

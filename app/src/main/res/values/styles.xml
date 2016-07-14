@@ -16,8 +16,19 @@
     <style name="AppTheme.NoActionBar.NavDrawer">
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ButtonStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTitleStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">36sp</item>
+    </style>
 
 </resources>

@@ -38,7 +38,7 @@ ext {
     constraintVersion = '1.0.0-alpha3'
     guavaVersion = '19.0'
     circleimageviewVersion = '2.0.0'
-    picassoVersion = '2.5.2'
+    glideVersion = '3.7.0'
     junitVersion = '4.12'
     mockitoVersion = '2.0.2-beta'
     hamcrestVersion = '1.3'

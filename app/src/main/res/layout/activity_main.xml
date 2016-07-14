@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context="br.com.battista.arcadiacaller.activity.MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background"
+                tools:context="br.com.battista.arcadiacaller.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="300dp"
@@ -17,19 +16,18 @@
         android:padding="@dimen/activity_padding">
 
         <TextView
+            style="@style/AppTitleStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Arcadia Caller"
-            android:textColor="@color/colorText"
-            android:textSize="34sp"
-            android:textStyle="bold" />
+            android:text="@string/title_app"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:hint="Digite seu login" />
+            android:hint="@string/hint_btn_login"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -38,22 +36,20 @@
 
             <Button
                 android:id="@+id/btn_login"
+                style="@style/ButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:text="ENTRAR"
-                android:textColor="@color/colorText"
-                android:textStyle="bold" />
+                android:text="@string/btn_login"/>
 
             <Button
-                android:id="@+id/btn_sigin"
+                android:id="@+id/btn_sign_in"
+                style="@style/ButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/btn_login"
-                android:text="CRIAR CONTA"
-                android:textColor="@color/colorText"
-                android:textStyle="bold" />
+                android:text="@string/btn_sign_in"/>
 
 
         </RelativeLayout>

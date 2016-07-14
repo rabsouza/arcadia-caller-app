@@ -1,14 +1,11 @@
-package br.com.battista.arcadiacaller.override;
+package br.com.battista.arcadiacaller.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by rabsouza on 12/07/16.
- */
-public final class FontsOverride {
+public final class FontsAdapter {
 
     public static void setDefaultFont(Context context,
                                       String staticTypefaceFieldName, String fontAssetName) {
