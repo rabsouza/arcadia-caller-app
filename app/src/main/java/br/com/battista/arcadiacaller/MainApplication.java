@@ -4,6 +4,7 @@ import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
 
 import android.app.Application;
@@ -35,7 +36,7 @@ public class MainApplication extends Application {
         FontsAdapter.setDefaultFont(this, DEFAULT, DEFAULT_FONT);
         FontsAdapter.setDefaultFont(this, MONOSPACE, DEFAULT_FONT);
         FontsAdapter.setDefaultFont(this, SERIF, DEFAULT_FONT);
-        FontsAdapter.setDefaultFont(this, SANS_SERIF, DEFAULT_FONT);
+        FontsAdapter.setDefaultFont(this, SANS_SERIF, SANS_SERIF_FONT);
     }
 
     @Override

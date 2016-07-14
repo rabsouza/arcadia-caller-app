@@ -5,7 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
-        <item name="android:typeface">serif</item>
+        <item name="android:typeface">normal</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -38,7 +38,8 @@
     <style name="AppTitleStyle">
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">36sp</item>
+        <item name="android:textSize">56sp</item>
+        <item name="android:typeface">sans</item>
     </style>
 
 </resources>
