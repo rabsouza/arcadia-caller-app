@@ -1,8 +1,5 @@
 package br.com.battista.arcadiacaller.constants;
 
-/**
- * Created by rabsouza on 13/07/16.
- */
 public class FontsConstant {
     public static final String DEFAULT = "DEFAULT";
     public static final String MONOSPACE = "MONOSPACE";

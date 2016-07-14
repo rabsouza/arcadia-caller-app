@@ -3,6 +3,8 @@
     <dimen name="activity_padding">16dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="element_horizontal_margin">8dp</dimen>
+    <dimen name="element_vertical_margin">8dp</dimen>
     <dimen name="dimen_nav_padding">16dp</dimen>
     <dimen name="no_dimen">0dp</dimen>
     <dimen name="dimen_profile_img_width">100dp</dimen>

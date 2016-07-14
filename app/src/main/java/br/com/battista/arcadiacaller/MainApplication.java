@@ -1,19 +1,16 @@
 package br.com.battista.arcadiacaller;
 
-import android.app.Application;
-import android.util.Log;
-
-import br.com.battista.arcadiacaller.adapter.FontsAdapter;
-
 import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
 
-/**
- * Created by rabsouza on 18/06/16.
- */
+import android.app.Application;
+import android.util.Log;
+
+import br.com.battista.arcadiacaller.adapter.FontsAdapter;
+
 public class MainApplication extends Application {
 
     private static final String TAG = MainApplication.class.getSimpleName();

@@ -81,6 +81,7 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.ext.espressoVersion"
     androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion"
 
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
 }
 
 /*

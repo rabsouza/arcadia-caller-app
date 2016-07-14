@@ -25,6 +25,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextStyle">
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="HintTextStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="AppTitleStyle">
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textStyle">bold</item>

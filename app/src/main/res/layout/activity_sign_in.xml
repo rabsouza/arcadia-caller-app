@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sign_in"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="br.com.battista.arcadiacaller.activity.SignInActivity">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_padding">
+
+        <TextView
+            style="@style/AppTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/title_app"/>
+
+        <EditText
+            android:id="@+id/txt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:hint="@string/hint_btn_login"
+            android:inputType="textAutoComplete"/>
+
+        <EditText
+            android:id="@+id/txt_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_btn_mail"
+            android:inputType="textAutoComplete"/>
+
+        <TextView
+            style="@style/HintTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/hint_text_login"
+            />
+
+        <TextView
+            style="@style/HintTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/element_vertical_margin"
+            android:text="@string/hint_text_mail"
+            />
+
+        <TextView
+            style="@style/HintTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/element_vertical_margin"
+            android:text="@string/hint_text_partten_mail"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <Button
+                android:id="@+id/btn_save"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:onClick="save"
+                android:text="@string/btn_save"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/btn_save"
+                android:onClick="cancel"
+                android:text="@string/btn_cancel"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

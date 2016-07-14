@@ -5,7 +5,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/background"
-                tools:context="br.com.battista.arcadiacaller.activity.MainActivity">
+                tools:context="br.com.battista.arcadiacaller.activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="300dp"
@@ -23,6 +23,7 @@
             android:text="@string/title_app"/>
 
         <EditText
+            android:id="@+id/txt_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textAutoComplete"
@@ -41,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:onClick="login"
                 android:text="@string/btn_login"/>
 
             <Button
@@ -49,6 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/btn_login"
+                android:onClick="signIn"
                 android:text="@string/btn_sign_in"/>
 
 
