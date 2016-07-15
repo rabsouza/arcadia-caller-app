@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class AndroidUtils {
@@ -24,6 +25,20 @@ public class AndroidUtils {
 
         Log.d(TAG, String.format("getVersionName: Version app: %s!", versionName));
         return versionName;
+    }
+
+    public static void changeErrorEditText(EditText editText) {
+        changeErrorEditText(editText, null, false);
+    }
+
+    public static void changeErrorEditText(EditText editText, String msgErro, Boolean error) {
+        if (error) {
+            Log.e(TAG, msgErro);
+            editText.setError(msgErro);
+            editText.requestFocus();
+        } else {
+            editText.setError(null);
+        }
     }
 
     private static final String TAG = AndroidUtils.class.getSimpleName();

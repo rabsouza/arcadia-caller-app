@@ -12,6 +12,7 @@ import java.text.MessageFormat;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.ProgressApp;
 
 public class SignInActivity extends BaseActivity {
 
@@ -27,25 +28,44 @@ public class SignInActivity extends BaseActivity {
 
     public void save(View view) {
         mTxtUsername = (EditText) findViewById(R.id.txt_username);
-        if (mTxtUsername == null || Strings.isNullOrEmpty(mTxtUsername.getText().toString())) {
-            final int msg_username_required = R.string.msg_username_required;
-            Log.w(TAG, getContext().getString(msg_username_required));
-            AndroidUtils.toast(getContext(), msg_username_required);
+        if (Strings.isNullOrEmpty(mTxtUsername.getText().toString())) {
+            String msgErrorUsername = getContext().getString(R.string.msg_username_required);
+            AndroidUtils.changeErrorEditText(mTxtUsername, msgErrorUsername, true);
             return;
         }
+        AndroidUtils.changeErrorEditText(mTxtUsername);
+        String username = mTxtUsername.getText().toString();
 
         mTxtMail = (EditText) findViewById(R.id.txt_mail);
-        if (mTxtMail == null || Strings.isNullOrEmpty(mTxtMail.getText().toString())) {
-            final int msg_mail_required = R.string.msg_mail_required;
-            Log.w(TAG, getContext().getString(msg_mail_required));
-            AndroidUtils.toast(getContext(), msg_mail_required);
+        if (Strings.isNullOrEmpty(mTxtMail.getText().toString())) {
+            String msgErrorMail = getContext().getString(R.string.msg_mail_required);
+            AndroidUtils.changeErrorEditText(mTxtMail, msgErrorMail, true);
             return;
         }
-        String username = mTxtUsername.getText().toString();
+        AndroidUtils.changeErrorEditText(mTxtMail);
         String mail = mTxtMail.getText().toString();
+
         Log.d(TAG, MessageFormat.format("Create new user with username: {0} and mail :{1}", username, mail));
 
-        AndroidUtils.snackbar(view, R.string.alert_success_sign_in);
+        final View currentView = view;
+        new ProgressApp(this, R.string.msg_action_login, false) {
+            @Override
+            protected void onPostExecute(Boolean result) {
+                AndroidUtils.snackbar(currentView, R.string.alert_success_sign_in);
+                getProgress().dismiss();
+            }
+
+            @Override
+            protected Boolean doInBackground(Void... params) {
+                try {
+                    Thread.sleep(5000L);
+                } catch (Exception e) {
+                    Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+                    return false;
+                }
+                return true;
+            }
+        }.execute();
     }
 
 

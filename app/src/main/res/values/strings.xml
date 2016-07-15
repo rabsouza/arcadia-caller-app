@@ -10,15 +10,17 @@
     <string name="btn_cancel">CANCELAR</string>
 
     <!-- ################### HINT #################### -->
-    <string name="hint_btn_login">Digite seu login</string>
-    <string name="hint_btn_mail">Digite seu e-mail</string>
-    <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres e somente letras, números e o caracter _.</string>
+    <string name="hint_btn_login">Login</string>
+    <string name="hint_btn_mail">E-mail</string>
+    <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por letras, números e o caracter _.</string>
     <string name="hint_text_mail">*² Deve ser um e-mail válido.</string>
-    <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente no gravatar.com para seu e-mail.</string>
+    <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente no http://gravatar.com para seu e-mail.</string>
 
     <!-- ################### MSG #################### -->
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>
+    <string name="msg_action_login">Aguarde! Logando...</string>
+    <string name="msg_action_sign_in">Aguarde! Criando conta...</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>

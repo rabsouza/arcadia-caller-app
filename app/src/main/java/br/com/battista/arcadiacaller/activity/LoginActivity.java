@@ -12,6 +12,7 @@ import java.text.MessageFormat;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.ProgressApp;
 
 public class LoginActivity extends BaseActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
@@ -26,15 +27,34 @@ public class LoginActivity extends BaseActivity {
 
     public void login(View view) {
         mTxtUsername = (EditText) findViewById(R.id.txt_username);
-        if (mTxtUsername == null || Strings.isNullOrEmpty(mTxtUsername.getText().toString())) {
-            Log.w(TAG, getContext().getString(R.string.msg_username_required));
-            AndroidUtils.toast(getContext(), R.string.msg_username_required);
+        if (Strings.isNullOrEmpty(mTxtUsername.getText().toString())) {
+            String msgErrorUsername = getContext().getString(R.string.msg_username_required);
+            AndroidUtils.changeErrorEditText(mTxtUsername, msgErrorUsername, true);
             return;
         }
+        AndroidUtils.changeErrorEditText(mTxtUsername);
         String username = mTxtUsername.getText().toString();
         Log.d(TAG, MessageFormat.format("Login user with username: {0}", username));
 
-        AndroidUtils.snackbar(view, R.string.alert_success_login);
+        final View currentView = view;
+        new ProgressApp(this, R.string.msg_action_login, false) {
+            @Override
+            protected void onPostExecute(Boolean result) {
+                AndroidUtils.snackbar(currentView, R.string.alert_success_login);
+                getProgress().dismiss();
+            }
+
+            @Override
+            protected Boolean doInBackground(Void... params) {
+                try {
+                    Thread.sleep(5000L);
+                } catch (Exception e) {
+                    Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+                    return false;
+                }
+                return true;
+            }
+        }.execute();
     }
 
     public void signIn(View view) {
