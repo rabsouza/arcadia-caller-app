@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group_campaign"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Inicial"/>
+    </group>
+
+    <group
+        android:id="@+id/group_other"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Configurações"/>
+
+        <item
+            android:id="@+id/nav_menu_help"
+            android:icon="@drawable/ic_menu_help"
+            android:title="Ajuda"/>
+    </group>
+
+</menu>

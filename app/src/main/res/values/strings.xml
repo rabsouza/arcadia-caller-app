@@ -26,4 +26,8 @@
     <string name="alert_success_login">Login realizado com sucesso!</string>
     <string name="alert_success_sign_in">Usuário criado com sucesso!</string>
 
+    <!-- ################### OTHERS #################### -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>

@@ -41,6 +41,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             protected void onPostExecute(Boolean result) {
                 AndroidUtils.snackbar(currentView, R.string.alert_success_login);
+                loadMainActivity();
                 getProgress().dismiss();
             }
 
@@ -60,8 +61,20 @@ public class LoginActivity extends BaseActivity {
     public void signIn(View view) {
         Log.i(TAG, "Start activity: SignInActivity!");
 
+        loadSignInActivity();
+    }
+
+    private void loadSignInActivity() {
         Bundle args = new Bundle();
         Intent intent = new Intent(this, SignInActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
+    }
+
+    private void loadMainActivity() {
+        Bundle args = new Bundle();
+        Intent intent = new Intent(this, MainActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);
