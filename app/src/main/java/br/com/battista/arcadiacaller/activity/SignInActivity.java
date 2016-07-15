@@ -51,7 +51,6 @@ public class SignInActivity extends BaseActivity {
         new ProgressApp(this, R.string.msg_action_login, false) {
             @Override
             protected void onPostExecute(Boolean result) {
-                AndroidUtils.snackbar(currentView, R.string.alert_success_sign_in);
                 loadMainActivity();
                 getProgress().dismiss();
             }

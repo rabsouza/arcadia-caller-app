@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 public class AndroidUtils {
 
+    private static final String TAG = AndroidUtils.class.getSimpleName();
+
     public static String getVersionName(Activity activity) {
         PackageManager pm = activity.getPackageManager();
         String packageName = activity.getPackageName();
@@ -40,8 +42,6 @@ public class AndroidUtils {
             editText.setError(null);
         }
     }
-
-    private static final String TAG = AndroidUtils.class.getSimpleName();
 
     public static void toast(Context context, String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();

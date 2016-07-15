@@ -7,61 +7,61 @@
                 android:background="@drawable/background"
                 tools:context="br.com.battista.arcadiacaller.activity.LoginActivity">
 
-        <LinearLayout
-            android:layout_width="300dp"
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_padding">
+
+        <TextView
+            style="@style/AppTitleStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:gravity="center"
-            android:orientation="vertical"
-            android:padding="@dimen/activity_padding">
+            android:text="@string/title_app"/>
 
-            <TextView
-                style="@style/AppTitleStyle"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txt_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/title_app"/>
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:hint="@string/hint_btn_login"
+                android:inputType="textAutoComplete"
+                android:maxLines="1"/>
+        </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
 
-                <EditText
-                    android:id="@+id/txt_username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:hint="@string/hint_btn_login"
-                    android:inputType="textAutoComplete"
-                    android:maxLines="1"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_login"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin">
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:onClick="login"
+                android:text="@string/btn_login"/>
 
-                <Button
-                    android:id="@+id/btn_login"
-                    style="@style/ButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:onClick="login"
-                    android:text="@string/btn_login"/>
-
-                <Button
-                    android:id="@+id/btn_sign_in"
-                    style="@style/ButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/btn_login"
-                    android:onClick="signIn"
-                    android:text="@string/btn_sign_in"/>
+            <Button
+                android:id="@+id/btn_sign_in"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/btn_login"
+                android:onClick="signIn"
+                android:text="@string/btn_sign_in"/>
 
 
-            </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
