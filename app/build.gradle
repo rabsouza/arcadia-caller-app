@@ -73,6 +73,7 @@ dependencies {
     provided "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
     apt "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
 
+    compile "com.squareup.okhttp:okhttp:$rootProject.ext.okhttpVersion"
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-jackson:$rootProject.ext.retrofitVersion"
     compile "com.github.vicpinm:activeandroidrx:$rootProject.ext.activeandroidrxVersion"

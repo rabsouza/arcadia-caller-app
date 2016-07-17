@@ -23,7 +23,10 @@ import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.HeroGuild;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import lombok.Getter;
+import lombok.Setter;
 
 public class MainApplication extends Application {
 
@@ -35,20 +38,32 @@ public class MainApplication extends Application {
         return instance;
     }
 
+    private AppService appService = Inject.provideAppService();
+
+    @Setter
+    @Getter
+    private Boolean onlineServer = Boolean.FALSE;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "onCreate: MainApplication!");
 
         initializeDB();
+        initializeSystemFont();
+
+        instance = this;
+        checkOnlineServer();
+    }
+
+    private void checkOnlineServer() {
         if (AndroidUtils.isOnline(this)) {
             Log.i(TAG, "isOnline: Clean-up database!");
             deleteDatabase(DEFAULT_DATABASE_NAME);
         }
 
-        changeSystemFont();
-
-        instance = this;
+        appService.ping();
+        appService.health();
     }
 
     protected void initializeDB() {
@@ -69,8 +84,8 @@ public class MainApplication extends Application {
         ActiveAndroid.initialize(configurationBuilder.create());
     }
 
-    private void changeSystemFont() {
-        Log.d(TAG, "changeSystemFont: Add custom fonts to App.");
+    private void initializeSystemFont() {
+        Log.d(TAG, "initializeSystemFont: Add custom fonts to App.");
         FontsAdapter.setDefaultFont(this, DEFAULT, DEFAULT_FONT);
         FontsAdapter.setDefaultFont(this, MONOSPACE, DEFAULT_FONT);
         FontsAdapter.setDefaultFont(this, SERIF, DEFAULT_FONT);
