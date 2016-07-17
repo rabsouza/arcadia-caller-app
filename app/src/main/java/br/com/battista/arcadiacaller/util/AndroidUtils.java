@@ -1,20 +1,29 @@
 package br.com.battista.arcadiacaller.util;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.com.battista.arcadiacaller.exception.ArcadiaCallerException;
+
 public class AndroidUtils {
 
     private static final String TAG = AndroidUtils.class.getSimpleName();
 
     public static String getVersionName(Activity activity) {
+        if (activity == null) {
+            throw new ArcadiaCallerException("Activity can not be null!");
+        }
+
         PackageManager pm = activity.getPackageManager();
         String packageName = activity.getPackageName();
         String versionName;
@@ -33,7 +42,22 @@ public class AndroidUtils {
         changeErrorEditText(editText, null, false);
     }
 
+    public static boolean isOnline(Application application) {
+        if (application == null) {
+            throw new ArcadiaCallerException("Application can not be null!");
+        }
+
+        ConnectivityManager cm =
+                (ConnectivityManager) application.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
     public static void changeErrorEditText(EditText editText, String msgErro, Boolean error) {
+        if (editText == null) {
+            throw new ArcadiaCallerException("EditText can not be null!");
+        }
+
         if (error) {
             Log.e(TAG, msgErro);
             editText.setError(msgErro);
