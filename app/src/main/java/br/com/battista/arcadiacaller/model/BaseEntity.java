@@ -12,10 +12,12 @@ import java.util.Date;
 
 import br.com.battista.arcadiacaller.constants.EntityConstant;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Data
 @ToString(includeFieldNames = true, callSuper = false)
+@EqualsAndHashCode(callSuper=false)
 @JsonAutoDetect
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseEntity  extends Model implements Serializable {
