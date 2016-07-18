@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
@@ -33,11 +34,12 @@ public class AndroidUtils {
         return versionName;
     }
 
-    public static void changeErrorEditText(EditText editText) {
+    public static void changeErrorEditText(@NonNull EditText editText) {
         changeErrorEditText(editText, null, false);
     }
 
-    public static boolean isOnline(@NonNull Application application) {
+    @Nullable
+    public static Boolean isOnline(@NonNull Application application) {
         ConnectivityManager cm =
                 (ConnectivityManager) application.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
@@ -54,19 +56,24 @@ public class AndroidUtils {
         }
     }
 
-    public static void toast(Context context, String msg) {
+    @Nullable
+    public static String getMessageText(@NonNull Context context, int msg) {
+        return String.valueOf(context.getText(msg));
+    }
+
+    public static void toast(@NonNull Context context, String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
-    public static void toast(Context context, int msg) {
+    public static void toast(@NonNull Context context, int msg) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
-    public static void snackbar(View view, String msg) {
+    public static void snackbar(@NonNull View view, String msg) {
         Snackbar.make(view, msg, Snackbar.LENGTH_LONG).show();
     }
 
-    public static void snackbar(View view, int msg) {
+    public static void snackbar(@NonNull View view, int msg) {
         Snackbar.make(view, msg, Snackbar.LENGTH_LONG).show();
     }
 

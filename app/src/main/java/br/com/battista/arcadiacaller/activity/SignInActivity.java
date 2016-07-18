@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +12,14 @@ import com.google.common.base.Strings;
 
 import java.text.MessageFormat;
 
+import br.com.battista.arcadiacaller.Inject;
+import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
+import br.com.battista.arcadiacaller.exception.EntityAlreadyExistsException;
+import br.com.battista.arcadiacaller.exception.ValidatorException;
+import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
@@ -34,7 +43,7 @@ public class SignInActivity extends BaseActivity {
             return;
         }
         AndroidUtils.changeErrorEditText(mTxtUsername);
-        String username = mTxtUsername.getText().toString();
+        final String username = mTxtUsername.getText().toString().trim();
 
         mTxtMail = (EditText) findViewById(R.id.txt_mail);
         if (Strings.isNullOrEmpty(mTxtMail.getText().toString())) {
@@ -43,27 +52,60 @@ public class SignInActivity extends BaseActivity {
             return;
         }
         AndroidUtils.changeErrorEditText(mTxtMail);
-        String mail = mTxtMail.getText().toString();
+        final String mail = mTxtMail.getText().toString().trim();
 
         Log.d(TAG, MessageFormat.format("Create new user with username: {0} and mail :{1}", username, mail));
 
         final View currentView = view;
         new ProgressApp(this, R.string.msg_action_login, false) {
+            private User user;
+            private String token;
+            private Boolean alreadyExistseUser = Boolean.FALSE;
+
             @Override
             protected void onPostExecute(Boolean result) {
-                loadMainActivity();
+                if (!result && alreadyExistseUser) {
+                    Log.d(TAG, "onPostExecute: Failed in create user!");
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_already_exists_user);
+                } else if (!result || user == null || user.getVersion() == null) {
+                    Log.d(TAG, "onPostExecute: Failed in create user!");
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_create_user);
+                } else {
+                    Log.d(TAG, "onPostExecute: Success in create user!");
+                    MainApplication.getInstance().setToken(token);
+                    MainApplication.getInstance().setUser(user);
+                    loadMainActivity();
+                }
                 getProgress().dismiss();
             }
 
             @Override
             protected Boolean doInBackground(Void... params) {
                 try {
-                    Thread.sleep(5000L);
+                    LoginService service = Inject.provideLoginService();
+                    Log.d(TAG, MessageFormat.format(
+                            "doInBackground: create to user with username: {0} and mail {1}.", username, mail));
+
+                    User userBuild = User.builder()
+                            .username(username)
+                            .mail(mail)
+                            .profile(ProfileAppConstant.APP)
+                            .build();
+
+                    user = service.create(userBuild);
+                    if (user != null && user.getVersion() == DEFAULT_VERSION) {
+                        token = service.login(user.getUsername());
+                    }
+                    return true;
+                } catch (EntityAlreadyExistsException e) {
+                    Log.e(TAG, "EntityAlreadyExistsException: Error create new user!", e);
+                    alreadyExistseUser = true;
+                } catch (ValidatorException e) {
+                    Log.e(TAG, "ValidatorException: Error create new user!", e);
                 } catch (Exception e) {
-                    Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
-                    return false;
+                    Log.e(TAG, e.getLocalizedMessage(), e);
                 }
-                return true;
+                return false;
             }
         }.execute();
     }

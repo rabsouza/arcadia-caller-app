@@ -37,7 +37,7 @@ public class LoginActivity extends BaseActivity {
         }
         AndroidUtils.changeErrorEditText(mTxtUsername);
 
-        final String username = mTxtUsername.getText().toString();
+        final String username = mTxtUsername.getText().toString().trim();
         Log.d(TAG, MessageFormat.format("Login user with username: {0}", username));
 
         final View currentView = view;
@@ -60,9 +60,15 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             protected Boolean doInBackground(Void... params) {
-                LoginService service = Inject.provideLoginService();
-                Log.d(TAG, MessageFormat.format("doInBackground: Login username: {}.", username));
-                token = service.login(username);
+                try {
+                    LoginService service = Inject.provideLoginService();
+                    Log.d(TAG, MessageFormat.format("doInBackground: Login username: {}.", username));
+
+                    token = service.login(username);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+                    return false;
+                }
                 return true;
             }
         }.execute();

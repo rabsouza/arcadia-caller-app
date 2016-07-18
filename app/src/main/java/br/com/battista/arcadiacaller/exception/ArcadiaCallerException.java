@@ -1,7 +1,11 @@
 package br.com.battista.arcadiacaller.exception;
 
 
-public class ArcadiaCallerException extends RuntimeException {
+import java.io.Serializable;
+
+public class ArcadiaCallerException extends RuntimeException implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     public ArcadiaCallerException(String message) {
         super(message);

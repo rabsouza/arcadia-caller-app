@@ -7,6 +7,7 @@
     <string name="btn_login">ENTRAR</string>
     <string name="btn_sign_in">CRIAR CONTA</string>
     <string name="btn_save">SALVAR</string>
+    <string name="btn_create">CRIAR</string>
     <string name="btn_cancel">CANCELAR</string>
 
     <!-- ################### HINT #################### -->
@@ -17,6 +18,8 @@
     <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente no http://gravatar.com para seu e-mail.</string>
 
     <!-- ################### MSG #################### -->
+    <string name="msg_failed_already_exists_user">Erro ao criar o usuário! Por favor tente outro login ou e-mail!</string>
+    <string name="msg_failed_create_user">Erro ao criar o usuário! Siga as orientações da tela para criar um novo usuário!</string>
     <string name="msg_failed_login_user">Login invalido! Por favor, tente novamente!</string>
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>

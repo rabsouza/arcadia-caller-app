@@ -46,7 +46,7 @@ public class MainApplication extends Application {
 
     @Getter
     @Setter
-    private String user;
+    private User user;
 
     @Setter
     @Getter
