@@ -13,7 +13,9 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.service.LoginService;
+import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
@@ -44,15 +46,17 @@ public class LoginActivity extends BaseActivity {
         new ProgressApp(this, R.string.msg_action_login, false) {
 
             private String token;
+            private User user;
 
             @Override
             protected void onPostExecute(Boolean result) {
-                if (Strings.isNullOrEmpty(token)) {
+                if (Strings.isNullOrEmpty(token) || user == null) {
                     Log.d(TAG, "onPostExecute: Failed in login!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
                 } else {
                     Log.d(TAG, "onPostExecute: Success in login!");
                     MainApplication.getInstance().setToken(token);
+                    MainApplication.getInstance().setUser(user);
                     loadMainActivity();
                 }
                 getProgress().dismiss();
@@ -65,6 +69,12 @@ public class LoginActivity extends BaseActivity {
                     Log.d(TAG, MessageFormat.format("doInBackground: Login username: {}.", username));
 
                     token = service.login(username);
+                    if (!Strings.isNullOrEmpty(token)) {
+                        UserService userService = Inject.provideUserService();
+                        Log.d(TAG, MessageFormat.format("doInBackground: Find user by username: {}.", username));
+
+                        user = userService.findByUsername(token, username);
+                    }
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                     return false;
