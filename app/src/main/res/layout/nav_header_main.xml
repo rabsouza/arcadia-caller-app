@@ -22,8 +22,8 @@
         android:src="@drawable/avatar_profile"
         />
 
-
     <TextView
+        android:id="@+id/nav_view_header_username"
         style="@style/NavDrawerTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nav_view_header_mail"
         style="@style/NavDrawerTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
