@@ -40,6 +40,14 @@ public class MainApplication extends Application {
 
     private AppService appService = Inject.provideAppService();
 
+    @Getter
+    @Setter
+    private transient String token;
+
+    @Getter
+    @Setter
+    private String user;
+
     @Setter
     @Getter
     private Boolean onlineServer = Boolean.FALSE;

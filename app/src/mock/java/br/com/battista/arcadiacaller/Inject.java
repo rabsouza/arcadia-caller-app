@@ -5,7 +5,7 @@ import br.com.battista.arcadiacaller.service.FakeAppService;
 
 public class Inject {
 
-    public static AppService provideAppService() {
+    public synchronized static AppService provideAppService() {
         return new FakeAppService();
     }
 }

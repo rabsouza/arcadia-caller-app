@@ -38,9 +38,6 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = UserEntry.COLUMN_NAME_PROFILE, notNull = true, index = false)
     private ProfileAppConstant profile;
 
-    @Column(name = UserEntry.COLUMN_NAME_TOKEN, notNull = true, index = true, unique = true)
-    private String token;
-
     @Override
     public Object getPk() {
         return getId();

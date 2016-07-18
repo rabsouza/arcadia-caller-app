@@ -10,7 +10,10 @@ import com.google.common.base.Strings;
 
 import java.text.MessageFormat;
 
+import br.com.battista.arcadiacaller.Inject;
+import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
@@ -33,25 +36,33 @@ public class LoginActivity extends BaseActivity {
             return;
         }
         AndroidUtils.changeErrorEditText(mTxtUsername);
-        String username = mTxtUsername.getText().toString();
+
+        final String username = mTxtUsername.getText().toString();
         Log.d(TAG, MessageFormat.format("Login user with username: {0}", username));
 
         final View currentView = view;
         new ProgressApp(this, R.string.msg_action_login, false) {
+
+            private String token;
+
             @Override
             protected void onPostExecute(Boolean result) {
-                loadMainActivity();
+                if (Strings.isNullOrEmpty(token)) {
+                    Log.d(TAG, "onPostExecute: Failed in login!");
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
+                } else {
+                    Log.d(TAG, "onPostExecute: Success in login!");
+                    MainApplication.getInstance().setToken(token);
+                    loadMainActivity();
+                }
                 getProgress().dismiss();
             }
 
             @Override
             protected Boolean doInBackground(Void... params) {
-                try {
-                    Thread.sleep(5000L);
-                } catch (Exception e) {
-                    Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
-                    return false;
-                }
+                LoginService service = Inject.provideLoginService();
+                Log.d(TAG, MessageFormat.format("doInBackground: Login username: {}.", username));
+                token = service.login(username);
                 return true;
             }
         }.execute();

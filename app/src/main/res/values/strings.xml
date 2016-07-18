@@ -17,6 +17,7 @@
     <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente no http://gravatar.com para seu e-mail.</string>
 
     <!-- ################### MSG #################### -->
+    <string name="msg_failed_login_user">Login invalido! Por favor, tente novamente!</string>
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>
     <string name="msg_action_login">Aguarde! Logando...</string>
