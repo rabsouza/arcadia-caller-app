@@ -83,8 +83,7 @@ public class BaseActivity extends AppCompatActivity {
 
                 ImageView imageViewImg = (ImageView) view.findViewById(R.id.nav_view_header_img);
                 if (imageViewImg != null) {
-                    Glide
-                            .with(navigationView.getContext())
+                    Glide.with(navigationView.getContext())
                             .load(user.getUrlAvatar())
                             .centerCrop()
                             .crossFade()
