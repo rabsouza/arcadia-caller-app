@@ -27,15 +27,13 @@
         style="@style/NavDrawerTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Android Studio"
+        android:paddingTop="@dimen/label_vertical_spacing"
         android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/nav_view_header_mail"
         style="@style/NavDrawerTextStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="android.studio@android.com"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

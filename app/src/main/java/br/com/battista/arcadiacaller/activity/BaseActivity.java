@@ -17,9 +17,13 @@ import com.bumptech.glide.Glide;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
+import lombok.Getter;
 
 public class BaseActivity extends AppCompatActivity {
     private static final String TAG = BaseActivity.class.getSimpleName();
+
+    @Getter
+    private Toolbar toolbar;
 
     protected Context getContext() {
         return this;
@@ -29,15 +33,25 @@ public class BaseActivity extends AppCompatActivity {
         return this;
     }
 
+    protected void setUpToolbar(int title) {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            if (title != 0) {
+                toolbar.setTitle(title);
+            }
+
+            Log.d(TAG, "setUpToolbar: Active support toolbar!");
+            setSupportActionBar(toolbar);
+        }
+    }
+
     protected void loadNavigationViewHeader(NavigationView navigationView) {
         if (navigationView != null && navigationView.getHeaderCount() > 0) {
             View view = navigationView.getHeaderView(0);
             if (view != null) {
-                MainApplication instance = MainApplication.getInstance();
-                User user = instance.getUser();
+                User user = MainApplication.getInstance().getUser();
                 Log.i(TAG, String.format(
-                        "loadNavigationViewHeader: Fill navigation header with user: !",
-                        user));
+                        "loadNavigationViewHeader: Fill navigation header with user: !", user));
 
                 TextView textViewName = (TextView) view.findViewById(R.id.nav_view_header_username);
                 if (textViewName != null) {
@@ -63,15 +77,16 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void loadToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
 
+    protected void loadDrawer() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
     }
 
 }

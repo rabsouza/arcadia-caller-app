@@ -19,7 +19,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(includeFieldNames = true, callSuper = true, exclude = {"token"})
+@ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"username"}, callSuper = false)
 @Table(name = UserEntry.TABLE_NAME)
 public class User extends BaseEntity implements Serializable {

@@ -20,10 +20,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         loadFloatingAction();
         loadToolbar();
+        loadDrawer();
+        loadNavigationViewHeader();
+    }
 
+    private void loadNavigationViewHeader() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        loadNavigationViewHeader(navigationView);
+        super.loadNavigationViewHeader(navigationView);
     }
 
     private void loadFloatingAction() {
@@ -31,7 +35,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "No action!!!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -53,6 +57,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         int id = item.getItemId();
 
         if (id == R.id.nav_menu_home) {
+
         } else if (id == R.id.nav_menu_manage) {
         } else if (id == R.id.nav_menu_help) {
         }

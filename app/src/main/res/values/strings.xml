@@ -1,7 +1,10 @@
 <resources>
-    <!-- ################### APP #################### -->
+    <!-- ################### TITLE #################### -->
     <string name="app_name">Arcadia Caller</string>
     <string name="title_app">Arcadia Caller</string>
+    <string name="title_home">Arcadia Caller</string>
+    <string name="title_config">Configurações</string>
+    <string name="title_about">Ajuda</string>
 
     <!-- ################### ELEMENTS #################### -->
     <string name="btn_login">ENTRAR</string>
@@ -31,7 +34,7 @@
     <string name="alert_success_sign_in">Usuário criado com sucesso!</string>
 
     <!-- ################### OTHERS #################### -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Abrir menu de navegação!</string>
+    <string name="navigation_drawer_close">Fechar menu de navegação!</string>
 
 </resources>
