@@ -5,10 +5,20 @@
         android:id="@+id/group_campaign"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_menu_home"
+            android:id="@+id/nav_menu_hero"
             android:checked="true"
             android:icon="@drawable/ic_menu_home"
             android:title="@string/title_home"/>
+    </group>
+
+    <group
+        android:id="@+id/group_manager"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu_home"
+            android:checked="true"
+            android:icon="@drawable/ic_menu_hero"
+            android:title="@string/title_hero"/>
     </group>
 
     <group

@@ -74,6 +74,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             replaceFragment(HomeFragment.newInstance());
             AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
 
+        } else if (id == R.id.nav_menu_hero) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Hero.");
+            changeToolbarTitle(menuItem);
+            AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
+
         } else if (id == R.id.nav_menu_manage) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Manage.");
             changeToolbarTitle(menuItem);
