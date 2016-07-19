@@ -6,12 +6,18 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.fragment.HomeFragment;
+import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
+import br.com.battista.arcadiacaller.util.AndroidUtils;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +26,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         loadFloatingAction();
         loadToolbar();
+        setUpToolbar(R.string.title_app);
         loadDrawer();
         loadNavigationViewHeader();
+        loadFragmentInitial();
+    }
+
+    private void loadFragmentInitial() {
+        replaceFragment(HomeFragment.newInstance());
     }
 
     private void loadNavigationViewHeader() {
@@ -53,13 +65,23 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        int id = menuItem.getItemId();
 
         if (id == R.id.nav_menu_home) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Home.");
+            changeToolbarTitle(menuItem);
+            replaceFragment(HomeFragment.newInstance());
+            AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
 
         } else if (id == R.id.nav_menu_manage) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Manage.");
+            changeToolbarTitle(menuItem);
+            AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
+
         } else if (id == R.id.nav_menu_help) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Help.");
+            AboutDialog.showAbout(getSupportFragmentManager());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -12,6 +12,7 @@
     <string name="btn_save">SALVAR</string>
     <string name="btn_create">CRIAR</string>
     <string name="btn_cancel">CANCELAR</string>
+    <string name="btn_ok">OK</string>
 
     <!-- ################### HINT #################### -->
     <string name="hint_btn_login">Login</string>
@@ -28,6 +29,7 @@
     <string name="msg_mail_required">E-mail é obrigatório!</string>
     <string name="msg_action_login">Aguarde! Logando...</string>
     <string name="msg_action_sign_in">Aguarde! Criando conta...</string>
+    <string name="msg_blank_fragment">Em construção, verifique em breve!!!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
@@ -36,5 +38,18 @@
     <!-- ################### OTHERS #################### -->
     <string name="navigation_drawer_open">Abrir menu de navegação!</string>
     <string name="navigation_drawer_close">Fechar menu de navegação!</string>
+
+    <string name="about_dialog_text">
+    <![CDATA[
+<h3>Arcadia Caller @2016</h3><br>
+Versão: %s<br><br>
+<b>Contato:</b><br>
+Nome: Rafael ALessandro Batista de Souza<br>
+E-mail: rabsouza@gmail.com<br>
+<br><br>
+<b>Código fonte:</b> <a href="https://github.com/rabsouza/arcadia-caller-app">GitHub</a><br><br>
+<i>Código fonte live??? Isso mesmo!!!</i>
+	]]>
+    </string>
 
 </resources>

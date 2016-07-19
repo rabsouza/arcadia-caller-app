@@ -3,11 +3,13 @@ package br.com.battista.arcadiacaller.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +44,22 @@ public class BaseActivity extends AppCompatActivity {
 
             Log.d(TAG, "setUpToolbar: Active support toolbar!");
             setSupportActionBar(toolbar);
+        }
+    }
+
+    protected void changeToolbarTitle(MenuItem menuItem) {
+        CharSequence title = menuItem.getTitle();
+        Log.i(TAG, String.format("onNavigationItemSelected: Select menu item: %s!", title));
+        if (toolbar != null) {
+            toolbar.setTitle(title);
+        }
+    }
+
+    protected void replaceFragment(Fragment fragment) {
+        if (fragment != null) {
+            Log.d(TAG, "replaceFragment: Change to fragment!");
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment).commit();
         }
     }
 

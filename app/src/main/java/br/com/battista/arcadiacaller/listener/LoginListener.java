@@ -9,10 +9,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-/**
- * Created by rabsouza on 17/07/16.
- */
-
 public interface LoginListener {
 
         @GET("login/{username}")
