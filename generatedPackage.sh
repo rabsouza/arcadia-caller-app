@@ -4,7 +4,7 @@ apk_name="ArcadiaCaller.apk"
 echo "Create and publish new apk version: $apk_name!"
 
 echo "Build to app"
-gradle :app:assembleDebug
+gradle :app:assembleProdDebug
 
 echo "Copy to apk file"
 cp ./app/build/outputs/apk/app-prod-debug.apk ./app/build/outputs/apk/$apk_name
