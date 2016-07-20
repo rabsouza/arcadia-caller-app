@@ -3,6 +3,7 @@ package br.com.battista.arcadiacaller.adapter;
 import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
@@ -23,6 +25,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
     private Context context;
     private List<Card> cards;
+    private View view;
 
     public CardAdapter(Context context, List<Card> cards) {
         this.context = context;
@@ -47,8 +50,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
             txtTitle.setText(card.getName());
 
             GroupCardEnum cardGroup = card.getGroup();
-            txtTitle.setTextColor(cardGroup.getColorRes());
-            holder.getTxtGroup().setText(cardGroup.getDescRes());
+            txtTitle.setTextColor(ContextCompat.getColor(context, cardGroup.getColorRes()));
+
+            String textGroup = MessageFormat.format(String.valueOf(context.getText(R.string.hint_card_group)), context.getText(cardGroup.getDescRes()));
+            holder.getTxtGroup().setText(textGroup);
 
             holder.getTxtType().setText(card.getType().getDescRes());
 

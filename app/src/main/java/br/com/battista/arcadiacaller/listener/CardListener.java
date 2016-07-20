@@ -2,16 +2,16 @@ package br.com.battista.arcadiacaller.listener;
 
 import java.util.List;
 
-import br.com.battista.arcadiacaller.model.Hero;
+import br.com.battista.arcadiacaller.model.Card;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 
-public interface HeroListener {
+public interface CardListener {
 
-    String URI_FIND_ALL = "hero/";
+    String URI_FIND_ALL = "card/";
 
     @GET(URI_FIND_ALL)
-    Call<List<Hero>> findAll(@Header("token") String token);
+    Call<List<Card>> findAll(@Header("token") String token);
 
 }

@@ -8,7 +8,8 @@
     <color name="colorControlHighlight">#B3E5FC</color>
 
     <!-- ################# Element ################ -->
-    <color name="colorText">#84366A</color>
+    <color name="colorTitle">#84366A</color>
+    <color name="colorText">#202020</color>
     <color name="cardTitle">#BC2B05</color>
 
     <!-- ################# BASIC ################ -->
@@ -30,8 +31,8 @@
 
     <!-- ################# CARD ################ -->
     <color name="colorCardGroupNone">#84366A</color>
-    <color name="colorCardGroupSartingEquipment">#AEB2B3</color>
-    <color name="colorCardGroupDeathCurse">#414D43</color>
+    <color name="colorCardGroupSartingEquipment">#7b7d7e</color>
+    <color name="colorCardGroupDeathCurse">#2c352e</color>
     <color name="colorCardGroupRewardCards">#4D7A37</color>
     <color name="colorCardGroupLevel1">#D79D22</color>
     <color name="colorCardGroupLevel2">#D66C22</color>

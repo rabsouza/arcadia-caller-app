@@ -42,7 +42,7 @@
     </style>
 
     <style name="AppTitleStyle">
-        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">56sp</item>
         <item name="android:typeface">sans</item>
@@ -54,14 +54,19 @@
         <item name="android:textSize">28sp</item>
     </style>
 
-    <style name="CardHeadStyle">
-        <item name="android:textColor">@color/cardTitle</item>
+    <style name="CardTitle02Style">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="CardHeadStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="CardTextStyle">
-        <item name="android:textColor">@color/cardTitle</item>
+        <item name="android:textColor">@color/colorText</item>
     </style>
 
 </resources>

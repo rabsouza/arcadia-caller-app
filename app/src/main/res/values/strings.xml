@@ -61,13 +61,13 @@ E-mail: rabsouza@gmail.com<br>
     <string name="type_card_upgrade">Melhoria</string>
     <string name="type_card_death_curse">Maldição Mortal</string>
     <string name="group_card_none"></string>
-    <string name="group_card_starting_equipment">Inicial</string>
+    <string name="group_card_starting_equipment">Equipamento Inicial</string>
     <string name="group_card_death_curse">Maldição Mortal</string>
-    <string name="group_card_reward_cards">Recompensa</string>
-    <string name="group_card_level_1">Nível 1</string>
-    <string name="group_card_level_2">Nível 2</string>
-    <string name="group_card_level_3">Nível 3</string>
-    <string name="group_card_level_4">Nível 4</string>
-    <string name="group_card_level_5">Nível 5</string>
+    <string name="group_card_reward_cards">Recompensa Cenário</string>
+    <string name="group_card_level_1">Cartas Nível 1</string>
+    <string name="group_card_level_2">Cartas Nível 2</string>
+    <string name="group_card_level_3">Cartas Nível 3</string>
+    <string name="group_card_level_4">Cartas Nível 4</string>
+    <string name="group_card_level_5">Cartas Nível 5</string>
 
 </resources>

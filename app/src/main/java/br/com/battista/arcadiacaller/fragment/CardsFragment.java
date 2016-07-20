@@ -15,6 +15,7 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
+import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.CardAdapter;
@@ -74,6 +75,7 @@ public class CardsFragment extends BaseFragment {
             protected Boolean doInBackground(Void... params) {
                 try {
                     String token = MainApplication.instance().getToken();
+                    cards = Inject.provideCardService().findAll(token);
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                     return false;
