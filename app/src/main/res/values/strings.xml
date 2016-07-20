@@ -3,7 +3,8 @@
     <string name="app_name">Arcadia Caller</string>
     <string name="title_app">Arcadia Caller</string>
     <string name="title_home">Inicial</string>
-    <string name="title_hero">Heróis</string>
+    <string name="title_heroes">Heróis</string>
+    <string name="title_cards">Cartas</string>
     <string name="title_config">Configurações</string>
     <string name="title_about">Ajuda</string>
 
@@ -16,6 +17,7 @@
     <string name="btn_ok">OK</string>
 
     <!-- ################### HINT #################### -->
+    <string name="hint_card_group">Grupo: {0}</string>
     <string name="hint_btn_login">Login</string>
     <string name="hint_btn_mail">E-mail</string>
     <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por letras, números e o caracter _.</string>
@@ -54,7 +56,18 @@ E-mail: rabsouza@gmail.com<br>
 	]]>
     </string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- ################### CARD #################### -->
+    <string name="type_card_none"></string>
+    <string name="type_card_upgrade">Melhoria</string>
+    <string name="type_card_death_curse">Maldição Mortal</string>
+    <string name="group_card_none"></string>
+    <string name="group_card_starting_equipment">Inicial</string>
+    <string name="group_card_death_curse">Maldição Mortal</string>
+    <string name="group_card_reward_cards">Recompensa</string>
+    <string name="group_card_level_1">Nível 1</string>
+    <string name="group_card_level_2">Nível 2</string>
+    <string name="group_card_level_3">Nível 3</string>
+    <string name="group_card_level_4">Nível 4</string>
+    <string name="group_card_level_5">Nível 5</string>
 
 </resources>

@@ -15,9 +15,14 @@
         android:id="@+id/group_manager"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_menu_hero"
-            android:icon="@drawable/ic_menu_hero"
-            android:title="@string/title_hero"/>
+            android:id="@+id/nav_menu_heroes"
+            android:icon="@drawable/ic_menu_heroes"
+            android:title="@string/title_heroes"/>
+
+        <item
+            android:id="@+id/nav_menu_cards"
+            android:icon="@drawable/ic_menu_cards"
+            android:title="@string/title_cards"/>
     </group>
 
     <group

@@ -48,4 +48,20 @@
         <item name="android:typeface">sans</item>
     </style>
 
+    <style name="CardTitleStyle">
+        <item name="android:textColor">@color/cardTitle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="CardHeadStyle">
+        <item name="android:textColor">@color/cardTitle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CardTextStyle">
+        <item name="android:textColor">@color/cardTitle</item>
+    </style>
+
 </resources>

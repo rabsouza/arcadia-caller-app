@@ -30,12 +30,10 @@
 
             <TextView
                 android:id="@+id/card_view_hero_title"
+                style="@style/CardTitleStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/activity_padding"
-                android:textColor="@color/cardTitle"
-                android:textSize="28sp"
-                android:textStyle="bold"/>
+                android:paddingLeft="@dimen/activity_padding"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

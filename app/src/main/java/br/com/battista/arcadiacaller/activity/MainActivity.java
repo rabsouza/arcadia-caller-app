@@ -11,7 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.fragment.HeroFragment;
+import br.com.battista.arcadiacaller.fragment.CardsFragment;
+import br.com.battista.arcadiacaller.fragment.HeroesFragment;
 import br.com.battista.arcadiacaller.fragment.HomeFragment;
 import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -75,10 +76,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             replaceFragment(HomeFragment.newInstance());
             AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
 
-        } else if (id == R.id.nav_menu_hero) {
-            Log.d(TAG, "onNavigationItemSelected: Go to menu Hero.");
+        } else if (id == R.id.nav_menu_heroes) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Heroes.");
             changeToolbarTitle(menuItem);
-            replaceFragment(HeroFragment.newInstance());
+            replaceFragment(HeroesFragment.newInstance());
+
+        } else if (id == R.id.nav_menu_cards) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Cards.");
+            changeToolbarTitle(menuItem);
+            replaceFragment(CardsFragment.newInstance());
 
         } else if (id == R.id.nav_menu_manage) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Manage.");

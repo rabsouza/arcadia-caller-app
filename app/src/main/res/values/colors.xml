@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- ################# APP ################ -->
     <color name="colorPrimary">#15495F</color>
     <color name="colorPrimaryDark">#0d2b38</color>
     <color name="colorAccent">#ff3f80</color>
     <color name="colorControlHighlight">#B3E5FC</color>
 
+    <!-- ################# Element ################ -->
     <color name="colorText">#84366A</color>
     <color name="cardTitle">#BC2B05</color>
 
+    <!-- ################# BASIC ################ -->
     <color name="transparent">#0000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
@@ -23,5 +27,17 @@
     <color name="cyan">#00BCD4</color>
     <color name="lime">#CDDC39</color>
     <color name="brown">#795548</color>
+
+    <!-- ################# CARD ################ -->
+    <color name="colorCardGroupNone">#84366A</color>
+    <color name="colorCardGroupSartingEquipment">#AEB2B3</color>
+    <color name="colorCardGroupDeathCurse">#414D43</color>
+    <color name="colorCardGroupRewardCards">#4D7A37</color>
+    <color name="colorCardGroupLevel1">#D79D22</color>
+    <color name="colorCardGroupLevel2">#D66C22</color>
+    <color name="colorCardGroupLevel3">#B6471A</color>
+    <color name="colorCardGroupLevel4">#7A3168</color>
+    <color name="colorCardGroupLevel5">#514573</color>
+
 
 </resources>

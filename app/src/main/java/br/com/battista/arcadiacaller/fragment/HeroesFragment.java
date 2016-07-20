@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.common.collect.Lists;
+
 import java.util.List;
 
 import br.com.battista.arcadiacaller.Inject;
@@ -21,18 +23,18 @@ import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
 
-public class HeroFragment extends BaseFragment {
+public class HeroesFragment extends BaseFragment {
 
-    private static final String TAG = HeroFragment.class.getSimpleName();
+    private static final String TAG = HeroesFragment.class.getSimpleName();
 
-    private List<Hero> heroes;
+    private List<Hero> heroes = Lists.newArrayList();
     private RecyclerView recyclerView;
 
-    public HeroFragment() {
+    public HeroesFragment() {
     }
 
-    public static HeroFragment newInstance() {
-        HeroFragment fragment = new HeroFragment();
+    public static HeroesFragment newInstance() {
+        HeroesFragment fragment = new HeroesFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -42,7 +44,7 @@ public class HeroFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: Create new fragment Hero!");
-        View view = inflater.inflate(R.layout.fragment_hero, container, false);
+        View view = inflater.inflate(R.layout.fragment_heroes, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
