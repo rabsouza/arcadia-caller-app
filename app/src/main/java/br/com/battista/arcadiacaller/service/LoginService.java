@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.service;
 
 
+import static br.com.battista.arcadiacaller.listener.LoginListener.URI_CREATE;
+import static br.com.battista.arcadiacaller.listener.LoginListener.URI_LOGIN;
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 import android.support.annotation.NonNull;
@@ -25,15 +27,17 @@ public class LoginService extends BaseService {
     @Nullable
     public String login(@NonNull String username) {
         Log.i(TAG_CLASSNAME, MessageFormat.format("Login username: {0} in app server url:[{1}]!",
-                username, RestConstant.REST_API_ENDPOINT));
+                username, RestConstant.REST_API_ENDPOINT.concat(URI_LOGIN)));
 
         String token = null;
         LoginListener listener = builder.create(LoginListener.class);
         try {
+
             Response<Map<String, String>> response = listener.login(username.trim()).execute();
             if (response != null && response.code() == HttpStatus.OK.value() && response.body() != null) {
                 Log.i(TAG, "Success in login the username!");
                 return response.body().get(LOGIN_TOKEN);
+
             } else {
                 Log.e(TAG, "Failed in login the username!");
             }
@@ -47,14 +51,16 @@ public class LoginService extends BaseService {
     @Nullable
     public User create(@NonNull User user) {
         Log.i(TAG_CLASSNAME, MessageFormat.format("Create user: {0} in app server url:[{1}]!",
-                user, RestConstant.REST_API_ENDPOINT));
+                user, RestConstant.REST_API_ENDPOINT.concat(URI_CREATE)));
 
         LoginListener listener = builder.create(LoginListener.class);
         try {
             Response<User> response = listener.create(user).execute();
+
             if (response != null && response.code() == HttpStatus.CREATED.value() && response.body() != null) {
                 Log.i(TAG, "Success in create the user!");
                 return response.body();
+
             } else {
                 String errorMessage = MessageFormat.format(
                         "Failed in create the user! Return the code status: {0}.",

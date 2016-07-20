@@ -11,9 +11,12 @@ import retrofit2.http.Path;
 
 public interface LoginListener {
 
-        @GET("login/{username}")
+        String URI_LOGIN = "login/{username}";
+        String URI_CREATE = "login/";
+
+        @GET(URI_LOGIN)
         Call<Map<String, String>> login(@Path("username") String username);
 
-        @POST("login/")
+        @POST(URI_CREATE)
         Call<User> create(@Body User user);
 }

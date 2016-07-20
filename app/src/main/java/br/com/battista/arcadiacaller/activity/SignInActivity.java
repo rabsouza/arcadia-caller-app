@@ -72,8 +72,8 @@ public class SignInActivity extends BaseActivity {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_create_user);
                 } else {
                     Log.d(TAG, "onPostExecute: Success in create user!");
-                    MainApplication.getInstance().setToken(token);
-                    MainApplication.getInstance().setUser(user);
+                    MainApplication.instance().setToken(token);
+                    MainApplication.instance().setUser(user);
                     loadMainActivity();
                 }
                 getProgress().dismiss();

@@ -34,7 +34,7 @@ public class MainApplication extends Application {
 
     private static MainApplication instance = null;
 
-    public static MainApplication getInstance() {
+    public static MainApplication instance() {
         return instance;
     }
 
@@ -75,7 +75,7 @@ public class MainApplication extends Application {
     }
 
     protected void initializeDB() {
-        Log.i(TAG, "initializeDB: Initializa Database to App.");
+        Log.i(TAG, "initializeDB: Initialize Database to App.");
 
         Configuration.Builder configurationBuilder = new Configuration.Builder(this);
         configurationBuilder.addModelClasses(Card.class);

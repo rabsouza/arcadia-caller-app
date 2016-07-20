@@ -1,6 +1,7 @@
 package br.com.battista.arcadiacaller.service;
 
 
+import static br.com.battista.arcadiacaller.listener.UserListener.URI_FIND_USERNAME;
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 import android.support.annotation.NonNull;
@@ -23,7 +24,7 @@ public class UserService extends BaseService {
     @Nullable
     public User findByUsername(@NonNull String token, @NonNull String username) {
         Log.i(TAG_CLASSNAME, MessageFormat.format("Find user by username: {0} in app server url:[{1}]!",
-                username, RestConstant.REST_API_ENDPOINT));
+                username, RestConstant.REST_API_ENDPOINT.concat(URI_FIND_USERNAME)));
 
         UserListener listener = builder.create(UserListener.class);
         try {

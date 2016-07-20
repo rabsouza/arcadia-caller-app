@@ -43,11 +43,18 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
                     "onBindViewHolder: Fill to row position: %S with %s.", position, hero));
 
             holder.getTxtTitle().setText(hero.getName());
-            holder.getImgDefense().setImageResource(getHeroDefenseRes(hero.getDefense()));
-            holder.getImgLife().setImageResource(getHeroLifeRes(hero.getLife()));
+            Glide.with(context)
+                    .load(getHeroDefenseRes(hero.getDefense()))
+                    .crossFade()
+                    .into(holder.getImgDefense());
+            Glide.with(context)
+                    .load(getHeroLifeRes(hero.getLife()))
+                    .crossFade()
+                    .into(holder.getImgLife());
             Glide.with(context)
                     .load(hero.getUrlPhoto())
-                    .centerCrop()
+                    .fitCenter()
+                    .error(R.drawable.avatar_profile)
                     .crossFade()
                     .into(holder.getImgHero());
 

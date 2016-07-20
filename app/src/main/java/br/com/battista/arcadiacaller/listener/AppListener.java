@@ -7,9 +7,12 @@ import retrofit2.http.GET;
 
 public interface AppListener {
 
-        @GET("ping")
+        String URI_PING = "ping";
+        String URI_HEALTH = "health";
+
+        @GET(URI_PING)
         Call<Void> ping();
 
-        @GET("health")
+        @GET(URI_HEALTH)
         Call<Map<String, Object>> health();
 }

@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.service;
 
 
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_HEALTH;
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
+
 import android.util.Log;
 
 import java.text.MessageFormat;
@@ -22,14 +25,16 @@ public class AppService extends BaseService {
 
     public void ping() {
         Log.i(TAG_CLASSNAME, MessageFormat.format("Ping the app server url:[{0}]!",
-                RestConstant.REST_API_ENDPOINT));
+                RestConstant.REST_API_ENDPOINT.concat(URI_PING)));
         AppListener listener = builder.create(AppListener.class);
         listener.ping().enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+
                 Boolean onlineServer = response != null && response.code() == HttpStatus.OK.value();
                 if (onlineServer) {
                     Log.i(TAG_CLASSNAME, "Success to ping the app server!");
+
                 } else {
                     Log.e(TAG_CLASSNAME, "Failed to ping the app server!");
                 }
@@ -44,25 +49,29 @@ public class AppService extends BaseService {
 
     public void health() {
         Log.i(TAG_CLASSNAME, MessageFormat.format("Check health the app server url:[{0}]!",
-                RestConstant.REST_API_ENDPOINT));
+                RestConstant.REST_API_ENDPOINT.concat(URI_HEALTH)));
         AppListener listener = builder.create(AppListener.class);
         listener.health().enqueue(new Callback<Map<String, Object>>() {
             @Override
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
+
                 Boolean statusCode = response != null && response.code() == HttpStatus.OK.value();
                 if (statusCode && response.body() != null) {
                     String appStauts = String.valueOf(response.body().get(RestConstant.APP_STATUS));
+
                     if (RestConstant.APP_STATUS_UP.equalsIgnoreCase(appStauts)) {
                         Log.i(TAG_CLASSNAME, APP_SERVER_IS_ONLINE);
-                        MainApplication.getInstance().setOnlineServer(Boolean.TRUE);
+                        MainApplication.instance().setOnlineServer(Boolean.TRUE);
+
                     } else {
                         Log.i(TAG_CLASSNAME, APP_SERVER_IS_OFFLINE);
-                        MainApplication.getInstance().setOnlineServer(Boolean.FALSE);
+                        MainApplication.instance().setOnlineServer(Boolean.FALSE);
                     }
                 } else {
                     Log.e(TAG_CLASSNAME, "Failed to check health the app server!");
                     Log.i(TAG_CLASSNAME, APP_SERVER_IS_OFFLINE);
-                    MainApplication.getInstance().setOnlineServer(Boolean.FALSE);
+                    MainApplication.instance().setOnlineServer(Boolean.FALSE);
+
                 }
             }
 
@@ -70,7 +79,7 @@ public class AppService extends BaseService {
             public void onFailure(Call<Map<String, Object>> call, Throwable t) {
                 Log.e(TAG_CLASSNAME, "Failed to check health the app server!");
                 Log.i(TAG_CLASSNAME, APP_SERVER_IS_OFFLINE);
-                MainApplication.getInstance().setOnlineServer(Boolean.FALSE);
+                MainApplication.instance().setOnlineServer(Boolean.FALSE);
             }
         });
     }

@@ -13,9 +13,12 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import br.com.battista.arcadiacaller.Inject;
+import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.HeroAdapter;
 import br.com.battista.arcadiacaller.model.Hero;
+import br.com.battista.arcadiacaller.util.ProgressApp;
 
 
 public class HeroFragment extends BaseFragment {
@@ -57,7 +60,27 @@ public class HeroFragment extends BaseFragment {
 
     public void loadHeroes() {
         Log.i(TAG, "loadHeroes: Load all heroes!");
-        recyclerView.setAdapter(new HeroAdapter(getContext(), null));
+
+        new ProgressApp(this.getActivity(), R.string.msg_action_loading, false) {
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                recyclerView.setAdapter(new HeroAdapter(getContext(), heroes));
+                getProgress().dismiss();
+            }
+
+            @Override
+            protected Boolean doInBackground(Void... params) {
+                try {
+                    String token = MainApplication.instance().getToken();
+                    heroes = Inject.provideHeroService().findAll(token);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+                    return false;
+                }
+                return true;
+            }
+        }.execute();
     }
 
 }

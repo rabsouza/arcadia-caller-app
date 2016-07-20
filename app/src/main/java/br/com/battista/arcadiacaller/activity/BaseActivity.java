@@ -67,7 +67,7 @@ public class BaseActivity extends AppCompatActivity {
         if (navigationView != null && navigationView.getHeaderCount() > 0) {
             View view = navigationView.getHeaderView(0);
             if (view != null) {
-                User user = MainApplication.getInstance().getUser();
+                User user = MainApplication.instance().getUser();
                 Log.i(TAG, String.format(
                         "loadNavigationViewHeader: Fill navigation header with user: !", user));
 
