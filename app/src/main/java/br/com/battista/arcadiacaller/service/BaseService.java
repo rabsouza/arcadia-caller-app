@@ -8,6 +8,7 @@ import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_KEY;
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_VALUE;
 
+import android.net.http.HttpResponseCache;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -36,6 +37,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class BaseService {
 
     private static final String TAG = BaseService.class.getSimpleName();
+    public static final String METHOD_GET = "GET";
 
     @Getter(value = AccessLevel.PROTECTED)
     protected Retrofit builder;
@@ -48,6 +50,7 @@ public class BaseService {
         httpClient.addInterceptor(logging);
         httpClient.cache(cache);
         httpClient.networkInterceptors().add(createHttpInterceptor());
+        ;
 
         builder = new Retrofit.Builder()
                 .baseUrl(RestConstant.REST_API_ENDPOINT.concat(RestConstant.REST_API_V1))
@@ -61,10 +64,14 @@ public class BaseService {
         return new Interceptor() {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request request = chain.request().newBuilder()
-                        .addHeader(HEADER_CACHE_CONTROL_MAX_AGE_KEY, HEADER_CACHE_CONTROL_MAX_AGE_VALUE)
-                        .addHeader(HEADER_USER_AGENT_KEY, HEADER_USER_AGENT_VALUE)
-                        .build();
+                Request request = chain.request();
+                if (request.method().equals(METHOD_GET)) {
+                    request = request
+                            .newBuilder()
+                            .addHeader(HEADER_CACHE_CONTROL_MAX_AGE_KEY, HEADER_CACHE_CONTROL_MAX_AGE_VALUE)
+                            .addHeader(HEADER_USER_AGENT_KEY, HEADER_USER_AGENT_VALUE)
+                            .build();
+                }
                 return chain.proceed(request);
             }
         };
@@ -74,19 +81,25 @@ public class BaseService {
     private Cache createCache() {
         MainApplication instance = MainApplication.instance();
         File cacheFile = null;
-        if (instance == null) {
-            Log.i(TAG, "createCache: custom cache file!");
-            try {
+        try {
+            if (instance == null) {
+                Log.i(TAG, "createCache: custom cache file!");
+
                 cacheFile = File.createTempFile(DEFAULT_CACHE_FILE, DEFAULT_CACHE_EXTENSION);
-            } catch (IOException e) {
-                Log.e(TAG, "createCache: " + e.getLocalizedMessage(), e);
-                throw new ArcadiaCallerException("Error create to cache!", e);
+
+            } else {
+                Log.i(TAG, "createCache: default cache file!");
+                cacheFile = instance.getCacheDir();
             }
-        } else {
-            Log.i(TAG, "createCache: default cache file!");
-            cacheFile = instance.getCacheDir();
+            cacheFile.setReadable(true);
+
+            HttpResponseCache.install(cacheFile, DEFAULT_CACHE_SIZE);
+            return new Cache(cacheFile, DEFAULT_CACHE_SIZE);
+            
+        } catch (IOException e) {
+            Log.e(TAG, "createCache: " + e.getLocalizedMessage(), e);
+            throw new ArcadiaCallerException("Error create to cache!", e);
         }
-        return new Cache(cacheFile, DEFAULT_CACHE_SIZE);
     }
 
     @NonNull
