@@ -12,8 +12,10 @@ public class RestConstant {
     public static final String BODY_ERROR = "cause";
     public static final String DETAIL_ERROR = "error";
     public static final String DETAIL = "detail";
-    public static final String HEADER_CACHE_CONTROL_MAX_AGE = "Cache-Control: max-age=640000";
-    public static final String HEADER_USER_AGENT = "User-Agent: arcadia-caller-app";
+    public static final String HEADER_CACHE_CONTROL_MAX_AGE_KEY = "Cache-Control";
+    public static final String HEADER_CACHE_CONTROL_MAX_AGE_VALUE = "max-age=9600,max-stale=3600";
+    public static final String HEADER_USER_AGENT_KEY = "User-Agent";
+    public static final String HEADER_USER_AGENT_VALUE = "arcadia-caller-app";
 
 
     private RestConstant() {
