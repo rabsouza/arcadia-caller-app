@@ -40,5 +40,10 @@
     <color name="colorCardGroupLevel4">#7A3168</color>
     <color name="colorCardGroupLevel5">#514573</color>
 
+    <!-- ################# SCENERY ################ -->
+    <color name="colorLocationSceneryNone">#84366A</color>
+    <color name="colorLocationSceneryInnerCircle">#DC6B2B</color>
+    <color name="colorLocationSceneryOutCircle">#BD3D29</color>
+    <color name="colorLocationSceneryUltimate">#4B3579</color>
 
 </resources>

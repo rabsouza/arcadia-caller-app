@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                     xmlns:app="http://schemas.android.com/apk/res-auto"
                                     xmlns:card_view="http://schemas.android.com/tools"
-                                    android:id="@+id/card_view_card"
+                                    android:id="@+id/card_view_scenery"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/activity_margin"
@@ -18,16 +18,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_card_view_height"
+        android:layout_height="@dimen/dimen_card_scenery_view_height"
         android:orientation="vertical"
         android:padding="@dimen/element_padding">
 
         <TextView
-            android:id="@+id/card_view_card_title"
+            android:id="@+id/card_view_scenery_title"
             style="@style/CardTitle02Style"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_padding"/>
+
+        <TextView
+            android:id="@+id/card_view_scenery_difficulty"
+            style="@style/CardHead02Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,36 +43,43 @@
             android:layout_marginTop="@dimen/element_vertical_margin"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:paddingLeft="@dimen/activity_padding"
+                android:paddingRight="@dimen/element_padding"
+                android:scaleType="fitXY"
+                android:src="@drawable/won_reward"/>
 
-                <TextView
-                    android:id="@+id/card_view_card_type"
-                    style="@style/CardHeadStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/activity_padding"/>
+            <TextView
+                android:id="@+id/card_view_scenery_won_reward"
+                style="@style/CardHeadStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"/>
 
-                <TextView
-                    android:id="@+id/card_view_card_group"
-                    style="@style/CardTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/element_vertical_margin"
-                    android:paddingLeft="@dimen/activity_padding"/>
+        </LinearLayout>
 
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/element_vertical_margin"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/card_view_card_cost"
-                android:layout_width="65dp"
-                android:layout_height="35dp"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
                 android:paddingLeft="@dimen/activity_padding"
-                android:paddingRight="@dimen/activity_padding"
-                android:scaleType="fitXY"/>
+                android:paddingRight="@dimen/element_padding"
+                android:scaleType="fitXY"
+                android:src="@drawable/won_title"/>
+
+            <TextView
+                android:id="@+id/card_view_scenery_won_title"
+                style="@style/CardHeadStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"/>
 
         </LinearLayout>
 

@@ -14,6 +14,7 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.fragment.CardsFragment;
 import br.com.battista.arcadiacaller.fragment.HeroesFragment;
 import br.com.battista.arcadiacaller.fragment.HomeFragment;
+import br.com.battista.arcadiacaller.fragment.SceneriesFragment;
 import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 
@@ -85,6 +86,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             Log.d(TAG, "onNavigationItemSelected: Go to menu Cards.");
             changeToolbarTitle(menuItem);
             replaceFragment(CardsFragment.newInstance());
+
+        } else if (id == R.id.nav_menu_sceneries) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Sceneries.");
+            changeToolbarTitle(menuItem);
+            replaceFragment(SceneriesFragment.newInstance());
 
         } else if (id == R.id.nav_menu_manage) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Manage.");

@@ -7,6 +7,7 @@ public class EntityConstant {
     public static final Integer DEFAULT_DATABASE_VERSION = 5;
     public static final String DEFAULT_DATABASE_NAME = "ArcadiaCaller.db";
 
-    private EntityConstant(){}
+    private EntityConstant() {
+    }
 
 }

@@ -90,6 +90,20 @@ public enum HttpStatus {
         this.reasonPhrase = reasonPhrase;
     }
 
+    public static HttpStatus valueOf(int statusCode) {
+        HttpStatus[] arr$ = values();
+        int len$ = arr$.length;
+
+        for (int i$ = 0; i$ < len$; ++i$) {
+            HttpStatus status = arr$[i$];
+            if (status.value == statusCode) {
+                return status;
+            }
+        }
+
+        throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
+    }
+
     public int value() {
         return this.value;
     }
@@ -106,20 +120,6 @@ public enum HttpStatus {
         return Integer.toString(this.value);
     }
 
-    public static HttpStatus valueOf(int statusCode) {
-        HttpStatus[] arr$ = values();
-        int len$ = arr$.length;
-
-        for (int i$ = 0; i$ < len$; ++i$) {
-            HttpStatus status = arr$[i$];
-            if (status.value == statusCode) {
-                return status;
-            }
-        }
-
-        throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
-    }
-
     public static enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),
@@ -131,10 +131,6 @@ public enum HttpStatus {
 
         private Series(int value) {
             this.value = value;
-        }
-
-        public int value() {
-            return this.value;
         }
 
         public static HttpStatus.Series valueOf(int status) {
@@ -154,6 +150,10 @@ public enum HttpStatus {
 
         public static HttpStatus.Series valueOf(HttpStatus status) {
             return valueOf(status.value);
+        }
+
+        public int value() {
+            return this.value;
         }
     }
 }

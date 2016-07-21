@@ -17,10 +17,10 @@ import lombok.ToString;
 
 @Data
 @ToString(includeFieldNames = true, callSuper = false)
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @JsonAutoDetect
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class BaseEntity  extends Model implements Serializable {
+public abstract class BaseEntity extends Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

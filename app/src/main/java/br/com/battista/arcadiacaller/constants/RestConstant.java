@@ -16,5 +16,6 @@ public class RestConstant {
     public static final String HEADER_USER_AGENT = "User-Agent: arcadia-caller-app";
 
 
-    private RestConstant(){}
+    private RestConstant() {
+    }
 }

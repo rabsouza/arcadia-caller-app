@@ -93,6 +93,7 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.ext.espressoVersion"
     androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion"
 
+    compile 'com.android.support:support-v4:24.1.0'
 }
 
 /*

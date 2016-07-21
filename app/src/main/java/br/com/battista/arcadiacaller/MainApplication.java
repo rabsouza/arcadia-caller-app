@@ -33,24 +33,20 @@ public class MainApplication extends Application {
     private static final String TAG = MainApplication.class.getSimpleName();
 
     private static MainApplication instance = null;
+    private AppService appService = Inject.provideAppService();
+    @Getter
+    @Setter
+    private transient String token;
+    @Getter
+    @Setter
+    private User user;
+    @Setter
+    @Getter
+    private Boolean onlineServer = Boolean.FALSE;
 
     public static MainApplication instance() {
         return instance;
     }
-
-    private AppService appService = Inject.provideAppService();
-
-    @Getter
-    @Setter
-    private transient String token;
-
-    @Getter
-    @Setter
-    private User user;
-
-    @Setter
-    @Getter
-    private Boolean onlineServer = Boolean.FALSE;
 
     @Override
     public void onCreate() {

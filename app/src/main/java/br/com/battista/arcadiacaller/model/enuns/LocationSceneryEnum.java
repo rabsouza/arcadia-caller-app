@@ -9,15 +9,12 @@ import br.com.battista.arcadiacaller.R;
 import lombok.Getter;
 
 public enum LocationSceneryEnum {
-    NONE(R.string.location_scenery_none),
-    INNER_CIRCLE(R.string.location_scenery_inner_circle),
-    OUT_CIRCLE(R.string.location_scenery_out_circle),
-    ULTIMATE(R.string.location_scenery_ultimate);
+    NONE(R.string.location_scenery_none, R.color.colorLocationSceneryNone),
+    INNER_CIRCLE(R.string.location_scenery_inner_circle, R.color.colorLocationSceneryInnerCircle),
+    OUT_CIRCLE(R.string.location_scenery_out_circle, R.color.colorLocationSceneryOutCircle),
+    ULTIMATE(R.string.location_scenery_ultimate, R.color.colorLocationSceneryUltimate);
 
     private static final Map<String, LocationSceneryEnum> LOOK_UP = Maps.newHashMap();
-
-    @Getter
-    private int descRes;
 
     static {
         for (LocationSceneryEnum groupCard :
@@ -26,8 +23,14 @@ public enum LocationSceneryEnum {
         }
     }
 
-    private LocationSceneryEnum(int descRes) {
+    @Getter
+    private int descRes;
+    @Getter
+    private int colorRes;
+
+    LocationSceneryEnum(int descRes, int colorRes) {
         this.descRes = descRes;
+        this.colorRes = colorRes;
     }
 
     public static LocationSceneryEnum get(String groupCard) {

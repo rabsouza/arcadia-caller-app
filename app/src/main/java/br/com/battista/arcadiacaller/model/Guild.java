@@ -20,7 +20,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @ToString(includeFieldNames = true, callSuper = true)
 @Table(name = GuildEntry.TABLE_NAME)
 public class Guild extends BaseEntity implements Serializable {

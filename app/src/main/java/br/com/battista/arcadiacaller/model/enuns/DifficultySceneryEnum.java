@@ -16,9 +16,6 @@ public enum DifficultySceneryEnum {
 
     private static final Map<String, DifficultySceneryEnum> LOOK_UP = Maps.newHashMap();
 
-    @Getter
-    private int descRes;
-
     static {
         for (DifficultySceneryEnum groupCard :
                 DifficultySceneryEnum.values()) {
@@ -26,7 +23,10 @@ public enum DifficultySceneryEnum {
         }
     }
 
-    private DifficultySceneryEnum(int descRes) {
+    @Getter
+    private int descRes;
+
+    DifficultySceneryEnum(int descRes) {
         this.descRes = descRes;
     }
 

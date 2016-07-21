@@ -15,9 +15,6 @@ public enum TypeCardEnum {
 
     private static final Map<String, TypeCardEnum> LOOK_UP = Maps.newHashMap();
 
-    @Getter
-    private int descRes;
-
     static {
         for (TypeCardEnum typeCard :
                 TypeCardEnum.values()) {
@@ -25,7 +22,10 @@ public enum TypeCardEnum {
         }
     }
 
-    private TypeCardEnum(int descRes) {
+    @Getter
+    private int descRes;
+
+    TypeCardEnum(int descRes) {
         this.descRes = descRes;
     }
 

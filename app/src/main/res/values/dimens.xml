@@ -17,5 +17,6 @@
     <dimen name="article_keylines">72dp</dimen>
     <dimen name="card_image_height">200dp</dimen>
     <dimen name="dimen_card_view_height">118dp</dimen>
+    <dimen name="dimen_card_scenery_view_height">180dp</dimen>
 
 </resources>

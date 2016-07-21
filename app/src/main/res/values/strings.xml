@@ -19,6 +19,7 @@
 
     <!-- ################### HINT #################### -->
     <string name="hint_card_group">Grupo: {0}</string>
+    <string name="hint_scenery_head">{0} - {1}</string>
     <string name="hint_btn_login">Login</string>
     <string name="hint_btn_mail">E-mail</string>
     <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por letras, números e o caracter _.</string>
@@ -43,7 +44,7 @@
     <!-- ################### OTHERS #################### -->
     <string name="navigation_drawer_open">Abrir menu de navegação!</string>
     <string name="navigation_drawer_close">Fechar menu de navegação!</string>
-
+    <string name="none">-</string>
     <string name="about_dialog_text">
     <![CDATA[
 <h3>Arcadia Caller @2016</h3><br>

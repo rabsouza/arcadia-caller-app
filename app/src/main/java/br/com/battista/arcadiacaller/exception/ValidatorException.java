@@ -2,7 +2,7 @@ package br.com.battista.arcadiacaller.exception;
 
 import java.io.Serializable;
 
-public class ValidatorException extends RuntimeException implements Serializable{
+public class ValidatorException extends RuntimeException implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -22,12 +22,6 @@ public enum GroupCardEnum {
 
     private static final Map<String, GroupCardEnum> LOOK_UP = Maps.newHashMap();
 
-    @Getter
-    private int descRes;
-
-    @Getter
-    private int colorRes;
-
     static {
         for (GroupCardEnum groupCard :
                 GroupCardEnum.values()) {
@@ -35,7 +29,12 @@ public enum GroupCardEnum {
         }
     }
 
-    private GroupCardEnum(int descRes, int colorRes) {
+    @Getter
+    private int descRes;
+    @Getter
+    private int colorRes;
+
+    GroupCardEnum(int descRes, int colorRes) {
         this.descRes = descRes;
         this.colorRes = colorRes;
     }
