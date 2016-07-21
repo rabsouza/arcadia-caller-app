@@ -25,6 +25,8 @@ import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -51,6 +53,7 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         Log.d(TAG, "onCreate: MainApplication!");
 
         initializeDB();

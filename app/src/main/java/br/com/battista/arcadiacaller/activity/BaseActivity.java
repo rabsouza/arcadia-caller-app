@@ -1,7 +1,12 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
+
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.ContentViewEvent;
+import com.crashlytics.android.answers.CustomEvent;
 
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
@@ -22,10 +30,25 @@ import br.com.battista.arcadiacaller.model.User;
 import lombok.Getter;
 
 public class BaseActivity extends AppCompatActivity {
+
     private static final String TAG = BaseActivity.class.getSimpleName();
 
     @Getter
     private Toolbar toolbar;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        String nameView = this.getClass().getSimpleName();
+        Answers.getInstance().logCustom(new CustomEvent(KEY_OPEN_ACTIVITY)
+                .putCustomAttribute(KEY_ACTIVITY, nameView));
+
+        Answers.getInstance().logContentView(new ContentViewEvent()
+                .putContentName(nameView)
+                .putContentType(KEY_ACTIVITY));
+
+    }
 
     protected Context getContext() {
         return this;

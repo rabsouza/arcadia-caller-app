@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.crashlytics.android.Crashlytics;
+
+import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.fragment.CardsFragment;
 import br.com.battista.arcadiacaller.fragment.HeroesFragment;
@@ -33,6 +36,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         loadDrawer();
         loadNavigationViewHeader();
         loadFragmentInitial();
+        logUserCrashlytics();
+
+    }
+
+    private void logUserCrashlytics() {
+        MainApplication instance = MainApplication.instance();
+        Crashlytics.setUserIdentifier(instance.getToken());
+        Crashlytics.setUserEmail(instance.getUser().getMail());
+        Crashlytics.setUserName(instance.getUser().getUsername());
     }
 
     private void loadFragmentInitial() {
