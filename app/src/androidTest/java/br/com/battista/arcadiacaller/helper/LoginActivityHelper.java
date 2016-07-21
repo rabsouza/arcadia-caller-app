@@ -31,4 +31,10 @@ public class LoginActivityHelper {
         }
         return user;
     }
+
+    public static String loginUser(String username) {
+        LoginService loginService = Inject.provideLoginService();
+
+        return loginService.login(username);
+    }
 }

@@ -36,10 +36,10 @@
         <item
             android:id="@+id/nav_menu_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/title_config"/>
+            android:title="@string/title_manage"/>
 
         <item
-            android:id="@+id/nav_menu_help"
+            android:id="@+id/nav_menu_about"
             android:icon="@drawable/ic_menu_help"
             android:title="@string/title_about"/>
     </group>

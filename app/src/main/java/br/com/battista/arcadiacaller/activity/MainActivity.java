@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             changeToolbarTitle(menuItem);
             AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
 
-        } else if (id == R.id.nav_menu_help) {
+        } else if (id == R.id.nav_menu_about) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Help.");
             AboutDialog.showAbout(getSupportFragmentManager());
         }
