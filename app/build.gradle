@@ -76,6 +76,8 @@ dependencies {
     compile "com.squareup.okhttp:okhttp:$rootProject.ext.okhttpVersion"
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-jackson:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.loggingInterceptorVersion"
+
     compile "com.github.vicpinm:activeandroidrx:$rootProject.ext.activeandroidrxVersion"
 
     testCompile "junit:junit:$rootProject.ext.junitVersion"
@@ -91,8 +93,6 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.ext.espressoVersion"
     androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion"
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
-    compile 'com.android.support:support-v4:24.1.0'
 }
 
 /*

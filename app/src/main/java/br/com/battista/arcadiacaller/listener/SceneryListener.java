@@ -3,22 +3,23 @@ package br.com.battista.arcadiacaller.listener;
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE;
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT;
 
-import br.com.battista.arcadiacaller.model.User;
+import java.util.List;
+
+import br.com.battista.arcadiacaller.model.Scenery;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
-import retrofit2.http.Path;
 
-public interface UserListener {
+public interface SceneryListener {
 
-    String URI_FIND_USERNAME = "user/{username}";
+    String URI_FIND_ALL = "scenery/";
 
     @Headers({
             HEADER_CACHE_CONTROL_MAX_AGE,
             HEADER_USER_AGENT
     })
-    @GET(URI_FIND_USERNAME)
-    Call<User> findByUsername(@Header("token") String token, @Path("username") String username);
+    @GET(URI_FIND_ALL)
+    Call<List<Scenery>> findAll(@Header("token") String token);
 
 }

@@ -5,6 +5,7 @@
     <string name="title_home">Inicial</string>
     <string name="title_heroes">Heróis</string>
     <string name="title_cards">Cartas</string>
+    <string name="title_sceneries">Cenários</string>
     <string name="title_config">Configurações</string>
     <string name="title_about">Ajuda</string>
 
@@ -69,5 +70,15 @@ E-mail: rabsouza@gmail.com<br>
     <string name="group_card_level_3">Cartas Nível 3</string>
     <string name="group_card_level_4">Cartas Nível 4</string>
     <string name="group_card_level_5">Cartas Nível 5</string>
+
+    <!-- ################### SCENERY #################### -->
+    <string name="difficulty_scenery_none"></string>
+    <string name="difficulty_scenery_easy">Fácil</string>
+    <string name="difficulty_scenery_normal">Médio</string>
+    <string name="difficulty_scenery_hard">Difícil</string>
+    <string name="location_scenery_none"></string>
+    <string name="location_scenery_inner_circle">Círculo Interior</string>
+    <string name="location_scenery_out_circle">Círculo Exterior</string>
+    <string name="location_scenery_ultimate">Confronto Final</string>
 
 </resources>

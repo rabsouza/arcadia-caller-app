@@ -12,6 +12,8 @@ import br.com.battista.arcadiacaller.exception.EntityNotFoundException;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
 import lombok.AccessLevel;
 import lombok.Getter;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -22,9 +24,16 @@ public class BaseService {
     protected Retrofit builder;
 
     public BaseService() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.addInterceptor(logging);
+
         builder = new Retrofit.Builder()
                 .baseUrl(RestConstant.REST_API_ENDPOINT.concat(RestConstant.REST_API_V1))
                 .addConverterFactory(JacksonConverterFactory.create())
+                .client(httpClient.build())
                 .build();
     }
 

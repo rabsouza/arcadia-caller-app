@@ -23,6 +23,11 @@
             android:id="@+id/nav_menu_cards"
             android:icon="@drawable/ic_menu_cards"
             android:title="@string/title_cards"/>
+
+        <item
+            android:id="@+id/nav_menu_sceneries"
+            android:icon="@drawable/ic_menu_sceneries"
+            android:title="@string/title_sceneries"/>
     </group>
 
     <group
