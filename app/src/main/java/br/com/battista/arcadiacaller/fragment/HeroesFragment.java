@@ -68,7 +68,7 @@ public class HeroesFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Boolean result) {
                 recyclerView.setAdapter(new HeroAdapter(getContext(), heroes));
-                getProgress().dismiss();
+                dismissProgress();
             }
 
             @Override

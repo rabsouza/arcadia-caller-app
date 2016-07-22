@@ -67,7 +67,7 @@ public class SceneriesFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Boolean result) {
                 recyclerView.setAdapter(new SceneryAdapter(getContext(), sceneries));
-                getProgress().dismiss();
+                dismissProgress();
             }
 
             @Override

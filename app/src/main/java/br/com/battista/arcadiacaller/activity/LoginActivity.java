@@ -59,7 +59,7 @@ public class LoginActivity extends BaseActivity {
                     MainApplication.instance().setUser(user);
                     loadMainActivity();
                 }
-                getProgress().dismiss();
+                dismissProgress();
             }
 
             @Override

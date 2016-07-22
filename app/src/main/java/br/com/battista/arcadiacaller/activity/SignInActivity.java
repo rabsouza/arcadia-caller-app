@@ -76,7 +76,7 @@ public class SignInActivity extends BaseActivity {
                     MainApplication.instance().setUser(user);
                     loadMainActivity();
                 }
-                getProgress().dismiss();
+                dismissProgress();
             }
 
             @Override

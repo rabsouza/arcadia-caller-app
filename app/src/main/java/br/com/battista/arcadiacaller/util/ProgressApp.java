@@ -4,6 +4,7 @@ package br.com.battista.arcadiacaller.util;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -97,6 +98,23 @@ public class ProgressApp extends AsyncTask<Void, Integer, Boolean> {
         return this;
     }
 
+    public void dismissProgress() {
+        if (activity == null || activity.isFinishing()) {
+            progress = null;
+            return;
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && activity.isDestroyed()) {
+            progress = null;
+            return;
+        }
+
+        if (progress != null && progress.isShowing()) {
+            progress.dismiss();
+            progress = null;
+        }
+    }
+
     @Override
     protected void onPreExecute() {
         progress.show();
@@ -130,6 +148,7 @@ public class ProgressApp extends AsyncTask<Void, Integer, Boolean> {
                     Toast.LENGTH_LONG).show();
             activity.finish();
         }
-        progress.dismiss();
+        dismissProgress();
     }
+
 }

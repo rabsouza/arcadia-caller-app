@@ -68,7 +68,7 @@ public class CardsFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Boolean result) {
                 recyclerView.setAdapter(new CardAdapter(getContext(), cards));
-                getProgress().dismiss();
+                dismissProgress();
             }
 
             @Override
