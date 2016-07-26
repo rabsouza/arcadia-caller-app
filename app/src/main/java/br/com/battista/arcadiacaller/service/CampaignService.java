@@ -24,8 +24,8 @@ public class CampaignService extends BaseService {
     public static final String TAG_CLASSNAME = CampaignService.class.getSimpleName();
 
     public List<Campaign> findByUser(@NonNull String token, @NonNull String username) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Find all campaigns in app server url:[{1}]!",
-                RestConstant.REST_API_ENDPOINT.concat(URI_FIND_BY_USER)));
+        Log.i(TAG_CLASSNAME, MessageFormat.format("Find campaigns by username: {0} in app server url:[{1}]!",
+                username, RestConstant.REST_API_ENDPOINT.concat(URI_FIND_BY_USER)));
 
         CampaignListener listener = builder.create(CampaignListener.class);
         List<Campaign> campaigns = Lists.newArrayList();

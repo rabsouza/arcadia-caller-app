@@ -8,11 +8,11 @@
     android:foreground="?attr/selectableItemBackground"
     android:padding="@dimen/no_dimen"
     app:cardBackgroundColor="@android:color/transparent"
-    app:cardElevation="0dp"
+    app:cardElevation="1dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true"
     card_view:cardCornerRadius="2dp"
-    card_view:cardElevation="0dp"
+    card_view:cardElevation="1dp"
     card_view:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -27,6 +27,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_padding" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray" />
 
         <LinearLayout
             android:layout_width="match_parent"
