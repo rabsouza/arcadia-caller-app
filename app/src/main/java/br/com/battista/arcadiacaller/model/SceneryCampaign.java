@@ -19,8 +19,8 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode(callSuper = false)
 @ToString(includeFieldNames = true, callSuper = true)
+@EqualsAndHashCode(of = {"name"}, callSuper = false)
 @Table(name = SceneryCampaignEntry.TABLE_NAME)
 public class SceneryCampaign extends BaseEntity implements Serializable {
 
