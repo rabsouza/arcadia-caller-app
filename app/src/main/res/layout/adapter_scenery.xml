@@ -5,18 +5,14 @@
     android:id="@+id/card_view_scenery"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/no_dimen"
-    android:layout_marginLeft="@dimen/activity_margin"
-    android:layout_marginRight="@dimen/activity_margin"
-    android:layout_marginTop="@dimen/no_dimen"
     android:foreground="?attr/selectableItemBackground"
     android:padding="@dimen/no_dimen"
     app:cardBackgroundColor="@android:color/transparent"
-    app:cardElevation="3dp"
+    app:cardElevation="0dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true"
     card_view:cardCornerRadius="2dp"
-    card_view:cardElevation="3dp"
+    card_view:cardElevation="0dp"
     card_view:cardUseCompatPadding="true">
 
     <LinearLayout

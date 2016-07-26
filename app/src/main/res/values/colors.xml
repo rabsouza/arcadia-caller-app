@@ -6,6 +6,7 @@
     <color name="colorPrimaryDark">#0d2b38</color>
     <color name="colorAccent">#ff3f80</color>
     <color name="colorControlHighlight">#B3E5FC</color>
+    <color name="colorBG">#e5f4fa</color>
 
     <!-- ################# Element ################ -->
     <color name="colorTitle">#84366A</color>
