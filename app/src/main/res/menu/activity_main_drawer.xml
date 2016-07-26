@@ -9,6 +9,11 @@
             android:checked="true"
             android:icon="@drawable/ic_menu_home"
             android:title="@string/title_home"/>
+
+        <item
+            android:id="@+id/nav_menu_campaign"
+            android:icon="@drawable/ic_menu_campaign"
+            android:title="@string/title_campaign"/>
     </group>
 
     <group

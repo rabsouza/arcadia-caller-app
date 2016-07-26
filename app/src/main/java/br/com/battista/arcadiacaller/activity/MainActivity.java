@@ -21,6 +21,8 @@ import br.com.battista.arcadiacaller.fragment.SceneriesFragment;
 import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 
+import static android.R.attr.id;
+
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -88,6 +90,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             changeToolbarTitle(menuItem);
             replaceFragment(HomeFragment.newInstance());
             AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
+        }else if (id == R.id.nav_menu_campaign) {
+                Log.d(TAG, "onNavigationItemSelected: Go to menu Campaign.");
+                changeToolbarTitle(menuItem);
+                AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
 
         } else if (id == R.id.nav_menu_heroes) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Heroes.");
