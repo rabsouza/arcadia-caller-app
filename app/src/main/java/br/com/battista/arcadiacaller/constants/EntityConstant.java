@@ -6,8 +6,7 @@ public class EntityConstant {
     public static final Integer DEFAULT_CACHE_SIZE = 10 * 1024 * 1024;;
     public static final Integer DEFAULT_DATABASE_VERSION = 5;
     public static final String DEFAULT_DATABASE_NAME = "ArcadiaCaller.db";
-    public static final String DEFAULT_CACHE_FILE = "cache-request";
-    public static final String DEFAULT_CACHE_EXTENSION = "txt";
+    public static final String DEFAULT_CACHE_FILE = "cache-request/";
 
     private EntityConstant() {
     }

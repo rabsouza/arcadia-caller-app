@@ -1,13 +1,5 @@
 package br.com.battista.arcadiacaller.service;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_EXTENSION;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_FILE;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_KEY;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_VALUE;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_KEY;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_VALUE;
-
 import android.net.http.HttpResponseCache;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -34,6 +26,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_KEY;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_VALUE;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_KEY;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_VALUE;
+
 public class BaseService {
 
     private static final String TAG = BaseService.class.getSimpleName();
@@ -44,13 +42,14 @@ public class BaseService {
 
     public BaseService() {
         HttpLoggingInterceptor logging = createHttpLoggingInterceptor();
-        Cache cache = createCache();
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(logging);
-        httpClient.cache(cache);
+        if(MainApplication.instance() != null) {
+            Cache cache = createCache();
+            httpClient.cache(cache);
+        }
         httpClient.networkInterceptors().add(createHttpInterceptor());
-        ;
 
         builder = new Retrofit.Builder()
                 .baseUrl(RestConstant.REST_API_ENDPOINT.concat(RestConstant.REST_API_V1))
@@ -80,22 +79,14 @@ public class BaseService {
     @NonNull
     private Cache createCache() {
         MainApplication instance = MainApplication.instance();
-        File cacheFile = null;
         try {
-            if (instance == null) {
-                Log.i(TAG, "createCache: custom cache file!");
-
-                cacheFile = File.createTempFile(DEFAULT_CACHE_FILE, DEFAULT_CACHE_EXTENSION);
-
-            } else {
-                Log.i(TAG, "createCache: default cache file!");
-                cacheFile = instance.getCacheDir();
-            }
+            Log.i(TAG, "createCache: default cache file!");
+            File cacheFile = instance.getCacheDir();
             cacheFile.setReadable(true);
 
             HttpResponseCache.install(cacheFile, DEFAULT_CACHE_SIZE);
             return new Cache(cacheFile, DEFAULT_CACHE_SIZE);
-            
+
         } catch (IOException e) {
             Log.e(TAG, "createCache: " + e.getLocalizedMessage(), e);
             throw new ArcadiaCallerException("Error create to cache!", e);
