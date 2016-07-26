@@ -50,7 +50,7 @@ public class CampaignsFragment extends BaseFragment {
         Log.d(TAG, "onCreateView: Create new fragment Campaign!");
         View view = inflater.inflate(R.layout.fragment_campaign, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.card_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);

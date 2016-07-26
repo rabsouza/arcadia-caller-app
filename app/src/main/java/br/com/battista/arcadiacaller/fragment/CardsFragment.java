@@ -46,7 +46,7 @@ public class CardsFragment extends BaseFragment {
         Log.d(TAG, "onCreateView: Create new fragment Card!");
         View view = inflater.inflate(R.layout.fragment_cards, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.card_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);

@@ -1,17 +1,26 @@
 package br.com.battista.arcadiacaller.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.common.collect.Lists;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
 import br.com.battista.arcadiacaller.model.Campaign;
+import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+
+import static com.activeandroid.Cache.getContext;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private static final String TAG = CampaignAdapter.class.getSimpleName();
@@ -27,9 +36,19 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 
     @Override
     public CampaignViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(context)
+        view = LayoutInflater.from(context)
                 .inflate(R.layout.adapter_campaign, viewGroup, false);
+
         return new CampaignViewHolder(view);
+    }
+
+    private void setupRecicleViewItem(View view, ArrayList<GuildDto> guildDtos) {
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_view_campaign_guilds_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setHasFixedSize(true);
+
+        recyclerView.setAdapter(new GuildItemAdapter(getContext(), guildDtos));
     }
 
     @Override
@@ -69,6 +88,9 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                     AndroidUtils.toast(context, R.string.msg_blank_fragment);
                 }
             });
+
+            setupRecicleViewItem(holder.itemView, Lists.newArrayList(new GuildDto(), new GuildDto(),new GuildDto(), new GuildDto()));
+
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
