@@ -9,15 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.common.collect.Lists;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
+import br.com.battista.arcadiacaller.adapter.item.SceneryItemAdapter;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
+import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 
 import static com.activeandroid.Cache.getContext;
@@ -42,13 +41,22 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
         return new CampaignViewHolder(view);
     }
 
-    private void setupRecicleViewItem(View view, ArrayList<GuildDto> guildDtos) {
+    private void setupGuildsRecicleViewItem(View view, List<GuildDto> guildDtos) {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_view_campaign_guilds_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setAdapter(new GuildItemAdapter(getContext(), guildDtos));
+    }
+
+    private void setupSceneriesRecicleViewItem(View view, List<SceneryDto> sceneryDtos) {
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_view_campaign_sceneries_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setHasFixedSize(true);
+
+        recyclerView.setAdapter(new SceneryItemAdapter(getContext(), sceneryDtos));
     }
 
     @Override
@@ -89,7 +97,9 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 }
             });
 
-            setupRecicleViewItem(holder.itemView, Lists.newArrayList(new GuildDto(), new GuildDto(),new GuildDto(), new GuildDto()));
+            setupGuildsRecicleViewItem(holder.itemView, campaign.generateGuildsDto());
+
+            setupSceneriesRecicleViewItem(holder.itemView, campaign.generateSceneriesDto());
 
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");

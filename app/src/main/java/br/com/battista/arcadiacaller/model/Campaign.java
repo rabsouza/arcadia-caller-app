@@ -2,11 +2,15 @@ package br.com.battista.arcadiacaller.model;
 
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import br.com.battista.arcadiacaller.model.dto.GuildDto;
+import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -79,6 +83,67 @@ public class Campaign extends BaseEntity implements Serializable {
     private Boolean completed = Boolean.FALSE;
 
     private Boolean deleted = Boolean.FALSE;
+
+    public List<GuildDto> generateGuildsDto() {
+        List<GuildDto> guilds = Lists.newArrayList();
+
+        if (Strings.isNullOrEmpty(guild01) && heroesGuild01 != null) {
+            GuildDto guildDto = GuildDto.builder().username(guild01).name(heroesGuild01.getName()).build();
+            guilds.add(guildDto);
+        }
+
+        if (Strings.isNullOrEmpty(guild02) && heroesGuild02 != null) {
+            GuildDto guildDto = GuildDto.builder().username(guild02).name(heroesGuild02.getName()).build();
+            guilds.add(guildDto);
+        }
+
+        if (Strings.isNullOrEmpty(guild03) && heroesGuild03 != null) {
+            GuildDto guildDto = GuildDto.builder().username(guild03).name(heroesGuild03.getName()).build();
+            guilds.add(guildDto);
+        }
+
+        if (Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
+            GuildDto guildDto = GuildDto.builder().username(guild04).name(heroesGuild04.getName()).build();
+            guilds.add(guildDto);
+        }
+        return guilds;
+    }
+
+    public List<SceneryDto> generateSceneriesDto() {
+        List<SceneryDto> sceneries = Lists.newArrayList();
+
+        if (scenery1 != null) {
+            SceneryDto sceneryDto = SceneryDto.builder().name(scenery1.getName()).completed(scenery1.getCompleted()).build();
+            sceneries.add(sceneryDto);
+        }
+
+        if (scenery2 != null) {
+            SceneryDto sceneryDto = SceneryDto.builder().name(scenery2.getName()).completed(scenery2.getCompleted()).build();
+            sceneries.add(sceneryDto);
+        }
+
+        if (scenery3 != null) {
+            SceneryDto sceneryDto = SceneryDto.builder().name(scenery3.getName()).completed(scenery3.getCompleted()).build();
+            sceneries.add(sceneryDto);
+        }
+
+        if (scenery4 != null) {
+            SceneryDto sceneryDto = SceneryDto.builder().name(scenery4.getName()).completed(scenery4.getCompleted()).build();
+            sceneries.add(sceneryDto);
+        }
+
+        if (scenery5 != null) {
+            SceneryDto sceneryDto = SceneryDto.builder().name(scenery5.getName()).completed(scenery5.getCompleted()).build();
+            sceneries.add(sceneryDto);
+        }
+
+        if (scenery6 != null) {
+            SceneryDto sceneryDto = SceneryDto.builder().name(scenery6.getName()).completed(scenery6.getCompleted()).build();
+            sceneries.add(sceneryDto);
+        }
+
+        return sceneries;
+    }
 
     @Override
     public Object getPk() {
