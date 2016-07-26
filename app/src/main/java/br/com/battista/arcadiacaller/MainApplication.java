@@ -8,11 +8,13 @@ import com.activeandroid.Configuration;
 import com.crashlytics.android.Crashlytics;
 
 import br.com.battista.arcadiacaller.adapter.FontsAdapter;
+import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.HeroGuild;
 import br.com.battista.arcadiacaller.model.Scenery;
+import br.com.battista.arcadiacaller.model.SceneryCampaign;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -80,11 +82,13 @@ public class MainApplication extends Application {
         Log.i(TAG, "initializeDB: Initialize Database to App.");
 
         Configuration.Builder configurationBuilder = new Configuration.Builder(this);
+        configurationBuilder.addModelClasses(Campaign.class);
         configurationBuilder.addModelClasses(Card.class);
         configurationBuilder.addModelClasses(Guild.class);
         configurationBuilder.addModelClasses(Hero.class);
         configurationBuilder.addModelClasses(HeroGuild.class);
         configurationBuilder.addModelClasses(Scenery.class);
+        configurationBuilder.addModelClasses(SceneryCampaign.class);
         configurationBuilder.addModelClasses(User.class);
 
         configurationBuilder.setCacheSize(DEFAULT_CACHE_SIZE);

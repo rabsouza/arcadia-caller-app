@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                    xmlns:card_view="http://schemas.android.com/tools"
-                                    android:id="@+id/card_view_scenery"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/activity_margin"
-                                    android:layout_marginRight="@dimen/activity_margin"
-                                    android:foreground="?attr/selectableItemBackground"
-                                    android:padding="@dimen/no_dimen"
-                                    app:cardBackgroundColor="@android:color/transparent"
-                                    app:cardElevation="3dp"
-                                    app:cardPreventCornerOverlap="false"
-                                    app:cardUseCompatPadding="false"
-                                    card_view:cardCornerRadius="2dp"
-                                    card_view:cardElevation="3dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/card_view_scenery"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/no_dimen"
+    android:layout_marginLeft="@dimen/activity_margin"
+    android:layout_marginRight="@dimen/activity_margin"
+    android:layout_marginTop="@dimen/no_dimen"
+    android:foreground="?attr/selectableItemBackground"
+    android:padding="@dimen/no_dimen"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,17 +28,17 @@
         <TextView
             android:id="@+id/card_view_scenery_title"
             style="@style/CardTitle02Style"
-            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_padding"/>
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/activity_padding" />
 
         <TextView
             android:id="@+id/card_view_scenery_difficulty"
             style="@style/CardHead02Style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,14 +52,14 @@
                 android:paddingLeft="@dimen/activity_padding"
                 android:paddingRight="@dimen/element_padding"
                 android:scaleType="fitXY"
-                android:src="@drawable/won_reward"/>
+                android:src="@drawable/won_reward" />
 
             <TextView
                 android:id="@+id/card_view_scenery_won_reward"
                 style="@style/CardHeadStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical" />
 
         </LinearLayout>
 
@@ -72,14 +75,14 @@
                 android:paddingLeft="@dimen/activity_padding"
                 android:paddingRight="@dimen/element_padding"
                 android:scaleType="fitXY"
-                android:src="@drawable/won_title"/>
+                android:src="@drawable/won_title" />
 
             <TextView
                 android:id="@+id/card_view_scenery_won_title"
                 style="@style/CardHeadStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical" />
 
         </LinearLayout>
 

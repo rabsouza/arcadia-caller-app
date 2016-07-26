@@ -16,6 +16,7 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
+import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.CampaignAdapter;
@@ -77,8 +78,10 @@ public class CampaignsFragment extends BaseFragment {
             @Override
             protected Boolean doInBackground(Void... params) {
                 try {
-                    String token = MainApplication.instance().getToken();
-                    //campaigns = Inject.provideCampaignService().findAll(token);
+                    MainApplication application = MainApplication.instance();
+                    String token = application.getToken();
+                    String username = application.getUser().getUsername();
+                    campaigns = Inject.provideCampaignService().findByUser(token, username);
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                     return false;

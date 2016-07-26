@@ -15,7 +15,7 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
     public CampaignViewHolder(View view) {
         super(view);
 
-        txtTitle = (TextView) view.findViewById(R.id.card_view_campaign);
+        txtTitle = (TextView) view.findViewById(R.id.card_view_campaign_title);
     }
 
 }

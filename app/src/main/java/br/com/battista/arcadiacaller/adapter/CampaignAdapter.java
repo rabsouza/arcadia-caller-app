@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -39,8 +38,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
             Log.i(TAG, String.format(
                     "onBindViewHolder: Fill to row position: %S with %s.", position, campaign));
 
-            TextView txtTitle = holder.getTxtTitle();
-            txtTitle.setText(campaign.getAlias());
+            holder.getTxtTitle().setText(campaign.getAlias());
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
