@@ -83,4 +83,7 @@ E-mail: rabsouza@gmail.com<br>
     <string name="location_scenery_out_circle">Círculo Exterior</string>
     <string name="location_scenery_ultimate">Confronto Final</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
