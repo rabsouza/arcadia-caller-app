@@ -24,6 +24,12 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_TOKEN = "token";
     }
 
+    public static abstract class CampaignEntry extends BaseEntry {
+
+        public static final String TABLE_NAME = "Campaign";
+        public static final String COLUMN_NAME_KEY = "key";
+    }
+
     public static abstract class CardEntry extends BaseEntry {
 
         public static final String TABLE_NAME = "Card";
@@ -45,11 +51,18 @@ public class DatabaseContract {
     public static abstract class HeroGuildEntry extends BaseEntry {
 
         public static final String TABLE_NAME = "HeroGuild";
+        public static final String COLUMN_NAME_HERO = "hero";
     }
 
     public static abstract class SceneryEntry extends BaseEntry {
 
         public static final String TABLE_NAME = "Scenery";
+        public static final String COLUMN_NAME_NAME = "name";
+    }
+
+    public static abstract class SceneryCampaignEntry extends BaseEntry {
+
+        public static final String TABLE_NAME = "SceneryCampaign";
         public static final String COLUMN_NAME_NAME = "name";
     }
 

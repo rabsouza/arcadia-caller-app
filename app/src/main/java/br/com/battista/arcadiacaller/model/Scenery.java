@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
-
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
@@ -17,6 +15,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,7 +28,7 @@ public class Scenery extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_NAME, notNull = true, index = true, unique = false)
+    @Column(name = SceneryEntry.COLUMN_NAME_NAME, notNull = true, index = true, unique = true)
     private String name;
 
     private String urlSymbol;

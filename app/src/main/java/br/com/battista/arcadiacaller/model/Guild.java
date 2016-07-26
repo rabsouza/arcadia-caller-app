@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.GuildEntry;
-
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
@@ -15,6 +13,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.GuildEntry;
 
 @Builder
 @AllArgsConstructor
@@ -33,16 +33,18 @@ public class Guild extends BaseEntity implements Serializable {
 
     private List<String> benefitTitles;
 
+    private List<String> rewardCards;
+
     @Column(name = GuildEntry.COLUMN_NAME_NAME, notNull = true, index = true, unique = false)
     private NameGuildEnum name;
 
     private User user;
 
-    private HeroGuild hero1;
+    private HeroGuild hero01;
 
-    private HeroGuild hero2;
+    private HeroGuild hero02;
 
-    private HeroGuild hero3;
+    private HeroGuild hero03;
 
     private Boolean savedMoney = Boolean.FALSE;
 
