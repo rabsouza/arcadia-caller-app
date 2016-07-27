@@ -1,8 +1,10 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +21,7 @@ import java.util.List;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.activity.CampaingDetailActivity;
 import br.com.battista.arcadiacaller.adapter.CampaignAdapter;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -56,13 +59,33 @@ public class CampaignsFragment extends BaseFragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
 
+        loadFloatingAction(view);
+
         return view;
+    }
+
+    private void loadFloatingAction(View view) {
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_new_campaign);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadCampaignDetailActivity();
+            }
+        });
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         loadCampaigns();
+    }
+
+    private void loadCampaignDetailActivity() {
+        Bundle args = new Bundle();
+        Intent intent = new Intent(getContext(), CampaingDetailActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
     }
 
     public void loadCampaigns() {
@@ -73,7 +96,7 @@ public class CampaignsFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Boolean result) {
                 recyclerView.setAdapter(new CampaignAdapter(getContext(), campaigns));
-                if(campaigns.isEmpty()){
+                if (campaigns.isEmpty()) {
                     AndroidUtils.snackbar(getView(), R.string.msg_empty_campaigns);
                 }
                 dismissProgress();

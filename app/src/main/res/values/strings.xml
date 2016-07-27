@@ -4,6 +4,7 @@
     <string name="title_app">Arcadia Caller</string>
     <string name="title_home">Inicial</string>
     <string name="title_campaigns">Campanhas</string>
+    <string name="title_campaign_detail">Campanha</string>
     <string name="title_heroes">Heróis</string>
     <string name="title_cards">Cartas</string>
     <string name="title_sceneries">Cenários</string>
@@ -28,6 +29,17 @@
     <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por letras, números e o caracter _.</string>
     <string name="hint_text_mail">*² Deve ser um e-mail válido.</string>
     <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente no http://gravatar.com para seu e-mail.</string>
+    <string name="hint_detail_campaign">Campanha</string>
+    <string name="hint_detail_alias_campaign">Nome/Apelido</string>
+    <string name="hint_text_detail_alias_campaign">*¹ O nome e apelido será utilizado para identificar sua campanha.</string>
+    <string name="hint_detail_guilds">Guildas</string>
+    <string name="hint_detail_guilds_login_blue">Login Guilda</string>
+    <string name="hint_detail_guilds_login_red">Login Guilda</string>
+    <string name="hint_detail_guilds_login_green">Login Guilda</string>
+    <string name="hint_detail_guilds_login_orange">Login Guilda</string>
+    <string name="hint_text_detail_guilds_login">*¹ Deve ser um login de um usuário já existente na aplicação.</string>
+    <string name="hint_text_detail_guilds_login_2">*² Será necessário criar um novo login do usuário quando inexistente.</string>
+    <string name="hint_detail_scenery">Cenário</string>
 
     <!-- ################### MSG #################### -->
     <string name="msg_failed_already_exists_user">Erro ao criar o usuário! Por favor tente outro login ou e-mail!</string>

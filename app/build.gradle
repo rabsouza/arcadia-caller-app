@@ -98,6 +98,7 @@ dependencies {
         transitive = true;
     }
     compile 'com.android.support:support-v4:24.1.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
 }
 
 /*
