@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
+
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.google.common.base.Strings;
@@ -17,8 +19,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
 
 @Builder
 @AllArgsConstructor
@@ -87,22 +87,22 @@ public class Campaign extends BaseEntity implements Serializable {
     public List<GuildDto> generateGuildsDto() {
         List<GuildDto> guilds = Lists.newArrayList();
 
-        if (Strings.isNullOrEmpty(guild01) && heroesGuild01 != null) {
+        if (!Strings.isNullOrEmpty(guild01) && heroesGuild01 != null) {
             GuildDto guildDto = GuildDto.builder().username(guild01).name(heroesGuild01.getName()).build();
             guilds.add(guildDto);
         }
 
-        if (Strings.isNullOrEmpty(guild02) && heroesGuild02 != null) {
+        if (!Strings.isNullOrEmpty(guild02) && heroesGuild02 != null) {
             GuildDto guildDto = GuildDto.builder().username(guild02).name(heroesGuild02.getName()).build();
             guilds.add(guildDto);
         }
 
-        if (Strings.isNullOrEmpty(guild03) && heroesGuild03 != null) {
+        if (!Strings.isNullOrEmpty(guild03) && heroesGuild03 != null) {
             GuildDto guildDto = GuildDto.builder().username(guild03).name(heroesGuild03.getName()).build();
             guilds.add(guildDto);
         }
 
-        if (Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
+        if (!Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
             GuildDto guildDto = GuildDto.builder().username(guild04).name(heroesGuild04.getName()).build();
             guilds.add(guildDto);
         }

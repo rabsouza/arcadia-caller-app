@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.service;
 
 
+import static br.com.battista.arcadiacaller.listener.HeroListener.URI_FIND_ALL;
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -15,9 +18,6 @@ import br.com.battista.arcadiacaller.constants.RestConstant;
 import br.com.battista.arcadiacaller.listener.HeroListener;
 import br.com.battista.arcadiacaller.model.Hero;
 import retrofit2.Response;
-
-import static br.com.battista.arcadiacaller.listener.HeroListener.URI_FIND_ALL;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class HeroService extends BaseService {
 

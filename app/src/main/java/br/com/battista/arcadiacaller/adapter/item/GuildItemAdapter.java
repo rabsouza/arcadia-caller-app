@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
@@ -38,7 +40,17 @@ public class GuildItemAdapter extends RecyclerView.Adapter<GuildItemViewHolder> 
             Log.i(TAG, String.format(
                     "onBindViewHolder: Fill to row position: %S with %s.", position, guild));
 
-        } else {
+            holder.getTxtName().setText(context.getText(guild.getName().getResId()));
+
+            holder.getTxtUsername().setText(guild.getUsername());
+
+            Glide.with(context)
+                    .load(guild.getName().getUrlImg())
+                    .fitCenter()
+                    .error(R.drawable.profile)
+                    .crossFade()
+                    .into(holder.getImgImg());
+
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
 

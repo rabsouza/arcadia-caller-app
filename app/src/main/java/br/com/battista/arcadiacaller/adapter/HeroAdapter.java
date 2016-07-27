@@ -54,7 +54,7 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
             Glide.with(context)
                     .load(hero.getUrlPhoto())
                     .fitCenter()
-                    .error(R.drawable.avatar_profile)
+                    .error(R.drawable.profile)
                     .crossFade()
                     .into(holder.getImgHero());
 

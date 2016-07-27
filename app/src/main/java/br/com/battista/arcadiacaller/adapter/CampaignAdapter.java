@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.adapter;
 
+import static com.activeandroid.Cache.getContext;
+
 import android.content.Context;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
@@ -18,8 +21,6 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
-
-import static com.activeandroid.Cache.getContext;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private static final String TAG = CampaignAdapter.class.getSimpleName();
@@ -97,9 +98,15 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 }
             });
 
-            setupGuildsRecicleViewItem(holder.itemView, campaign.generateGuildsDto());
+            List<GuildDto> guildDtos = campaign.generateGuildsDto();
+            Log.i(TAG, MessageFormat.format("onBindViewHolder: Load {0} guildDtos to campaign: {1}!"
+                    , guildDtos.size(), campaign.getKey()));
+            setupGuildsRecicleViewItem(holder.itemView, guildDtos);
 
-            setupSceneriesRecicleViewItem(holder.itemView, campaign.generateSceneriesDto());
+            List<SceneryDto> sceneryDtos = campaign.generateSceneriesDto();
+            Log.i(TAG, MessageFormat.format("onBindViewHolder: Load {0} sceneryDtos to campaign: {1}!"
+                    , sceneryDtos.size(), campaign.getKey()));
+            setupSceneriesRecicleViewItem(holder.itemView, sceneryDtos);
 
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");

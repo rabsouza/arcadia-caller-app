@@ -21,6 +21,7 @@ import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.CampaignAdapter;
 import br.com.battista.arcadiacaller.model.Campaign;
+import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
 
@@ -72,6 +73,9 @@ public class CampaignsFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Boolean result) {
                 recyclerView.setAdapter(new CampaignAdapter(getContext(), campaigns));
+                if(campaigns.isEmpty()){
+                    AndroidUtils.snackbar(getView(), R.string.msg_empty_campaigns);
+                }
                 dismissProgress();
             }
 

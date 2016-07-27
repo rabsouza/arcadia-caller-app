@@ -22,7 +22,6 @@ public class SceneryViewHolder extends RecyclerView.ViewHolder {
     private TextView txtWonTitle;
 
 
-
     public SceneryViewHolder(View view) {
         super(view);
 

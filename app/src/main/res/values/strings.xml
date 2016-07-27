@@ -10,6 +10,7 @@
     <string name="title_guilds">Guildas</string>
     <string name="title_manage">Configurações</string>
     <string name="title_about">Informação</string>
+    <string name="title_logout">Sair</string>
 
     <!-- ################### ELEMENTS #################### -->
     <string name="btn_login">ENTRAR</string>
@@ -37,7 +38,8 @@
     <string name="msg_action_loading">Aguarde! Carregando...</string>
     <string name="msg_action_login">Aguarde! Logando...</string>
     <string name="msg_action_sign_in">Aguarde! Criando conta...</string>
-    <string name="msg_blank_fragment">Em construção, verifique em breve!!!</string>
+    <string name="msg_blank_fragment">Em construção, verifique em breve!</string>
+    <string name="msg_empty_campaigns">Você ainda não tem nenhuma campanha, crie uma nova!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
@@ -52,7 +54,7 @@
 <h3>Arcadia Caller @2016</h3><br>
 Versão: %s<br><br>
 <b>Contato:</b><br>
-Nome: Rafael ALessandro Batista de Souza<br>
+Nome: Rafael ALessandro Batista<br>
 E-mail: rabsouza@gmail.com<br>
 <br><br>
 <b>Código fonte:</b> <a href="https://github.com/rabsouza/arcadia-caller-app">GitHub</a><br><br>
@@ -84,7 +86,10 @@ E-mail: rabsouza@gmail.com<br>
     <string name="location_scenery_out_circle">Círculo Exterior</string>
     <string name="location_scenery_ultimate">Confronto Final</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- ################### SCENERY #################### -->
+    <string name="name_guild_blue">Águia</string>
+    <string name="name_guild_red">Raposa</string>
+    <string name="name_guild_orange">Leão</string>
+    <string name="name_guild_green">Panda</string>
 
 </resources>

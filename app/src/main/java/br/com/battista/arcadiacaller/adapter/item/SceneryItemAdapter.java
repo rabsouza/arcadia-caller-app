@@ -34,10 +34,17 @@ public class SceneryItemAdapter extends RecyclerView.Adapter<SceneryItemViewHold
     @Override
     public void onBindViewHolder(SceneryItemViewHolder holder, int position) {
         if (sceneries != null && !sceneries.isEmpty()) {
-            final SceneryDto guild = sceneries.get(position);
+            final SceneryDto sceneryDto = sceneries.get(position);
             Log.i(TAG, String.format(
-                    "onBindViewHolder: Fill to row position: %S with %s.", position, guild));
+                    "onBindViewHolder: Fill to row position: %S with %s.", position, sceneryDto));
 
+            holder.getTxtName().setText(sceneryDto.getName());
+
+            if(sceneryDto.getCompleted()){
+                holder.getImgAction().setImageResource(R.drawable.ic_done);
+            }else{
+                holder.getImgAction().setImageResource(R.drawable.ic_play);
+            }
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }

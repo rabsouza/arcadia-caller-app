@@ -16,9 +16,9 @@
         android:id="@+id/nav_view_header_img"
         android:layout_width="@dimen/dimen_profile_img_width"
         android:layout_height="@dimen/dimen_profile_img_height"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:layout_marginTop="@dimen/nav_header_vertical_spacing"
         android:scaleType="centerCrop"
-        android:src="@drawable/avatar_profile"
+        android:src="@drawable/profile"
         />
 
     <TextView

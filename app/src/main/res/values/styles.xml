@@ -81,10 +81,10 @@
         <item name="android:typeface">sans</item>
     </style>
 
-    <style name="ItemHeadStyle">
+    <style name="ItemTextStyle">
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:typeface">sans</item>
+        <item name="android:typeface">serif</item>
     </style>
 
     <style name="CardHead02Style">
@@ -104,7 +104,7 @@
     <style name="CardTextStyle">
         <item name="android:textColor">@color/colorText</item>
         <item name="android:typeface">serif</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

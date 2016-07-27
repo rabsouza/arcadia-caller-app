@@ -1,5 +1,6 @@
 package br.com.battista.arcadiacaller.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -118,10 +119,22 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (id == R.id.nav_menu_about) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Help.");
             AboutDialog.showAbout(getSupportFragmentManager());
+
+        } else if (id == R.id.nav_menu_logout) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Logout.");
+            loadLoginActivity();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void loadLoginActivity() {
+        Bundle args = new Bundle();
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
     }
 }
