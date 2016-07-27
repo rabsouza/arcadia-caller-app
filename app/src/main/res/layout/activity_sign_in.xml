@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/activity_sign_in"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorBG"
-                android:fitsSystemWindows="true"
-                android:padding="@dimen/no_dimen"
-                tools:context="br.com.battista.arcadiacaller.activity.SignInActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sign_in"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:fitsSystemWindows="true"
+    android:padding="@dimen/no_dimen"
+    tools:context="br.com.battista.arcadiacaller.activity.SignInActivity">
 
     <LinearLayout
         android:layout_width="300dp"
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/title_app"/>
+            android:text="@string/title_app" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -30,13 +30,14 @@
 
             <EditText
                 android:id="@+id/txt_username"
+                style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:drawableLeft="@drawable/ic_username"
                 android:hint="@string/hint_btn_login"
                 android:inputType="textAutoComplete"
-                android:maxLines="1"/>
+                android:maxLines="1" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -46,12 +47,13 @@
 
             <EditText
                 android:id="@+id/txt_mail"
+                style="@style/InputStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_mail"
                 android:hint="@string/hint_btn_mail"
                 android:inputType="textEmailSubject"
-                android:maxLines="1"/>
+                android:maxLines="1" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -60,21 +62,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/hint_text_login"/>
+            android:text="@string/hint_text_login" />
 
         <TextView
             style="@style/HintTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/element_vertical_margin"
-            android:text="@string/hint_text_mail"/>
+            android:text="@string/hint_text_mail" />
 
         <TextView
             style="@style/HintTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/element_vertical_margin"
-            android:text="@string/hint_text_partten_mail"/>
+            android:text="@string/hint_text_partten_mail" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -89,7 +91,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:onClick="save"
-                android:text="@string/btn_create"/>
+                android:text="@string/btn_create" />
 
             <Button
                 android:id="@+id/btn_cancel"
@@ -98,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/btn_create"
                 android:onClick="cancel"
-                android:text="@string/btn_cancel"/>
+                android:text="@string/btn_cancel" />
 
 
         </RelativeLayout>

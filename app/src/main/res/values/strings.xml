@@ -4,7 +4,7 @@
     <string name="title_app">Arcadia Caller</string>
     <string name="title_home">Inicial</string>
     <string name="title_campaigns">Campanhas</string>
-    <string name="title_campaign_detail">Campanha</string>
+    <string name="title_campaign_detail">Campanha...</string>
     <string name="title_heroes">Heróis</string>
     <string name="title_cards">Cartas</string>
     <string name="title_sceneries">Cenários</string>
@@ -20,6 +20,8 @@
     <string name="btn_create">CRIAR</string>
     <string name="btn_cancel">CANCELAR</string>
     <string name="btn_ok">OK</string>
+    <string name="btn_confirmation_dialog_exit">SAIR</string>
+    <string name="btn_confirmation_dialog_cancel">Cancelar</string>
 
     <!-- ################### HINT #################### -->
     <string name="hint_card_group">Grupo: {0}</string>
@@ -56,6 +58,8 @@
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
     <string name="alert_success_sign_in">Usuário criado com sucesso!</string>
+    <string name="alert_confirmation_dialog_title_exit">Tem certeza?</string>
+    <string name="alert_confirmation_dialog_text_exit">Você cancelou as alterações salvas. Deseja sair sem salvar?</string>
 
     <!-- ################### OTHERS #################### -->
     <string name="navigation_drawer_open">Abrir menu de navegação!</string>
@@ -103,5 +107,8 @@ E-mail: rabsouza@gmail.com<br>
     <string name="name_guild_red">Raposa</string>
     <string name="name_guild_orange">Leão</string>
     <string name="name_guild_green">Panda</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

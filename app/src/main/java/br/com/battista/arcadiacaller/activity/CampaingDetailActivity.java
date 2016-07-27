@@ -1,15 +1,19 @@
 package br.com.battista.arcadiacaller.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
+import br.com.battista.arcadiacaller.fragment.CampaignDetailNewFragment;
 
 public class CampaingDetailActivity extends BaseActivity {
 
@@ -37,30 +41,31 @@ public class CampaingDetailActivity extends BaseActivity {
                 .crossFade()
                 .into((ImageView) findViewById(R.id.detail_image_toolbar));
 
-        Glide.with(getContext())
-                .load(NameGuildEnum.BLUE.getUrlImg())
-                .crossFade()
-                .into((ImageView) findViewById(R.id.detail_card_view_guilds_img_blue));
+        replaceDetailFragment(CampaignDetailNewFragment.newInstance());
+    }
 
-        Glide.with(getContext())
-                .load(NameGuildEnum.GREEN.getUrlImg())
-                .crossFade()
-                .into((ImageView) findViewById(R.id.detail_card_view_guilds_img_green));
-
-        Glide.with(getContext())
-                .load(NameGuildEnum.ORANGE.getUrlImg())
-                .crossFade()
-                .into((ImageView) findViewById(R.id.detail_card_view_guilds_img_orange));
-
-        Glide.with(getContext())
-                .load(NameGuildEnum.RED.getUrlImg())
-                .crossFade()
-                .into((ImageView) findViewById(R.id.detail_card_view_guilds_img_red));
+    protected void replaceDetailFragment(Fragment fragment) {
+        if (fragment != null) {
+            Log.d(TAG, "replaceFragment: Change to detail fragment!");
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.detail_container, fragment).commit();
+        }
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.alert_confirmation_dialog_title_exit)
+                .setMessage(R.string.alert_confirmation_dialog_text_exit)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(R.string.btn_confirmation_dialog_exit, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        onBackPressed();
+                    }
+                })
+                .setNegativeButton(R.string.btn_confirmation_dialog_cancel, null).show();
+
         return true;
     }
 }

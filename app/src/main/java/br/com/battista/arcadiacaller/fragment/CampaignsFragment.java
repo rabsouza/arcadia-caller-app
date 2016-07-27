@@ -28,9 +28,6 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CampaignsFragment extends BaseFragment {
 
     private static final String TAG = CampaignsFragment.class.getSimpleName();

@@ -33,6 +33,12 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="InputStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="TextStyle">
         <item name="android:textColor">@color/colorText</item>
         <item name="android:typeface">serif</item>
