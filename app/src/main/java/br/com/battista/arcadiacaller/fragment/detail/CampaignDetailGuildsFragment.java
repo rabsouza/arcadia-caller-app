@@ -69,7 +69,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
     }
 
     private void proccessNextAction(View view) {
-
+        replaceDetailFragment(CampaignDetailSceneryFragment.newInstance());
     }
 
 }
