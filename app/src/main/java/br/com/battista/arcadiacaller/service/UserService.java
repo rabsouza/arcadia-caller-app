@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.service;
 
 
-import static br.com.battista.arcadiacaller.listener.UserListener.URI_FIND_USERNAME;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -16,6 +13,9 @@ import br.com.battista.arcadiacaller.constants.RestConstant;
 import br.com.battista.arcadiacaller.listener.UserListener;
 import br.com.battista.arcadiacaller.model.User;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.UserListener.URI_FIND_USERNAME;
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class UserService extends BaseService {
 
@@ -43,6 +43,28 @@ public class UserService extends BaseService {
         }
 
         return null;
+    }
+
+    @Nullable
+    public Boolean existsUsername(@NonNull String token, @NonNull String username) {
+        Log.i(TAG_CLASSNAME, MessageFormat.format("Exists user by username: {0} in app server url:[{1}]!",
+                username, RestConstant.REST_API_ENDPOINT.concat(URI_FIND_USERNAME)));
+
+        UserListener listener = builder.create(UserListener.class);
+        try {
+            Response<Void> response = listener.existsUsername(token, username.trim()).execute();
+            boolean existsUser = response != null && response.code() == HttpStatus.OK.value();
+            if (existsUser) {
+                Log.i(TAG, "existsUsername: Found user!");
+            } else {
+                Log.i(TAG, "existsUsername: Not found user!");
+            }
+            return existsUser;
+        } catch (IOException e) {
+            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+        }
+
+        return Boolean.FALSE;
     }
 
 }

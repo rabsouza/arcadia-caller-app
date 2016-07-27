@@ -25,6 +25,8 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static java.lang.Boolean.*;
+
 
 public class CampaignDetailNewFragment extends BaseFragment {
 
@@ -85,7 +87,7 @@ public class CampaignDetailNewFragment extends BaseFragment {
         Log.d(TAG, MessageFormat.format("Create campaign with alias: {0}.", alias));
         String username = MainApplication.instance().getUser().getUsername();
         if (campaignCreated == null) {
-            campaignCreated = Campaign.builder().alias(alias).created(username).when(new Date()).build();
+            campaignCreated = Campaign.builder().alias(alias).created(username).when(new Date()).active(TRUE).completed(FALSE).deleted(FALSE).build();
         } else {
             campaignCreated.setAlias(alias);
             campaignCreated.setCreated(username);

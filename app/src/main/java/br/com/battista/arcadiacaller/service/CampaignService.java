@@ -17,7 +17,9 @@ import br.com.battista.arcadiacaller.listener.CampaignListener;
 import br.com.battista.arcadiacaller.model.Campaign;
 import retrofit2.Response;
 
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_CREATE;
 import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_FIND_BY_USER;
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_UPDATE;
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class CampaignService extends BaseService {
@@ -57,7 +59,7 @@ public class CampaignService extends BaseService {
         }
 
         Log.i(TAG_CLASSNAME, MessageFormat.format("Create new campaign with alias: {0} in app server url:[{1}]!",
-                campaign.getAlias(), RestConstant.REST_API_ENDPOINT.concat(URI_FIND_BY_USER)));
+                campaign.getAlias(), RestConstant.REST_API_ENDPOINT.concat(URI_CREATE)));
 
         CampaignListener listener = builder.create(CampaignListener.class);
         try {
@@ -69,6 +71,34 @@ public class CampaignService extends BaseService {
             } else {
                 String errorMessage = MessageFormat.format(
                         "Error create to campaign! Return the code status: {0}.",
+                        HttpStatus.valueOf(response.code()));
+                validateErrorResponse(response, errorMessage);
+            }
+        } catch (IOException e) {
+            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+        }
+
+        return campaign;
+    }
+
+    public Campaign update(@NonNull String token, @NonNull Campaign campaign) {
+        if (campaign == null) {
+            throw new ValidatorException("Campaign can not be null!");
+        }
+
+        Log.i(TAG_CLASSNAME, MessageFormat.format("Update new campaign with key: {0} in app server url:[{1}]!",
+                campaign.getKey(), RestConstant.REST_API_ENDPOINT.concat(URI_UPDATE)));
+
+        CampaignListener listener = builder.create(CampaignListener.class);
+        try {
+            Response<Campaign> response = listener.update(token, campaign).execute();
+            if (response != null && response.code() == HttpStatus.OK.value() && response.body() != null) {
+                campaign = response.body();
+                Log.i(TAG, MessageFormat.format("Update campaign: {0}!", campaign));
+                return campaign;
+            } else {
+                String errorMessage = MessageFormat.format(
+                        "Error update to campaign! Return the code status: {0}.",
                         HttpStatus.valueOf(response.code()));
                 validateErrorResponse(response, errorMessage);
             }

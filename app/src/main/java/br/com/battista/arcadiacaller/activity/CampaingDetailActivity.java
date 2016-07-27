@@ -16,6 +16,9 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailNewFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class CampaingDetailActivity extends BaseActivity {
 
     private static final String TAG = CampaingDetailActivity.class.getSimpleName();
@@ -42,7 +45,7 @@ public class CampaingDetailActivity extends BaseActivity {
                 .crossFade()
                 .into((ImageView) findViewById(R.id.detail_image_toolbar));
 
-        Campaign campaign = Campaign.builder().build();
+        Campaign campaign = Campaign.builder().active(TRUE).completed(FALSE).deleted(FALSE).build();
         replaceDetailFragment(CampaignDetailNewFragment.newInstance(campaign));
     }
 

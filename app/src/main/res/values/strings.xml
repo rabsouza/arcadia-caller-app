@@ -56,6 +56,9 @@
     <string name="msg_blank_fragment">Em construção, verifique em breve!</string>
     <string name="msg_empty_campaigns">Você ainda não tem nenhuma campanha, crie uma nova!</string>
     <string name="msg_alias_required">Nome/Apelido é obrigatório!</string>
+    <string name="msg_username_guild_required">Login da Guilda invalido!</string>
+    <string name="msg_at_east_one_guild_required">Pelo menos uma Guilda deve ser escolhida!</string>
+    <string name="msg_error_campaign_not_found">Erro ao processar a campanha! Por favor, crie um nova campanha. User o botao voltar para isso!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
