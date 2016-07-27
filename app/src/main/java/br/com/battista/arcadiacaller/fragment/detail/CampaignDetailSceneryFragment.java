@@ -14,41 +14,51 @@ import br.com.battista.arcadiacaller.activity.MainActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
+import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
+import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 
 public class CampaignDetailSceneryFragment extends BaseFragment {
 
     private static final String TAG = CampaignsFragment.class.getSimpleName();
 
+    private Campaign campaign;
+    private LocationSceneryEnum locationScenery;
+
     public CampaignDetailSceneryFragment() {
     }
 
-    public static CampaignDetailSceneryFragment newInstance() {
+    public static CampaignDetailSceneryFragment newInstance(Campaign campaign, LocationSceneryEnum locationScenery) {
         CampaignDetailSceneryFragment fragment = new CampaignDetailSceneryFragment();
         Bundle args = new Bundle();
+        args.putSerializable(BundleConstant.DATA, campaign);
+        args.putSerializable(BundleConstant.FILTER_LOCATION_SCENERY, locationScenery);
         fragment.setArguments(args);
         return fragment;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView: Create detail scenery campaign!");
-        View view = inflater.inflate(R.layout.fragment_campaign_detail_scenery, container, false);
+        final View viewFragment = inflater.inflate(R.layout.fragment_campaign_detail_scenery, container, false);
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_done_scenery_campaign);
+        FloatingActionButton fab = (FloatingActionButton) viewFragment.findViewById(R.id.fab_done_scenery_campaign);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                proccessNextAction(view);
+                processNextAction(viewFragment);
             }
         });
 
-        return view;
+        processDataFragment(getArguments());
+
+        return viewFragment;
     }
 
-    private void proccessNextAction(View view) {
+    private void processNextAction(View view) {
+        Log.d(TAG, "processNextAction: Process next action -> Fragment CampaignDetailSceneryFragment!");
+
         Bundle args = new Bundle();
         args.putString(BundleConstant.ACTION, ActionEnum.START_FRAGMENT_CAMPAIGNS.name());
         Intent intent = new Intent(getContext(), MainActivity.class);
@@ -57,5 +67,15 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
         getContext().startActivity(intent);
     }
 
+    private void processDataFragment(Bundle bundle) {
+        Log.d(TAG, "processDataFragment: Processs bundle data Fragment!");
+        if (bundle.containsKey(BundleConstant.DATA)) {
+            campaign = (Campaign) bundle.getSerializable(BundleConstant.DATA);
+        }
+
+        if (bundle.containsKey(BundleConstant.FILTER_LOCATION_SCENERY)) {
+            locationScenery = (LocationSceneryEnum) bundle.getSerializable(BundleConstant.FILTER_LOCATION_SCENERY);
+        }
+    }
 
 }

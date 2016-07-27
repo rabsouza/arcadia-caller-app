@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailNewFragment;
+import br.com.battista.arcadiacaller.model.Campaign;
 
 public class CampaingDetailActivity extends BaseActivity {
 
@@ -41,7 +42,8 @@ public class CampaingDetailActivity extends BaseActivity {
                 .crossFade()
                 .into((ImageView) findViewById(R.id.detail_image_toolbar));
 
-        replaceDetailFragment(CampaignDetailNewFragment.newInstance());
+        Campaign campaign = Campaign.builder().build();
+        replaceDetailFragment(CampaignDetailNewFragment.newInstance(campaign));
     }
 
     protected void replaceDetailFragment(Fragment fragment) {

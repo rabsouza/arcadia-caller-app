@@ -46,6 +46,7 @@
     <!-- ################### MSG #################### -->
     <string name="msg_failed_already_exists_user">Erro ao criar o usuário! Por favor tente outro login ou e-mail!</string>
     <string name="msg_failed_create_user">Erro ao criar o usuário! Siga as orientações da tela para criar um novo usuário!</string>
+    <string name="msg_failed_create_campaign">Erro ao criar a campanha! Siga as orientações da tela para criar uma nova campanha!</string>
     <string name="msg_failed_login_user">Login invalido! Por favor, tente novamente!</string>
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>
@@ -54,6 +55,7 @@
     <string name="msg_action_sign_in">Aguarde! Criando conta...</string>
     <string name="msg_blank_fragment">Em construção, verifique em breve!</string>
     <string name="msg_empty_campaigns">Você ainda não tem nenhuma campanha, crie uma nova!</string>
+    <string name="msg_alias_required">Nome/Apelido é obrigatório!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
@@ -108,7 +110,6 @@ E-mail: rabsouza@gmail.com<br>
     <string name="name_guild_orange">Leão</string>
     <string name="name_guild_green">Panda</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

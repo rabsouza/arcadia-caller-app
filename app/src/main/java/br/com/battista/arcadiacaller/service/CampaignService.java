@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.service;
 
 
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_FIND_BY_USER;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -15,9 +12,13 @@ import java.util.List;
 
 import br.com.battista.arcadiacaller.constants.HttpStatus;
 import br.com.battista.arcadiacaller.constants.RestConstant;
+import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.listener.CampaignListener;
 import br.com.battista.arcadiacaller.model.Campaign;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_FIND_BY_USER;
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class CampaignService extends BaseService {
 
@@ -48,6 +49,34 @@ public class CampaignService extends BaseService {
         }
 
         return campaigns;
+    }
+
+    public Campaign create(@NonNull String token, @NonNull Campaign campaign) {
+        if (campaign == null) {
+            throw new ValidatorException("Campaign can not be null!");
+        }
+
+        Log.i(TAG_CLASSNAME, MessageFormat.format("Create new campaign with alias: {0} in app server url:[{1}]!",
+                campaign.getAlias(), RestConstant.REST_API_ENDPOINT.concat(URI_FIND_BY_USER)));
+
+        CampaignListener listener = builder.create(CampaignListener.class);
+        try {
+            Response<Campaign> response = listener.create(token, campaign).execute();
+            if (response != null && response.code() == HttpStatus.CREATED.value() && response.body() != null) {
+                campaign = response.body();
+                Log.i(TAG, MessageFormat.format("Create campaign: {0}!", campaign));
+                return campaign;
+            } else {
+                String errorMessage = MessageFormat.format(
+                        "Error create to campaign! Return the code status: {0}.",
+                        HttpStatus.valueOf(response.code()));
+                validateErrorResponse(response, errorMessage);
+            }
+        } catch (IOException e) {
+            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+        }
+
+        return campaign;
     }
 
 }

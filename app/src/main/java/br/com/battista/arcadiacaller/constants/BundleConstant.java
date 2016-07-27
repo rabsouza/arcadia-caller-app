@@ -7,4 +7,6 @@ package br.com.battista.arcadiacaller.constants;
 public class BundleConstant {
 
     public static final String ACTION = "ACTION";
+    public static final String DATA = "DATA";
+    public static final String FILTER_LOCATION_SCENERY = "FILTER_LOCATION_SCENERY";
 }

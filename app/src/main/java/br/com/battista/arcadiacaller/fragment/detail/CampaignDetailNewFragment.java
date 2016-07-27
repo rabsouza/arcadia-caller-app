@@ -7,22 +7,39 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
+import com.google.common.base.Strings;
+
+import java.text.MessageFormat;
+import java.util.Date;
+
+import br.com.battista.arcadiacaller.Inject;
+import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
+import br.com.battista.arcadiacaller.model.Campaign;
+import br.com.battista.arcadiacaller.service.CampaignService;
+import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.ProgressApp;
 
 
 public class CampaignDetailNewFragment extends BaseFragment {
 
     private static final String TAG = CampaignsFragment.class.getSimpleName();
 
+    private EditText txtAlias;
+    private Campaign campaignCreated;
+
     public CampaignDetailNewFragment() {
     }
 
-    public static CampaignDetailNewFragment newInstance() {
+    public static CampaignDetailNewFragment newInstance(Campaign campaign) {
         CampaignDetailNewFragment fragment = new CampaignDetailNewFragment();
         Bundle args = new Bundle();
+        args.putSerializable(BundleConstant.DATA, campaign);
         fragment.setArguments(args);
         return fragment;
     }
@@ -32,21 +49,77 @@ public class CampaignDetailNewFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView: Create detail new campaign!");
-        View view = inflater.inflate(R.layout.fragment_campaign_detail_new, container, false);
+        final View viewFragment = inflater.inflate(R.layout.fragment_campaign_detail_new, container, false);
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_next_new_campaign);
+        FloatingActionButton fab = (FloatingActionButton) viewFragment.findViewById(R.id.fab_next_new_campaign);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                proccessNextAction(view);
+                processNextAction(viewFragment);
             }
         });
 
-        return view;
+        processDataFragment(getArguments());
+
+        return viewFragment;
     }
 
-    private void proccessNextAction(View view) {
-        replaceDetailFragment(CampaignDetailGuildsFragment.newInstance());
+    private void processDataFragment(Bundle bundle) {
+        Log.d(TAG, "processDataFragment: Processs bundle data Fragment!");
+        if (bundle.containsKey(BundleConstant.DATA)) {
+            campaignCreated = (Campaign) bundle.getSerializable(BundleConstant.DATA);
+        }
+    }
+
+    private void processNextAction(View view) {
+        Log.d(TAG, "processNextAction: Process next action -> Fragment CampaignDetailGuildsFragment!");
+        txtAlias = (EditText) view.findViewById(R.id.detail_card_view_campaign_alias);
+        if (Strings.isNullOrEmpty(txtAlias.getText().toString())) {
+            String msgErrorUsername = getContext().getString(R.string.msg_alias_required);
+            AndroidUtils.changeErrorEditText(txtAlias, msgErrorUsername, true);
+            return;
+        }
+        AndroidUtils.changeErrorEditText(txtAlias);
+
+        final String alias = txtAlias.getText().toString().trim();
+        Log.d(TAG, MessageFormat.format("Create campaign with alias: {0}.", alias));
+        String username = MainApplication.instance().getUser().getUsername();
+        if (campaignCreated == null) {
+            campaignCreated = Campaign.builder().alias(alias).created(username).when(new Date()).build();
+        } else {
+            campaignCreated.setAlias(alias);
+            campaignCreated.setCreated(username);
+            campaignCreated.setWhen(new Date());
+        }
+
+        final View currentView = view;
+        new ProgressApp(getActivity(), R.string.msg_action_loading, false) {
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                if (result) {
+                    replaceDetailFragment(CampaignDetailGuildsFragment.newInstance(campaignCreated));
+                } else {
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_create_campaign);
+                }
+                dismissProgress();
+            }
+
+            @Override
+            protected Boolean doInBackground(Void... params) {
+                try {
+                    String token = MainApplication.instance().getToken();
+
+                    CampaignService campaignService = Inject.provideCampaignService();
+                    campaignCreated = campaignService.create(token, campaignCreated);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+                    return false;
+                }
+                return true;
+            }
+        }.execute();
+
     }
 
 }
