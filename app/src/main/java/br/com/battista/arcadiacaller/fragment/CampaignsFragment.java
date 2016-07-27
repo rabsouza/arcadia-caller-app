@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -61,6 +60,12 @@ public class CampaignsFragment extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        loadCampaigns();
+    }
+
     private void loadFloatingAction(View view) {
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_new_campaign);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +79,6 @@ public class CampaignsFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        loadCampaigns();
     }
 
     private void loadCampaignDetailActivity() {

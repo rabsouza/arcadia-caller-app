@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.fragment.CampaignDetailNewFragment;
+import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailNewFragment;
 
 public class CampaingDetailActivity extends BaseActivity {
 
