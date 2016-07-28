@@ -1,29 +1,28 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
 
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailNewFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class CampaingDetailActivity extends BaseActivity {
 
     private static final String TAG = CampaingDetailActivity.class.getSimpleName();
 
     private static final String DEFAULT_BACKGROUND_HEADER = "https://storage.googleapis.com/arcadia-quest-storage/campaign/background_campaign.png";
+
+    private Campaign campaign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +36,8 @@ public class CampaingDetailActivity extends BaseActivity {
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(getContext().getString(R.string.title_campaign_detail));
-        int titleTextColor = ContextCompat.getColor(getContext(), R.color.colorTitle);
-        collapsingToolbar.setExpandedTitleColor(titleTextColor);
 
-        Glide.with(getContext())
-                .load(DEFAULT_BACKGROUND_HEADER)
-                .crossFade()
-                .into((ImageView) findViewById(R.id.detail_image_toolbar));
-
-        Campaign campaign = Campaign.builder().active(TRUE).completed(FALSE).deleted(FALSE).build();
+        processDataActivity(getIntent().getExtras());
         replaceDetailFragment(CampaignDetailNewFragment.newInstance(campaign));
     }
 
@@ -54,6 +46,15 @@ public class CampaingDetailActivity extends BaseActivity {
             Log.d(TAG, "replaceFragment: Change to detail fragment!");
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.detail_container, fragment).commit();
+        }
+    }
+
+    private void processDataActivity(Bundle bundle) {
+        Log.d(TAG, "processDataActivity: Processs bundle data Activity!");
+        if (bundle.containsKey(BundleConstant.DATA)) {
+            campaign = (Campaign) bundle.getSerializable(BundleConstant.DATA);
+        } else {
+            campaign = Campaign.builder().active(TRUE).completed(FALSE).deleted(FALSE).build();
         }
     }
 

@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static java.lang.Boolean.FALSE;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,8 +34,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static java.lang.Boolean.*;
 
 public class CampaignDetailGuildsFragment extends BaseFragment {
 
@@ -84,7 +84,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
         createValidateLoginGuild(txtLoginGreen);
 
         loadGuildsImg(viewFragment);
-        processDataFragment(getArguments());
+        processDataFragment(viewFragment, getArguments());
 
         return viewFragment;
     }
@@ -148,10 +148,15 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_orange));
     }
 
-    private void processDataFragment(Bundle bundle) {
+    private void processDataFragment(View view, Bundle bundle) {
         Log.d(TAG, "processDataFragment: Processs bundle data Fragment!");
         if (bundle.containsKey(BundleConstant.DATA)) {
             campaign = (Campaign) bundle.getSerializable(BundleConstant.DATA);
+
+            txtLoginBlue.setText(campaign.getGuild01());
+            txtLoginGreen.setText(campaign.getGuild02());
+            txtLoginOrange.setText(campaign.getGuild03());
+            txtLoginRed.setText(campaign.getGuild04());
         }
     }
 

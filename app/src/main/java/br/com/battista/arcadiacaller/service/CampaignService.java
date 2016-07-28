@@ -1,6 +1,12 @@
 package br.com.battista.arcadiacaller.service;
 
 
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_CREATE;
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_DELETE;
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_FIND_BY_USER;
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_UPDATE;
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -16,11 +22,6 @@ import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.listener.CampaignListener;
 import br.com.battista.arcadiacaller.model.Campaign;
 import retrofit2.Response;
-
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_CREATE;
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_FIND_BY_USER;
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_UPDATE;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class CampaignService extends BaseService {
 
@@ -107,6 +108,33 @@ public class CampaignService extends BaseService {
         }
 
         return campaign;
+    }
+
+    public Boolean delete(@NonNull String token, @NonNull Campaign campaign) {
+        if (campaign == null) {
+            throw new ValidatorException("Campaign can not be null!");
+        }
+
+        Log.i(TAG_CLASSNAME, MessageFormat.format("Delete campaign with key: {0} in app server url:[{1}]!",
+                campaign.getKey(), RestConstant.REST_API_ENDPOINT.concat(URI_DELETE)));
+
+        CampaignListener listener = builder.create(CampaignListener.class);
+        try {
+            Response<Void> response = listener.delete(token, campaign.getKey()).execute();
+            if (response != null && response.code() == HttpStatus.OK.value()) {
+                Log.i(TAG, MessageFormat.format("Success deleted campaign: {0}!", campaign));
+                return Boolean.TRUE;
+            } else {
+                String errorMessage = MessageFormat.format(
+                        "Error delete to campaign! Return the code status: {0}.",
+                        HttpStatus.valueOf(response.code()));
+                validateErrorResponse(response, errorMessage);
+            }
+        } catch (IOException e) {
+            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+        }
+
+        return Boolean.FALSE;
     }
 
 }

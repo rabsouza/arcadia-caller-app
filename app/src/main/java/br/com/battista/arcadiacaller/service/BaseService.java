@@ -95,7 +95,7 @@ public class BaseService {
     @NonNull
     private HttpLoggingInterceptor createHttpLoggingInterceptor() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         return logging;
     }
 

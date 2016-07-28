@@ -22,6 +22,7 @@ import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.activity.CampaingDetailActivity;
 import br.com.battista.arcadiacaller.adapter.CampaignAdapter;
+import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
@@ -53,7 +54,7 @@ public class CampaignsFragment extends BaseFragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.card_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
 
         loadFloatingAction(view);
 
@@ -83,6 +84,7 @@ public class CampaignsFragment extends BaseFragment {
 
     private void loadCampaignDetailActivity() {
         Bundle args = new Bundle();
+        args.putSerializable(BundleConstant.DATA, new Campaign());
         Intent intent = new Intent(getContext(), CampaingDetailActivity.class);
         intent.putExtras(args);
 
@@ -96,7 +98,9 @@ public class CampaignsFragment extends BaseFragment {
 
             @Override
             protected void onPostExecute(Boolean result) {
-                recyclerView.setAdapter(new CampaignAdapter(getContext(), campaigns));
+                CampaignAdapter adapter = new CampaignAdapter(getActivity(), getContext(), campaigns);
+                adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(adapter);
                 if (campaigns.isEmpty()) {
                     AndroidUtils.snackbar(getView(), R.string.msg_empty_campaigns);
                 }

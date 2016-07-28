@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
@@ -24,8 +27,6 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static java.lang.Boolean.*;
 
 
 public class CampaignDetailNewFragment extends BaseFragment {
@@ -61,15 +62,18 @@ public class CampaignDetailNewFragment extends BaseFragment {
             }
         });
 
-        processDataFragment(getArguments());
+        processDataFragment(viewFragment, getArguments());
 
         return viewFragment;
     }
 
-    private void processDataFragment(Bundle bundle) {
+    private void processDataFragment(View view, Bundle bundle) {
         Log.d(TAG, "processDataFragment: Processs bundle data Fragment!");
         if (bundle.containsKey(BundleConstant.DATA)) {
             campaignCreated = (Campaign) bundle.getSerializable(BundleConstant.DATA);
+
+            txtAlias = (EditText) view.findViewById(R.id.detail_card_view_campaign_alias);
+            txtAlias.setText(campaignCreated.getAlias());
         }
     }
 

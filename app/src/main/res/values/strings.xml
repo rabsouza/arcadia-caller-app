@@ -4,7 +4,7 @@
     <string name="title_app">Arcadia Caller</string>
     <string name="title_home">Inicial</string>
     <string name="title_campaigns">Campanhas</string>
-    <string name="title_campaign_detail">Campanha...</string>
+    <string name="title_campaign_detail">Campanha</string>
     <string name="title_heroes">Heróis</string>
     <string name="title_cards">Cartas</string>
     <string name="title_sceneries">Cenários</string>
@@ -22,6 +22,7 @@
     <string name="btn_ok">OK</string>
     <string name="btn_confirmation_dialog_exit">SAIR</string>
     <string name="btn_confirmation_dialog_cancel">Cancelar</string>
+    <string name="btn_confirmation_dialog_delete">EXCLUIR</string>
 
     <!-- ################### HINT #################### -->
     <string name="hint_card_group">Grupo: {0}</string>
@@ -42,6 +43,8 @@
     <string name="hint_text_detail_guilds_login">*¹ Deve ser um login de um usuário já existente na aplicação.</string>
     <string name="hint_text_detail_guilds_login_2">*² Será necessário criar um novo login do usuário quando inexistente.</string>
     <string name="hint_detail_scenery">Cenário</string>
+    <string name="hint_detail_scenery_location">Localização</string>
+    <string name="hint_detail_scenery_name">Nome</string>
 
     <!-- ################### MSG #################### -->
     <string name="msg_failed_already_exists_user">Erro ao criar o usuário! Por favor tente outro login ou e-mail!</string>
@@ -59,12 +62,15 @@
     <string name="msg_username_guild_required">Login da Guilda invalido!</string>
     <string name="msg_at_east_one_guild_required">Pelo menos uma Guilda deve ser escolhida!</string>
     <string name="msg_error_campaign_not_found">Erro ao processar a campanha! Por favor, crie um nova campanha. User o botao voltar para isso!</string>
+    <string name="msg_error_delete_campaign">Erro ao excluir a campanha! Por favor, tente novamente!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
     <string name="alert_success_sign_in">Usuário criado com sucesso!</string>
     <string name="alert_confirmation_dialog_title_exit">Tem certeza?</string>
     <string name="alert_confirmation_dialog_text_exit">Você cancelou as alterações salvas. Deseja sair sem salvar?</string>
+    <string name="alert_confirmation_dialog_title_delete">Tem certeza?</string>
+    <string name="alert_confirmation_dialog_text_delete">Deseja excluir a campanha {0}? Essa operação não pode ser revetida.</string>
 
     <!-- ################### OTHERS #################### -->
     <string name="navigation_drawer_open">Abrir menu de navegação!</string>
