@@ -73,10 +73,10 @@
 
                             <EditText
                                 android:id="@+id/detail_card_view_guilds_login_blue"
+                                style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
-                                android:drawableLeft="@drawable/ic_username"
                                 android:hint="@string/hint_detail_guilds_login_blue"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1" />
@@ -102,10 +102,10 @@
 
                             <EditText
                                 android:id="@+id/detail_card_view_guilds_login_green"
+                                style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
-                                android:drawableLeft="@drawable/ic_username"
                                 android:hint="@string/hint_detail_guilds_login_green"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1" />
@@ -131,10 +131,10 @@
 
                             <EditText
                                 android:id="@+id/detail_card_view_guilds_login_red"
+                                style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
-                                android:drawableLeft="@drawable/ic_username"
                                 android:hint="@string/hint_detail_guilds_login_red"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1" />
@@ -160,10 +160,10 @@
 
                             <EditText
                                 android:id="@+id/detail_card_view_guilds_login_orange"
+                                style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
-                                android:drawableLeft="@drawable/ic_username"
                                 android:hint="@string/hint_detail_guilds_login_orange"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1" />

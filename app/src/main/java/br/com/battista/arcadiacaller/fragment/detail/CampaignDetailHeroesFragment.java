@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
@@ -146,45 +147,61 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
                         android.R.layout.simple_dropdown_item_1line, (List<String>) namesHeroes);
 
-                spnGuildBlueHero01 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_hero_01);
-                spnGuildBlueHero01.setAdapter(arrayAdapter);
-                spnGuildBlueHero02 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_hero_02);
-                spnGuildBlueHero02.setAdapter(arrayAdapter);
-                spnGuildBlueHero03 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_hero_03);
-                spnGuildBlueHero03.setAdapter(arrayAdapter);
+                if (!Strings.isNullOrEmpty(campaign.getGuild01())) {
+                    spnGuildBlueHero01 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_hero_01);
+                    spnGuildBlueHero01.setAdapter(arrayAdapter);
+                    spnGuildBlueHero02 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_hero_02);
+                    spnGuildBlueHero02.setAdapter(arrayAdapter);
+                    spnGuildBlueHero03 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_hero_03);
+                    spnGuildBlueHero03.setAdapter(arrayAdapter);
+                } else {
+                    viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue).setVisibility(View.INVISIBLE);
+                }
 
-                spnGuildGreenHero01 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_hero_01);
-                spnGuildGreenHero01.setAdapter(arrayAdapter);
-                spnGuildGreenHero02 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_hero_02);
-                spnGuildGreenHero02.setAdapter(arrayAdapter);
-                spnGuildGreenHero03 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_hero_03);
-                spnGuildGreenHero03.setAdapter(arrayAdapter);
+                if (!Strings.isNullOrEmpty(campaign.getGuild02())) {
+                    spnGuildGreenHero01 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_hero_01);
+                    spnGuildGreenHero01.setAdapter(arrayAdapter);
+                    spnGuildGreenHero02 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_hero_02);
+                    spnGuildGreenHero02.setAdapter(arrayAdapter);
+                    spnGuildGreenHero03 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_hero_03);
+                    spnGuildGreenHero03.setAdapter(arrayAdapter);
+                } else {
+                    viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green).setVisibility(View.INVISIBLE);
+                }
 
-                spnGuildRedHero01 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_hero_01);
-                spnGuildRedHero01.setAdapter(arrayAdapter);
-                spnGuildRedHero02 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_hero_02);
-                spnGuildRedHero02.setAdapter(arrayAdapter);
-                spnGuildRedHero03 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_hero_03);
-                spnGuildRedHero03.setAdapter(arrayAdapter);
+                if (!Strings.isNullOrEmpty(campaign.getGuild03())) {
+                    spnGuildRedHero01 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_hero_01);
+                    spnGuildRedHero01.setAdapter(arrayAdapter);
+                    spnGuildRedHero02 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_hero_02);
+                    spnGuildRedHero02.setAdapter(arrayAdapter);
+                    spnGuildRedHero03 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_hero_03);
+                    spnGuildRedHero03.setAdapter(arrayAdapter);
+                } else {
+                    viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red).setVisibility(View.INVISIBLE);
+                }
 
-                spnGuildOrangeHero01 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_hero_01);
-                spnGuildOrangeHero01.setAdapter(arrayAdapter);
-                spnGuildOrangeHero02 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_hero_02);
-                spnGuildOrangeHero02.setAdapter(arrayAdapter);
-                spnGuildOrangeHero03 = (MaterialBetterSpinner)
-                        viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_hero_03);
-                spnGuildOrangeHero03.setAdapter(arrayAdapter);
+                if (!Strings.isNullOrEmpty(campaign.getGuild04())) {
+                    spnGuildOrangeHero01 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_hero_01);
+                    spnGuildOrangeHero01.setAdapter(arrayAdapter);
+                    spnGuildOrangeHero02 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_hero_02);
+                    spnGuildOrangeHero02.setAdapter(arrayAdapter);
+                    spnGuildOrangeHero03 = (MaterialBetterSpinner)
+                            viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_hero_03);
+                    spnGuildOrangeHero03.setAdapter(arrayAdapter);
+                } else {
+                    viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange).setVisibility(View.INVISIBLE);
+                }
 
             }
 

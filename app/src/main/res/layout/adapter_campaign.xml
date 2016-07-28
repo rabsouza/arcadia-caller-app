@@ -181,7 +181,7 @@
                     android:layout_width="@dimen/cards_button_width"
                     android:layout_height="@dimen/cards_button_height"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/element_horizontal_margin"
+                    android:layout_marginRight="@dimen/fab_margin_right"
                     android:tint="@color/gray"
                     app:srcCompat="@drawable/ic_delete" />
 

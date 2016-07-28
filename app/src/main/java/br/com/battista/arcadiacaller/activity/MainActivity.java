@@ -22,6 +22,8 @@ import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 
+import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
+
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -52,6 +54,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             ActionEnum action = ActionEnum.get(extras.get(BundleConstant.ACTION).toString());
             if (ActionEnum.START_FRAGMENT_CAMPAIGNS.equals(action)) {
                 Log.i(TAG, "loadFragmentInitial: Load the CampaignsFragment!");
+                changeTitleToolbar(R.string.title_campaigns);
                 replaceFragment(CampaignsFragment.newInstance());
                 return;
             }
@@ -87,7 +90,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             replaceFragment(HomeFragment.newInstance());
             AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
 
-        } else if (id == R.id.nav_menu_campaign) {
+        } else if (id == nav_menu_campaign) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Campaign.");
             changeToolbarTitle(menuItem);
             replaceFragment(CampaignsFragment.newInstance());

@@ -1,8 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +27,9 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
 import lombok.Getter;
 
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
+
 public class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
@@ -50,6 +50,10 @@ public class BaseActivity extends AppCompatActivity {
                 .putContentName(nameView)
                 .putContentType(KEY_ACTIVITY));
 
+        checkMainApplication();
+    }
+
+    private void checkMainApplication() {
         if (MainApplication.instance() == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             getContext().startActivity(intent);
@@ -59,11 +63,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        if (MainApplication.instance() == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            getContext().startActivity(intent);
-        }
+        checkMainApplication();
     }
 
     protected Context getContext() {
@@ -77,12 +77,16 @@ public class BaseActivity extends AppCompatActivity {
     protected void setUpToolbar(int title) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
-            if (title != 0) {
-                toolbar.setTitle(title);
-            }
+            changeTitleToolbar(title);
 
             Log.d(TAG, "setUpToolbar: Active support toolbar!");
             setSupportActionBar(toolbar);
+        }
+    }
+
+    protected void changeTitleToolbar(int title) {
+        if (title != 0) {
+            toolbar.setTitle(title);
         }
     }
 
@@ -103,6 +107,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void loadNavigationViewHeader(NavigationView navigationView) {
+        checkMainApplication();
+
         if (navigationView != null && navigationView.getHeaderCount() > 0) {
             View view = navigationView.getHeaderView(0);
             if (view != null) {
