@@ -24,12 +24,15 @@ import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.User;
-import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
 import static java.lang.Boolean.FALSE;
 
 public class CampaignDetailGuildsFragment extends BaseFragment {
@@ -125,22 +128,22 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
 
     private void loadGuildsImg(View viewFragment) {
         Glide.with(getContext())
-                .load(NameGuildEnum.BLUE.getUrlImg())
+                .load(BLUE.getUrlImg())
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_blue));
 
         Glide.with(getContext())
-                .load(NameGuildEnum.GREEN.getUrlImg())
+                .load(GREEN.getUrlImg())
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_green));
 
         Glide.with(getContext())
-                .load(NameGuildEnum.RED.getUrlImg())
+                .load(RED.getUrlImg())
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_red));
 
         Glide.with(getContext())
-                .load(NameGuildEnum.ORANGE.getUrlImg())
+                .load(ORANGE.getUrlImg())
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_orange));
     }
@@ -152,8 +155,8 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
 
             txtLoginBlue.setText(campaign.getGuild01());
             txtLoginGreen.setText(campaign.getGuild02());
-            txtLoginOrange.setText(campaign.getGuild03());
-            txtLoginRed.setText(campaign.getGuild04());
+            txtLoginRed.setText(campaign.getGuild03());
+            txtLoginOrange.setText(campaign.getGuild04());
         }
     }
 
@@ -165,9 +168,13 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
             return;
         }
 
+        txtLoginBlue = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_blue);
         final String loginBlue = txtLoginBlue.getText().toString().trim();
-        final String loginRed = txtLoginRed.getText().toString().trim();
+        txtLoginGreen = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_green);
         final String loginGreen = txtLoginGreen.getText().toString().trim();
+        txtLoginRed = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_red);
+        final String loginRed = txtLoginRed.getText().toString().trim();
+        txtLoginOrange = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_orange);
         final String loginOrange = txtLoginOrange.getText().toString().trim();
 
         if (Strings.isNullOrEmpty(loginBlue) && Strings.isNullOrEmpty(loginGreen) && Strings.isNullOrEmpty(loginRed) && Strings.isNullOrEmpty(loginOrange)) {
@@ -195,33 +202,78 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                     UserService userService = Inject.provideUserService();
                     if (!Strings.isNullOrEmpty(loginBlue)) {
                         User user = userService.findByUsername(token, loginBlue);
+                        Guild guild = campaign.getHeroesGuild01();
+                        if (guild == null) {
+                            guild = Guild.builder().name(BLUE).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                        } else {
+                            guild.setUser(user);
+                            guild.setName(BLUE);
+                        }
                         campaign.setGuild01(loginBlue);
-                        Guild guild = Guild.builder().name(NameGuildEnum.BLUE).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
                         campaign.setHeroesGuild01(guild);
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Blue: {} in campaign!", guild));
+                    } else {
+                        Log.i(TAG, "doInBackground: Clear data guild Blue!");
+                        campaign.setGuild01(null);
+                        campaign.setHeroesGuild01(null);
                     }
 
                     if (!Strings.isNullOrEmpty(loginGreen)) {
                         User user = userService.findByUsername(token, loginGreen);
+                        Guild guild = campaign.getHeroesGuild02();
+                        if (guild == null) {
+                            guild = Guild.builder().name(GREEN).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                        } else {
+                            guild.setUser(user);
+                            guild.setName(GREEN);
+                        }
                         campaign.setGuild02(loginGreen);
-                        Guild guild = Guild.builder().name(NameGuildEnum.GREEN).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
                         campaign.setHeroesGuild02(guild);
-                    }
-
-                    if (!Strings.isNullOrEmpty(loginOrange)) {
-                        User user = userService.findByUsername(token, loginOrange);
-                        campaign.setGuild03(loginOrange);
-                        Guild guild = Guild.builder().name(NameGuildEnum.ORANGE).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
-                        campaign.setHeroesGuild03(guild);
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Green: {} in campaign!", guild));
+                    } else {
+                        Log.i(TAG, "doInBackground: Clear data guild Green!");
+                        campaign.setGuild02(null);
+                        campaign.setHeroesGuild02(null);
                     }
 
                     if (!Strings.isNullOrEmpty(loginRed)) {
                         User user = userService.findByUsername(token, loginRed);
-                        campaign.setGuild04(loginRed);
-                        Guild guild = Guild.builder().name(NameGuildEnum.RED).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                        Guild guild = campaign.getHeroesGuild03();
+                        if (guild == null) {
+                            guild = Guild.builder().name(RED).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                        } else {
+                            guild.setUser(user);
+                            guild.setName(RED);
+                        }
+                        campaign.setGuild03(loginRed);
+                        campaign.setHeroesGuild03(guild);
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Red: {} in campaign!", guild));
+                    } else {
+                        Log.i(TAG, "doInBackground: Clear data guild Red!");
+                        campaign.setGuild03(null);
+                        campaign.setHeroesGuild03(null);
+                    }
+
+                    if (!Strings.isNullOrEmpty(loginOrange)) {
+                        User user = userService.findByUsername(token, loginOrange);
+                        Guild guild = campaign.getHeroesGuild04();
+                        if (guild == null) {
+                            guild = Guild.builder().name(ORANGE).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                        } else {
+                            guild.setUser(user);
+                            guild.setName(ORANGE);
+                        }
+                        campaign.setGuild04(loginOrange);
                         campaign.setHeroesGuild04(guild);
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Orange: {} in campaign!", guild));
+                    } else {
+                        Log.i(TAG, "doInBackground: Clear data guild Orange!");
+                        campaign.setGuild04(null);
+                        campaign.setHeroesGuild04(null);
                     }
 
                     CampaignService campaignService = Inject.provideCampaignService();
+                    Log.i(TAG, "doInBackground: Update the campaign with data Guilds!");
                     campaign = campaignService.update(token, campaign);
 
                 } catch (Exception e) {
