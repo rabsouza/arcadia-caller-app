@@ -22,6 +22,7 @@ import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 
+import static br.com.battista.arcadiacaller.R.id.container;
 import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         loadToolbar();
         setUpToolbar(R.string.title_app);
@@ -88,7 +90,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             Log.d(TAG, "onNavigationItemSelected: Go to menu Home.");
             changeToolbarTitle(menuItem);
             replaceFragment(HomeFragment.newInstance());
-            AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
+            AndroidUtils.snackbar(findViewById(container), R.string.msg_blank_fragment);
 
         } else if (id == nav_menu_campaign) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Campaign.");
@@ -113,7 +115,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (id == R.id.nav_menu_manage) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Manage.");
             changeToolbarTitle(menuItem);
-            AndroidUtils.toast(getContext(), R.string.msg_blank_fragment);
+            AndroidUtils.snackbar(findViewById(container), R.string.msg_blank_fragment);
 
         } else if (id == R.id.nav_menu_about) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Help.");

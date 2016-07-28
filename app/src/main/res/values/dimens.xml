@@ -11,14 +11,14 @@
     <dimen name="no_dimen">0dp</dimen>
 
     <dimen name="dimen_dialog_text">24dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin">8dp</dimen>
     <dimen name="card_height">304dp</dimen>
     <dimen name="md_keylines">16dp</dimen>
     <dimen name="article_keylines">82dp</dimen>
     <dimen name="card_image_height">200dp</dimen>
     <dimen name="dimen_card_view_height">118dp</dimen>
     <dimen name="dimen_card_scenery_view_height">180dp</dimen>
-    <dimen name="dimen_card_campaign_view_height">450dp</dimen>
+    <dimen name="dimen_card_campaign_view_height">440dp</dimen>
     <dimen name="card_view_item_height">310dp</dimen>
     <dimen name="cards_button_width">48dp</dimen>
     <dimen name="cards_button_height">48dp</dimen>
@@ -26,7 +26,7 @@
     <dimen name="item_img_height">38dp</dimen>
 
     <dimen name="fab_margin_bottom">56dp</dimen>
-    <dimen name="fab_margin_right">56dp</dimen>
+    <dimen name="fab_margin_right">60dp</dimen>
     <dimen name="app_bar_height">256dp</dimen>
 
 </resources>

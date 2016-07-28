@@ -10,13 +10,13 @@ import android.util.Log;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
-import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailNewFragment;
+import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailCompleteSceneryFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-public class CampaingDetailActivity extends BaseActivity {
+public class CampaingDetailCompleteActivity extends BaseActivity {
 
     private static final String TAG = CampaingDetailActivity.class.getSimpleName();
 
@@ -25,7 +25,7 @@ public class CampaingDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_campaing_detail);
+        setContentView(R.layout.activity_campaing_detail_complete);
 
         setSupportActionBar((Toolbar) findViewById(R.id.detail_toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -36,14 +36,14 @@ public class CampaingDetailActivity extends BaseActivity {
         collapsingToolbar.setTitle(getContext().getString(R.string.title_campaign_detail));
 
         processDataActivity(getIntent().getExtras());
-        replaceDetailFragment(CampaignDetailNewFragment.newInstance(campaign));
+        replaceDetailFragment(CampaignDetailCompleteSceneryFragment.newInstance(campaign));
     }
 
     protected void replaceDetailFragment(Fragment fragment) {
         if (fragment != null) {
             Log.d(TAG, "replaceFragment: Change to detail fragment!");
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.detail_container, fragment).commit();
+                    .replace(R.id.detail_container_complete, fragment).commit();
         }
     }
 

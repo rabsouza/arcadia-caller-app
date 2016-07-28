@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:replace="android:allowBackup">
-
         <activity
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait">
@@ -41,6 +40,8 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="259f20ad704f17270f36dedac2ff04ed2f044dfb" />
+
+        <activity android:name=".activity.CampaingDetailCompleteActivity"></activity>
     </application>
 
 </manifest>

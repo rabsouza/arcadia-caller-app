@@ -24,6 +24,7 @@ import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.activity.CampaingDetailActivity;
+import br.com.battista.arcadiacaller.activity.CampaingDetailCompleteActivity;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
 import br.com.battista.arcadiacaller.adapter.item.SceneryItemAdapter;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
@@ -34,7 +35,10 @@ import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import lombok.Getter;
 
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.*;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 
@@ -126,8 +130,10 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
             holder.getBtnPlay().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (Lists.newArrayList(CREATED_CAMPAIGN, EDITED_SCENERY, ADDED_SCENERY).contains(statusCurrent) && campaign.existsHeroes()) {
+                    if (CREATED_CAMPAIGN.equals(statusCurrent) && campaign.existsHeroes()) {
                         createDialogPlayCampaign(campaign, viewCurrent);
+                    } else if (Lists.newArrayList(EDITED_SCENERY, ADDED_SCENERY).contains(statusCurrent) && campaign.existsHeroes()) {
+                        loadCampaignDetailCompleteActivity(campaign);
                     } else {
                         String msgWarnPlay = getContext().getResources().getString(R.string.msg_warn_play_campaign);
                         AndroidUtils.snackbar(viewCampaign, MessageFormat.format(msgWarnPlay, campaign.getKey()));
@@ -226,16 +232,16 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setPositiveButton(R.string.btn_confirmation_dialog_play, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        AndroidUtils.snackbar(viewCampaign, R.string.msg_blank_fragment);
+                        loadCampaignDetailCompleteActivity(campaign);
                     }
                 })
                 .setNegativeButton(R.string.btn_confirmation_dialog_cancel, null).show();
     }
 
-    private void loadCampaignDetailActivity(Campaign campaign) {
+    private void loadCampaignDetailCompleteActivity(Campaign campaign) {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
-        Intent intent = new Intent(getContext(), CampaingDetailActivity.class);
+        Intent intent = new Intent(getContext(), CampaingDetailCompleteActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);

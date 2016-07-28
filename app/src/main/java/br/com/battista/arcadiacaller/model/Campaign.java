@@ -181,6 +181,7 @@ public class Campaign extends BaseEntity implements Serializable {
         return scenery;
     }
 
+    @NonNull
     public Boolean existsHeroes() {
         return (heroesGuild01 != null && heroesGuild01.getHero01() != null && heroesGuild01.getHero02() != null && heroesGuild01.getHero03() != null)
                 || (heroesGuild02 != null && heroesGuild02.getHero01() != null && heroesGuild02.getHero02() != null && heroesGuild02.getHero03() != null)
@@ -188,6 +189,7 @@ public class Campaign extends BaseEntity implements Serializable {
                 || (heroesGuild04 != null && heroesGuild04.getHero01() != null && heroesGuild04.getHero02() != null && heroesGuild04.getHero03() != null);
     }
 
+    @NonNull
     public CampaignStatusEnum getStatusCurrent() {
         CampaignStatusEnum status = CampaignStatusEnum.CREATED_CAMPAIGN;
         if (scenery1 == null || !existsHeroes() || !scenery1.getCompleted()) {
