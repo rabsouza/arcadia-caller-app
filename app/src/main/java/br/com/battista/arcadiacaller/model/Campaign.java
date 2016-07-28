@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
-
 import android.support.annotation.NonNull;
 
 import com.activeandroid.annotation.Column;
@@ -15,6 +13,7 @@ import java.util.List;
 
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
+import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +21,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
 
 @Builder
 @AllArgsConstructor
@@ -178,6 +179,35 @@ public class Campaign extends BaseEntity implements Serializable {
             scenery = scenery1;
         }
         return scenery;
+    }
+
+    public Boolean existsHeroes() {
+        return (heroesGuild01 != null && heroesGuild01.getHero01() != null && heroesGuild01.getHero02() != null && heroesGuild01.getHero03() != null)
+                || (heroesGuild02 != null && heroesGuild02.getHero01() != null && heroesGuild02.getHero02() != null && heroesGuild02.getHero03() != null)
+                || (heroesGuild03 != null && heroesGuild03.getHero01() != null && heroesGuild03.getHero02() != null && heroesGuild03.getHero03() != null)
+                || (heroesGuild04 != null && heroesGuild04.getHero01() != null && heroesGuild04.getHero02() != null && heroesGuild04.getHero03() != null);
+    }
+
+    public CampaignStatusEnum getStatusCurrent() {
+        CampaignStatusEnum status = CampaignStatusEnum.CREATED_CAMPAIGN;
+        if (scenery1 == null || !existsHeroes() || !scenery1.getCompleted()) {
+            status = CampaignStatusEnum.CREATED_CAMPAIGN;
+        } else if (((scenery1 != null && scenery1.getCompleted()) && scenery2 == null)
+                || ((scenery2 != null && scenery2.getCompleted()) && scenery3 == null)
+                || ((scenery3 != null && scenery3.getCompleted()) && scenery4 == null)
+                || ((scenery4 != null && scenery4.getCompleted()) && scenery5 == null)
+                || ((scenery5 != null && scenery5.getCompleted()) && scenery6 == null)) {
+            status = CampaignStatusEnum.ADDED_SCENERY;
+        } else if (((scenery1 != null && !scenery1.getCompleted()) && scenery2 == null)
+                || ((scenery2 != null && !scenery2.getCompleted()) && scenery3 == null)
+                || ((scenery3 != null && !scenery3.getCompleted()) && scenery4 == null)
+                || ((scenery4 != null && !scenery4.getCompleted()) && scenery5 == null)
+                || ((scenery5 != null && !scenery5.getCompleted()) && scenery6 == null)) {
+            status = CampaignStatusEnum.EDITED_SCENERY;
+        } else if (scenery6 != null && scenery6.getCompleted()) {
+            status = CampaignStatusEnum.COMPLETED_CAMPAIGN;
+        }
+        return status;
     }
 
     @Override

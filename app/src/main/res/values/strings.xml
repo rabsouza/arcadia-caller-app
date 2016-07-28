@@ -23,6 +23,7 @@
     <string name="btn_confirmation_dialog_exit">SAIR</string>
     <string name="btn_confirmation_dialog_cancel">Cancelar</string>
     <string name="btn_confirmation_dialog_delete">EXCLUIR</string>
+    <string name="btn_confirmation_dialog_play">JOGAR</string>
 
     <!-- ################### HINT #################### -->
     <string name="hint_card_group">Grupo: {0}</string>
@@ -56,8 +57,9 @@
 
     <!-- ################### MSG #################### -->
     <string name="msg_failed_already_exists_user">Erro ao criar o usuário! Por favor tente outro login ou e-mail!</string>
-    <string name="msg_failed_create_user">Erro ao criar o usuário! Siga as orientações da tela para criar um novo usuário!</string>
-    <string name="msg_failed_create_campaign">Erro ao criar a campanha! Siga as orientações da tela para criar uma nova campanha!</string>
+    <string name="msg_failed_create_user">Erro ao criar o usuário! Siga as orientações da tela!</string>
+    <string name="msg_failed_create_campaign">Erro ao criar a campanha! Siga as orientações da tela!</string>
+    <string name="msg_failed_update_campaign">Erro ao atualizar a campanha! Siga as orientações da tela!</string>
     <string name="msg_failed_login_user">Login invalido! Por favor, tente novamente!</string>
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>
@@ -70,8 +72,12 @@
     <string name="msg_alias_required">Nome/Apelido é obrigatório!</string>
     <string name="msg_username_guild_required">Login da Guilda invalido!</string>
     <string name="msg_at_east_one_guild_required">Pelo menos uma Guilda deve ser escolhida!</string>
-    <string name="msg_error_campaign_not_found">Erro ao processar a campanha! Por favor, crie um nova campanha. User o botao voltar para isso!</string>
+    <string name="msg_error_campaign_not_found">Erro ao processar a campanha! Por favor, crie um nova campanha.</string>
     <string name="msg_error_delete_campaign">Erro ao excluir a campanha! Por favor, tente novamente!</string>
+    <string name="msg_warn_delete_campaign">A campanha {0} já foi iniciada e não pode ser excluida!</string>
+    <string name="msg_warn_edit_campaign">A campanha {0} já foi iniciada e não pode ser alterada!</string>
+    <string name="msg_warn_play_campaign">A campanha {0} deve está iniciada! Não pode está concluída e não possuir pendências!</string>
+    <string name="msg_warn_complete_campaign">A campanha {0} ainda não foi iniciada. Complete os seis cenários para finaliza-la!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
@@ -80,6 +86,8 @@
     <string name="alert_confirmation_dialog_text_exit">Você cancelou as alterações salvas. Deseja sair sem salvar?</string>
     <string name="alert_confirmation_dialog_title_delete">Tem certeza?</string>
     <string name="alert_confirmation_dialog_text_delete">Deseja excluir a campanha {0}? Essa operação não pode ser revetida.</string>
+    <string name="alert_confirmation_dialog_title_play">Tem certeza?</string>
+    <string name="alert_confirmation_dialog_text_play">Deseja iniciar a campanha {0}? Essa operação não pode ser revetida e a campanha não poderá ser editada ou excluida.</string>
 
     <!-- ################### OTHERS #################### -->
     <string name="navigation_drawer_open">Abrir menu de navegação!</string>

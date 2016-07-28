@@ -215,6 +215,16 @@
                     android:tint="@color/gray"
                     app:srcCompat="@drawable/ic_edit" />
 
+                <ImageButton
+                    android:id="@+id/card_view_campaign_info"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="@dimen/cards_button_width"
+                    android:layout_height="@dimen/cards_button_height"
+                    android:layout_marginRight="@dimen/element_horizontal_margin"
+                    android:layout_toLeftOf="@id/card_view_campaign_edit"
+                    android:tint="@color/gray"
+                    app:srcCompat="@drawable/ic_info" />
+
             </RelativeLayout>
 
         </LinearLayout>

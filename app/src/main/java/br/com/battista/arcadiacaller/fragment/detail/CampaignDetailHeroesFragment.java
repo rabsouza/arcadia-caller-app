@@ -26,6 +26,7 @@ import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
+import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
@@ -37,7 +38,8 @@ import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
-import static java.lang.Boolean.*;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class CampaignDetailHeroesFragment extends BaseFragment {
 
@@ -383,7 +385,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
                 if (result) {
                     replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()));
                 } else {
-                    AndroidUtils.snackbar(currentView, R.string.msg_failed_create_campaign);
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_update_campaign);
                 }
                 dismissProgress();
             }
@@ -397,6 +399,9 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
                     Log.i(TAG, "doInBackground: Update the campaign with data heroes!");
                     campaign = campaignService.update(token, campaign);
 
+                } catch (ValidatorException e) {
+                    Log.e(TAG, e.getLocalizedMessage());
+                    return false;
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                     return false;

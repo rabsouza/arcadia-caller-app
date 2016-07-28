@@ -28,6 +28,9 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
     @Getter
     private ImageButton btnPlay;
 
+    @Getter
+    private ImageButton btnInfo;
+
     public CampaignViewHolder(View view) {
         super(view);
 
@@ -38,6 +41,7 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
         btnPlay = (ImageButton) view.findViewById(R.id.card_view_campaign_play);
         btnEdit = (ImageButton) view.findViewById(R.id.card_view_campaign_edit);
         btnDelete = (ImageButton) view.findViewById(R.id.card_view_campaign_delete);
+        btnInfo = (ImageButton) view.findViewById(R.id.card_view_campaign_info);
     }
 
 }

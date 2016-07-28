@@ -108,7 +108,7 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
                     getContext().startActivity(intent);
                 } else {
                     Log.i(TAG, "onPostExecute: Error add scenery to campaign!");
-                    AndroidUtils.snackbar(currentView, R.string.msg_error_campaign_not_found);
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_update_campaign);
                 }
                 dismissProgress();
             }

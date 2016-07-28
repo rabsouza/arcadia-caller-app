@@ -189,7 +189,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                 if (result) {
                     replaceDetailFragment(CampaignDetailHeroesFragment.newInstance(campaign));
                 } else {
-                    AndroidUtils.snackbar(currentView, R.string.msg_failed_create_campaign);
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_update_campaign);
                 }
                 dismissProgress();
             }
