@@ -5,7 +5,6 @@ import static java.lang.Boolean.FALSE;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +27,6 @@ import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.User;
-import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.UserService;
@@ -179,12 +177,11 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
         }
 
         final View currentView = view;
-        new ProgressApp(getActivity(), R.string.msg_action_loading, false) {
-
+        new ProgressApp(getActivity(), R.string.msg_action_saving, false) {
             @Override
             protected void onPostExecute(Boolean result) {
                 if (result) {
-                    replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, getLocationScenery()));
+                    replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()));
                 } else {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_create_campaign);
                 }
@@ -227,6 +224,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
 
                     CampaignService campaignService = Inject.provideCampaignService();
                     campaign = campaignService.update(token, campaign);
+
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                     return false;
@@ -234,21 +232,6 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                 return true;
             }
         }.execute();
-    }
-
-    @NonNull
-    private LocationSceneryEnum getLocationScenery() {
-        LocationSceneryEnum locationScenery = LocationSceneryEnum.NONE;
-        if (campaign == null) {
-            locationScenery = LocationSceneryEnum.NONE;
-        } else if (campaign.getScenery1() == null || campaign.getScenery2() == null || campaign.getScenery3() == null) {
-            locationScenery = LocationSceneryEnum.OUT_CIRCLE;
-        } else if (campaign.getScenery4() == null || campaign.getScenery5() == null) {
-            locationScenery = LocationSceneryEnum.INNER_CIRCLE;
-        } else if (campaign.getScenery6() == null) {
-            locationScenery = LocationSceneryEnum.ULTIMATE;
-        }
-        return locationScenery;
     }
 
 }

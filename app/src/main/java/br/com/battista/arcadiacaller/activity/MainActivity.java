@@ -12,12 +12,14 @@ import com.crashlytics.android.Crashlytics;
 
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
 import br.com.battista.arcadiacaller.fragment.CardsFragment;
 import br.com.battista.arcadiacaller.fragment.HeroesFragment;
 import br.com.battista.arcadiacaller.fragment.HomeFragment;
 import br.com.battista.arcadiacaller.fragment.SceneriesFragment;
 import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
+import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,7 +35,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setUpToolbar(R.string.title_app);
         loadDrawer();
         loadNavigationViewHeader();
-        loadFragmentInitial();
+        loadFragmentInitial(getIntent().getExtras());
         logUserCrashlytics();
 
     }
@@ -45,7 +47,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         Crashlytics.setUserName(instance.getUser().getUsername());
     }
 
-    private void loadFragmentInitial() {
+    private void loadFragmentInitial(Bundle extras) {
+        if (extras.containsKey(BundleConstant.ACTION)) {
+            ActionEnum action = ActionEnum.get(extras.get(BundleConstant.ACTION).toString());
+            if (ActionEnum.START_FRAGMENT_CAMPAIGNS.equals(action)) {
+                Log.i(TAG, "loadFragmentInitial: Load the CampaignsFragment!");
+                replaceFragment(CampaignsFragment.newInstance());
+                return;
+            }
+        }
+        Log.i(TAG, "loadFragmentInitial: Load the HomeFragment!");
         replaceFragment(HomeFragment.newInstance());
     }
 

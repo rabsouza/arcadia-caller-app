@@ -99,7 +99,7 @@ public class CampaignDetailNewFragment extends BaseFragment {
         }
 
         final View currentView = view;
-        new ProgressApp(getActivity(), R.string.msg_action_loading, false) {
+        new ProgressApp(getActivity(), R.string.msg_action_saving, false) {
 
             @Override
             protected void onPostExecute(Boolean result) {

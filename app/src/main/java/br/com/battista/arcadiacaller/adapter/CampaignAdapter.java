@@ -140,6 +140,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                     intent.putExtras(args);
 
                     getContext().startActivity(intent);
+                    adapterCurrent.notifyDataSetChanged();
                 }
             });
 

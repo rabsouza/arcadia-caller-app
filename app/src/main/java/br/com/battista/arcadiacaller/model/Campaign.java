@@ -2,6 +2,8 @@ package br.com.battista.arcadiacaller.model;
 
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
 
+import android.support.annotation.NonNull;
+
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.google.common.base.Strings;
@@ -13,6 +15,7 @@ import java.util.List;
 
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
+import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -143,6 +146,38 @@ public class Campaign extends BaseEntity implements Serializable {
         }
 
         return sceneries;
+    }
+
+    @NonNull
+    public LocationSceneryEnum getLocationCurrent() {
+        LocationSceneryEnum locationScenery = LocationSceneryEnum.NONE;
+        if (getScenery1() == null || getScenery2() == null || getScenery3() == null) {
+            locationScenery = LocationSceneryEnum.OUT_CIRCLE;
+        } else if (getScenery4() == null || getScenery5() == null) {
+            locationScenery = LocationSceneryEnum.INNER_CIRCLE;
+        } else if (getScenery6() == null) {
+            locationScenery = LocationSceneryEnum.ULTIMATE;
+        }
+        return locationScenery;
+    }
+
+    @NonNull
+    public SceneryCampaign getSceneryCurrent() {
+        SceneryCampaign scenery = new SceneryCampaign();
+        if (scenery6 != null) {
+            scenery = scenery6;
+        } else if (scenery5 != null) {
+            scenery = scenery5;
+        } else if (scenery4 != null) {
+            scenery = scenery4;
+        } else if (scenery3 != null) {
+            scenery = scenery3;
+        } else if (scenery2 != null) {
+            scenery = scenery2;
+        } else if (scenery1 != null) {
+            scenery = scenery1;
+        }
+        return scenery;
     }
 
     @Override

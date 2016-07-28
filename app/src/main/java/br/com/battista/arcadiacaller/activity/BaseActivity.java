@@ -5,6 +5,7 @@ import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OP
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -41,6 +42,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         String nameView = this.getClass().getSimpleName();
+
         Answers.getInstance().logCustom(new CustomEvent(KEY_OPEN_ACTIVITY)
                 .putCustomAttribute(KEY_ACTIVITY, nameView));
 
@@ -48,6 +50,20 @@ public class BaseActivity extends AppCompatActivity {
                 .putContentName(nameView)
                 .putContentType(KEY_ACTIVITY));
 
+        if (MainApplication.instance() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            getContext().startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (MainApplication.instance() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            getContext().startActivity(intent);
+        }
     }
 
     protected Context getContext() {
