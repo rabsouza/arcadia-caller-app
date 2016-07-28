@@ -1,8 +1,6 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
-import static java.lang.Boolean.FALSE;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -23,7 +21,6 @@ import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
-import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.User;
@@ -33,9 +30,11 @@ import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static java.lang.Boolean.FALSE;
+
 public class CampaignDetailGuildsFragment extends BaseFragment {
 
-    private static final String TAG = CampaignsFragment.class.getSimpleName();
+    private static final String TAG = CampaignDetailGuildsFragment.class.getSimpleName();
 
     private Campaign campaign;
     private EditText txtLoginBlue;
@@ -159,7 +158,12 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
     }
 
     private void processNextAction(View view) {
-        Log.d(TAG, "processNextAction: Process next action -> Fragment CampaignDetailSceneryFragment!");
+        Log.d(TAG, "processNextAction: Process next action -> Fragment CampaignDetailHeroesFragment!");
+
+        if (campaign == null) {
+            AndroidUtils.snackbar(view, R.string.msg_error_campaign_not_found);
+            return;
+        }
 
         final String loginBlue = txtLoginBlue.getText().toString().trim();
         final String loginRed = txtLoginRed.getText().toString().trim();
@@ -171,17 +175,12 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
             return;
         }
 
-        if (campaign == null) {
-            AndroidUtils.snackbar(view, R.string.msg_error_campaign_not_found);
-            return;
-        }
-
         final View currentView = view;
         new ProgressApp(getActivity(), R.string.msg_action_saving, false) {
             @Override
             protected void onPostExecute(Boolean result) {
                 if (result) {
-                    replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()));
+                    replaceDetailFragment(CampaignDetailHeroesFragment.newInstance(campaign));
                 } else {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_create_campaign);
                 }

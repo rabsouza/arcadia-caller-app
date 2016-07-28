@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,7 +26,6 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.activity.MainActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
-import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
@@ -40,9 +36,12 @@ import br.com.battista.arcadiacaller.service.SceneryService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class CampaignDetailSceneryFragment extends BaseFragment {
 
-    private static final String TAG = CampaignsFragment.class.getSimpleName();
+    private static final String TAG = CampaignDetailSceneryFragment.class.getSimpleName();
 
     private Campaign campaign;
     private LocationSceneryEnum locationScenery;
@@ -83,7 +82,12 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
     }
 
     private void processNextAction(View view) {
-        Log.d(TAG, "processNextAction: Process next action -> Fragment CampaignDetailSceneryFragment!");
+        Log.d(TAG, "processNextAction: Process next action -> Activity MainActivity -> Fragment CampaignsFragment!");
+
+        if (campaign == null) {
+            AndroidUtils.snackbar(view, R.string.msg_error_campaign_not_found);
+            return;
+        }
 
         String name = spnScenery.getText().toString();
         Scenery scenery = sceneryMap.get(name);

@@ -98,6 +98,7 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.6.1@aar') {
         transitive = true;
     }
+    compile 'com.android.support:support-v4:24.1.1'
 }
 
 /*

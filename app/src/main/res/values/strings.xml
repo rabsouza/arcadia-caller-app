@@ -42,6 +42,14 @@
     <string name="hint_detail_guilds_login_orange">Login Guilda</string>
     <string name="hint_text_detail_guilds_login">*¹ Deve ser um login de um usuário já existente na aplicação.</string>
     <string name="hint_text_detail_guilds_login_2">*² Será necessário criar um novo login do usuário quando inexistente.</string>
+    <string name="hint_detail_heroes">Heróis</string>
+    <string name="hint_detail_heroes_guild_blue_title">Guilda Águia</string>
+    <string name="hint_detail_heroes_guild_green_title">Guilda Panda</string>
+    <string name="hint_detail_heroes_guild_orange_title">Guilda Leão</string>
+    <string name="hint_detail_heroes_guild_red_title">Guilda Raposa</string>
+    <string name="hint_detail_heroes_guild_hero_01">Herói 01</string>
+    <string name="hint_detail_heroes_guild_hero_02">Herói 02</string>
+    <string name="hint_detail_heroes_guild_hero_03">Herói 03</string>
     <string name="hint_detail_scenery">Cenário</string>
     <string name="hint_detail_scenery_location">Localização</string>
     <string name="hint_detail_scenery_name">Nome</string>
