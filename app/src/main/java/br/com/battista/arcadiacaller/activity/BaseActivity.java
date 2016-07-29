@@ -123,12 +123,13 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void loadNavigationViewHeader(NavigationView navigationView) {
-        AppUtils.goToHomeIfUserIsNull(getContext());
+        MainApplication mainApplication = MainApplication.instance();
+        AppUtils.goToHomeIfUserIsNull(mainApplication);
 
         if (navigationView != null && navigationView.getHeaderCount() > 0) {
             View view = navigationView.getHeaderView(0);
             if (view != null) {
-                User user = MainApplication.instance().getUser();
+                User user = mainApplication.getUser();
                 Log.i(TAG, String.format(
                         "loadNavigationViewHeader: Fill navigation header with user: !", user));
 
