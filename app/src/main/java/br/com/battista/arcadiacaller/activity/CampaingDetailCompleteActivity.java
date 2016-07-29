@@ -3,7 +3,6 @@ package br.com.battista.arcadiacaller.activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -36,15 +35,7 @@ public class CampaingDetailCompleteActivity extends BaseActivity {
         collapsingToolbar.setTitle(getContext().getString(R.string.title_campaign_detail));
 
         processDataActivity(getIntent().getExtras());
-        replaceDetailFragment(CampaignDetailCompleteSceneryFragment.newInstance(campaign));
-    }
-
-    protected void replaceDetailFragment(Fragment fragment) {
-        if (fragment != null) {
-            Log.d(TAG, "replaceFragment: Change to detail fragment!");
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.detail_container_complete, fragment).commit();
-        }
+        replaceDetailFragment(CampaignDetailCompleteSceneryFragment.newInstance(campaign), R.id.detail_container_complete);
     }
 
     private void processDataActivity(Bundle bundle) {

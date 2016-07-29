@@ -6,8 +6,7 @@ import br.com.battista.arcadiacaller.R;
 
 public class HeroUtils {
 
-    private HeroUtils() {
-    }
+    private HeroUtils() {}
 
     public static int getHeroLifeRes(@NonNull Integer life) {
         int resLife = R.drawable.life_0;

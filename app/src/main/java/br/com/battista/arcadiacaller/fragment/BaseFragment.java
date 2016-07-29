@@ -10,6 +10,7 @@ import com.crashlytics.android.answers.ContentViewEvent;
 import com.crashlytics.android.answers.CustomEvent;
 
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.util.AppUtils;
 
 import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_FRAGMENT;
 import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_FRAGMENT;
@@ -29,6 +30,15 @@ public class BaseFragment extends Fragment {
         Answers.getInstance().logContentView(new ContentViewEvent()
                 .putContentName(nameView)
                 .putContentType(KEY_FRAGMENT));
+
+        AppUtils.goToHomeIfUserIsNull(getContext());
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        AppUtils.goToHomeIfUserIsNull(getContext());
     }
 
     protected void replaceDetailFragment(Fragment fragment) {

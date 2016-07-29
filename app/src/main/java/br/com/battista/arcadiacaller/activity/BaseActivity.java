@@ -1,11 +1,7 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -29,7 +25,11 @@ import com.crashlytics.android.answers.CustomEvent;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.util.AppUtils;
 import lombok.Getter;
+
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -51,20 +51,13 @@ public class BaseActivity extends AppCompatActivity {
                 .putContentName(nameView)
                 .putContentType(KEY_ACTIVITY));
 
-        checkMainApplication();
-    }
-
-    private void checkMainApplication() {
-        if (MainApplication.instance() == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            getContext().startActivity(intent);
-        }
+        AppUtils.goToHomeIfApplicationIsNull(getContext());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        checkMainApplication();
+        AppUtils.goToHomeIfApplicationIsNull(getContext());
     }
 
     protected Context getContext() {
@@ -107,8 +100,16 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void replaceDetailFragment(Fragment fragment, int resIdContainer) {
+        if (fragment != null) {
+            Log.d(TAG, "replaceFragment: Change to detail fragment!");
+            getSupportFragmentManager().beginTransaction()
+                    .replace(resIdContainer, fragment).commit();
+        }
+    }
+
     protected void loadNavigationViewHeader(NavigationView navigationView) {
-        checkMainApplication();
+        AppUtils.goToHomeIfUserIsNull(getContext());
 
         if (navigationView != null && navigationView.getHeaderCount() > 0) {
             View view = navigationView.getHeaderView(0);

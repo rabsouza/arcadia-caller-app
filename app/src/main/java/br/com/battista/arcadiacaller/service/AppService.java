@@ -1,11 +1,10 @@
 package br.com.battista.arcadiacaller.service;
 
 
-import static br.com.battista.arcadiacaller.listener.AppListener.URI_HEALTH;
-import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
-
+import android.support.annotation.NonNull;
 import android.util.Log;
 
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Map;
 
@@ -16,6 +15,9 @@ import br.com.battista.arcadiacaller.listener.AppListener;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_HEALTH;
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
 
 public class AppService extends BaseService {
 
@@ -30,14 +32,7 @@ public class AppService extends BaseService {
         listener.ping().enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-
-                Boolean onlineServer = response != null && response.code() == HttpStatus.OK.value();
-                if (onlineServer) {
-                    Log.i(TAG_CLASSNAME, "Success to ping the app server!");
-
-                } else {
-                    Log.e(TAG_CLASSNAME, "Failed to ping the app server!");
-                }
+                validationPingResponse(response);
             }
 
             @Override
@@ -45,6 +40,30 @@ public class AppService extends BaseService {
                 Log.e(TAG_CLASSNAME, "Failed to ping the app server!!");
             }
         });
+    }
+
+    public Boolean checkPing() {
+        Log.i(TAG_CLASSNAME, MessageFormat.format("Ping the app server url:[{0}]!",
+                RestConstant.REST_API_ENDPOINT.concat(URI_PING)));
+        AppListener listener = builder.create(AppListener.class);
+        try {
+            Response<Void> response = listener.ping().execute();
+            return validationPingResponse(response);
+        } catch (IOException e) {
+        }
+        return Boolean.FALSE;
+    }
+
+    @NonNull
+    private Boolean validationPingResponse(Response<Void> response) {
+        Boolean onlineServer = response != null && response.code() == HttpStatus.OK.value();
+        if (onlineServer) {
+            Log.i(TAG_CLASSNAME, "Success to ping the app server!");
+
+        } else {
+            Log.e(TAG_CLASSNAME, "Failed to ping the app server!");
+        }
+        return onlineServer;
     }
 
     public void health() {

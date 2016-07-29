@@ -4,8 +4,7 @@ import br.com.battista.arcadiacaller.R;
 
 public class CardUtils {
 
-    private CardUtils() {
-    }
+    private CardUtils() {}
 
     public static int getCardCostRes(Integer cost) {
         int resCost = R.drawable.cost_none;

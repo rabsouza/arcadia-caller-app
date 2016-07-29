@@ -1,15 +1,5 @@
 package br.com.battista.arcadiacaller;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
-
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
@@ -30,6 +20,16 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import io.fabric.sdk.android.Fabric;
 import lombok.Getter;
 import lombok.Setter;
+
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
 
 public class MainApplication extends MultiDexApplication {
 
