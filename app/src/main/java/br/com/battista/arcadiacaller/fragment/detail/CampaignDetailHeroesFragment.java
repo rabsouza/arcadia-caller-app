@@ -1,6 +1,7 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -130,6 +131,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
     private void loadHeroes(final View viewFragment) {
 
+        final Context context = getContext();
         new AsyncTask<Void, Integer, Boolean>() {
 
             List<Hero> heroes;
@@ -155,7 +157,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
                 }
 
                 ArrayList<String> namesHeroes = Lists.newArrayList(heroMap.keySet());
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context,
                         android.R.layout.simple_dropdown_item_1line, namesHeroes);
 
                 if (!Strings.isNullOrEmpty(campaign.getGuild01()) && campaign.getHeroesGuild01() != null) {

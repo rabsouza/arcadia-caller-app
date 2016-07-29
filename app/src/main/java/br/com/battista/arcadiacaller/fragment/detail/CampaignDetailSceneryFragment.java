@@ -1,6 +1,7 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -139,7 +140,8 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
             locationScenery = (LocationSceneryEnum) bundle.getSerializable(BundleConstant.FILTER_LOCATION_SCENERY);
 
             String textLocation = getString(locationScenery.getDescRes());
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
+            final Context context = getContext();
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context,
                     android.R.layout.simple_dropdown_item_1line, Lists.newArrayList(textLocation));
             spnLocation = (MaterialBetterSpinner)
                     viewFragment.findViewById(R.id.detail_card_view_scenery_location);
@@ -147,14 +149,18 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
             spnLocation.setText(textLocation);
 
             new AsyncTask<Void, Integer, Boolean>() {
-
                 List<Scenery> sceneries;
 
                 @Override
                 protected Boolean doInBackground(Void... voids) {
-                    String token = MainApplication.instance().getToken();
-                    SceneryService sceneryService = Inject.provideSceneryService();
-                    sceneries = sceneryService.findByLocation(token, locationScenery);
+                    try {
+                        String token = MainApplication.instance().getToken();
+                        SceneryService sceneryService = Inject.provideSceneryService();
+                        sceneries = sceneryService.findByLocation(token, locationScenery);
+                    } catch (Exception e) {
+                        Log.e(TAG, e.getLocalizedMessage(), e);
+                        return false;
+                    }
                     return true;
                 }
 
@@ -166,7 +172,7 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
                     }
 
                     ArrayList<String> namesScenery = Lists.newArrayList(sceneryMap.keySet());
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context,
                             android.R.layout.simple_dropdown_item_1line, namesScenery);
                     spnScenery = (MaterialBetterSpinner)
                             viewFragment.findViewById(R.id.detail_card_view_scenery_name);

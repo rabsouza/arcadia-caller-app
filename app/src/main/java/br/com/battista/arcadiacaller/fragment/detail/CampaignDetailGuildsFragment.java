@@ -1,6 +1,7 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -102,6 +103,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                     final String loginGuild = textEdit.getText().toString().trim();
                     Log.i(TAG, MessageFormat.format("onFocusChange: Validate the login guild: {0}.", loginGuild));
 
+                    final Context context = getContext();
                     new AsyncTask<Void, Integer, Boolean>() {
                         @Override
                         protected Boolean doInBackground(Void... voids) {
@@ -118,7 +120,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         protected void onPostExecute(Boolean result) {
                             if (!result) {
                                 Log.i(TAG, MessageFormat.format("onPostExecute: Not exists the login guild: {0}.", loginGuild));
-                                String msgErrorUsername = getContext().getString(R.string.msg_username_guild_required);
+                                String msgErrorUsername = context.getString(R.string.msg_username_guild_required);
                                 AndroidUtils.changeErrorEditText(textEdit, msgErrorUsername, true);
                             } else {
                                 Log.i(TAG, MessageFormat.format("onPostExecute: Exists the login guild: {0}.", loginGuild));
