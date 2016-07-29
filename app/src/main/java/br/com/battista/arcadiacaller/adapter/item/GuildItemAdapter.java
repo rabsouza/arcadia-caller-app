@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
@@ -46,6 +47,7 @@ public class GuildItemAdapter extends RecyclerView.Adapter<GuildItemViewHolder> 
 
             Glide.with(context)
                     .load(guild.getName().getUrlImg())
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .fitCenter()
                     .error(R.drawable.profile)
                     .crossFade()

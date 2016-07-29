@@ -72,14 +72,16 @@ public class MainActivityTest {
         NavigationView navigationView = (NavigationView) activity.findViewById(R.id.nav_view);
         assertNotNull(navigationView);
 
-        assertThat(navigationView.getMenu().size(), equalTo(6));
+        assertThat(navigationView.getMenu().size(), equalTo(8));
 
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_home));
+        assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_campaign));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_heroes));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_cards));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_sceneries));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_manage));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_about));
+        assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_logout));
     }
 
     @Test
@@ -102,6 +104,19 @@ public class MainActivityTest {
 
         onView(allOf(isAssignableFrom(TextView.class), withParent(isAssignableFrom(Toolbar.class))))
                 .check(matches(withText(R.string.title_home)));
+    }
+
+    @Test
+    public void shouldShowCampaignWhenClickMenuCampaign() {
+        onView(withId(R.id.drawer_layout))
+                .check(matches(isClosed(Gravity.LEFT)))
+                .perform(open());
+
+        onView(withId(R.id.nav_view))
+                .perform(navigateTo(R.id.nav_menu_campaign));
+
+        onView(allOf(isAssignableFrom(TextView.class), withParent(isAssignableFrom(Toolbar.class))))
+                .check(matches(withText(R.string.title_campaigns)));
     }
 
     @Test
@@ -165,7 +180,24 @@ public class MainActivityTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_menu_about));
 
-        onView(withText(R.string.title_about)).check(matches(isDisplayed()));
+        onView(withText(R.string.title_about))
+                .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void shouldShowLogoutWhenClickMenuLogout() {
+        onView(withId(R.id.drawer_layout))
+                .check(matches(isClosed(Gravity.LEFT)))
+                .perform(open());
+
+        onView(withId(R.id.nav_view))
+                .perform(navigateTo(R.id.nav_menu_logout));
+
+        onView(withId(R.id.btn_login))
+                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.btn_sign_in))
+                .check(matches(isDisplayed()));
     }
 
 }

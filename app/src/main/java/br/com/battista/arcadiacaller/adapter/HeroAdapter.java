@@ -1,5 +1,8 @@
 package br.com.battista.arcadiacaller.adapter;
 
+import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroDefenseRes;
+import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroLifeRes;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,14 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Hero;
-
-import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroDefenseRes;
-import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroLifeRes;
 
 public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
     private static final String TAG = HeroAdapter.class.getSimpleName();
@@ -45,14 +46,19 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
             holder.getTxtTitle().setText(hero.getName());
             Glide.with(context)
                     .load(getHeroDefenseRes(hero.getDefense()))
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .crossFade()
                     .into(holder.getImgDefense());
+
             Glide.with(context)
                     .load(getHeroLifeRes(hero.getLife()))
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .crossFade()
                     .into(holder.getImgLife());
+
             Glide.with(context)
                     .load(hero.getUrlPhoto())
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .fitCenter()
                     .error(R.drawable.profile)
                     .crossFade()

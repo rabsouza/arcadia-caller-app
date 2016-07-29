@@ -1,5 +1,8 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.R.id.container;
+import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -21,9 +24,6 @@ import br.com.battista.arcadiacaller.fragment.SceneriesFragment;
 import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
-
-import static br.com.battista.arcadiacaller.R.id.container;
-import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void loadFragmentInitial(Bundle extras) {
-        if (extras.containsKey(BundleConstant.ACTION)) {
+        if (extras != null && extras.containsKey(BundleConstant.ACTION)) {
             ActionEnum action = ActionEnum.get(extras.get(BundleConstant.ACTION).toString());
             if (ActionEnum.START_FRAGMENT_CAMPAIGNS.equals(action)) {
                 Log.i(TAG, "loadFragmentInitial: Load the CampaignsFragment!");

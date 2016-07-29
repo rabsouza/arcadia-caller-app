@@ -14,6 +14,7 @@ import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -23,11 +24,16 @@ public class LoginActivity extends BaseActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
 
     private EditText mTxtUsername = null;
+    private AppService appService = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        appService = Inject.provideAppService();
+        appService.ping();
+        appService.health();
     }
 
     public void login(View view) {

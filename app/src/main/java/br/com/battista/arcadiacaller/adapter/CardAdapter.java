@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -59,6 +60,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
             Glide.with(context)
                     .load(getCardCostRes(card.getCost()))
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .crossFade()
                     .into(holder.getImgCost());
         } else {

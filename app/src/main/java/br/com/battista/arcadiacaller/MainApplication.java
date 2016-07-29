@@ -10,7 +10,7 @@ import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
 
-import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
@@ -26,18 +26,16 @@ import br.com.battista.arcadiacaller.model.HeroGuild;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
 import br.com.battista.arcadiacaller.model.User;
-import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import io.fabric.sdk.android.Fabric;
 import lombok.Getter;
 import lombok.Setter;
 
-public class MainApplication extends Application {
+public class MainApplication extends MultiDexApplication {
 
     private static final String TAG = MainApplication.class.getSimpleName();
 
     private static MainApplication instance = null;
-    private AppService appService = Inject.provideAppService();
 
     @Getter
     @Setter
@@ -73,23 +71,20 @@ public class MainApplication extends Application {
             Log.i(TAG, "isOnline: Clean-up database!");
             deleteDatabase(DEFAULT_DATABASE_NAME);
         }
-
-        appService.ping();
-        appService.health();
     }
 
     protected void initializeDB() {
         Log.i(TAG, "initializeDB: Initialize Database to App.");
 
         Configuration.Builder configurationBuilder = new Configuration.Builder(this);
-        configurationBuilder.addModelClasses(Campaign.class);
-        configurationBuilder.addModelClasses(Card.class);
-        configurationBuilder.addModelClasses(Guild.class);
-        configurationBuilder.addModelClasses(Hero.class);
-        configurationBuilder.addModelClasses(HeroGuild.class);
-        configurationBuilder.addModelClasses(Scenery.class);
-        configurationBuilder.addModelClasses(SceneryCampaign.class);
-        configurationBuilder.addModelClasses(User.class);
+        configurationBuilder.addModelClasses(Campaign.class,
+                Card.class,
+                Guild.class,
+                Hero.class,
+                HeroGuild.class,
+                Scenery.class,
+                SceneryCampaign.class,
+                User.class);
 
         configurationBuilder.setCacheSize(DEFAULT_CACHE_SIZE);
         configurationBuilder.setDatabaseName(DEFAULT_DATABASE_NAME);

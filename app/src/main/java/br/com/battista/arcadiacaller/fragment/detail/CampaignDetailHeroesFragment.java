@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -37,9 +41,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class CampaignDetailHeroesFragment extends BaseFragment {
 
@@ -100,21 +101,25 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
     private void loadGuildsImg(View viewFragment) {
         Glide.with(getContext())
                 .load(NameGuildEnum.BLUE.getUrlImg())
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_img));
 
         Glide.with(getContext())
                 .load(NameGuildEnum.GREEN.getUrlImg())
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_img));
 
         Glide.with(getContext())
                 .load(NameGuildEnum.RED.getUrlImg())
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_img));
 
         Glide.with(getContext())
                 .load(NameGuildEnum.ORANGE.getUrlImg())
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .crossFade()
                 .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_img));
 

@@ -17,18 +17,20 @@ android {
         applicationId "br.com.battista.arcadiacaller"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 100
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            minifyEnabled false
             testCoverageEnabled = true
         }
     }
@@ -80,7 +82,8 @@ dependencies {
     compile "com.squareup.retrofit2:converter-jackson:$rootProject.ext.retrofitVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.loggingInterceptorVersion"
 
-    compile "com.github.vicpinm:activeandroidrx:$rootProject.ext.activeandroidrxVersion"
+    compile "com.github.vicpinm:activeandroidrx:$rootProject.ext.activeAndroidrxVersion"
+    compile "com.android.support:multidex:$rootProject.ext.multidexVersion"
 
     testCompile "junit:junit:$rootProject.ext.junitVersion"
     testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
@@ -98,8 +101,8 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.6.1@aar') {
         transitive = true;
     }
-    compile 'com.android.support:support-v4:24.1.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
+    compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
 }
 
 /*

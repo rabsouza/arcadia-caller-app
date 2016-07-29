@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="br.com.battista.arcadiacaller">
+    package="br.com.battista.arcadiacaller"
+    android:installLocation="auto">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MainApplication"
@@ -20,28 +22,29 @@
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.SignInActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar.NavDrawer" />
+            android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
         <activity
             android:name=".activity.CampaingDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar.NavDrawer" />
+            android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="259f20ad704f17270f36dedac2ff04ed2f044dfb" />
+            android:value="259f20ad704f17270f36dedac2ff04ed2f044dfb"/>
 
         <activity android:name=".activity.CampaingDetailCompleteActivity"></activity>
+
     </application>
 
 </manifest>
