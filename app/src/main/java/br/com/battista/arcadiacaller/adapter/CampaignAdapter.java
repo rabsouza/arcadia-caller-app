@@ -53,8 +53,6 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private List<Campaign> campaigns;
     private View viewCampaign;
 
-    private RecyclerView recyclerView;
-
     public CampaignAdapter(Activity activity, Context context, List<Campaign> campaigns) {
         this.activity = activity;
         this.context = context;
@@ -70,7 +68,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     }
 
     private void setupGuildsRecicleViewItem(View view, List<GuildDto> guildDtos) {
-        recyclerView = (RecyclerView) view.findViewById(R.id.card_view_campaign_guilds_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_view_campaign_guilds_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
@@ -88,7 +86,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(CampaignViewHolder holder, final int position) {
+    public void onBindViewHolder(CampaignViewHolder holder, int position) {
         if (campaigns != null && !campaigns.isEmpty()) {
             final Campaign campaign = campaigns.get(position);
             Log.i(TAG, String.format(
@@ -103,11 +101,12 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
             final RecyclerView.Adapter adapterCurrent = this;
             final View viewCurrent = viewCampaign;
 
+            final int positionRemoved = holder.getAdapterPosition();
             holder.getBtnDelete().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (CREATED_CAMPAIGN.equals(statusCurrent)) {
-                        createDialogDeleteCampaign(campaign, position, adapterCurrent, viewCurrent);
+                        createDialogDeleteCampaign(campaign, positionRemoved, adapterCurrent, viewCurrent);
                     } else {
                         String msgWarnDelete = getContext().getResources().getString(R.string.msg_warn_delete_campaign);
                         AndroidUtils.snackbar(viewCampaign, MessageFormat.format(msgWarnDelete, campaign.getKey()));
@@ -199,9 +198,14 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                         new AsyncTask<Void, Integer, Boolean>() {
                             @Override
                             protected Boolean doInBackground(Void... voids) {
-                                Log.i(TAG, "onClick: Delete the campaign by key!");
-                                String token = MainApplication.instance().getToken();
-                                return Inject.provideCampaignService().delete(token, campaign);
+                                try {
+                                    Log.i(TAG, "onClick: Delete the campaign by key!");
+                                    String token = MainApplication.instance().getToken();
+                                    return Inject.provideCampaignService().delete(token, campaign);
+                                } catch (Exception e) {
+                                    Log.e(TAG, e.getLocalizedMessage(), e);
+                                }
+                                return false;
                             }
 
                             @Override

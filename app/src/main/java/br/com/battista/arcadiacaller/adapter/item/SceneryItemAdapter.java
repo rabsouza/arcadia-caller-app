@@ -40,9 +40,9 @@ public class SceneryItemAdapter extends RecyclerView.Adapter<SceneryItemViewHold
 
             holder.getTxtName().setText(sceneryDto.getName());
 
-            if(sceneryDto.getCompleted()){
+            if (sceneryDto.getCompleted()) {
                 holder.getImgAction().setImageResource(R.drawable.ic_done);
-            }else{
+            } else {
                 holder.getImgAction().setImageResource(R.drawable.ic_play);
             }
         } else {

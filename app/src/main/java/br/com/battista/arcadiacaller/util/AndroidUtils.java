@@ -19,7 +19,8 @@ public class AndroidUtils {
 
     private static final String TAG = AndroidUtils.class.getSimpleName();
 
-    private AndroidUtils(){}
+    private AndroidUtils() {
+    }
 
     public static String getVersionName(@NonNull Activity activity) {
         PackageManager pm = activity.getPackageManager();

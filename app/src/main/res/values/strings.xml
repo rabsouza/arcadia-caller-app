@@ -63,10 +63,10 @@
     <string name="msg_failed_login_user">Login invalido! Por favor, tente novamente!</string>
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>
-    <string name="msg_action_loading">Aguarde! Carregando...</string>
-    <string name="msg_action_saving">Aguarde! Salvando...</string>
-    <string name="msg_action_login">Aguarde! Logando...</string>
-    <string name="msg_action_sign_in">Aguarde! Criando conta...</string>
+    <string name="msg_action_loading">Aguarde! Carregando&#8230;</string>
+    <string name="msg_action_saving">Aguarde! Salvando&#8230;</string>
+    <string name="msg_action_login">Aguarde! Logando&#8230;</string>
+    <string name="msg_action_sign_in">Aguarde! Criando conta&#8230;</string>
     <string name="msg_blank_fragment">Em construção, verifique em breve!</string>
     <string name="msg_empty_campaigns">Você ainda não tem nenhuma campanha, crie uma nova!</string>
     <string name="msg_alias_required">Nome/Apelido é obrigatório!</string>

@@ -2,9 +2,7 @@ package br.com.battista.arcadiacaller.activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import br.com.battista.arcadiacaller.R;
@@ -26,17 +24,13 @@ public class CampaingDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campaing_detail);
 
-        setSupportActionBar((Toolbar) findViewById(R.id.detail_toolbar));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(getContext().getString(R.string.title_campaign_detail));
+        setupToolbarDetail();
+        changeTitleCollapsingToolbar(R.string.title_campaign_detail);
 
         processDataActivity(getIntent().getExtras());
         replaceDetailFragment(CampaignDetailNewFragment.newInstance(campaign), R.id.detail_container);
     }
+
 
     private void processDataActivity(Bundle bundle) {
         Log.d(TAG, "processDataActivity: Processs bundle data Activity!");

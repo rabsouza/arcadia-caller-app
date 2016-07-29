@@ -88,33 +88,33 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         if (id == R.id.nav_menu_home) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Home.");
-            changeToolbarTitle(menuItem);
+            changeToolbarTitleByMenu(menuItem);
             replaceFragment(HomeFragment.newInstance());
             AndroidUtils.snackbar(findViewById(container), R.string.msg_blank_fragment);
 
         } else if (id == nav_menu_campaign) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Campaign.");
-            changeToolbarTitle(menuItem);
+            changeToolbarTitleByMenu(menuItem);
             replaceFragment(CampaignsFragment.newInstance());
 
         } else if (id == R.id.nav_menu_heroes) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Heroes.");
-            changeToolbarTitle(menuItem);
+            changeToolbarTitleByMenu(menuItem);
             replaceFragment(HeroesFragment.newInstance());
 
         } else if (id == R.id.nav_menu_cards) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Cards.");
-            changeToolbarTitle(menuItem);
+            changeToolbarTitleByMenu(menuItem);
             replaceFragment(CardsFragment.newInstance());
 
         } else if (id == R.id.nav_menu_sceneries) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Sceneries.");
-            changeToolbarTitle(menuItem);
+            changeToolbarTitleByMenu(menuItem);
             replaceFragment(SceneriesFragment.newInstance());
 
         } else if (id == R.id.nav_menu_manage) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Manage.");
-            changeToolbarTitle(menuItem);
+            changeToolbarTitleByMenu(menuItem);
             AndroidUtils.snackbar(findViewById(container), R.string.msg_blank_fragment);
 
         } else if (id == R.id.nav_menu_about) {

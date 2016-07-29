@@ -18,6 +18,6 @@ public interface SceneryListener {
     Call<List<Scenery>> findAll(@Header("token") String token);
 
     @GET(URI_FIND_BY_LOCATION)
-    Call<List<Scenery>> findByLocation(@Header("token") String token, @Path("location")LocationSceneryEnum loacation);
+    Call<List<Scenery>> findByLocation(@Header("token") String token, @Path("location") LocationSceneryEnum loacation);
 
 }

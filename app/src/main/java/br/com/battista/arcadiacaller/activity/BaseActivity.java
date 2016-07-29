@@ -3,7 +3,9 @@ package br.com.battista.arcadiacaller.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -78,13 +80,25 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void changeTitleCollapsingToolbar(int titleResId) {
+        CollapsingToolbarLayout collapsingToolbar =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle(getContext().getString(titleResId));
+    }
+
+    protected void setupToolbarDetail() {
+        setSupportActionBar((Toolbar) findViewById(R.id.detail_toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
     protected void changeTitleToolbar(int title) {
         if (title != 0) {
             toolbar.setTitle(title);
         }
     }
 
-    protected void changeToolbarTitle(MenuItem menuItem) {
+    protected void changeToolbarTitleByMenu(@NonNull MenuItem menuItem) {
         CharSequence title = menuItem.getTitle();
         Log.i(TAG, String.format("onNavigationItemSelected: Select menu item: %s!", title));
         if (toolbar != null) {

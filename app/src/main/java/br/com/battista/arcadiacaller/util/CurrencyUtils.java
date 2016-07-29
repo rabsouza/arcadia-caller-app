@@ -13,7 +13,8 @@ public class CurrencyUtils {
     private static Locale locale = Locale.getDefault();
     private static NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
 
-    private CurrencyUtils(){}
+    private CurrencyUtils() {
+    }
 
     public static String format(BigDecimal value) {
         Log.d(TAG, "format: Format the value for string with formatting: $xxx.xxx,xx!");

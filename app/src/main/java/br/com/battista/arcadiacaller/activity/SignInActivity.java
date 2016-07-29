@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +20,8 @@ import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
 
 public class SignInActivity extends BaseActivity {
 

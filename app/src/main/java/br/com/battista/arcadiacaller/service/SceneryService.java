@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.service;
 
 
-import static br.com.battista.arcadiacaller.listener.SceneryListener.URI_FIND_ALL;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -19,6 +16,9 @@ import br.com.battista.arcadiacaller.listener.SceneryListener;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.SceneryListener.URI_FIND_ALL;
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class SceneryService extends BaseService {
 

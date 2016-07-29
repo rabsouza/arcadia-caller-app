@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.adapter;
 
-import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
-
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +18,8 @@ import java.util.List;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
+
+import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
 
 public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
     private static final String TAG = CardAdapter.class.getSimpleName();

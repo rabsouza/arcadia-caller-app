@@ -21,6 +21,8 @@ import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
 
 public class AppService extends BaseService {
 
+    private static final String TAG = AppService.class.getSimpleName();
+
     public static final String TAG_CLASSNAME = AppService.class.getSimpleName();
     public static final String APP_SERVER_IS_OFFLINE = "App server is offline!";
     public static final String APP_SERVER_IS_ONLINE = "App server is online!";
@@ -50,6 +52,7 @@ public class AppService extends BaseService {
             Response<Void> response = listener.ping().execute();
             return validationPingResponse(response);
         } catch (IOException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
         return Boolean.FALSE;
     }

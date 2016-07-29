@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -42,29 +39,26 @@ import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class CampaignDetailHeroesFragment extends BaseFragment {
 
     private static final String TAG = CampaignDetailHeroesFragment.class.getSimpleName();
-
+    private final Map<String, Hero> heroMap = Maps.newLinkedHashMap();
     private Campaign campaign;
-
     private MaterialBetterSpinner spnGuildBlueHero01;
     private MaterialBetterSpinner spnGuildBlueHero02;
     private MaterialBetterSpinner spnGuildBlueHero03;
-
     private MaterialBetterSpinner spnGuildGreenHero01;
     private MaterialBetterSpinner spnGuildGreenHero02;
     private MaterialBetterSpinner spnGuildGreenHero03;
-
     private MaterialBetterSpinner spnGuildRedHero01;
     private MaterialBetterSpinner spnGuildRedHero02;
     private MaterialBetterSpinner spnGuildRedHero03;
-
     private MaterialBetterSpinner spnGuildOrangeHero01;
     private MaterialBetterSpinner spnGuildOrangeHero02;
     private MaterialBetterSpinner spnGuildOrangeHero03;
-
-    private final Map<String, Hero> heroMap = Maps.newLinkedHashMap();
 
     public CampaignDetailHeroesFragment() {
     }
@@ -142,9 +136,14 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
             @Override
             protected Boolean doInBackground(Void... voids) {
-                String token = MainApplication.instance().getToken();
-                HeroService heroService = Inject.provideHeroService();
-                heroes = heroService.findAll(token);
+                try {
+                    String token = MainApplication.instance().getToken();
+                    HeroService heroService = Inject.provideHeroService();
+                    heroes = heroService.findAll(token);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+                    return false;
+                }
                 return true;
             }
 
@@ -157,7 +156,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
                 ArrayList<String> namesHeroes = Lists.newArrayList(heroMap.keySet());
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
-                        android.R.layout.simple_dropdown_item_1line, (List<String>) namesHeroes);
+                        android.R.layout.simple_dropdown_item_1line, namesHeroes);
 
                 if (!Strings.isNullOrEmpty(campaign.getGuild01()) && campaign.getHeroesGuild01() != null) {
                     spnGuildBlueHero01 = (MaterialBetterSpinner)

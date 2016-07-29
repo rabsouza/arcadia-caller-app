@@ -1,18 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static br.com.battista.arcadiacaller.helper.AndroidTestUtils.withError;
-import static br.com.battista.arcadiacaller.helper.TestConstant.DATA_USER_TEST_MAIL;
-import static br.com.battista.arcadiacaller.helper.TestConstant.DATA_USER_TEST_USERNAME;
-import static junit.framework.Assert.assertNotNull;
-
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -26,18 +13,30 @@ import org.junit.runner.RunWith;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.helper.LoginActivityHelper;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static br.com.battista.arcadiacaller.helper.AndroidTestUtils.withError;
+import static br.com.battista.arcadiacaller.helper.TestConstant.DATA_USER_TEST_MAIL;
+import static br.com.battista.arcadiacaller.helper.TestConstant.DATA_USER_TEST_USERNAME;
+import static junit.framework.Assert.assertNotNull;
+
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class SignInActivityTest {
 
+    @Rule
+    public ActivityTestRule<SignInActivity> mSignInActivityTestRule =
+            new ActivityTestRule<>(SignInActivity.class);
     private EditText mTxtUsername = null;
     private EditText mTxtMail = null;
     private Button mButtonCreate = null;
     private Button mButtonCancel = null;
-
-    @Rule
-    public ActivityTestRule<SignInActivity> mSignInActivityTestRule =
-            new ActivityTestRule<>(SignInActivity.class);
 
     @Test
     public void checkExistsTheElementsActivity() {

@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
-
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -14,6 +12,8 @@ import br.com.battista.arcadiacaller.constants.EntityConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 
 @Data
 @ToString(includeFieldNames = true, callSuper = false)

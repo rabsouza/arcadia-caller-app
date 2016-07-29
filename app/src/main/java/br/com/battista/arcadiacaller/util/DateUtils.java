@@ -11,7 +11,8 @@ public class DateUtils {
 
     private static SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
-    private DateUtils(){}
+    private DateUtils() {
+    }
 
     public static String format(Calendar date) {
         Log.d(TAG, "format: Format the date for string with formatting: dd/MM/yyyy");

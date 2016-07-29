@@ -1,20 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.contrib.DrawerActions.open;
-import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
-import static android.support.test.espresso.contrib.NavigationViewActions.navigateTo;
-import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withParent;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static junit.framework.Assert.assertNotNull;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
-
 import android.support.design.widget.NavigationView;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
@@ -33,6 +18,21 @@ import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.helper.LoginActivityHelper;
 import br.com.battista.arcadiacaller.model.User;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.contrib.DrawerActions.open;
+import static android.support.test.espresso.contrib.DrawerMatchers.isClosed;
+import static android.support.test.espresso.contrib.NavigationViewActions.navigateTo;
+import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withParent;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static junit.framework.Assert.assertNotNull;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)

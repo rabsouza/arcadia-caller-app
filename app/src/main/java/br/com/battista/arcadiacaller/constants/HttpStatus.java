@@ -85,7 +85,7 @@ public enum HttpStatus {
     private final int value;
     private final String reasonPhrase;
 
-    private HttpStatus(int value, String reasonPhrase) {
+    HttpStatus(int value, String reasonPhrase) {
         this.value = value;
         this.reasonPhrase = reasonPhrase;
     }
@@ -120,7 +120,7 @@ public enum HttpStatus {
         return Integer.toString(this.value);
     }
 
-    public static enum Series {
+    public enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),
         REDIRECTION(3),
@@ -129,7 +129,7 @@ public enum HttpStatus {
 
         private final int value;
 
-        private Series(int value) {
+        Series(int value) {
             this.value = value;
         }
 

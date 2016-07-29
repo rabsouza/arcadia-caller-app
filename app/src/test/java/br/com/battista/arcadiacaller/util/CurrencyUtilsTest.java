@@ -1,9 +1,5 @@
 package br.com.battista.arcadiacaller.util;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
-
 import android.util.Log;
 
 import org.junit.Before;
@@ -13,6 +9,10 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.math.BigDecimal;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(android.util.Log.class)

@@ -128,7 +128,7 @@ public class ProgressApp extends AsyncTask<Void, Integer, Boolean> {
                 Thread.sleep(timeSleep);
                 publishProgress(currProgress);
             }
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             Log.e(TAG_CLASSNAME, e.getMessage());
             return false;
         }

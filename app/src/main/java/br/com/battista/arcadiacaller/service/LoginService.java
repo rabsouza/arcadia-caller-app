@@ -1,10 +1,6 @@
 package br.com.battista.arcadiacaller.service;
 
 
-import static br.com.battista.arcadiacaller.listener.LoginListener.URI_CREATE;
-import static br.com.battista.arcadiacaller.listener.LoginListener.URI_LOGIN;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -18,6 +14,10 @@ import br.com.battista.arcadiacaller.constants.RestConstant;
 import br.com.battista.arcadiacaller.listener.LoginListener;
 import br.com.battista.arcadiacaller.model.User;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.LoginListener.URI_CREATE;
+import static br.com.battista.arcadiacaller.listener.LoginListener.URI_LOGIN;
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class LoginService extends BaseService {
 

@@ -140,7 +140,7 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
 
             String textLocation = getString(locationScenery.getDescRes());
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
-                    android.R.layout.simple_dropdown_item_1line, (List<String>) Lists.newArrayList(textLocation));
+                    android.R.layout.simple_dropdown_item_1line, Lists.newArrayList(textLocation));
             spnLocation = (MaterialBetterSpinner)
                     viewFragment.findViewById(R.id.detail_card_view_scenery_location);
             spnLocation.setAdapter(arrayAdapter);
@@ -167,7 +167,7 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
 
                     ArrayList<String> namesScenery = Lists.newArrayList(sceneryMap.keySet());
                     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
-                            android.R.layout.simple_dropdown_item_1line, (List<String>) namesScenery);
+                            android.R.layout.simple_dropdown_item_1line, namesScenery);
                     spnScenery = (MaterialBetterSpinner)
                             viewFragment.findViewById(R.id.detail_card_view_scenery_name);
                     spnScenery.setAdapter(arrayAdapter);
