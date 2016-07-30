@@ -12,6 +12,10 @@
     <string name="title_manage">Configurações</string>
     <string name="title_about">Informação</string>
     <string name="title_logout">Sair</string>
+    <string name="title_home_detail">Meu perfil</string>
+    <string name="title_home_detail_statistic">Estatísticas</string>
+    <string name="title_home_detail_campaigns">Campanhas</string>
+    <string name="title_home_detail_sceneries">Cenários</string>
 
     <!-- ################### ELEMENTS #################### -->
     <string name="btn_login">ENTRAR</string>
@@ -30,10 +34,10 @@
     <string name="hint_scenery_head">{0} - {1}</string>
     <string name="hint_btn_login">Login</string>
     <string name="hint_btn_mail">E-mail</string>
-    <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por letras, números e o caracter _.</string>
+    <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por letras, números e/ou os caracteres \'_\', \'-\' e \'.\'.</string>
+    <string name="hint_text_login_samples">*¹ Por exemplos: user01, user.01, user-01 ou user_01.</string>
     <string name="hint_text_mail">*² Deve ser um e-mail válido.</string>
     <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente no http://gravatar.com para seu e-mail.</string>
-    <string name="hint_detail_campaign">Campanha</string>
     <string name="hint_detail_alias_campaign">Nome/Apelido</string>
     <string name="hint_text_detail_alias_campaign">*¹ O nome e apelido será utilizado para identificar sua campanha.</string>
     <string name="hint_detail_guilds">Guildas</string>
@@ -54,6 +58,22 @@
     <string name="hint_detail_scenery">Cenário</string>
     <string name="hint_detail_scenery_location">Localização</string>
     <string name="hint_detail_scenery_name">Nome</string>
+    <string name="hint_detail_home_statistic_campaigns">Total de Campanhas:</string>
+    <string name="hint_detail_home_statistic_campaigns_guilds">Total de Guildas:</string>
+    <string name="hint_detail_home_statistic_campaigns_completed">Campanhas completadas:</string>
+    <string name="hint_detail_home_statistic_campaigns_winners">Vitórias:</string>
+    <string name="hint_detail_home_statistic_campaigns_defeats">Derrotas:</string>
+    <string name="hint_detail_home_statistic_campaigns_least_deaths">Menos Mortes:</string>
+    <string name="hint_detail_home_statistic_campaigns_most_coins">Mais moedas:</string>
+    <string name="hint_detail_home_statistic_campaigns_won_rewards">Recompensas recebidos:</string>
+    <string name="hint_detail_home_statistic_campaigns_won_titles">Títulos recebidos:</string>
+    <string name="hint_detail_home_statistic_sceneries">Cenários completados:</string>
+    <string name="hint_detail_home_statistic_sceneries_winners">Vitórias:</string>
+    <string name="hint_detail_home_statistic_sceneries_defeats">Derrotas:</string>
+    <string name="hint_detail_home_statistic_sceneries_least_deaths">Menos Mortes:</string>
+    <string name="hint_detail_home_statistic_sceneries_most_coins">Mais moedas:</string>
+    <string name="hint_detail_home_statistic_sceneries_won_rewards">Recompensas recebidos:</string>
+    <string name="hint_detail_home_statistic_sceneries_won_titles">Títulos recebidos:</string>
 
     <!-- ################### MSG #################### -->
     <string name="msg_failed_already_exists_user">Erro ao criar o usuário! Por favor tente outro login ou e-mail!</string>

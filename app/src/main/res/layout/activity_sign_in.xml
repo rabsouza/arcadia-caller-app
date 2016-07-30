@@ -67,6 +67,12 @@
             style="@style/HintTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/hint_text_login_samples"/>
+
+        <TextView
+            style="@style/HintTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/element_vertical_margin"
             android:text="@string/hint_text_mail"/>
 

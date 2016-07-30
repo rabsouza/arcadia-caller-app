@@ -1,18 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import android.support.test.filters.LargeTest;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.widget.Button;
-import android.widget.EditText;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.helper.LoginActivityHelper;
-
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
@@ -25,6 +12,19 @@ import static br.com.battista.arcadiacaller.helper.AndroidTestUtils.withError;
 import static br.com.battista.arcadiacaller.helper.TestConstant.DATA_USER_TEST_MAIL;
 import static br.com.battista.arcadiacaller.helper.TestConstant.DATA_USER_TEST_USERNAME;
 import static junit.framework.Assert.assertNotNull;
+
+import android.support.test.filters.LargeTest;
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
+import android.widget.Button;
+import android.widget.EditText;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.helper.LoginActivityHelper;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -88,6 +88,22 @@ public class SignInActivityTest {
     public void shouldShowMainActivityWhenClickBtnCreateWithValidLoginAndMail() {
         onView(withId(R.id.txt_username))
                 .perform(typeText("user" + System.currentTimeMillis()), closeSoftKeyboard());
+
+        onView(withId(R.id.txt_mail))
+                .perform(typeText(DATA_USER_TEST_MAIL), closeSoftKeyboard());
+
+        onView(withId(R.id.btn_create)).
+                perform(click());
+
+        onView(withText(R.string.title_app))
+                .check(matches(isDisplayed()));
+
+    }
+
+    @Test
+    public void shouldShowMainActivityWhenClickBtnCreateWithValidUsernameAndMail() {
+        onView(withId(R.id.txt_username))
+                .perform(typeText("user_01.01-" + System.currentTimeMillis()), closeSoftKeyboard());
 
         onView(withId(R.id.txt_mail))
                 .perform(typeText(DATA_USER_TEST_MAIL), closeSoftKeyboard());

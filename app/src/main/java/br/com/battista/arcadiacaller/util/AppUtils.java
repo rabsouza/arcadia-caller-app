@@ -3,6 +3,7 @@ package br.com.battista.arcadiacaller.util;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.google.common.base.Strings;
 
@@ -26,9 +27,10 @@ public class AppUtils {
         }
     }
 
-    public static void goToHomeIfUserIsNull(Context context) {
+    public static void goToHomeIfUserIsNull(Application application, Context context) {
         MainApplication instance = MainApplication.instance();
         if (instance == null || instance.getUser() == null || Strings.isNullOrEmpty(instance.getToken())) {
+            Log.e(TAG, "goToHomeIfUserIsNull: Bad context application! Go to login!");
             Intent intent = new Intent(context, LoginActivity.class);
             context.startActivity(intent);
         }

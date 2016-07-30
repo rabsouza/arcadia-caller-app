@@ -46,7 +46,7 @@
                         style="@style/CardTitle02Style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/hint_detail_campaign" />
+                        android:text="@string/title_home_detail_campaigns" />
 
                     <View
                         android:layout_width="match_parent"
