@@ -29,4 +29,9 @@
     <dimen name="fab_margin_right">55dp</dimen>
     <dimen name="app_bar_height">256dp</dimen>
 
+    <dimen name="img_card_horizontal_margin">4dp</dimen>
+    <dimen name="img_card_vertical_margin">4dp</dimen>
+
+    <dimen name="item_text_card_scenery_height">55dp</dimen>
+
 </resources>

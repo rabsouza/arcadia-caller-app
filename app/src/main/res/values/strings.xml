@@ -57,6 +57,8 @@
     <string name="hint_detail_heroes_guild_hero_03">Herói 03</string>
     <string name="hint_detail_heroes_selected">*¹ Você deve selecionar os 3 heróis para todas as Guildas ativas!</string>
     <string name="hint_detail_scenery">Cenário</string>
+    <string name="hint_detail_scenery_current">Cenário Atual</string>
+    <string name="hint_detail_scenery_current_result">Resultado</string>
     <string name="hint_detail_scenery_location">Localização</string>
     <string name="hint_detail_scenery_name">Nome</string>
     <string name="hint_detail_scenery_selected_location">*¹ A localização ativa do cenário é pre-selecionada de acordo com o número de cenários completados da campanha atual!</string>
@@ -77,6 +79,12 @@
     <string name="hint_detail_home_statistic_sceneries_most_coins">Mais moedas:</string>
     <string name="hint_detail_home_statistic_sceneries_won_rewards">Recompensas recebidos:</string>
     <string name="hint_detail_home_statistic_sceneries_won_titles">Títulos recebidos:</string>
+    <string name="hint_detail_card_view_scenery_winner">Vencedor</string>
+    <string name="hint_detail_card_view_scenery_least_deaths">Menos Mortes:</string>
+    <string name="hint_detail_card_view_scenery_most_coins">Mais moedas:</string>
+    <string name="hint_detail_card_view_scenery_won_reward">Recebeu Recompensa:</string>
+    <string name="hint_detail_card_view_scenery_won_title">Recebeu Título:</string>
+
 
     <!-- ################### MSG #################### -->
     <string name="msg_failed_already_exists_user">Erro ao criar o usuário! Por favor tente outro login ou e-mail!</string>
