@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
+
 import android.support.annotation.NonNull;
 
 import com.activeandroid.annotation.Column;
@@ -21,8 +23,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
 
 @Builder
 @AllArgsConstructor
@@ -183,10 +183,14 @@ public class Campaign extends BaseEntity implements Serializable {
 
     @NonNull
     public Boolean existsHeroes() {
-        return (heroesGuild01 != null && heroesGuild01.getHero01() != null && heroesGuild01.getHero02() != null && heroesGuild01.getHero03() != null)
-                || (heroesGuild02 != null && heroesGuild02.getHero01() != null && heroesGuild02.getHero02() != null && heroesGuild02.getHero03() != null)
-                || (heroesGuild03 != null && heroesGuild03.getHero01() != null && heroesGuild03.getHero02() != null && heroesGuild03.getHero03() != null)
-                || (heroesGuild04 != null && heroesGuild04.getHero01() != null && heroesGuild04.getHero02() != null && heroesGuild04.getHero03() != null);
+        if (heroesGuild01 == null && heroesGuild02 == null && heroesGuild03 == null && heroesGuild04 == null) {
+            return false;
+        }
+
+        return ((heroesGuild01 == null) || (heroesGuild01.getHero01() != null && heroesGuild01.getHero02() != null && heroesGuild01.getHero03() != null))
+                && ((heroesGuild02 == null) || (heroesGuild02.getHero01() != null && heroesGuild02.getHero02() != null && heroesGuild02.getHero03() != null))
+                && ((heroesGuild03 == null) || (heroesGuild03.getHero01() != null && heroesGuild03.getHero02() != null && heroesGuild03.getHero03() != null))
+                && ((heroesGuild04 == null) || (heroesGuild04.getHero01() != null && heroesGuild04.getHero02() != null && heroesGuild04.getHero03() != null));
     }
 
     @NonNull
