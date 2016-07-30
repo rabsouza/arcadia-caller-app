@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,9 +42,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class CampaignDetailHeroesFragment extends BaseFragment {
 
@@ -382,6 +382,11 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 03: {0} to Guild Orange!", hero03));
             heroGuild = HeroGuild.builder().hero(hero03).active(TRUE).deleted(FALSE).build();
             heroesGuild04.setHero03(heroGuild);
+        }
+
+        if(!campaign.existsHeroes()){
+            Log.i(TAG, "processNextAction: There guilds with pending heroes!");
+            AndroidUtils.snackbar(view, R.string.msg_warn_heroes);
         }
 
         final View currentView = view;

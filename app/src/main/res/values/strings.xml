@@ -55,9 +55,12 @@
     <string name="hint_detail_heroes_guild_hero_01">Herói 01</string>
     <string name="hint_detail_heroes_guild_hero_02">Herói 02</string>
     <string name="hint_detail_heroes_guild_hero_03">Herói 03</string>
+    <string name="hint_detail_heroes_selected">*¹ Você deve selecionar os 3 heróis para todas as Guildas ativas!</string>
     <string name="hint_detail_scenery">Cenário</string>
     <string name="hint_detail_scenery_location">Localização</string>
     <string name="hint_detail_scenery_name">Nome</string>
+    <string name="hint_detail_scenery_selected_location">*¹ A localização ativa do cenário é pre-selecionada de acordo com o número de cenários completados da campanha atual!</string>
+    <string name="hint_detail_scenery_selected">*² Você deve selecionar somentes os cenários disponíveis para a localização atual!</string>
     <string name="hint_detail_home_statistic_campaigns">Total de Campanhas:</string>
     <string name="hint_detail_home_statistic_campaigns_guilds">Total de Guildas:</string>
     <string name="hint_detail_home_statistic_campaigns_completed">Campanhas completadas:</string>
@@ -98,6 +101,7 @@
     <string name="msg_warn_edit_campaign">A campanha {0} já foi iniciada e não pode ser alterada!</string>
     <string name="msg_warn_play_campaign">A campanha {0} deve está iniciada! Não pode está concluída e não possuir pendências!</string>
     <string name="msg_warn_complete_campaign">A campanha {0} ainda não foi iniciada. Complete os seis cenários para finaliza-la!</string>
+    <string name="msg_warn_heroes">Existe Guildas com heróis pendentes!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
