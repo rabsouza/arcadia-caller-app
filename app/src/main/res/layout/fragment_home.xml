@@ -100,8 +100,14 @@
 
                             </LinearLayout>
 
-
                         </LinearLayout>
+
+                        <TextView
+                            style="@style/HintTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:text="@string/hint_text_partten_mail"/>
 
                     </LinearLayout>
 
@@ -184,7 +190,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_total"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -204,7 +210,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_guilds"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -224,7 +230,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_completed"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -244,7 +250,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_winners"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -264,7 +270,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_defeats"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -284,7 +290,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_least_deaths"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -304,7 +310,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_most_coins"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -324,7 +330,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_won_rewards"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -344,7 +350,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_campaigns_won_titles"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -401,7 +407,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_sceneries_total"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -421,7 +427,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_sceneries_winners"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -441,7 +447,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_sceneries_defeats"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -461,7 +467,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_sceneries_least_deaths"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -481,7 +487,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_sceneries_most_coins"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -501,7 +507,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_sceneries_won_rewards"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -521,7 +527,7 @@
                                     <TextView
                                         android:id="@+id/card_view_home_statistic_sceneries_won_titles"
                                         style="@style/CardTextStyle"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="50dp"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>

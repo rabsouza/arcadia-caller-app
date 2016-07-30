@@ -15,11 +15,14 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.Calendar;
 
+import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.model.enuns.StatisticUser;
 import br.com.battista.arcadiacaller.util.AppUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
+import br.com.battista.arcadiacaller.util.ProgressApp;
 
 
 public class HomeFragment extends BaseFragment {
@@ -46,7 +49,64 @@ public class HomeFragment extends BaseFragment {
         MainApplication application = MainApplication.instance();
         AppUtils.goToHomeIfUserIsNull(application, getContext());
         User user = application.getUser();
+        loadUserInfo(view, user);
+        loadStatisticUser(view, application);
+        return view;
+    }
 
+    private void loadStatisticUser(final View view, MainApplication application) {
+
+        final User user = application.getUser();
+        final String token = application.getToken();
+
+        Log.i(TAG, "loadStatisticUser: Load statistic user!");
+        new ProgressApp(this.getActivity(), R.string.msg_action_loading, false) {
+            private StatisticUser statisticUser;
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                if (statisticUser == null) {
+                    statisticUser = new StatisticUser();
+                    statisticUser.initializeStatistic();
+                }
+                Log.i(TAG, "onPostExecute: Load all statistic user to campaigns!");
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_total)).setText(String.valueOf(statisticUser.getCampaigns()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_guilds)).setText(String.valueOf(statisticUser.getGuilds()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_completed)).setText(String.valueOf(statisticUser.getCompleteds()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_winners)).setText(String.valueOf(statisticUser.getCampaignWinners()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_defeats)).setText(String.valueOf(statisticUser.getCampaignDefeats()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_least_deaths)).setText(String.valueOf(statisticUser.getCampaignLeastDeaths()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_most_coins)).setText(String.valueOf(statisticUser.getCampaignMostCoins()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_won_rewards)).setText(String.valueOf(statisticUser.getCampaignWonRewards()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_won_titles)).setText(String.valueOf(statisticUser.getCampaignWonTitles()));
+
+                Log.i(TAG, "onPostExecute: Load all statistic user to sceneries!");
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_total)).setText(String.valueOf(statisticUser.getSceneries()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_winners)).setText(String.valueOf(statisticUser.getSceneryWinners()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_defeats)).setText(String.valueOf(statisticUser.getSceneryDefeats()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_least_deaths)).setText(String.valueOf(statisticUser.getSceneryLeastDeaths()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_most_coins)).setText(String.valueOf(statisticUser.getSceneryMostCoins()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_won_rewards)).setText(String.valueOf(statisticUser.getSceneryWonRewards()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_won_titles)).setText(String.valueOf(statisticUser.getSceneryWonTitles()));
+
+                dismissProgress();
+            }
+
+            @Override
+            protected Boolean doInBackground(Void... params) {
+                try {
+                    statisticUser = Inject.provideStatisticUserService().findByUser(token, user.getUsername());
+                    return true;
+                } catch (Exception e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+                    return false;
+                }
+            }
+        }.execute();
+
+    }
+
+    private void loadUserInfo(View view, User user) {
         Log.i(TAG, "onCreateView: Load all data to User!");
         TextView txtUsername = (TextView) view.findViewById(R.id.card_view_home_username);
         txtUsername.setText(user.getUsername());
@@ -68,8 +128,6 @@ public class HomeFragment extends BaseFragment {
                     .crossFade()
                     .into(imageViewImg);
         }
-
-        return view;
     }
 
     @Override
