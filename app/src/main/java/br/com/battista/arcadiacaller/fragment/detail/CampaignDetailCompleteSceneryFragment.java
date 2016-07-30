@@ -130,6 +130,7 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
             spnGuildWinner = (MaterialBetterSpinner)
                     viewFragment.findViewById(R.id.detail_card_view_scenery_winner);
             spnGuildWinner.setAdapter(arrayAdapter);
+            spnGuildWinner.setText(R.string.none);
         }
     }
 
