@@ -18,11 +18,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
@@ -124,18 +122,13 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 
             loadGuildsImg(viewFragment);
 
-            ArrayList<String> guilds = Lists.newArrayList(campaign.getGuild01(), campaign.getGuild02(), campaign.getGuild03(), campaign.getGuild04());
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
-                    android.R.layout.simple_dropdown_item_1line, guilds);
+                    android.R.layout.simple_dropdown_item_1line, campaign.getAllActiveGuilds());
             spnGuildWinner = (MaterialBetterSpinner)
                     viewFragment.findViewById(R.id.detail_card_view_scenery_winner);
             spnGuildWinner.setAdapter(arrayAdapter);
             spnGuildWinner.setText(R.string.none);
         }
-    }
-
-    public void onCheckboxLeastDeaths(View view){
-
     }
 
     private void loadGuildsImg(View viewFragment) {

@@ -10,6 +10,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -109,6 +110,23 @@ public class Campaign extends BaseEntity implements Serializable {
         if (!Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
             GuildDto guildDto = GuildDto.builder().username(guild04).name(heroesGuild04.getName()).build();
             guilds.add(guildDto);
+        }
+        return guilds;
+    }
+
+    public List<String> getAllActiveGuilds(){
+        ArrayList<String> guilds = Lists.newArrayList();
+        if(!Strings.isNullOrEmpty(getGuild01())){
+            guilds.add(getGuild01());
+        }
+        if(!Strings.isNullOrEmpty(getGuild02())){
+            guilds.add(getGuild02());
+        }
+        if(!Strings.isNullOrEmpty(getGuild03())){
+            guilds.add(getGuild03());
+        }
+        if(!Strings.isNullOrEmpty(getGuild04())){
+            guilds.add(getGuild04());
         }
         return guilds;
     }
