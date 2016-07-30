@@ -345,97 +345,113 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/colorTitle"/>
-
                     <LinearLayout
+                        android:id="@+id/detail_card_view_scenery_won_reward_group"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            style="@style/CardTextStyle"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/item_text_card_scenery_height"
-                            android:layout_weight="1"
-                            android:text="@string/hint_detail_card_view_scenery_won_reward"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/colorTitle"/>
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_reward_blue"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_reward_green"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                            <TextView
+                                style="@style/CardTextStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/item_text_card_scenery_height"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_card_view_scenery_won_reward"/>
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_reward_red"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_reward_blue"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_reward_orange"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_reward_green"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_reward_red"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_reward_orange"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/colorTitle"/>
-
                     <LinearLayout
+                        android:id="@+id/detail_card_view_scenery_won_title_group"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            style="@style/CardTextStyle"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/item_text_card_scenery_height"
-                            android:layout_weight="1"
-                            android:text="@string/hint_detail_card_view_scenery_won_title"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/colorTitle"/>
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_title_blue"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_title_green"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                            <TextView
+                                style="@style/CardTextStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/item_text_card_scenery_height"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_card_view_scenery_won_title"/>
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_title_red"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_title_blue"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
 
-                        <CheckBox
-                            android:id="@+id/detail_card_view_scenery_won_title_orange"
-                            android:layout_width="@dimen/item_img_width"
-                            android:layout_height="@dimen/item_img_height"
-                            android:layout_marginLeft="@dimen/img_card_horizontal_margin"
-                            android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_title_green"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_title_red"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+
+                            <CheckBox
+                                android:id="@+id/detail_card_view_scenery_won_title_orange"
+                                android:layout_width="@dimen/item_img_width"
+                                android:layout_height="@dimen/item_img_height"
+                                android:layout_marginLeft="@dimen/img_card_horizontal_margin"
+                                android:layout_marginRight="@dimen/img_card_horizontal_margin"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 

@@ -12,6 +12,7 @@
         android:id="@+id/item_scenery_action"
         android:layout_width="28dp"
         android:layout_height="28dp"
+        android:layout_marginTop="@dimen/element_vertical_margin"
         android:layout_marginRight="4dp" />
 
     <TextView

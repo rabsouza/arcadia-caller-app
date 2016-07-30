@@ -19,6 +19,7 @@
             android:dividerHeight="0dp"
             android:listSelector="@android:color/transparent"
             android:paddingBottom="@dimen/md_keylines"
+            android:layout_marginBottom="@dimen/item_img_height"
             android:paddingTop="@dimen/md_keylines"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"

@@ -107,8 +107,8 @@
     <string name="msg_error_delete_campaign">Erro ao excluir a campanha! Por favor, tente novamente!</string>
     <string name="msg_warn_delete_campaign">A campanha {0} já foi iniciada e não pode ser excluida!</string>
     <string name="msg_warn_edit_campaign">A campanha {0} já foi iniciada e não pode ser alterada!</string>
-    <string name="msg_warn_play_campaign">A campanha {0} deve está iniciada! Não pode está concluída e não possuir pendências!</string>
-    <string name="msg_warn_complete_campaign">A campanha {0} ainda não foi iniciada. Complete os seis cenários para finaliza-la!</string>
+    <string name="msg_warn_play_campaign">Existe pendências para a campanha {0}! Ela não pode está concluída ou com pendências!</string>
+    <string name="msg_warn_complete_campaign">Existe cenários pendentes para a campanha {0}. Complete os seis cenários para finaliza-la!</string>
     <string name="msg_warn_heroes">Existe Guildas com heróis pendentes!</string>
 
     <!-- ################### ALERT #################### -->
