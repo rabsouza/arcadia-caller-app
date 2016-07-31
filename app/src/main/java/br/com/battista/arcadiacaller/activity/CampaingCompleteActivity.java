@@ -3,11 +3,14 @@ package br.com.battista.arcadiacaller.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
@@ -21,12 +24,19 @@ public class CampaingCompleteActivity extends BaseActivity {
 
     private Campaign campaign;
     private TextView txtAliasCampaign;
+
     private TextView txtScenery01;
     private TextView txtScenery02;
     private TextView txtScenery03;
     private TextView txtScenery04;
     private TextView txtScenery05;
     private TextView txtScenery06;
+
+    private TextView txtWinner;
+    private TextView txtLeastDeaths;
+    private TextView txtMostCoins;
+    private TextView txtWonReward;
+    private TextView txtWonTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +47,28 @@ public class CampaingCompleteActivity extends BaseActivity {
         changeTitleCollapsingToolbar(R.string.title_campaign_completed);
 
         processDataActivity(getIntent().getExtras());
+        loadFloatingAction();
 
+    }
+
+    private void loadFloatingAction() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_done_complete_campaign);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadMainActivity();
+            }
+        });
     }
 
     private void processDataActivity(Bundle bundle) {
         Log.d(TAG, "processDataActivity: Processs bundle data Activity!");
         if (bundle.containsKey(BundleConstant.DATA)) {
             campaign = (Campaign) bundle.getSerializable(BundleConstant.DATA);
+
+            if (!campaign.getCompleted()) {
+                loadMainActivity();
+            }
 
             txtAliasCampaign = (TextView) findViewById(R.id.complete_card_view_campaign_alias);
             txtAliasCampaign.setText(MessageFormat.format("{0} - {1}", campaign.getKey(), campaign.getAlias()));
@@ -94,6 +119,46 @@ public class CampaingCompleteActivity extends BaseActivity {
                 txtScenery06.setText(scenery6.getName());
             } else {
                 txtScenery06.setText(R.string.none);
+            }
+
+            txtWinner = (TextView) findViewById(R.id.complete_card_view_winners_medals_winners);
+            List<String> winner = campaign.getWinner();
+            if (winner == null || winner.isEmpty()) {
+                txtWinner.setText(R.string.none);
+            } else {
+                txtWinner.setText(String.valueOf(winner));
+            }
+
+            txtLeastDeaths = (TextView) findViewById(R.id.complete_card_view_winners_medals_least_deaths);
+            List<String> leastDeaths = campaign.getLeastDeaths();
+            if (leastDeaths == null || leastDeaths.isEmpty()) {
+                txtLeastDeaths.setText(R.string.none);
+            } else {
+                txtLeastDeaths.setText(String.valueOf(leastDeaths));
+            }
+
+            txtMostCoins = (TextView) findViewById(R.id.complete_card_view_winners_medals_most_coins);
+            List<String> mostCoins = campaign.getMostCoins();
+            if (mostCoins == null || mostCoins.isEmpty()) {
+                txtMostCoins.setText(R.string.none);
+            } else {
+                txtMostCoins.setText(String.valueOf(mostCoins));
+            }
+
+            txtWonReward = (TextView) findViewById(R.id.complete_card_view_winners_medals_won_rewards);
+            List<String> wonReward = campaign.getWonReward();
+            if (wonReward == null || wonReward.isEmpty()) {
+                txtWonReward.setText(R.string.none);
+            } else {
+                txtWonReward.setText(String.valueOf(wonReward));
+            }
+
+            txtWonTitle = (TextView) findViewById(R.id.complete_card_view_winners_medals_won_titles);
+            List<String> wonTitle = campaign.getWonTitle();
+            if (wonTitle == null || wonTitle.isEmpty()) {
+                txtWonTitle.setText(R.string.none);
+            } else {
+                txtWonTitle.setText(String.valueOf(wonTitle));
             }
 
         } else {

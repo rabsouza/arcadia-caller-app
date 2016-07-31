@@ -90,6 +90,11 @@
     <string name="hint_detail_card_view_scenery_saved_coin">Guardou moeda:</string>
     <string name="hint_complete_sceneries_completed">Cenários completados</string>
     <string name="hint_complete_winners_medals">Ganhadores das medalhas</string>
+    <string name="hint_complete_winners_winners">Vencedores:</string>
+    <string name="hint_complete_winners_least_deaths">Menos Mortes:</string>
+    <string name="hint_complete_winners_most_coins">Mais moedas:</string>
+    <string name="hint_complete_winners_won_rewards">Recompensas recebidos:</string>
+    <string name="hint_complete_winners_won_titles">Títulos recebidos:</string>
 
 
     <!-- ################### MSG #################### -->

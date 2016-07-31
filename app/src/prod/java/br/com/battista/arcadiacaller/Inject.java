@@ -2,6 +2,7 @@ package br.com.battista.arcadiacaller;
 
 import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.service.CampaignService;
+import br.com.battista.arcadiacaller.service.CampainhaCompleteService;
 import br.com.battista.arcadiacaller.service.CardService;
 import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.service.LoginService;
@@ -41,6 +42,10 @@ public class Inject {
 
     public synchronized static StatisticUserService provideStatisticUserService() {
         return new StatisticUserService();
+    }
+
+    public synchronized static CampainhaCompleteService provideCampainhaCompleteService() {
+        return new CampainhaCompleteService();
     }
 
 }

@@ -194,6 +194,17 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
     }
 
     public void finishScenery(View view) {
+
+        try {
+            if (CampaignStatusEnum.COMPLETED_CAMPAIGN.equals(campaign.getStatusCurrent())) {
+                Inject.provideCampainhaCompleteService().finishCampaign(campaign);
+                campaign.setCompleted(Boolean.TRUE);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "finishScenery: Erro to finish campaign!", e);
+            AndroidUtils.snackbar(view, R.string.msg_failed_update_campaign);
+        }
+
         final View currentView = view;
         new ProgressApp(getActivity(), R.string.msg_action_saving, false) {
             @Override
