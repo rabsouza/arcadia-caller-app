@@ -28,6 +28,7 @@
     <string name="btn_confirmation_dialog_cancel">CANCELAR</string>
     <string name="btn_confirmation_dialog_delete">EXCLUIR</string>
     <string name="btn_confirmation_dialog_play">JOGAR</string>
+    <string name="btn_confirmation_dialog_finish">FINALIZAR</string>
 
     <!-- ################### HINT #################### -->
     <string name="hint_card_group">Grupo: {0}</string>
@@ -84,6 +85,7 @@
     <string name="hint_detail_card_view_scenery_most_coins">Mais moedas:</string>
     <string name="hint_detail_card_view_scenery_won_reward">Recebeu recompensa:</string>
     <string name="hint_detail_card_view_scenery_won_title">Recebeu título:</string>
+    <string name="hint_detail_card_view_scenery_saved_coin">Guardou moeda:</string>
 
 
     <!-- ################### MSG #################### -->
@@ -110,6 +112,7 @@
     <string name="msg_warn_play_campaign">Existe pendências para a Campanha {0}! Ela não pode está concluída ou com pendências!</string>
     <string name="msg_warn_complete_campaign">Existe Cenários pendentes para a Campanha {0}. Complete os seis Cenários para finaliza-la!</string>
     <string name="msg_warn_heroes">Existe Guildas com Heróis pendentes!</string>
+    <string name="msg_warn_guild_winner">Você deve selecionar a Guilda vencedora do cenário atual!</string>
 
     <!-- ################### ALERT #################### -->
     <string name="alert_success_login">Login realizado com sucesso!</string>
@@ -121,6 +124,7 @@
     <string name="alert_confirmation_dialog_title_play">Tem certeza?</string>
     <string name="alert_confirmation_dialog_text_play">Deseja iniciar a campanha {0}? Essa operação não pode ser revetida e a campanha não poderá ser editada ou excluída.</string>
     <string name="alert_confirmation_dialog_text_logout">Deseja sair da aplicação?</string>
+    <string name="alert_confirmation_dialog_text_scenery">Deseja finalizar o Cenário {0}? Essa operação não pode ser revetida.</string>
 
     <!-- ################### OTHERS #################### -->
     <string name="navigation_drawer_open">Abrir menu de navegação!</string>

@@ -1,6 +1,12 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static java.lang.Boolean.FALSE;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,12 +36,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-import static java.lang.Boolean.FALSE;
 
 public class CampaignDetailGuildsFragment extends BaseFragment {
 
@@ -199,7 +199,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Boolean result) {
                 if (result) {
-                    replaceDetailFragment(CampaignDetailHeroesFragment.newInstance(campaign));
+                    replaceDetailFragment(CampaignDetailHeroesFragment.newInstance(campaign), R.id.detail_container);
                 } else {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_update_campaign);
                 }

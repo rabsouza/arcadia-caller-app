@@ -4,14 +4,19 @@ import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
 import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
 import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
 import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static br.com.battista.arcadiacaller.util.AndroidUtils.changeErrorSpinner;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,16 +27,26 @@ import com.google.common.collect.Maps;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.text.MessageFormat;
+import java.util.List;
 import java.util.Map;
 
+import br.com.battista.arcadiacaller.Inject;
+import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.activity.MainActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
+import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
+import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
+import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
+import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
+import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.ProgressApp;
 
 public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 
@@ -56,7 +71,8 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
                 R.id.detail_card_view_scenery_least_deaths_blue,
                 R.id.detail_card_view_scenery_most_coins_blue,
                 R.id.detail_card_view_scenery_won_reward_blue,
-                R.id.detail_card_view_scenery_won_title_blue};
+                R.id.detail_card_view_scenery_won_title_blue,
+                R.id.detail_card_view_scenery_saved_coin_blue};
         guildKeys.put(nameGuildBlue, keysBlue);
 
         NameGuildEnum nameGuildGrenn = NameGuildEnum.GREEN;
@@ -65,7 +81,8 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
                 R.id.detail_card_view_scenery_least_deaths_green,
                 R.id.detail_card_view_scenery_most_coins_green,
                 R.id.detail_card_view_scenery_won_reward_green,
-                R.id.detail_card_view_scenery_won_title_green};
+                R.id.detail_card_view_scenery_won_title_green,
+                R.id.detail_card_view_scenery_saved_coin_green};
         guildKeys.put(nameGuildGrenn, keysGrenn);
 
         NameGuildEnum nameGuildRed = NameGuildEnum.RED;
@@ -74,7 +91,8 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
                 R.id.detail_card_view_scenery_least_deaths_red,
                 R.id.detail_card_view_scenery_most_coins_red,
                 R.id.detail_card_view_scenery_won_reward_red,
-                R.id.detail_card_view_scenery_won_title_red};
+                R.id.detail_card_view_scenery_won_title_red,
+                R.id.detail_card_view_scenery_saved_coin_red};
         guildKeys.put(nameGuildRed, keysRed);
 
         NameGuildEnum nameGuildOrange = NameGuildEnum.ORANGE;
@@ -83,7 +101,8 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
                 R.id.detail_card_view_scenery_least_deaths_orange,
                 R.id.detail_card_view_scenery_most_coins_orange,
                 R.id.detail_card_view_scenery_won_reward_orange,
-                R.id.detail_card_view_scenery_won_title_orange};
+                R.id.detail_card_view_scenery_won_title_orange,
+                R.id.detail_card_view_scenery_saved_coin_orange};
         guildKeys.put(nameGuildOrange, keysOrange);
 
     }
@@ -115,7 +134,7 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
         return viewFragment;
     }
 
-    private void processNextAction(View view) {
+    private void processNextAction(final View view) {
         Log.d(TAG, "processNextAction: Process next action -> Activity MainActivity -> Fragment CampaignsFragment!");
 
         if (campaign == null) {
@@ -123,6 +142,142 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
             return;
         }
 
+        final SceneryCampaign sceneryCurrent = campaign.getSceneryCurrent();
+        List<String> activeGuilds = campaign.getAllActiveGuilds();
+        spnGuildWinner = (MaterialBetterSpinner) view.findViewById(R.id.detail_card_view_scenery_winner);
+        String guildWinner = spnGuildWinner.getText().toString();
+        if (activeGuilds.contains(guildWinner)) {
+            Log.i(TAG, "processNextAction: Fill data scenery!");
+            changeErrorSpinner(spnGuildWinner);
+
+            sceneryCurrent.setWinner(guildWinner);
+            Guild guild01 = campaign.getHeroesGuild01();
+            String campaignGuild01 = campaign.getGuild01();
+            Integer[] keyGuildBlue = guildKeys.get(NameGuildEnum.BLUE);
+            fillResultGuild(view, sceneryCurrent, guildWinner, guild01, campaignGuild01, keyGuildBlue);
+
+            Guild guild02 = campaign.getHeroesGuild02();
+            String campaignGuild02 = campaign.getGuild02();
+            Integer[] keyGuildGreen = guildKeys.get(NameGuildEnum.GREEN);
+            fillResultGuild(view, sceneryCurrent, guildWinner, guild02, campaignGuild02, keyGuildGreen);
+
+            Guild guild03 = campaign.getHeroesGuild03();
+            String campaignGuild03 = campaign.getGuild03();
+            Integer[] keyGuildRed = guildKeys.get(NameGuildEnum.RED);
+            fillResultGuild(view, sceneryCurrent, guildWinner, guild03, campaignGuild03, keyGuildRed);
+
+            Guild guild04 = campaign.getHeroesGuild04();
+            String campaignGuild04 = campaign.getGuild04();
+            Integer[] keyGuildOrange = guildKeys.get(NameGuildEnum.ORANGE);
+            fillResultGuild(view, sceneryCurrent, guildWinner, guild04, campaignGuild04, keyGuildOrange);
+
+            sceneryCurrent.setCompleted(Boolean.TRUE);
+
+            String msgFinishScenery = getContext().getResources().getString(R.string.alert_confirmation_dialog_text_scenery);
+            new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.alert_confirmation_dialog_title_play)
+                    .setMessage(MessageFormat.format(msgFinishScenery, sceneryCurrent.getScenery().getName()))
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(R.string.btn_confirmation_dialog_finish, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            Log.i(TAG, MessageFormat.format("onClick: Finish scenery: {0}!", sceneryCurrent));
+                            finishScenery(view);
+                        }
+                    })
+                    .setNegativeButton(R.string.btn_confirmation_dialog_cancel, null).show();
+
+        } else {
+            String warnGuildWinner = getContext().getText(R.string.msg_warn_guild_winner).toString();
+            changeErrorSpinner(spnGuildWinner, warnGuildWinner, true);
+            return;
+        }
+
+    }
+
+    public void finishScenery(View view) {
+        final View currentView = view;
+        new ProgressApp(getActivity(), R.string.msg_action_saving, false) {
+            @Override
+            protected void onPostExecute(Boolean result) {
+                if (result) {
+                    if (CampaignStatusEnum.COMPLETED_CAMPAIGN.equals(campaign.getStatusCurrent())) {
+                        loadMainActivity();
+                    } else {
+                        replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()), R.id.detail_container_complete);
+                    }
+                } else {
+                    AndroidUtils.snackbar(currentView, R.string.msg_failed_update_campaign);
+                }
+                dismissProgress();
+            }
+
+            @Override
+            protected Boolean doInBackground(Void... params) {
+                try {
+                    String token = MainApplication.instance().getToken();
+
+                    CampaignService campaignService = Inject.provideCampaignService();
+                    Log.i(TAG, "doInBackground: Update the campaign with completed scenery!");
+                    campaign = campaignService.update(token, campaign);
+
+                } catch (ValidatorException e) {
+                    Log.e(TAG, e.getLocalizedMessage());
+                    return false;
+                } catch (Exception e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+                    return false;
+                }
+                return true;
+            }
+        }.execute();
+
+    }
+
+    private void loadMainActivity() {
+        Bundle args = new Bundle();
+        args.putString(BundleConstant.ACTION, ActionEnum.START_FRAGMENT_CAMPAIGNS.name());
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
+    }
+
+    private void fillResultGuild(View view, SceneryCampaign sceneryCurrent, String guildWinner, Guild guild, String campaignGuild, Integer[] keyGuild) {
+        if (!Strings.isNullOrEmpty(campaignGuild) && guild != null) {
+            if (campaignGuild.equalsIgnoreCase(guildWinner)) {
+                guild.incVictories();
+            } else {
+                guild.incDefeats();
+            }
+
+            if (keyGuild.length > 1 && ((CheckBox) view.findViewById(keyGuild[1])).isChecked()) {
+                sceneryCurrent.addLeastDeaths(campaignGuild);
+            }
+
+            if (keyGuild.length > 2 && ((CheckBox) view.findViewById(keyGuild[2])).isChecked()) {
+                sceneryCurrent.addMostCoins(campaignGuild);
+            }
+
+            if (keyGuild.length > 3 && ((CheckBox) view.findViewById(keyGuild[3])).isChecked()) {
+                sceneryCurrent.addWonReward(campaignGuild);
+                if (sceneryCurrent.getScenery() != null && sceneryCurrent.getScenery().getWonReward() != null) {
+                    guild.addRewardCards(sceneryCurrent.getScenery().getWonReward().getName());
+                }
+            }
+
+            if (keyGuild.length > 4 && ((CheckBox) view.findViewById(keyGuild[4])).isChecked()) {
+                sceneryCurrent.addWonTitle(campaignGuild);
+                if (sceneryCurrent.getScenery() != null) {
+                    guild.addBenefitTitles(sceneryCurrent.getScenery().getWonTitle());
+                }
+            }
+
+            if (keyGuild.length > 5 && ((CheckBox) view.findViewById(keyGuild[5])).isChecked()) {
+                guild.setSavedMoney(Boolean.TRUE);
+            } else {
+                guild.setSavedMoney(Boolean.FALSE);
+            }
+        }
     }
 
     private void processDataFragment(final View viewFragment, Bundle bundle) {

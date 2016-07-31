@@ -114,18 +114,18 @@ public class Campaign extends BaseEntity implements Serializable {
         return guilds;
     }
 
-    public List<String> getAllActiveGuilds(){
+    public List<String> getAllActiveGuilds() {
         ArrayList<String> guilds = Lists.newArrayList();
-        if(!Strings.isNullOrEmpty(getGuild01())){
+        if (!Strings.isNullOrEmpty(getGuild01())) {
             guilds.add(getGuild01());
         }
-        if(!Strings.isNullOrEmpty(getGuild02())){
+        if (!Strings.isNullOrEmpty(getGuild02())) {
             guilds.add(getGuild02());
         }
-        if(!Strings.isNullOrEmpty(getGuild03())){
+        if (!Strings.isNullOrEmpty(getGuild03())) {
             guilds.add(getGuild03());
         }
-        if(!Strings.isNullOrEmpty(getGuild04())){
+        if (!Strings.isNullOrEmpty(getGuild04())) {
             guilds.add(getGuild04());
         }
         return guilds;
@@ -174,7 +174,7 @@ public class Campaign extends BaseEntity implements Serializable {
             locationScenery = LocationSceneryEnum.OUT_CIRCLE;
         } else if (getScenery4() == null || getScenery5() == null) {
             locationScenery = LocationSceneryEnum.INNER_CIRCLE;
-        } else if (getScenery6() == null) {
+        } else if (getScenery6() == null || getScenery6().getCompleted()) {
             locationScenery = LocationSceneryEnum.ULTIMATE;
         }
         return locationScenery;
@@ -182,7 +182,7 @@ public class Campaign extends BaseEntity implements Serializable {
 
     @NonNull
     public SceneryCampaign getSceneryCurrent() {
-        SceneryCampaign scenery = new SceneryCampaign();
+        SceneryCampaign scenery;
         if (scenery6 != null) {
             scenery = scenery6;
         } else if (scenery5 != null) {
@@ -195,8 +195,49 @@ public class Campaign extends BaseEntity implements Serializable {
             scenery = scenery2;
         } else if (scenery1 != null) {
             scenery = scenery1;
+        } else {
+            scenery = new SceneryCampaign();
         }
         return scenery;
+    }
+
+    @NonNull
+    public SceneryCampaign getNextScenery() {
+        SceneryCampaign scenery;
+        if (scenery6 != null && !scenery6.getCompleted()) {
+            scenery = scenery6;
+        } else if (scenery5 != null && !scenery5.getCompleted()) {
+            scenery = scenery5;
+        } else if (scenery4 != null && !scenery4.getCompleted()) {
+            scenery = scenery4;
+        } else if (scenery3 != null && !scenery3.getCompleted()) {
+            scenery = scenery3;
+        } else if (scenery2 != null && !scenery2.getCompleted()) {
+            scenery = scenery2;
+        } else if (scenery1 != null && !scenery1.getCompleted()) {
+            scenery = scenery1;
+        } else if (scenery6 != null && scenery6.getCompleted()) {
+            scenery = scenery6;
+        } else {
+            scenery = new SceneryCampaign();
+        }
+        return scenery;
+    }
+
+    public void addNextScenery(@NonNull SceneryCampaign scenery) {
+        if (scenery1 == null || !scenery1.getCompleted()) {
+            scenery1 = scenery;
+        } else if (scenery2 == null || !scenery2.getCompleted()) {
+            scenery2 = scenery;
+        } else if (scenery3 == null || !scenery3.getCompleted()) {
+            scenery3 = scenery;
+        } else if (scenery4 == null || !scenery4.getCompleted()) {
+            scenery4 = scenery;
+        } else if (scenery5 == null || !scenery5.getCompleted()) {
+            scenery5 = scenery;
+        } else if (scenery6 == null || !scenery6.getCompleted()) {
+            scenery6 = scenery;
+        }
     }
 
     @NonNull
@@ -226,7 +267,8 @@ public class Campaign extends BaseEntity implements Serializable {
                 || ((scenery2 != null && !scenery2.getCompleted()) && scenery3 == null)
                 || ((scenery3 != null && !scenery3.getCompleted()) && scenery4 == null)
                 || ((scenery4 != null && !scenery4.getCompleted()) && scenery5 == null)
-                || ((scenery5 != null && !scenery5.getCompleted()) && scenery6 == null)) {
+                || ((scenery5 != null && !scenery5.getCompleted()) && scenery6 == null)
+                || (scenery6 != null && !scenery6.getCompleted())) {
             status = CampaignStatusEnum.EDITED_SCENERY;
         } else if (scenery6 != null && scenery6.getCompleted()) {
             status = CampaignStatusEnum.COMPLETED_CAMPAIGN;

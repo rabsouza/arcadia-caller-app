@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -36,9 +39,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.SceneryService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class CampaignDetailSceneryFragment extends BaseFragment {
 
@@ -92,8 +92,15 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
 
         String name = spnScenery.getText().toString();
         Scenery scenery = sceneryMap.get(name);
-        SceneryCampaign sceneryCampaign = SceneryCampaign.builder().name(name).scenery(scenery).active(TRUE).completed(FALSE).deleted(FALSE).build();
-        campaign.setScenery1(sceneryCampaign);
+
+        SceneryCampaign sceneryCurrent = campaign.getNextScenery();
+        sceneryCurrent.setName(name);
+        sceneryCurrent.setScenery(scenery);
+        sceneryCurrent.setActive(TRUE);
+        sceneryCurrent.setCompleted(Boolean.FALSE);
+        sceneryCurrent.setDeleted(FALSE);
+
+        campaign.addNextScenery(sceneryCurrent);
 
         final View currentView = view;
         new ProgressApp(getActivity(), R.string.msg_action_saving, false) {
@@ -101,12 +108,7 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
             protected void onPostExecute(Boolean result) {
                 if (result) {
                     Log.i(TAG, "onPostExecute: Success add scenery to campaign!");
-                    Bundle args = new Bundle();
-                    args.putString(BundleConstant.ACTION, ActionEnum.START_FRAGMENT_CAMPAIGNS.name());
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    intent.putExtras(args);
-
-                    getContext().startActivity(intent);
+                    loadMainActivity();
                 } else {
                     Log.i(TAG, "onPostExecute: Error add scenery to campaign!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_update_campaign);
@@ -128,6 +130,15 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
             }
         }.execute();
 
+    }
+
+    private void loadMainActivity() {
+        Bundle args = new Bundle();
+        args.putString(BundleConstant.ACTION, ActionEnum.START_FRAGMENT_CAMPAIGNS.name());
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
     }
 
     private void processDataFragment(final View viewFragment, Bundle bundle) {
@@ -167,8 +178,11 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
                 @Override
                 protected void onPostExecute(Boolean result) {
 
+                    SceneryCampaign sceneryCurrent = campaign.getSceneryCurrent();
                     for (Scenery scenery : sceneries) {
-                        sceneryMap.put(scenery.getName(), scenery);
+                        if (!sceneryCurrent.getCompleted() || !scenery.getName().equalsIgnoreCase(sceneryCurrent.getName())) {
+                            sceneryMap.put(scenery.getName(), scenery);
+                        }
                     }
 
                     ArrayList<String> namesScenery = Lists.newArrayList(sceneryMap.keySet());

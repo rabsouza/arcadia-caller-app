@@ -1,5 +1,8 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -8,10 +11,9 @@ import android.util.Log;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailCompleteSceneryFragment;
+import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailSceneryFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
+import br.com.battista.arcadiacaller.model.SceneryCampaign;
 
 public class CampaingDetailCompleteActivity extends BaseActivity {
 
@@ -28,7 +30,13 @@ public class CampaingDetailCompleteActivity extends BaseActivity {
         changeTitleCollapsingToolbar(R.string.title_campaign_detail);
 
         processDataActivity(getIntent().getExtras());
-        replaceDetailFragment(CampaignDetailCompleteSceneryFragment.newInstance(campaign), R.id.detail_container_complete);
+
+        SceneryCampaign sceneryCurrent = campaign.getSceneryCurrent();
+        if (!sceneryCurrent.getCompleted()) {
+            replaceDetailFragment(CampaignDetailCompleteSceneryFragment.newInstance(campaign), R.id.detail_container_complete);
+        } else {
+            replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()), R.id.detail_container_complete);
+        }
     }
 
     private void processDataActivity(Bundle bundle) {

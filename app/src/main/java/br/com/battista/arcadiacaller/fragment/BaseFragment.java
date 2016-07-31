@@ -13,7 +13,6 @@ import com.crashlytics.android.answers.ContentViewEvent;
 import com.crashlytics.android.answers.CustomEvent;
 
 import br.com.battista.arcadiacaller.MainApplication;
-import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.util.AppUtils;
 
 public class BaseFragment extends Fragment {
@@ -43,11 +42,11 @@ public class BaseFragment extends Fragment {
         AppUtils.goToHomeIfUserIsNull(MainApplication.instance(), getContext());
     }
 
-    protected void replaceDetailFragment(Fragment fragment) {
+    protected void replaceDetailFragment(Fragment fragment, int containerResID) {
         if (fragment != null) {
             Log.d(TAG, "replaceFragment: Change to detail fragment!");
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.detail_container, fragment).commit();
+                    .replace(containerResID, fragment).commit();
         }
     }
 }

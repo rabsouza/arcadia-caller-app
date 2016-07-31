@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
 public class AndroidUtils {
 
     private static final String TAG = AndroidUtils.class.getSimpleName();
@@ -47,6 +49,20 @@ public class AndroidUtils {
                 (ConnectivityManager) application.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    public static void changeErrorSpinner(@NonNull MaterialBetterSpinner spinner) {
+        changeErrorSpinner(spinner, null, false);
+    }
+
+    public static void changeErrorSpinner(@NonNull MaterialBetterSpinner spinner, String msgErro, Boolean error) {
+        if (error) {
+            Log.e(TAG, msgErro);
+            spinner.setError(msgErro);
+            spinner.requestFocus();
+        } else {
+            spinner.setError(null);
+        }
     }
 
     public static void changeErrorEditText(@NonNull EditText editText, String msgErro, Boolean error) {

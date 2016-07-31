@@ -394,7 +394,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Boolean result) {
                 if (result) {
-                    replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()));
+                    replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()), R.id.detail_container);
                 } else {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_update_campaign);
                 }

@@ -1,7 +1,10 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.GuildEntry;
+
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.google.common.collect.Lists;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,8 +16,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.GuildEntry;
 
 @Builder
 @AllArgsConstructor
@@ -47,6 +48,34 @@ public class Guild extends BaseEntity implements Serializable {
     private HeroGuild hero03;
 
     private Boolean savedMoney = Boolean.FALSE;
+
+    public void incVictories() {
+        if (victories == null) {
+            victories = 0;
+        }
+        victories++;
+    }
+
+    public void incDefeats() {
+        if (defeats == null) {
+            defeats = 0;
+        }
+        defeats++;
+    }
+
+    public void addBenefitTitles(String title) {
+        if (benefitTitles == null) {
+            benefitTitles = Lists.newArrayList();
+        }
+        benefitTitles.add(title);
+    }
+
+    public void addRewardCards(String rewardCard) {
+        if (rewardCards == null) {
+            rewardCards = Lists.newArrayList();
+        }
+        rewardCards.add(rewardCard);
+    }
 
     @Override
     public Object getPk() {
