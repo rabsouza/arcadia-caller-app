@@ -3,11 +3,13 @@ package br.com.battista.arcadiacaller.activity;
 import static br.com.battista.arcadiacaller.R.id.container;
 import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -122,7 +124,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         } else if (id == R.id.nav_menu_logout) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Logout.");
-            loadLoginActivity();
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.alert_confirmation_dialog_title_exit)
+                    .setMessage(R.string.alert_confirmation_dialog_text_logout)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(R.string.btn_confirmation_dialog_exit, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            loadLoginActivity();
+                        }
+                    })
+                    .setNegativeButton(R.string.btn_confirmation_dialog_cancel, null).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
