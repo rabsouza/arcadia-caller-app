@@ -52,6 +52,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
 
+        <activity
+            android:name=".activity.CampaingCompleteActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="259f20ad704f17270f36dedac2ff04ed2f044dfb"/>

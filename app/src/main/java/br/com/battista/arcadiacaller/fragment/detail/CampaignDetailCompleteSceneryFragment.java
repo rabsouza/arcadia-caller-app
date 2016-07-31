@@ -33,7 +33,7 @@ import java.util.Map;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.activity.MainActivity;
+import br.com.battista.arcadiacaller.activity.CampaingCompleteActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
@@ -41,7 +41,6 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
-import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.service.CampaignService;
@@ -201,7 +200,7 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
             protected void onPostExecute(Boolean result) {
                 if (result) {
                     if (CampaignStatusEnum.COMPLETED_CAMPAIGN.equals(campaign.getStatusCurrent())) {
-                        loadMainActivity();
+                        loadCampaignCompleteActivity(campaign);
                     } else {
                         replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()), R.id.detail_container_complete);
                     }
@@ -233,10 +232,10 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 
     }
 
-    private void loadMainActivity() {
+    private void loadCampaignCompleteActivity(Campaign campaign) {
         Bundle args = new Bundle();
-        args.putString(BundleConstant.ACTION, ActionEnum.START_FRAGMENT_CAMPAIGNS.name());
-        Intent intent = new Intent(getContext(), MainActivity.class);
+        args.putSerializable(BundleConstant.DATA, campaign);
+        Intent intent = new Intent(getContext(), CampaingCompleteActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);

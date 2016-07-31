@@ -18,8 +18,8 @@
     <dimen name="card_image_height">200dp</dimen>
     <dimen name="dimen_card_view_height">118dp</dimen>
     <dimen name="dimen_card_scenery_view_height">180dp</dimen>
-    <dimen name="dimen_card_campaign_view_height">440dp</dimen>
-    <dimen name="card_view_item_height">310dp</dimen>
+    <dimen name="dimen_card_campaign_view_height">445dp</dimen>
+    <dimen name="card_view_item_height">320dp</dimen>
     <dimen name="cards_button_width">45dp</dimen>
     <dimen name="cards_button_height">45dp</dimen>
     <dimen name="item_img_width">38dp</dimen>

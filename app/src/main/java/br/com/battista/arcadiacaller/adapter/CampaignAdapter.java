@@ -28,6 +28,7 @@ import java.util.List;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.activity.CampaingCompleteActivity;
 import br.com.battista.arcadiacaller.activity.CampaingDetailActivity;
 import br.com.battista.arcadiacaller.activity.CampaingDetailCompleteActivity;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
@@ -144,7 +145,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 @Override
                 public void onClick(View view) {
                     if (COMPLETED_CAMPAIGN.equals(statusCurrent)) {
-                        AndroidUtils.snackbar(viewCampaign, R.string.msg_blank_fragment);
+                        loadCampaignCompleteActivity(campaign);
                     } else {
                         String msgWarnDelete = getContext().getResources().getString(R.string.msg_warn_complete_campaign);
                         AndroidUtils.snackbar(viewCampaign, MessageFormat.format(msgWarnDelete, campaign.getKey()));
@@ -246,6 +247,15 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
         Intent intent = new Intent(getContext(), CampaingDetailCompleteActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
+    }
+
+    private void loadCampaignCompleteActivity(Campaign campaign) {
+        Bundle args = new Bundle();
+        args.putSerializable(BundleConstant.DATA, campaign);
+        Intent intent = new Intent(getContext(), CampaingCompleteActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);

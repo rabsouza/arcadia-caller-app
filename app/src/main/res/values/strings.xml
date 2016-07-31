@@ -5,6 +5,8 @@
     <string name="title_home">Inicial</string>
     <string name="title_campaigns">Campanhas</string>
     <string name="title_campaign_detail">Campanha</string>
+    <string name="title_campaign_completed">Campanha</string>
+    <string name="title_campaign_active">Campanha atual</string>
     <string name="title_heroes">Heróis</string>
     <string name="title_cards">Cartas</string>
     <string name="title_sceneries">Cenários</string>
@@ -58,7 +60,7 @@
     <string name="hint_detail_heroes_guild_hero_03">Herói 03</string>
     <string name="hint_detail_heroes_selected">*¹ Você deve selecionar os 3 Heróis para todas as Guildas ativas!</string>
     <string name="hint_detail_scenery">Cenário</string>
-    <string name="hint_detail_scenery_current">Cenário Atual</string>
+    <string name="hint_detail_scenery_current">Cenário atual</string>
     <string name="hint_detail_scenery_current_result">Resultado</string>
     <string name="hint_detail_scenery_location">Localização</string>
     <string name="hint_detail_scenery_name">Nome</string>
@@ -86,6 +88,8 @@
     <string name="hint_detail_card_view_scenery_won_reward">Recebeu recompensa:</string>
     <string name="hint_detail_card_view_scenery_won_title">Recebeu título:</string>
     <string name="hint_detail_card_view_scenery_saved_coin">Guardou moeda:</string>
+    <string name="hint_complete_sceneries_completed">Cenários completados</string>
+    <string name="hint_complete_winners_medals">Ganhadores das medalhas</string>
 
 
     <!-- ################### MSG #################### -->

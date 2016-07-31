@@ -103,6 +103,7 @@ dependencies {
     }
     compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
 }
 
 /*
