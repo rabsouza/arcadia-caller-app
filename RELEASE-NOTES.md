@@ -46,13 +46,11 @@ Os Pacotes liberados para testes e produção da aplicação.
  - 30/07/2016
 
 **Features**
- - 
 
 **Bugs**
  - Correção do erro quando existe menos de 4 guildas selecionado!
 
 **Improvements**
- -
 
 ------------------------------------------------------------------------
 
@@ -78,15 +76,12 @@ Os Pacotes liberados para testes e produção da aplicação.
 **Date release**
  - 29/07/2016
 
-
 **Features**
- -
 
 **Bugs**
  - Correção do erro ao inserir um login inválido para guilda.
 
 **Improvements**
- -
  
  ----------------------------------------------------------------------
 
