@@ -59,6 +59,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             if (ActionEnum.START_FRAGMENT_CAMPAIGNS.equals(action)) {
                 Log.i(TAG, "loadFragmentInitial: Load the CampaignsFragment!");
                 changeTitleToolbar(R.string.title_campaigns);
+
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                navigationView.getMenu().getItem(1).setChecked(true);
+
                 replaceFragment(CampaignsFragment.newInstance());
                 return;
             }

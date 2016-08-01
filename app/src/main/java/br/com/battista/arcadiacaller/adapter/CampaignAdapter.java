@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import com.google.common.collect.Lists;
 
 import java.text.MessageFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.Inject;
@@ -39,6 +40,7 @@ import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.DateUtils;
 import lombok.Getter;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
@@ -98,6 +100,10 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 
             holder.getTxtTitle().setText(campaign.getAlias());
             holder.getTxtKey().setText(campaign.getKey());
+            Calendar date = Calendar.getInstance();
+            date.setTime(campaign.getCreatedAt());
+            holder.getTxtDate().setText(DateUtils.formatWithHours(date));
+            holder.getTxtStatus().setText(campaign.getStatusCurrent().getDescRes());
 
             final RecyclerView.Adapter adapterCurrent = this;
             final View viewCurrent = viewCampaign;
@@ -159,7 +165,6 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                     AndroidUtils.snackbar(viewCampaign, R.string.msg_blank_fragment);
                 }
             });
-
 
             List<GuildDto> guildDtos = campaign.generateGuildsDto();
             Log.i(TAG, MessageFormat.format("onBindViewHolder: Load {0} guildDtos to campaign: {1}!"

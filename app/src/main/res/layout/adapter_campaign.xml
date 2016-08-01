@@ -55,6 +55,20 @@
 
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/card_view_campaign_date"
+                style="@style/CardHead03Style"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/card_view_campaign_status"
+                style="@style/CardHead03Style"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -17,6 +17,12 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
     private TextView txtKey;
 
     @Getter
+    private TextView txtDate;
+
+    @Getter
+    private TextView txtStatus;
+
+    @Getter
     private ImageButton btnFinish;
 
     @Getter
@@ -36,6 +42,8 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
 
         txtTitle = (TextView) view.findViewById(R.id.card_view_campaign_title);
         txtKey = (TextView) view.findViewById(R.id.card_view_campaign_key);
+        txtDate = (TextView) view.findViewById(R.id.card_view_campaign_date);
+        txtStatus = (TextView) view.findViewById(R.id.card_view_campaign_status);
 
         btnFinish = (ImageButton) view.findViewById(R.id.card_view_campaign_finish);
         btnPlay = (ImageButton) view.findViewById(R.id.card_view_campaign_play);

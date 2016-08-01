@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.google.common.base.Strings;
@@ -14,6 +15,7 @@ import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.service.UserService;
@@ -24,6 +26,7 @@ public class LoginActivity extends BaseActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
 
     private EditText mTxtUsername = null;
+    private CheckBox chbSavedUsername = null;
     private AppService appService = null;
 
     @Override
@@ -34,6 +37,15 @@ public class LoginActivity extends BaseActivity {
         appService = Inject.provideAppService();
         appService.ping();
         appService.health();
+
+        String username = MainApplication.instance().getPreferences(SharedPreferencesKeyEnum.SAVED_USERNAME);
+        if (!Strings.isNullOrEmpty(username)) {
+            mTxtUsername = (EditText) findViewById(R.id.txt_username);
+            mTxtUsername.setText(username);
+
+            chbSavedUsername = (CheckBox) findViewById(R.id.chb_saved_username);
+            chbSavedUsername.setChecked(Boolean.TRUE);
+        }
     }
 
     public void login(View view) {
@@ -48,6 +60,14 @@ public class LoginActivity extends BaseActivity {
         final String username = mTxtUsername.getText().toString().trim();
         Log.d(TAG, MessageFormat.format("Login user with username: {0}", username));
 
+        chbSavedUsername = (CheckBox) findViewById(R.id.chb_saved_username);
+        final MainApplication instance = MainApplication.instance();
+        if (chbSavedUsername.isChecked()) {
+            instance.putPreferences(SharedPreferencesKeyEnum.SAVED_USERNAME, username);
+        } else {
+            instance.putPreferences(SharedPreferencesKeyEnum.SAVED_USERNAME, null);
+        }
+
         final View currentView = view;
         new ProgressApp(this, R.string.msg_action_login, false) {
 
@@ -61,8 +81,8 @@ public class LoginActivity extends BaseActivity {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
                 } else {
                     Log.d(TAG, "onPostExecute: Success in login!");
-                    MainApplication.instance().setToken(token);
-                    MainApplication.instance().setUser(user);
+                    instance.setToken(token);
+                    instance.setUser(user);
                     loadMainActivity();
                 }
                 dismissProgress();

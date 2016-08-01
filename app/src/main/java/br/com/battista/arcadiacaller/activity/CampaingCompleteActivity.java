@@ -15,6 +15,7 @@ import java.util.List;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.model.Campaign;
+import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 
@@ -32,11 +33,21 @@ public class CampaingCompleteActivity extends BaseActivity {
     private TextView txtScenery05;
     private TextView txtScenery06;
 
+    private TextView txtScenery01Location;
+    private TextView txtScenery02Location;
+    private TextView txtScenery03Location;
+    private TextView txtScenery04Location;
+    private TextView txtScenery05Location;
+    private TextView txtScenery06Location;
+
     private TextView txtWinner;
     private TextView txtLeastDeaths;
     private TextView txtMostCoins;
     private TextView txtWonReward;
     private TextView txtWonTitle;
+
+    private TextView txtGuildWinner;
+    private TextView txtGuildWinnerHint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,59 +81,111 @@ public class CampaingCompleteActivity extends BaseActivity {
                 loadMainActivity();
             }
 
+            String guildNameWinner = campaign.getSceneryCurrent().getWinner();
+            txtGuildWinner = (TextView) findViewById(R.id.complete_card_view_guild_winner_name);
+            txtGuildWinner.setText(guildNameWinner);
+
+            txtGuildWinnerHint = (TextView) findViewById(R.id.complete_card_view_guild_winner_hint);
+            CharSequence textWinner = getContext().getText(R.string.hint_complete_winner_text);
+            txtGuildWinnerHint.setText(MessageFormat.format(textWinner.toString(), guildNameWinner));
+
             txtAliasCampaign = (TextView) findViewById(R.id.complete_card_view_campaign_alias);
             txtAliasCampaign.setText(MessageFormat.format("{0} - {1}", campaign.getKey(), campaign.getAlias()));
 
+            String sceneryLocation = String.valueOf(getContext().getText(R.string.hint_scenery_head));
+
+            txtScenery01Location = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_01_location);
             txtScenery01 = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_01);
             SceneryCampaign scenery1 = campaign.getScenery1();
             if (scenery1 != null) {
                 txtScenery01.setText(scenery1.getName());
+
+                Scenery scenery = scenery1.getScenery();
+                CharSequence difficulty = getContext().getText(scenery.getDifficulty().getDescRes());
+                CharSequence locationText = getContext().getText(scenery.getLocation().getDescRes());
+                txtScenery01Location.setText(MessageFormat.format(sceneryLocation, difficulty, locationText));
             } else {
                 txtScenery01.setText(R.string.none);
+                txtScenery01Location.setText(R.string.none);
             }
 
+            txtScenery02Location = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_02_location);
             txtScenery02 = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_02);
             SceneryCampaign scenery2 = campaign.getScenery2();
             if (scenery2 != null) {
                 txtScenery02.setText(scenery2.getName());
+
+                Scenery scenery = scenery2.getScenery();
+                CharSequence difficulty = getContext().getText(scenery.getDifficulty().getDescRes());
+                CharSequence locationText = getContext().getText(scenery.getLocation().getDescRes());
+                txtScenery02Location.setText(MessageFormat.format(sceneryLocation, difficulty, locationText));
             } else {
                 txtScenery02.setText(R.string.none);
+                txtScenery02Location.setText(R.string.none);
             }
 
+            txtScenery03Location = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_03_location);
             txtScenery03 = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_03);
             SceneryCampaign scenery3 = campaign.getScenery3();
             if (scenery3 != null) {
                 txtScenery03.setText(scenery3.getName());
+
+                Scenery scenery = scenery3.getScenery();
+                CharSequence difficulty = getContext().getText(scenery.getDifficulty().getDescRes());
+                CharSequence locationText = getContext().getText(scenery.getLocation().getDescRes());
+                txtScenery03Location.setText(MessageFormat.format(sceneryLocation, difficulty, locationText));
             } else {
                 txtScenery03.setText(R.string.none);
+                txtScenery03Location.setText(R.string.none);
             }
 
+            txtScenery04Location = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_04_location);
             txtScenery04 = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_04);
             SceneryCampaign scenery4 = campaign.getScenery4();
             if (scenery4 != null) {
                 txtScenery04.setText(scenery4.getName());
+
+                Scenery scenery = scenery4.getScenery();
+                CharSequence difficulty = getContext().getText(scenery.getDifficulty().getDescRes());
+                CharSequence locationText = getContext().getText(scenery.getLocation().getDescRes());
+                txtScenery04Location.setText(MessageFormat.format(sceneryLocation, difficulty, locationText));
             } else {
                 txtScenery04.setText(R.string.none);
+                txtScenery04Location.setText(R.string.none);
             }
 
+            txtScenery05Location = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_05_location);
             txtScenery05 = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_05);
             SceneryCampaign scenery5 = campaign.getScenery5();
             if (scenery5 != null) {
                 txtScenery05.setText(scenery5.getName());
+
+                Scenery scenery = scenery5.getScenery();
+                CharSequence difficulty = getContext().getText(scenery.getDifficulty().getDescRes());
+                CharSequence locationText = getContext().getText(scenery.getLocation().getDescRes());
+                txtScenery05Location.setText(MessageFormat.format(sceneryLocation, difficulty, locationText));
             } else {
                 txtScenery05.setText(R.string.none);
+                txtScenery05Location.setText(R.string.none);
             }
 
+            txtScenery06Location = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_06_location);
             txtScenery06 = (TextView) findViewById(R.id.complete_card_view_sceneries_scenery_06);
             SceneryCampaign scenery6 = campaign.getScenery6();
             if (scenery6 != null) {
                 txtScenery06.setText(scenery6.getName());
+
+                Scenery scenery = scenery6.getScenery();
+                CharSequence difficulty = getContext().getText(scenery.getDifficulty().getDescRes());
+                CharSequence locationText = getContext().getText(scenery.getLocation().getDescRes());
+                txtScenery06Location.setText(MessageFormat.format(sceneryLocation, difficulty, locationText));
             } else {
                 txtScenery06.setText(R.string.none);
+                txtScenery06Location.setText(R.string.none);
             }
 
             txtWinner = (TextView) findViewById(R.id.complete_card_view_winners_medals_winners);
-            List<String> winner = campaign.getWinner();
+            List<String> winner = campaign.getWinners();
             if (winner == null || winner.isEmpty()) {
                 txtWinner.setText(R.string.none);
             } else {

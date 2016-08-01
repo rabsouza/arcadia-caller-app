@@ -366,7 +366,7 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
     }
 
     private void loadGuildsWinner(View viewFragment) {
-        Log.i(TAG, "loadGuildsWinner: Load all guilds active for winner!");
+        Log.i(TAG, "loadGuildsWinner: Load all guilds active for winners!");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_dropdown_item_1line, campaign.getAllActiveGuilds());

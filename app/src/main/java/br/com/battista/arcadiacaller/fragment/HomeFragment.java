@@ -18,8 +18,8 @@ import java.util.Calendar;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.model.StatisticUser;
 import br.com.battista.arcadiacaller.model.User;
-import br.com.battista.arcadiacaller.model.enuns.StatisticUser;
 import br.com.battista.arcadiacaller.util.AppUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
@@ -75,10 +75,12 @@ public class HomeFragment extends BaseFragment {
                 ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_completed)).setText(String.valueOf(statisticUser.getCompleteds()));
                 ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_winners)).setText(String.valueOf(statisticUser.getCampaignWinners()));
                 ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_defeats)).setText(String.valueOf(statisticUser.getCampaignDefeats()));
-                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_least_deaths)).setText(String.valueOf(statisticUser.getCampaignLeastDeaths()));
-                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_most_coins)).setText(String.valueOf(statisticUser.getCampaignMostCoins()));
-                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_won_rewards)).setText(String.valueOf(statisticUser.getCampaignWonRewards()));
-                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_won_titles)).setText(String.valueOf(statisticUser.getCampaignWonTitles()));
+
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_medals_winners)).setText(String.valueOf(statisticUser.getCampaignMedalsWinners()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_medals_least_deaths)).setText(String.valueOf(statisticUser.getCampaignMedalsLeastDeaths()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_medals_most_coins)).setText(String.valueOf(statisticUser.getCampaignMedalsMostCoins()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_medals_won_rewards)).setText(String.valueOf(statisticUser.getCampaignMedalsWonRewards()));
+                ((TextView) view.findViewById(R.id.card_view_home_statistic_campaigns_medals_won_titles)).setText(String.valueOf(statisticUser.getCampaignMedalsWonTitles()));
 
                 Log.i(TAG, "onPostExecute: Load all statistic user to sceneries!");
                 ((TextView) view.findViewById(R.id.card_view_home_statistic_sceneries_total)).setText(String.valueOf(statisticUser.getSceneries()));

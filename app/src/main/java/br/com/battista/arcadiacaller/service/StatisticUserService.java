@@ -13,7 +13,7 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.constants.HttpStatus;
 import br.com.battista.arcadiacaller.constants.RestConstant;
 import br.com.battista.arcadiacaller.listener.StatisticUserListener;
-import br.com.battista.arcadiacaller.model.enuns.StatisticUser;
+import br.com.battista.arcadiacaller.model.StatisticUser;
 import retrofit2.Response;
 
 public class StatisticUserService extends BaseService {

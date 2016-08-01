@@ -25,7 +25,9 @@ public class CampainhaCompleteService {
 
         List<String> activeGuilds = campaign.getAllActiveGuilds();
 
-        campaign.setWinner(processWinners(sceneries, activeGuilds));
+        campaign.setWinner(campaign.getSceneryCurrent().getWinner());
+
+        campaign.setWinners(processWinners(sceneries, activeGuilds));
         campaign.setLeastDeaths(processLeastDeaths(sceneries, activeGuilds));
         campaign.setMostCoins(processMostCoins(sceneries, activeGuilds));
         campaign.setWonReward(processWonRewards(sceneries, activeGuilds));

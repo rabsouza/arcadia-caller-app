@@ -35,6 +35,7 @@
     <!-- ################### HINT #################### -->
     <string name="hint_card_group">Grupo: {0}</string>
     <string name="hint_scenery_head">{0} - {1}</string>
+    <string name="hint_saved_username">Lembrar-me!</string>
     <string name="hint_btn_login">Login</string>
     <string name="hint_btn_mail">E-mail</string>
     <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por um conjunto de letras, números e/ou os caracteres \'_\', \'-\' e \'.\'.</string>
@@ -67,17 +68,18 @@
     <string name="hint_detail_scenery_selected_location">*¹ A localização ativa do Cenário é pre-selecionada de acordo com o número de Cenários finalizados da Campanha atual!</string>
     <string name="hint_detail_scenery_selected">*² Você pode selecionar somentes os Cenários disponíveis para a localização atual!</string>
     <string name="hint_detail_home_statistic_campaigns">Total de Campanhas jogadas:</string>
-    <string name="hint_detail_home_statistic_campaigns_guilds">Total de Guildas criadas:</string>
+    <string name="hint_detail_home_statistic_campaigns_guilds">Total de Guildas utilizadas:</string>
     <string name="hint_detail_home_statistic_campaigns_completed">Campanhas finalizadas:</string>
-    <string name="hint_detail_home_statistic_campaigns_winners">Vitórias:</string>
-    <string name="hint_detail_home_statistic_campaigns_defeats">Derrotas:</string>
-    <string name="hint_detail_home_statistic_campaigns_least_deaths">Menos Mortes:</string>
-    <string name="hint_detail_home_statistic_campaigns_most_coins">Mais moedas:</string>
-    <string name="hint_detail_home_statistic_campaigns_won_rewards">Recompensas recebidos:</string>
-    <string name="hint_detail_home_statistic_campaigns_won_titles">Títulos recebidos:</string>
+    <string name="hint_detail_home_statistic_campaigns_winners">Vitórias em Campanhas:</string>
+    <string name="hint_detail_home_statistic_campaigns_defeats">Derrotas em Campanhas:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_winners">Medalhas de Vitórias:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_least_deaths">Medalhas de Menos Mortes:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_most_coins">Medalhas de Mais moedas:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_won_rewards">Medalhas de Recompensas recebidos:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_won_titles">Medalhas de Títulos recebidos:</string>
     <string name="hint_detail_home_statistic_sceneries">Cenários finalizados:</string>
-    <string name="hint_detail_home_statistic_sceneries_winners">Vitórias:</string>
-    <string name="hint_detail_home_statistic_sceneries_defeats">Derrotas:</string>
+    <string name="hint_detail_home_statistic_sceneries_winners">Vitórias em Cenários:</string>
+    <string name="hint_detail_home_statistic_sceneries_defeats">Derrotas em Cenários:</string>
     <string name="hint_detail_home_statistic_sceneries_least_deaths">Menos mortes:</string>
     <string name="hint_detail_home_statistic_sceneries_most_coins">Mais moedas:</string>
     <string name="hint_detail_home_statistic_sceneries_won_rewards">Recompensas recebidos:</string>
@@ -89,12 +91,14 @@
     <string name="hint_detail_card_view_scenery_won_title">Recebeu título:</string>
     <string name="hint_detail_card_view_scenery_saved_coin">Guardou moeda:</string>
     <string name="hint_complete_sceneries_completed">Cenários completados</string>
+    <string name="hint_complete_winner">Guilda vitoriosa</string>
     <string name="hint_complete_winners_medals">Ganhadores das medalhas</string>
     <string name="hint_complete_winners_winners">Vencedores:</string>
     <string name="hint_complete_winners_least_deaths">Menos Mortes:</string>
     <string name="hint_complete_winners_most_coins">Mais moedas:</string>
     <string name="hint_complete_winners_won_rewards">Recompensas recebidos:</string>
     <string name="hint_complete_winners_won_titles">Títulos recebidos:</string>
+    <string name="hint_complete_winner_text">A Guilda {0} vençeu o sexto e último cenário da campanha (o Confronto Final), Arcadia finalmente estará livre! Obrigado! Você tem o poder e glória por controlar Arcadia! Mas as suas ações ao longo da campanha vão determinar o quanto de controle você realmente tem sobre Arcadia, agora que a cidade foi reconquistada.</string>
 
 
     <!-- ################### MSG #################### -->
@@ -181,6 +185,11 @@ E-mail: rabsouza@gmail.com<br>
     <string name="name_guild_red">Raposa</string>
     <string name="name_guild_orange">Leão</string>
     <string name="name_guild_green">Panda</string>
+
+    <!-- ################### CAMPAIGN STATUS #################### -->
+    <string name="campaign_status_created">CRIADA</string>
+    <string name="campaign_status_playing">JOGANDO</string>
+    <string name="campaign_status_completed">FINALIZADA</string>
 
     <string name="hello_blank_fragment">Em construção, por favor aguarde!</string>
 
