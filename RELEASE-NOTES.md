@@ -4,6 +4,22 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ## PHASE - BETA
 
+### Version - 1.3.0
+**Date release**
+ - 02/08/2016
+
+**Features**
+ - Adiciona tela para adicionar amigos.
+
+**Bugs**
+ - Correção de NPE ao perder a sessão.
+
+**Improvements**
+ - Melhorias para o botão back.
+ - Melhorias de layout.
+ - Melhoria nas ordenações de Cartas, Cenários e Heróis.
+
+
 ### Version - 1.2.0
 **Date release**
  - 01/08/2016
