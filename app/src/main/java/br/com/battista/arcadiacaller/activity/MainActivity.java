@@ -54,13 +54,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void loadFragmentInitial(Bundle extras) {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (extras != null && extras.containsKey(BundleConstant.ACTION)) {
             ActionEnum action = ActionEnum.get(extras.get(BundleConstant.ACTION).toString());
             if (ActionEnum.START_FRAGMENT_CAMPAIGNS.equals(action)) {
                 Log.i(TAG, "loadFragmentInitial: Load the CampaignsFragment!");
                 changeTitleToolbar(R.string.title_campaigns);
 
-                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
                 navigationView.getMenu().getItem(1).setChecked(true);
 
                 replaceFragment(CampaignsFragment.newInstance());
@@ -68,6 +68,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             }
         }
         Log.i(TAG, "loadFragmentInitial: Load the HomeFragment!");
+        navigationView.getMenu().getItem(1).setChecked(true);
         replaceFragment(HomeFragment.newInstance());
     }
 
@@ -83,7 +84,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.getMenu().getItem(0).setChecked(true);
+            replaceFragment(HomeFragment.newInstance());
         }
     }
 

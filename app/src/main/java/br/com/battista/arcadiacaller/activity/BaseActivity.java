@@ -110,7 +110,7 @@ public class BaseActivity extends AppCompatActivity {
         if (fragment != null) {
             Log.d(TAG, "replaceFragment: Change to fragment!");
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, fragment).commit();
+                    .replace(R.id.container, fragment, fragment.getTag()).commit();
         }
     }
 
