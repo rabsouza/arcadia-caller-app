@@ -19,6 +19,10 @@ import android.util.Log;
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Configuration;
 import com.crashlytics.android.Crashlytics;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 
 import br.com.battista.arcadiacaller.adapter.FontsAdapter;
 import br.com.battista.arcadiacaller.model.Campaign;
@@ -40,13 +44,12 @@ public class MainApplication extends MultiDexApplication {
     private static final String TAG = MainApplication.class.getSimpleName();
 
     private static MainApplication instance = null;
+    private final SharedPreferencesKeyEnum keyUser = SharedPreferencesKeyEnum.SAVED_USER;
 
     @Getter
     @Setter
     private transient String token;
 
-    @Getter
-    @Setter
     private User user;
 
     @Setter
@@ -86,6 +89,30 @@ public class MainApplication extends MultiDexApplication {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key.name(), value);
         return editor.commit();
+    }
+
+    public User getUser() {
+
+        if (user == null && preferences.contains(keyUser.name())) {
+            try {
+                String jsonUSer = getPreferences(keyUser);
+                user = new ObjectMapper().readValue(jsonUSer, User.class);
+            } catch (IOException e) {
+                Log.e(TAG, "getUser: error convert user!", e);
+            }
+        }
+        return user;
+    }
+
+    public void setUser(User user) {
+        try {
+            String jsonUser = new ObjectMapper().writeValueAsString(user);
+            putPreferences(keyUser, jsonUser);
+        } catch (JsonProcessingException e) {
+            Log.e(TAG, "setUser: error convert user!", e);
+        }
+
+        this.user = user;
     }
 
     private void checkOnlineServer() {

@@ -7,6 +7,7 @@ import java.util.Map;
 public enum ProfileAppConstant {
 
     ADMIN,
+    FRIEND,
     APP;
 
     private static final Map<String, ProfileAppConstant> LOOK_UP = Maps.newHashMap();

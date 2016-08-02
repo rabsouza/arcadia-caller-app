@@ -14,6 +14,11 @@
             android:id="@+id/nav_menu_campaign"
             android:icon="@drawable/ic_menu_campaign"
             android:title="@string/title_campaigns"/>
+
+        <item
+            android:id="@+id/nav_menu_friends"
+            android:icon="@drawable/ic_menu_friends"
+            android:title="@string/title_friends"/>
     </group>
 
     <group

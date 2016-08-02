@@ -34,4 +34,7 @@
 
     <dimen name="item_text_card_scenery_height">55dp</dimen>
 
+    <dimen name="dimen_friend_img_width">40dp</dimen>
+    <dimen name="dimen_friend_img_height">40dp</dimen>
+
 </resources>

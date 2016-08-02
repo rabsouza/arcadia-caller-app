@@ -1,68 +1,43 @@
 package br.com.battista.arcadiacaller.adapter;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
-import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.model.Card;
-import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
 
-import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
-
-public class FriendAdapter extends RecyclerView.Adapter<CardViewHolder> {
+public class FriendAdapter extends RecyclerView.Adapter<FriendViewHolder> {
     private static final String TAG = FriendAdapter.class.getSimpleName();
 
     private Context context;
-    private List<Card> cards;
+    private List<String> friends;
     private View view;
 
-    public FriendAdapter(Context context, List<Card> cards) {
+    public FriendAdapter(Context context, List<String> friends) {
         this.context = context;
-        this.cards = cards;
+        this.friends = friends;
     }
 
     @Override
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public FriendViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.adapter_card, viewGroup, false);
-        return new CardViewHolder(view);
+                .inflate(R.layout.adapter_friend, viewGroup, false);
+        return new FriendViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CardViewHolder holder, int position) {
-        if (cards != null && !cards.isEmpty()) {
-            final Card card = cards.get(position);
+    public void onBindViewHolder(FriendViewHolder holder, int position) {
+        if (friends != null && !friends.isEmpty()) {
+            final String friend = friends.get(position);
             Log.i(TAG, String.format(
-                    "onBindViewHolder: Fill to row position: %S with %s.", position, card));
+                    "onBindViewHolder: Fill to row position: %S with %s.", position, friend));
 
-            TextView txtTitle = holder.getTxtTitle();
-            txtTitle.setText(card.getName());
-
-            GroupCardEnum cardGroup = card.getGroup();
-            txtTitle.setTextColor(ContextCompat.getColor(context, cardGroup.getColorRes()));
-
-            String textGroup = MessageFormat.format(String.valueOf(context.getText(R.string.hint_card_group)), context.getText(cardGroup.getDescRes()));
-            holder.getTxtGroup().setText(textGroup);
-
-            holder.getTxtType().setText(card.getType().getDescRes());
-
-            Glide.with(context)
-                    .load(getCardCostRes(card.getCost()))
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .crossFade()
-                    .into(holder.getImgCost());
+            holder.getTxtUSername().setText(friend);
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
@@ -71,6 +46,6 @@ public class FriendAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
     @Override
     public int getItemCount() {
-        return cards != null ? cards.size() : 0;
+        return friends != null ? friends.size() : 0;
     }
 }

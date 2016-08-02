@@ -21,7 +21,7 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_MAIL = "mail";
         public static final String COLUMN_NAME_URL_AVATAR = "urlAvatar";
         public static final String COLUMN_NAME_PROFILE = "profile";
-        public static final String COLUMN_NAME_TOKEN = "token";
+        public static final String COLUMN_NAME_FRIENDS = "friends";
     }
 
     public static abstract class CampaignEntry extends BaseEntry {

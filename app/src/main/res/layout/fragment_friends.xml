@@ -1,13 +1,174 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="br.com.battista.arcadiacaller.fragment.FriendsFragment">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.battista.arcadiacaller.fragment.FriendsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_friends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <TextView
+                        android:id="@+id/card_view_friends_title"
+                        style="@style/CardTitle02Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_observation"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:background="@color/gray"/>
+
+                    <TextView
+                        style="@style/HintTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_add_friends_obs"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        style="@style/HintTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:text="@string/hint_add_friends_obs_2"/>
+
+                    <TextView
+                        style="@style/HintTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:text="@string/hint_add_friends_obs_3"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/card_view_friends_username"
+                                style="@style/InputStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:hint="@string/hint_detail_guilds_login"
+                                android:inputType="textAutoComplete"
+                                android:maxLines="1"/>
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <ImageButton
+                            android:id="@+id/card_view_campaign_edit"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="@dimen/cards_button_width"
+                            android:layout_height="@dimen/cards_button_height"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:layout_marginLeft="@dimen/element_horizontal_margin"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"
+                            android:src="@drawable/add_friends"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_friends_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                android:scrollbars="vertical"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <TextView
+                        android:id="@+id/card_view_friends_list_friends"
+                        style="@style/CardTitle02Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_friends"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/friends_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/item_img_height"
+                        android:cacheColorHint="@android:color/transparent"
+                        android:clipToPadding="false"
+                        android:dividerHeight="0dp"
+                        android:listSelector="@android:color/transparent"
+                        android:paddingBottom="@dimen/md_keylines"
+                        android:paddingTop="@dimen/md_keylines"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:scrollbars="none"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </FrameLayout>

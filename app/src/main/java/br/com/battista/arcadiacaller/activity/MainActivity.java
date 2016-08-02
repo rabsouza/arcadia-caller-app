@@ -2,6 +2,7 @@ package br.com.battista.arcadiacaller.activity;
 
 import static br.com.battista.arcadiacaller.R.id.container;
 import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
+import static br.com.battista.arcadiacaller.R.id.nav_menu_friends;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
 import br.com.battista.arcadiacaller.fragment.CardsFragment;
+import br.com.battista.arcadiacaller.fragment.FriendsFragment;
 import br.com.battista.arcadiacaller.fragment.HeroesFragment;
 import br.com.battista.arcadiacaller.fragment.HomeFragment;
 import br.com.battista.arcadiacaller.fragment.SceneriesFragment;
@@ -104,6 +106,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             Log.d(TAG, "onNavigationItemSelected: Go to menu Campaign.");
             changeToolbarTitleByMenu(menuItem);
             replaceFragment(CampaignsFragment.newInstance());
+
+        } else if (id == nav_menu_friends) {
+            Log.d(TAG, "onNavigationItemSelected: Go to menu Friends.");
+            changeToolbarTitleByMenu(menuItem);
+            replaceFragment(FriendsFragment.newInstance());
 
         } else if (id == R.id.nav_menu_heroes) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Heroes.");
