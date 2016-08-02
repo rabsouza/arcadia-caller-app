@@ -1,15 +1,5 @@
 package br.com.battista.arcadiacaller;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
@@ -38,6 +28,17 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import io.fabric.sdk.android.Fabric;
 import lombok.Getter;
 import lombok.Setter;
+
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
+import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
 
 public class MainApplication extends MultiDexApplication {
 
@@ -70,10 +71,13 @@ public class MainApplication extends MultiDexApplication {
 
         initializeDB();
         initializeSystemFont();
+        initializePreferences();
 
         instance = this;
         checkOnlineServer();
+    }
 
+    private void initializePreferences() {
         preferences = getSharedPreferences(getApplicationContext().getPackageName(), Context.MODE_PRIVATE);
     }
 
@@ -115,11 +119,16 @@ public class MainApplication extends MultiDexApplication {
         this.user = user;
     }
 
-    private void checkOnlineServer() {
-        if (AndroidUtils.isOnline(this)) {
-            Log.i(TAG, "isOnline: Clean-up database!");
-            deleteDatabase(DEFAULT_DATABASE_NAME);
+    public Boolean checkOnlineServer() {
+        Boolean online = AndroidUtils.isOnline(this);
+        putPreferences(SERVER_ONLINE, Boolean.toString(online));
+        if (online) {
+            Log.i(TAG, "checkOnlineServer: Server is online!");
+        } else {
+            Log.i(TAG, "checkOnlineServer: Server is offline!");
         }
+
+        return online;
     }
 
     protected void initializeDB() {

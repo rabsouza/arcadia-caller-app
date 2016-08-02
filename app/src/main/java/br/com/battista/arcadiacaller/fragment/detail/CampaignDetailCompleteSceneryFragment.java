@@ -197,7 +197,7 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 
         try {
             if (CampaignStatusEnum.COMPLETED_CAMPAIGN.equals(campaign.getStatusCurrent())) {
-                Inject.provideCampainhaCompleteService().finishCampaign(campaign);
+                Inject.provideCampaignCompleteService().finishCampaign(campaign);
                 campaign.setCompleted(Boolean.TRUE);
             }
         } catch (Exception e) {

@@ -12,8 +12,7 @@ import java.util.Map;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
 
-public class CampainhaCompleteService {
-
+public class CampaignCompleteService {
 
     public void finishCampaign(@NonNull Campaign campaign) {
         List<SceneryCampaign> sceneries = Lists.newArrayList(campaign.getScenery1(),
