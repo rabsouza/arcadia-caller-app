@@ -9,72 +9,82 @@ public class DatabaseContract {
 
     public static abstract class BaseEntry implements BaseColumns {
 
-        public static final String COLUMN_NAME_CREATED_AT = "createdAt";
-        public static final String COLUMN_NAME_UPDATED_AT = "updatedAt";
-        public static final String COLUMN_NAME_VERSION = "version";
-        public static final String COLUMN_NAME_SYNCHONIZED_AT = "synchronizedAt";
-        public static final String COLUMN_NAME_ENTITY_SYNCHONIZED = "entitySynchronized";
+        public static final String COLUMN_NAME_CREATED_AT = "CREATED_AT";
+        public static final String COLUMN_NAME_UPDATED_AT = "UPDATED_AT";
+        public static final String COLUMN_NAME_VERSION = "VERSION";
+        public static final String COLUMN_NAME_SYNCHRONIZED_AT = "SYNCHRONIZED_AT";
+        public static final String COLUMN_NAME_ENTITY_SYNCHRONIZED = "ENTITY_SYNCHRONIZED";
     }
 
     public static abstract class UserEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "User";
-        public static final String COLUMN_NAME_USERNAME = "username";
-        public static final String COLUMN_NAME_MAIL = "mail";
-        public static final String COLUMN_NAME_URL_AVATAR = "urlAvatar";
-        public static final String COLUMN_NAME_PROFILE = "profile";
-        public static final String COLUMN_NAME_FRIENDS = "friends";
+        public static final String TABLE_NAME = "USER";
+        public static final String COLUMN_NAME_USERNAME = "USERNAME";
+        public static final String COLUMN_NAME_MAIL = "MAIL";
+        public static final String COLUMN_NAME_URL_AVATAR = "URL_AVATAR";
+        public static final String COLUMN_NAME_PROFILE = "PROFILE";
+        public static final String COLUMN_NAME_FRIENDS = "FRIENDS";
     }
 
     public static abstract class CampaignEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "Campaign";
-        public static final String COLUMN_NAME_KEY = "key";
+        public static final String TABLE_NAME = "CAMPAIGN";
+        public static final String COLUMN_NAME_KEY = "KEY";
     }
 
     public static abstract class CardEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "Card";
-        public static final String COLUMN_NAME_NAME = "name";
-        public static final String COLUMN_NAME_KEY = "key";
-        public static final String COLUMN_NAME_TYPE = "typeCard";
-        public static final String COLUMN_NAME_GROUP = "groupCard";
-        public static final String COLUMN_NAME_COST = "cost";
-        public static final String COLUMN_NAME_ACTIVE = "active";
-        public static final String COLUMN_NAME_REVISE = "revise";
-        public static final String COLUMN_NAME_DENOUNCE = "denounce";
-        public static final String COLUMN_NAME_DELETED = "deleted";
+        public static final String TABLE_NAME = "CARD";
+        public static final String COLUMN_NAME_NAME = "NAME";
+        public static final String COLUMN_NAME_KEY = "KEY";
+        public static final String COLUMN_NAME_TYPE = "TYPE_CARD";
+        public static final String COLUMN_NAME_GROUP = "GROUP_CARD";
+        public static final String COLUMN_NAME_COST = "COST";
+        public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
+        public static final String COLUMN_NAME_REVISE = "REVISE";
+        public static final String COLUMN_NAME_DENOUNCE = "DENOUNCE";
+        public static final String COLUMN_NAME_DELETED = "DELETED";
 
     }
 
     public static abstract class GuildEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "Guild";
-        public static final String COLUMN_NAME_NAME = "name";
+        public static final String TABLE_NAME = "GUILD";
+        public static final String COLUMN_NAME_NAME = "NAME";
     }
 
     public static abstract class HeroEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "Hero";
-        public static final String COLUMN_NAME_NAME = "name";
+        public static final String TABLE_NAME = "HERO";
+        public static final String COLUMN_NAME_NAME = "NAME";
     }
 
     public static abstract class HeroGuildEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "HeroGuild";
-        public static final String COLUMN_NAME_HERO = "hero";
+        public static final String TABLE_NAME = "HERO_GUILD";
+        public static final String COLUMN_NAME_HERO = "HERO";
     }
 
     public static abstract class SceneryEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "Scenery";
-        public static final String COLUMN_NAME_NAME = "name";
+        public static final String TABLE_NAME = "SCENERY";
+        public static final String COLUMN_NAME_NAME = "NAME";
+        public static final String COLUMN_NAME_URL_SYMBOL = "URL_SYMBOL";
+        public static final String COLUMN_NAME_WON_TITLE = "WON_TITLE";
+        public static final String COLUMN_NAME_WON_REWARD = "WON_REWARD";
+        public static final String COLUMN_NAME_DIFFICULTY = "DIFFICULTY";
+        public static final String COLUMN_NAME_BENEFIT_TITLES = "BENEFIT_TITLES";
+        public static final String COLUMN_NAME_LOCATION = "LOCATION";
+        public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
+        public static final String COLUMN_NAME_REVISE = "REVISE";
+        public static final String COLUMN_NAME_DENOUNCE = "DENOUNCE";
+        public static final String COLUMN_NAME_DELETED = "DELETED";
     }
 
     public static abstract class SceneryCampaignEntry extends BaseEntry {
 
-        public static final String TABLE_NAME = "SceneryCampaign";
-        public static final String COLUMN_NAME_NAME = "name";
+        public static final String TABLE_NAME = "SCENERY_CAMPAIGN";
+        public static final String COLUMN_NAME_NAME = "NAME";
     }
 
 }

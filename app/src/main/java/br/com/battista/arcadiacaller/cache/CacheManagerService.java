@@ -18,8 +18,10 @@ import java.util.List;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.model.Card;
+import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum;
 import br.com.battista.arcadiacaller.repository.CardRepository;
+import br.com.battista.arcadiacaller.repository.SceneryRepository;
 
 public class CacheManagerService extends Service {
 
@@ -47,6 +49,8 @@ public class CacheManagerService extends Service {
             Log.i(TAG, MessageFormat.format("onActionCache: Process to action: {0}.", action));
             if (ActionCacheEnum.LOAD_CARD_DATA.equals(action)) {
                 loadAllDataCardAddToCache(token);
+            } else if (ActionCacheEnum.LOAD_SCENERY_DATA.equals(action)) {
+                loadAllDataSceneryAddToCache(token);
             }
         } else {
             Log.i(TAG, MessageFormat.format("onActionCache: No process to action: {0}.", action));
@@ -63,6 +67,17 @@ public class CacheManagerService extends Service {
         cardRepository.deleteAll();
         Log.i(TAG, "loadAllDataCardAddToCache: Update table card!");
         cardRepository.saveAll(cards);
+    }
+
+    private void loadAllDataSceneryAddToCache(String token) {
+        Log.i(TAG, "loadAllDataSceneryAddToCache: Find all in server!");
+        List<Scenery> sceneries = Inject.provideSceneryService(CACHED).findAll(token);
+
+        final SceneryRepository sceneryRepository = new SceneryRepository();
+        Log.i(TAG, "loadAllDataSceneryAddToCache: Clear table scenery!");
+        sceneryRepository.deleteAll();
+        Log.i(TAG, "loadAllDataSceneryAddToCache: Update table scenery!");
+        sceneryRepository.saveAll(sceneries);
     }
 
     @Override

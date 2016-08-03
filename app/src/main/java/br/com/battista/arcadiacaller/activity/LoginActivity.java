@@ -1,5 +1,8 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,15 +12,13 @@ import android.widget.EditText;
 
 import com.google.common.base.Strings;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.text.MessageFormat;
 
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.User;
-import br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.service.LoginService;
@@ -87,7 +88,8 @@ public class LoginActivity extends BaseActivity {
                     instance.setToken(token);
                     instance.setUser(user);
 
-                    EventBus.getDefault().post(ActionCacheEnum.LOAD_CARD_DATA);
+                    EventCache.createEvent(LOAD_CARD_DATA);
+                    EventCache.createEvent(LOAD_SCENERY_DATA);
 
                     loadMainActivity();
                 }

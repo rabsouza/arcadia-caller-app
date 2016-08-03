@@ -10,6 +10,7 @@ import br.com.battista.arcadiacaller.service.SceneryService;
 import br.com.battista.arcadiacaller.service.StatisticUserService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.service.database.CardServiceFromDatabase;
+import br.com.battista.arcadiacaller.service.database.SceneryServiceFromDatabase;
 import br.com.battista.arcadiacaller.service.server.AppServiceFromServer;
 import br.com.battista.arcadiacaller.service.server.CampaignServiceFromServer;
 import br.com.battista.arcadiacaller.service.server.CardServiceFromServer;
@@ -49,7 +50,14 @@ public class Inject {
     }
 
     public synchronized static SceneryService provideSceneryService() {
-        return new SceneryServiceFromServer();
+        return provideSceneryService(Boolean.TRUE);
+    }
+
+    public synchronized static SceneryService provideSceneryService(Boolean cached) {
+        if (!cached && MainApplication.instance().checkOnlineServer()) {
+            return new SceneryServiceFromServer();
+        }
+        return new SceneryServiceFromDatabase();
     }
 
     public synchronized static CampaignService provideCampaignService() {

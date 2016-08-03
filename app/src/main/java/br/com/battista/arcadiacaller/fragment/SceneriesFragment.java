@@ -1,8 +1,11 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +22,7 @@ import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.SceneryAdapter;
+import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
@@ -28,6 +32,7 @@ public class SceneriesFragment extends BaseFragment {
 
     private List<Scenery> sceneries = Lists.newArrayList();
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout refreshLayout;
 
     public SceneriesFragment() {
     }
@@ -49,6 +54,15 @@ public class SceneriesFragment extends BaseFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
+
+        refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                EventCache.createEvent(LOAD_SCENERY_DATA);
+                refreshLayout.setRefreshing(false);
+            }
+        });
 
         return view;
     }

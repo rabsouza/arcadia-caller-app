@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,16 +17,14 @@ import android.view.ViewGroup;
 
 import com.google.common.collect.Lists;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.CardAdapter;
+import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.Card;
-import br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum;
 
 
 public class CardsFragment extends BaseFragment {
@@ -60,7 +60,7 @@ public class CardsFragment extends BaseFragment {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                EventBus.getDefault().post(ActionCacheEnum.LOAD_CARD_DATA);
+                EventCache.createEvent(LOAD_CARD_DATA);
                 refreshLayout.setRefreshing(false);
             }
         });

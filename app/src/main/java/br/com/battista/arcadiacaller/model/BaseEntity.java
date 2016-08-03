@@ -33,10 +33,10 @@ public abstract class BaseEntity extends Model implements Serializable {
     @Column(name = BaseEntry.COLUMN_NAME_VERSION, notNull = true, index = true)
     private Long version;
 
-    @Column(name = BaseEntry.COLUMN_NAME_ENTITY_SYNCHONIZED, notNull = true, index = true)
+    @Column(name = BaseEntry.COLUMN_NAME_ENTITY_SYNCHRONIZED, notNull = true, index = true)
     private Boolean entitySynchronized;
 
-    @Column(name = BaseEntry.COLUMN_NAME_SYNCHONIZED_AT, index = true)
+    @Column(name = BaseEntry.COLUMN_NAME_SYNCHRONIZED_AT, index = true)
     private Date synchronizedAt;
 
     public abstract Object getPk();

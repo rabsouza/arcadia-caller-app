@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.repository;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
+
+import android.support.annotation.NonNull;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Delete;
@@ -10,16 +12,17 @@ import com.activeandroid.util.Log;
 import java.text.MessageFormat;
 import java.util.List;
 
-import br.com.battista.arcadiacaller.model.Card;
+import br.com.battista.arcadiacaller.model.Scenery;
+import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 
-public class CardRepository implements BaseRepository<Card> {
+public class SceneryRepository implements BaseRepository<Scenery> {
 
-    public static final String TAG = CardRepository.class.getSimpleName();
+    public static final String TAG = SceneryRepository.class.getSimpleName();
 
     @Override
-    public void save(Card entity) {
+    public void save(Scenery entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getId()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();
@@ -33,14 +36,14 @@ public class CardRepository implements BaseRepository<Card> {
     }
 
     @Override
-    public void saveAll(List<Card> entities) {
+    public void saveAll(List<Scenery> entities) {
         if (entities != null) {
-            Log.i(TAG, MessageFormat.format("Save {0} cards.", entities.size()));
+            Log.i(TAG, MessageFormat.format("Save {0} sceneries.", entities.size()));
             ActiveAndroid.beginTransaction();
             try {
-                for (Card entity : entities) {
+                for (Scenery entity : entities) {
                     if (entity != null) {
-                        Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getId()));
+                        Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getId()));
                         entity.synchronize();
                         entity.save();
                     }
@@ -55,18 +58,18 @@ public class CardRepository implements BaseRepository<Card> {
     }
 
     @Override
-    public Card findById(Long id) {
-        Log.i(TAG, MessageFormat.format("Find the card by id: {0}.", id));
+    public Scenery findById(Long id) {
+        Log.i(TAG, MessageFormat.format("Find the scenery by id: {0}.", id));
         return new Select()
-                .from(Card.class)
+                .from(Scenery.class)
                 .where("id = ?", id)
                 .executeSingle();
     }
 
     @Override
-    public void update(Card entity) {
+    public void update(Scenery entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the card with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Update the scenery with id: {0}.", entity.getId()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();
@@ -81,11 +84,11 @@ public class CardRepository implements BaseRepository<Card> {
 
     @Override
     public void deleteById(Long id) {
-        Log.i(TAG, MessageFormat.format("Delete the card with id: {0}.", id));
+        Log.i(TAG, MessageFormat.format("Delete the scenery with id: {0}.", id));
         ActiveAndroid.beginTransaction();
         try {
             new Delete()
-                    .from(Card.class)
+                    .from(Scenery.class)
                     .where("id = ?", id)
                     .execute();
             ActiveAndroid.setTransactionSuccessful();
@@ -96,21 +99,30 @@ public class CardRepository implements BaseRepository<Card> {
     }
 
     @Override
-    public List<Card> findAll() {
-        Log.i(TAG, "Find all cards.");
+    public List<Scenery> findAll() {
+        Log.i(TAG, "Find all sceneries.");
         return new Select()
-                .from(Card.class)
-                .orderBy(MessageFormat.format("{0} ASC, {1} ASC", CardEntry.COLUMN_NAME_GROUP, CardEntry.COLUMN_NAME_NAME))
+                .from(Scenery.class)
+                .orderBy(MessageFormat.format("{0} ASC, {1} ASC", SceneryEntry.COLUMN_NAME_LOCATION, SceneryEntry.COLUMN_NAME_NAME))
+                .execute();
+    }
+
+    public List<Scenery> findByLocation(@NonNull LocationSceneryEnum location) {
+        Log.i(TAG, MessageFormat.format("Find all sceneries by location: {0}.", location));
+        return new Select()
+                .from(Scenery.class)
+                .where(SceneryEntry.COLUMN_NAME_LOCATION.concat(" = ?"), location)
+                .orderBy(MessageFormat.format("{0} ASC, {1} ASC", SceneryEntry.COLUMN_NAME_LOCATION, SceneryEntry.COLUMN_NAME_NAME))
                 .execute();
     }
 
     @Override
     public void deleteAll() {
-        Log.i(TAG, "Delete all cards.");
+        Log.i(TAG, "Delete all sceneries.");
         ActiveAndroid.beginTransaction();
         try {
             new Delete()
-                    .from(Card.class)
+                    .from(Scenery.class)
                     .execute();
             ActiveAndroid.setTransactionSuccessful();
         } finally {

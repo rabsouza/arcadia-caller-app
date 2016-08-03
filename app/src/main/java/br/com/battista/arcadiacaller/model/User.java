@@ -35,13 +35,13 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = UserEntry.COLUMN_NAME_MAIL, notNull = true, index = true)
     private String mail;
 
-    @Column(name = UserEntry.COLUMN_NAME_URL_AVATAR, notNull = true, index = false)
+    @Column(name = UserEntry.COLUMN_NAME_URL_AVATAR, notNull = true)
     private String urlAvatar;
 
-    @Column(name = UserEntry.COLUMN_NAME_PROFILE, notNull = true, index = false)
+    @Column(name = UserEntry.COLUMN_NAME_PROFILE, notNull = true)
     private ProfileAppConstant profile;
 
-    @Column(name = UserEntry.COLUMN_NAME_FRIENDS, notNull = false, index = false)
+    @Column(name = UserEntry.COLUMN_NAME_FRIENDS)
     private List<String> friends;
 
     @Override

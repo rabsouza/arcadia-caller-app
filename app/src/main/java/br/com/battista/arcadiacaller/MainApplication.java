@@ -75,7 +75,6 @@ public class MainApplication extends MultiDexApplication {
         initializePreferences();
 
         instance = this;
-        checkOnlineServer();
         initializeDB();
         initializeCacheManager();
     }
@@ -159,7 +158,7 @@ public class MainApplication extends MultiDexApplication {
             getApplicationContext().deleteDatabase(DEFAULT_DATABASE_NAME);
         }
 
-        ActiveAndroid.initialize(configurationBuilder.create());
+        ActiveAndroid.initialize(configurationBuilder.create(), true);
     }
 
     private void initializeSystemFont() {
