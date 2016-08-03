@@ -23,11 +23,11 @@ import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class HeroServiceFromServer extends BaseService implements HeroService {
 
-    public static final String TAG_CLASSNAME = HeroServiceFromServer.class.getSimpleName();
+    public static final String TAG = HeroServiceFromServer.class.getSimpleName();
 
     @Override
     public List<Hero> findAll(@NonNull String token) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Find all heroes in app server url:[{0}]!",
+        Log.i(TAG, MessageFormat.format("Find all heroes in app server url:[{0}]!",
                 RestConstant.REST_API_ENDPOINT.concat(URI_FIND_ALL)));
 
         HeroListener listener = builder.create(HeroListener.class);
@@ -47,7 +47,7 @@ public class HeroServiceFromServer extends BaseService implements HeroService {
                 validateErrorResponse(response, errorMessage);
             }
         } catch (IOException e) {
-            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
 
         return heroes;

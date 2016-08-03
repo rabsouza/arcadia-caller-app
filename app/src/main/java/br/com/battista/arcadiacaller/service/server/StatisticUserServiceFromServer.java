@@ -20,11 +20,11 @@ import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class StatisticUserServiceFromServer extends BaseService implements StatisticUserService {
 
-    public static final String TAG_CLASSNAME = StatisticUserServiceFromServer.class.getSimpleName();
+    public static final String TAG = StatisticUserServiceFromServer.class.getSimpleName();
 
     @Override
     public StatisticUser findByUser(@NonNull String token, @NonNull String username) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Find Statistic User by user:{0} in app server url:[{1}]!",
+        Log.i(TAG, MessageFormat.format("Find Statistic User by user:{0} in app server url:[{1}]!",
                 username, RestConstant.REST_API_ENDPOINT.concat(URI_FIND_BY_USER)));
 
         StatisticUserListener listener = builder.create(StatisticUserListener.class);
@@ -45,7 +45,7 @@ public class StatisticUserServiceFromServer extends BaseService implements Stati
                 validateErrorResponse(response, errorMessage);
             }
         } catch (IOException e) {
-            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
 
         return statisticUser;

@@ -9,17 +9,17 @@ import br.com.battista.arcadiacaller.constants.RestConstant;
 
 public class FakeAppService extends AppService {
 
-    public static final String TAG_CLASSNAME = FakeAppService.class.getSimpleName();
+    public static final String TAG = FakeAppService.class.getSimpleName();
 
     public void ping() {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("[MOCK] Ping the app server url:[{0}]!",
+        Log.i(TAG, MessageFormat.format("[MOCK] Ping the app server url:[{0}]!",
                 RestConstant.REST_API_ENDPOINT));
-        Log.i(TAG_CLASSNAME, "[MOCK] Success to ping the app server!");
+        Log.i(TAG, "[MOCK] Success to ping the app server!");
     }
 
     public void health() {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("[MOCK] Check health the app server url:[{0}]!",
+        Log.i(TAG, MessageFormat.format("[MOCK] Check health the app server url:[{0}]!",
                 RestConstant.REST_API_ENDPOINT));
-        Log.i(TAG_CLASSNAME, "[MOCK] App server is online!");
+        Log.i(TAG, "[MOCK] App server is online!");
     }
 }

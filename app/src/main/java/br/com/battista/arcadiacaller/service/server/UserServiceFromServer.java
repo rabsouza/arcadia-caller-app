@@ -21,12 +21,12 @@ import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class UserServiceFromServer extends BaseService implements UserService {
 
-    public static final String TAG_CLASSNAME = UserServiceFromServer.class.getSimpleName();
+    public static final String TAG = UserServiceFromServer.class.getSimpleName();
 
     @Override
     @Nullable
     public User findByUsername(@NonNull String token, @NonNull String username) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Find user by username: {0} in app server url:[{1}]!",
+        Log.i(TAG, MessageFormat.format("Find user by username: {0} in app server url:[{1}]!",
                 username, RestConstant.REST_API_ENDPOINT.concat(URI_FIND_USERNAME)));
 
         UserListener listener = builder.create(UserListener.class);
@@ -42,7 +42,7 @@ public class UserServiceFromServer extends BaseService implements UserService {
                 validateErrorResponse(response, errorMessage);
             }
         } catch (IOException e) {
-            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
 
         return null;
@@ -50,7 +50,7 @@ public class UserServiceFromServer extends BaseService implements UserService {
 
     @Override
     public Boolean existsUsername(@NonNull String token, @NonNull String username) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Exists user by username: {0} in app server url:[{1}]!",
+        Log.i(TAG, MessageFormat.format("Exists user by username: {0} in app server url:[{1}]!",
                 username, RestConstant.REST_API_ENDPOINT.concat(URI_FIND_USERNAME)));
 
         UserListener listener = builder.create(UserListener.class);
@@ -64,7 +64,7 @@ public class UserServiceFromServer extends BaseService implements UserService {
             }
             return existsUser;
         } catch (IOException e) {
-            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
 
         return Boolean.FALSE;

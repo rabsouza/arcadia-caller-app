@@ -41,7 +41,7 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = UserEntry.COLUMN_NAME_PROFILE, notNull = true, index = false)
     private ProfileAppConstant profile;
 
-    @Column(name = UserEntry.COLUMN_NAME_FRIENDS, notNull = false, index = true)
+    @Column(name = UserEntry.COLUMN_NAME_FRIENDS, notNull = false, index = false)
     private List<String> friends;
 
     @Override

@@ -23,13 +23,13 @@ import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class LoginServiceFromServer extends BaseService implements LoginService {
 
-    public static final String TAG_CLASSNAME = LoginServiceFromServer.class.getSimpleName();
+    public static final String TAG = LoginServiceFromServer.class.getSimpleName();
     public static final String LOGIN_TOKEN = "token";
 
     @Override
     @Nullable
     public String login(@NonNull String username) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Login username: {0} in app server url:[{1}]!",
+        Log.i(TAG, MessageFormat.format("Login username: {0} in app server url:[{1}]!",
                 username, RestConstant.REST_API_ENDPOINT.concat(URI_LOGIN)));
 
         String token = null;
@@ -45,7 +45,7 @@ public class LoginServiceFromServer extends BaseService implements LoginService 
                 Log.e(TAG, "Failed in login the username!");
             }
         } catch (IOException e) {
-            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
 
         return token;
@@ -54,7 +54,7 @@ public class LoginServiceFromServer extends BaseService implements LoginService 
     @Override
     @Nullable
     public User create(@NonNull User user) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Create user: {0} in app server url:[{1}]!",
+        Log.i(TAG, MessageFormat.format("Create user: {0} in app server url:[{1}]!",
                 user, RestConstant.REST_API_ENDPOINT.concat(URI_CREATE)));
 
         LoginListener listener = builder.create(LoginListener.class);
@@ -72,7 +72,7 @@ public class LoginServiceFromServer extends BaseService implements LoginService 
                 validateErrorResponse(response, errorMessage);
             }
         } catch (IOException e) {
-            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
 
         return null;

@@ -18,6 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:replace="android:allowBackup">
+
+        <service
+            android:name=".cache.CacheManagerService"
+            android:enabled="true"/>
+
         <activity
             android:name=".activity.LoginActivity"
             android:launchMode="singleTop"

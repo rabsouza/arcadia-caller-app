@@ -85,6 +85,8 @@ dependencies {
     compile "com.github.vicpinm:activeandroidrx:$rootProject.ext.activeAndroidrxVersion"
     compile "com.android.support:multidex:$rootProject.ext.multidexVersion"
 
+    compile "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"
+
     testCompile "junit:junit:$rootProject.ext.junitVersion"
     testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
     testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"

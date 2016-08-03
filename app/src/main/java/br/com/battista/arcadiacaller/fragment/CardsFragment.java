@@ -1,8 +1,10 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,8 @@ import android.view.ViewGroup;
 
 import com.google.common.collect.Lists;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 
 import br.com.battista.arcadiacaller.Inject;
@@ -20,7 +24,7 @@ import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.CardAdapter;
 import br.com.battista.arcadiacaller.model.Card;
-import br.com.battista.arcadiacaller.util.ProgressApp;
+import br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum;
 
 
 public class CardsFragment extends BaseFragment {
@@ -29,6 +33,7 @@ public class CardsFragment extends BaseFragment {
 
     private List<Card> cards = Lists.newArrayList();
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout refreshLayout;
 
     public CardsFragment() {
     }
@@ -51,6 +56,15 @@ public class CardsFragment extends BaseFragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
 
+        refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                EventBus.getDefault().post(ActionCacheEnum.LOAD_CARD_DATA);
+                refreshLayout.setRefreshing(false);
+            }
+        });
+
         return view;
     }
 
@@ -63,12 +77,11 @@ public class CardsFragment extends BaseFragment {
     public void loadCards() {
         Log.i(TAG, "loadCards: Load all cards!");
 
-        new ProgressApp(this.getActivity(), R.string.msg_action_loading, false) {
+        new AsyncTask<Void, Integer, Boolean>() {
 
             @Override
             protected void onPostExecute(Boolean result) {
                 recyclerView.setAdapter(new CardAdapter(getContext(), cards));
-                dismissProgress();
             }
 
             @Override

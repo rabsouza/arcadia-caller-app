@@ -60,4 +60,5 @@ ext {
     libraryMaterialVersion = '1.1.0'
     multidexVersion = '1.0.1'
     rxjavaVersion = "1.1.8"
+    eventBusVersion = "3.0.0"
 }

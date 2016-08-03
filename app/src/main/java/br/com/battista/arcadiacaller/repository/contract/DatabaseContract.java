@@ -12,6 +12,8 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_CREATED_AT = "createdAt";
         public static final String COLUMN_NAME_UPDATED_AT = "updatedAt";
         public static final String COLUMN_NAME_VERSION = "version";
+        public static final String COLUMN_NAME_SYNCHONIZED_AT = "synchronizedAt";
+        public static final String COLUMN_NAME_ENTITY_SYNCHONIZED = "entitySynchronized";
     }
 
     public static abstract class UserEntry extends BaseEntry {
@@ -34,6 +36,15 @@ public class DatabaseContract {
 
         public static final String TABLE_NAME = "Card";
         public static final String COLUMN_NAME_NAME = "name";
+        public static final String COLUMN_NAME_KEY = "key";
+        public static final String COLUMN_NAME_TYPE = "typeCard";
+        public static final String COLUMN_NAME_GROUP = "groupCard";
+        public static final String COLUMN_NAME_COST = "cost";
+        public static final String COLUMN_NAME_ACTIVE = "active";
+        public static final String COLUMN_NAME_REVISE = "revise";
+        public static final String COLUMN_NAME_DENOUNCE = "denounce";
+        public static final String COLUMN_NAME_DELETED = "deleted";
+
     }
 
     public static abstract class GuildEntry extends BaseEntry {

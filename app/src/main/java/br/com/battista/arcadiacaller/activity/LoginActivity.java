@@ -9,12 +9,15 @@ import android.widget.EditText;
 
 import com.google.common.base.Strings;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.text.MessageFormat;
 
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.service.LoginService;
@@ -83,6 +86,9 @@ public class LoginActivity extends BaseActivity {
                     Log.d(TAG, "onPostExecute: Success in login!");
                     instance.setToken(token);
                     instance.setUser(user);
+
+                    EventBus.getDefault().post(ActionCacheEnum.LOAD_CARD_DATA);
+
                     loadMainActivity();
                 }
                 dismissProgress();

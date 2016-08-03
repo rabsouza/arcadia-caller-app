@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
+import static br.com.battista.arcadiacaller.listener.CardListener.URI_FIND_ALL;
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -18,16 +21,13 @@ import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.CardService;
 import retrofit2.Response;
 
-import static br.com.battista.arcadiacaller.listener.CardListener.URI_FIND_ALL;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-
 public class CardServiceFromServer extends BaseService implements CardService {
 
-    public static final String TAG_CLASSNAME = CardServiceFromServer.class.getSimpleName();
+    public static final String TAG = CardServiceFromServer.class.getSimpleName();
 
     @Override
     public List<Card> findAll(@NonNull String token) {
-        Log.i(TAG_CLASSNAME, MessageFormat.format("Find all cards in app server url:[{0}]!",
+        Log.i(TAG, MessageFormat.format("Find all cards in app server url:[{0}]!",
                 RestConstant.REST_API_ENDPOINT.concat(URI_FIND_ALL)));
 
         CardListener listener = builder.create(CardListener.class);
@@ -47,7 +47,7 @@ public class CardServiceFromServer extends BaseService implements CardService {
                 validateErrorResponse(response, errorMessage);
             }
         } catch (IOException e) {
-            Log.e(TAG_CLASSNAME, e.getLocalizedMessage(), e);
+            Log.e(TAG, e.getLocalizedMessage(), e);
         }
 
         return cards;

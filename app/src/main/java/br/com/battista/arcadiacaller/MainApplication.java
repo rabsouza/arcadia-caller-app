@@ -1,6 +1,18 @@
 package br.com.battista.arcadiacaller;
 
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
+import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
+
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.multidex.MultiDexApplication;
@@ -15,6 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 import br.com.battista.arcadiacaller.adapter.FontsAdapter;
+import br.com.battista.arcadiacaller.cache.CacheManagerService;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.Guild;
@@ -28,17 +41,6 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import io.fabric.sdk.android.Fabric;
 import lombok.Getter;
 import lombok.Setter;
-
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
-import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
 
 public class MainApplication extends MultiDexApplication {
 
@@ -69,12 +71,18 @@ public class MainApplication extends MultiDexApplication {
         Fabric.with(this, new Crashlytics());
         Log.d(TAG, "onCreate: MainApplication!");
 
-        initializeDB();
         initializeSystemFont();
         initializePreferences();
 
         instance = this;
         checkOnlineServer();
+        initializeDB();
+        initializeCacheManager();
+    }
+
+    private void initializeCacheManager() {
+        Log.i(TAG, "initializeCacheManager: Initialize event cache manager!");
+        getApplicationContext().startService(new Intent(getApplicationContext(), CacheManagerService.class));
     }
 
     private void initializePreferences() {
@@ -96,7 +104,6 @@ public class MainApplication extends MultiDexApplication {
     }
 
     public User getUser() {
-
         if (user == null && preferences.contains(keyUser.name())) {
             try {
                 String jsonUSer = getPreferences(keyUser);
@@ -148,6 +155,10 @@ public class MainApplication extends MultiDexApplication {
         configurationBuilder.setDatabaseName(DEFAULT_DATABASE_NAME);
         configurationBuilder.setDatabaseVersion(DEFAULT_DATABASE_VERSION);
 
+        if(checkOnlineServer()){
+            getApplicationContext().deleteDatabase(DEFAULT_DATABASE_NAME);
+        }
+
         ActiveAndroid.initialize(configurationBuilder.create());
     }
 
@@ -163,6 +174,12 @@ public class MainApplication extends MultiDexApplication {
     public void onTerminate() {
         super.onTerminate();
         Log.d(TAG, "onTerminate: MainApplication!");
+        terminateCacheManager();
+    }
+
+    private void terminateCacheManager() {
+        Log.i(TAG, "terminateCacheManager: Terminate event cache manager!");
+        getApplicationContext().stopService(new Intent(getApplicationContext(), CacheManagerService.class));
     }
 
 }
