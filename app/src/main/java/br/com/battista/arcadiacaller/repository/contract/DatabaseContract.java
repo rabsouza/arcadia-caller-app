@@ -9,6 +9,7 @@ public class DatabaseContract {
 
     public static abstract class BaseEntry implements BaseColumns {
 
+        public static final String COLUMN_NAME_ID = "ID";
         public static final String COLUMN_NAME_CREATED_AT = "CREATED_AT";
         public static final String COLUMN_NAME_UPDATED_AT = "UPDATED_AT";
         public static final String COLUMN_NAME_VERSION = "VERSION";
@@ -85,6 +86,32 @@ public class DatabaseContract {
 
         public static final String TABLE_NAME = "SCENERY_CAMPAIGN";
         public static final String COLUMN_NAME_NAME = "NAME";
+    }
+
+    public static abstract class StatisticUserEntry extends BaseEntry {
+
+        public static final String TABLE_NAME = "STATISTIC_USER";
+        public static final String COLUMN_NAME_USERNAME = "USERNAME";
+        public static final String COLUMN_NAME_MAIL = "MAIL";
+        public static final String COLUMN_NAME_URL_AVATAR = "URL_AVATAR";
+        public static final String COLUMN_NAME_CAMPAIGNS = "CAMPAIGNS";
+        public static final String COLUMN_NAME_COMPLETEDS = "COMPLETEDS";
+        public static final String COLUMN_NAME_SCENERIES = "SCENERIES";
+        public static final String COLUMN_NAME_GUILDS = "GUILDS";
+        public static final String COLUMN_NAME_CAMPAIGN_WINNERS = "CAMPAIGN_WINNERS";
+        public static final String COLUMN_NAME_CAMPAIGN_DEFEATS = "CAMPAIGN_DEFEATS";
+        public static final String COLUMN_NAME_CAMPAIGN_MEDALS_WINNERS = "CAMPAIGN_MEDALS_WINNERS";
+        public static final String COLUMN_NAME_CAMPAIGN_MEDALS_LEAST_DEATHS = "CAMPAIGN_MEDALS_LEAST_DEATHS";
+        public static final String COLUMN_NAME_CAMPAIGN_MEDALS_MOST_COINS = "CAMPAIGN_MEDALS_MOST_COINS";
+        public static final String COLUMN_NAME_CAMPAIGN_MEDALS_WON_REWARDS = "CAMPAIGN_MEDALS_WON_REWARDS";
+        public static final String COLUMN_NAME_CAMPAIGN_MEDALS_WON_TITLES = "CAMPAIGN_MEDALS_WON_TITLES";
+        public static final String COLUMN_NAME_SCENERY_WINNERS = "SCENERY_WINNERS";
+        public static final String COLUMN_NAME_SCENERY_DEFEATS = "SCENERY_DEFEATS";
+        public static final String COLUMN_NAME_SCENERY_LEAST_DEATHS = "SCENERY_LEAST_DEATHS";
+        public static final String COLUMN_NAME_SCENERY_MOST_COINS = "SCENERY_MOST_COINS";
+        public static final String COLUMN_NAME_SCENERY_WON_REWARDS = "SCENERY_WON_REWARDS";
+        public static final String COLUMN_NAME_SCENERY_WON_TITLES = "SCENERY_WON_TITLES";
+
     }
 
 }
