@@ -12,4 +12,10 @@ public interface UserService {
 
     @Nullable
     Boolean existsUsername(@NonNull String token, @NonNull String username);
+
+    @Nullable
+    User addFriends(@NonNull String token, @NonNull User user);
+
+    @Nullable
+    User create(@NonNull String token, @NonNull User user);
 }

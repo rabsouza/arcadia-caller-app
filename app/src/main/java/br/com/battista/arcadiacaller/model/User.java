@@ -43,6 +43,13 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = UserEntry.COLUMN_NAME_FRIENDS)
     private List<String> friends = Lists.newArrayList();
 
+    public Boolean addFriend(String friend) {
+        if (friends == null) {
+            friends = Lists.newArrayList();
+        }
+        return friends.add(friend);
+    }
+
     @Override
     public Object getPk() {
         return getId();

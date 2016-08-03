@@ -46,12 +46,13 @@
     <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente ao site http://gravatar.com para o seu e-mail.</string>
     <string name="hint_detail_alias_campaign">Nome/Apelido</string>
     <string name="hint_text_detail_alias_campaign">*¹ O nome/apelido será utilizado para identificar sua campanha.</string>
+    <string name="hint_detail_friend_login">Login do Amigo/Usuário</string>
     <string name="hint_detail_guilds">Guildas</string>
-    <string name="hint_detail_guilds_login">Login Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_blue">Login Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_red">Login Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_green">Login Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_orange">Login Guilda/Usuário</string>
+    <string name="hint_detail_guilds_login">Login da Guilda/Usuário</string>
+    <string name="hint_detail_guilds_login_blue">Login da Guilda/Usuário</string>
+    <string name="hint_detail_guilds_login_red">Login da Guilda/Usuário</string>
+    <string name="hint_detail_guilds_login_green">Login da Guilda/Usuário</string>
+    <string name="hint_detail_guilds_login_orange">Login da Guilda/Usuário</string>
     <string name="hint_text_detail_guilds_login">*¹ Deve ser um login de uma Guilda já existente na aplicação.</string>
     <string name="hint_text_detail_guilds_login_2">*² Será necessário criar um novo login da Guilda quando inexistente.</string>
     <string name="hint_detail_heroes">Heróis</string>
@@ -109,11 +110,13 @@
 
 
     <!-- ################### MSG #################### -->
+    <string name="msg_failed_already_exists_friend">Erro ao criar o Login do Amigo/Usuário! Por favor tente outro login!</string>
     <string name="msg_failed_already_exists_user">Erro ao criar o Usuário! Por favor tente outro login ou e-mail!</string>
     <string name="msg_failed_create_user">Erro ao criar o Usuário! Siga as orientações da tela!</string>
     <string name="msg_failed_create_campaign">Erro ao criar a Campanha! Siga as orientações da tela!</string>
     <string name="msg_failed_update_campaign">Erro ao atualizar a Campanha! Siga as orientações da tela!</string>
-    <string name="msg_failed_login_user">Login invalido! Por favor, tente novamente!</string>
+    <string name="msg_failed_login_user">Login invalido! Verifique se seu usuário existe! Por favor, tente novamente!</string>
+    <string name="msg_failed_login_friend">Login invalido! Usuário cadastrado como amigo não tem acesso a aplicação! Por favor, crie um novo usuário!</string>
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>
     <string name="msg_action_loading">Aguarde! Carregando&#8230;</string>

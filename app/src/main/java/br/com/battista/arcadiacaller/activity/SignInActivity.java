@@ -101,7 +101,7 @@ public class SignInActivity extends BaseActivity {
                             .build();
 
                     user = service.create(userBuild);
-                    if (user != null && user.getVersion() == DEFAULT_VERSION) {
+                    if (user != null && DEFAULT_VERSION.equals(user.getVersion())) {
                         token = service.login(user.getUsername());
                     }
                     return true;

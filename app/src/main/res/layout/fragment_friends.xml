@@ -1,5 +1,4 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
@@ -44,34 +43,34 @@
                         style="@style/CardTitle02Style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/title_observation"/>
+                        android:text="@string/title_observation" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1px"
                         android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:background="@color/gray"/>
+                        android:background="@color/gray" />
 
                     <TextView
                         style="@style/HintTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/hint_add_friends_obs"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         style="@style/HintTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/element_vertical_margin"
-                        android:text="@string/hint_add_friends_obs_2"/>
+                        android:text="@string/hint_add_friends_obs_2" />
 
                     <TextView
                         style="@style/HintTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/element_vertical_margin"
-                        android:text="@string/hint_add_friends_obs_3"/>
+                        android:text="@string/hint_add_friends_obs_3" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -90,23 +89,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                                android:hint="@string/hint_detail_guilds_login"
+                                android:hint="@string/hint_detail_friend_login"
                                 android:inputType="textAutoComplete"
-                                android:maxLines="1"/>
+                                android:maxLines="1" />
 
                         </android.support.design.widget.TextInputLayout>
 
                         <ImageButton
-                            android:id="@+id/card_view_campaign_edit"
+                            android:id="@+id/card_view_campaign_add"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="@dimen/cards_button_width"
                             android:layout_height="@dimen/cards_button_height"
-                            android:layout_marginTop="@dimen/element_vertical_margin"
                             android:layout_marginLeft="@dimen/element_horizontal_margin"
                             android:layout_marginRight="@dimen/element_horizontal_margin"
-                            android:src="@drawable/add_friends"/>
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:src="@drawable/add_friends" />
 
                     </LinearLayout>
+
+                    <TextView
+                        style="@style/HintTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:text="@string/hint_text_login" />
 
                 </LinearLayout>
 
@@ -141,12 +147,12 @@
                         style="@style/CardTitle02Style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/title_friends"/>
+                        android:text="@string/title_friends" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1px"
-                        android:background="@color/gray"/>
+                        android:background="@color/gray" />
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/friends_recycler_view"
@@ -161,7 +167,7 @@
                         android:paddingTop="@dimen/md_keylines"
                         android:scrollbarStyle="outsideOverlay"
                         android:scrollbars="none"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
                 </LinearLayout>
 
