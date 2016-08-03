@@ -7,13 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
 public class GuildItemAdapter extends RecyclerView.Adapter<GuildItemViewHolder> {
     private static final String TAG = GuildItemAdapter.class.getSimpleName();
@@ -45,13 +43,11 @@ public class GuildItemAdapter extends RecyclerView.Adapter<GuildItemViewHolder> 
 
             holder.getTxtUsername().setText(guild.getUsername());
 
-            Glide.with(context)
-                    .load(guild.getName().getUrlImg())
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .fitCenter()
-                    .error(R.drawable.profile)
-                    .crossFade()
-                    .into(holder.getImgImg());
+            ImageLoadUtils
+                    .loadImageWithImageError(context,
+                            guild.getName().getUrlImg(),
+                            holder.getImgImg(),
+                            android.R.drawable.sym_def_app_icon);
 
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }

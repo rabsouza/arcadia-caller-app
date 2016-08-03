@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
@@ -26,6 +23,9 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 
 public class CampaignDetailNewFragment extends BaseFragment {

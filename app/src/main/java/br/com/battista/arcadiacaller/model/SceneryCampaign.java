@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryCampaignEntry;
-
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.google.common.collect.Lists;
@@ -15,6 +13,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryCampaignEntry;
 
 @Builder
 @AllArgsConstructor

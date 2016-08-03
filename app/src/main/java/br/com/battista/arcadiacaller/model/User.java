@@ -1,10 +1,9 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
-
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.google.common.collect.Lists;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,6 +15,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
 
 @Builder
 @AllArgsConstructor
@@ -42,7 +43,7 @@ public class User extends BaseEntity implements Serializable {
     private ProfileAppConstant profile;
 
     @Column(name = UserEntry.COLUMN_NAME_FRIENDS)
-    private List<String> friends;
+    private List<String> friends = Lists.newArrayList();
 
     @Override
     public Object getPk() {

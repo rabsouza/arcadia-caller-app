@@ -1,8 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -21,8 +18,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;
 import com.crashlytics.android.answers.CustomEvent;
@@ -31,7 +26,11 @@ import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.util.AppUtils;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import lombok.Getter;
+
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -145,12 +144,12 @@ public class BaseActivity extends AppCompatActivity {
 
                 ImageView imageViewImg = (ImageView) view.findViewById(R.id.nav_view_header_img);
                 if (imageViewImg != null) {
-                    Glide.with(navigationView.getContext())
-                            .load(user.getUrlAvatar())
-                            .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                            .centerCrop()
-                            .crossFade()
-                            .into(imageViewImg);
+
+                    ImageLoadUtils
+                            .loadImageWithImageError(navigationView.getContext(),
+                                    user.getUrlAvatar(),
+                                    imageViewImg,
+                                    R.drawable.profile);
                 }
             }
         }

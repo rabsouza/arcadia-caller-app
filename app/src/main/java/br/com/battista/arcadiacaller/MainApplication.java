@@ -1,16 +1,5 @@
 package br.com.battista.arcadiacaller;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
-import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -41,6 +30,17 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import io.fabric.sdk.android.Fabric;
 import lombok.Getter;
 import lombok.Setter;
+
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
+import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
 
 public class MainApplication extends MultiDexApplication {
 
@@ -73,10 +73,15 @@ public class MainApplication extends MultiDexApplication {
 
         initializeSystemFont();
         initializePreferences();
+        initializeLoadImage();
 
         instance = this;
         initializeDB();
         initializeCacheManager();
+    }
+
+    private void initializeLoadImage() {
+        Log.i(TAG, "initializeLoadImage: Initialize Glide to load image!");
     }
 
     private void initializeCacheManager() {
@@ -154,7 +159,7 @@ public class MainApplication extends MultiDexApplication {
         configurationBuilder.setDatabaseName(DEFAULT_DATABASE_NAME);
         configurationBuilder.setDatabaseVersion(DEFAULT_DATABASE_VERSION);
 
-        if(checkOnlineServer()){
+        if (checkOnlineServer()) {
             getApplicationContext().deleteDatabase(DEFAULT_DATABASE_NAME);
         }
 

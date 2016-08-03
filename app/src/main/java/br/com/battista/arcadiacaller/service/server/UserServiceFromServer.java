@@ -17,7 +17,6 @@ import br.com.battista.arcadiacaller.service.UserService;
 import retrofit2.Response;
 
 import static br.com.battista.arcadiacaller.listener.UserListener.URI_FIND_USERNAME;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class UserServiceFromServer extends BaseService implements UserService {
 

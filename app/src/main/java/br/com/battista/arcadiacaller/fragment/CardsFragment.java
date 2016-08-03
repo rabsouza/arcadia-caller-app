@@ -1,8 +1,6 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +23,8 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.CardAdapter;
 import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.Card;
+
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
 
 
 public class CardsFragment extends BaseFragment {

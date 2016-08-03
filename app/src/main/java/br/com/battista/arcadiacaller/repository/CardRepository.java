@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.repository;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
-
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
@@ -11,6 +9,8 @@ import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.model.Card;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
 
 public class CardRepository implements BaseRepository<Card> {
 

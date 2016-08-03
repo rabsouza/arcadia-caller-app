@@ -1,10 +1,5 @@
 package br.com.battista.arcadiacaller.adapter;
 
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -42,6 +37,11 @@ import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
 import lombok.Getter;
+
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 

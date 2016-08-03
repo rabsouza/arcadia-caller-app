@@ -7,13 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Hero;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
 import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroDefenseRes;
 import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroLifeRes;
@@ -44,25 +42,22 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
                     "onBindViewHolder: Fill to row position: %S with %s.", position, hero));
 
             holder.getTxtTitle().setText(hero.getName());
-            Glide.with(context)
-                    .load(getHeroDefenseRes(hero.getDefense()))
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .crossFade()
-                    .into(holder.getImgDefense());
 
-            Glide.with(context)
-                    .load(getHeroLifeRes(hero.getLife()))
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .crossFade()
-                    .into(holder.getImgLife());
+            ImageLoadUtils
+                    .loadImage(context,
+                            getHeroDefenseRes(hero.getDefense()),
+                            holder.getImgDefense());
 
-            Glide.with(context)
-                    .load(hero.getUrlPhoto())
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .fitCenter()
-                    .error(R.drawable.profile)
-                    .crossFade()
-                    .into(holder.getImgHero());
+            ImageLoadUtils
+                    .loadImage(context,
+                            getHeroLifeRes(hero.getLife()),
+                            holder.getImgLife());
+
+            ImageLoadUtils
+                    .loadImageWithPlaceHolderAndError(context,
+                            hero.getUrlPhoto(),
+                            holder.getImgHero(),
+                            R.drawable.image_error);
 
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");

@@ -1,9 +1,8 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
-
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.google.common.collect.Lists;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,6 +15,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
 
 @Builder
 @AllArgsConstructor
@@ -44,7 +45,7 @@ public class Scenery extends BaseEntity implements Serializable {
     private DifficultySceneryEnum difficulty;
 
     @Column(name = SceneryEntry.COLUMN_NAME_BENEFIT_TITLES, notNull = false, onNullConflict = Column.ConflictAction.IGNORE)
-    private List<String> benefitTitles;
+    private List<String> benefitTitles = Lists.newArrayList();
 
     @Column(name = SceneryEntry.COLUMN_NAME_LOCATION, notNull = true, index = true)
     private LocationSceneryEnum location;

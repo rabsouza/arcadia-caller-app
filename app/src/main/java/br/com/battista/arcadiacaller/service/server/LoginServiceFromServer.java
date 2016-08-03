@@ -19,7 +19,6 @@ import retrofit2.Response;
 
 import static br.com.battista.arcadiacaller.listener.LoginListener.URI_CREATE;
 import static br.com.battista.arcadiacaller.listener.LoginListener.URI_LOGIN;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class LoginServiceFromServer extends BaseService implements LoginService {
 

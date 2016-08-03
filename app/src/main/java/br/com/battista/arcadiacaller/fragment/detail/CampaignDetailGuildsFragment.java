@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.common.base.Strings;
 
 import java.text.MessageFormat;
@@ -29,6 +27,7 @@ import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
 import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
@@ -135,29 +134,29 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
     }
 
     private void loadGuildsImg(View viewFragment) {
-        Glide.with(getContext())
-                .load(BLUE.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_blue));
+        ImageView imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_blue);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        BLUE.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(GREEN.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_green));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_green);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        GREEN.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(RED.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_red));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_red);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        RED.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(ORANGE.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_orange));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_guilds_img_orange);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        ORANGE.getUrlImg(),
+                        imageView);
     }
 
     private void processDataFragment(View view, Bundle bundle) {

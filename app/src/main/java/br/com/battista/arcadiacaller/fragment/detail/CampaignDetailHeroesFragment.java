@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -34,12 +32,16 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.HeroGuild;
-import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
@@ -94,29 +96,29 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
     }
 
     private void loadGuildsImg(View viewFragment) {
-        Glide.with(getContext())
-                .load(NameGuildEnum.BLUE.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_img));
+        ImageView imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_blue_img);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        BLUE.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(NameGuildEnum.GREEN.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_img));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_green_img);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        GREEN.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(NameGuildEnum.RED.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_img));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_red_img);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        RED.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(NameGuildEnum.ORANGE.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_img));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange_img);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        ORANGE.getUrlImg(),
+                        imageView);
 
     }
 
@@ -384,7 +386,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
             heroesGuild04.setHero03(heroGuild);
         }
 
-        if(!campaign.existsHeroes()){
+        if (!campaign.existsHeroes()) {
             Log.i(TAG, "processNextAction: There guilds with pending heroes!");
             AndroidUtils.snackbar(view, R.string.msg_warn_heroes);
         }

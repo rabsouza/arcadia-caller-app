@@ -9,15 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
 import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
 
@@ -58,11 +56,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
             holder.getTxtType().setText(card.getType().getDescRes());
 
-            Glide.with(context)
-                    .load(getCardCostRes(card.getCost()))
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .crossFade()
-                    .into(holder.getImgCost());
+            ImageLoadUtils
+                    .loadImage(context,
+                            getCardCostRes(card.getCost()),
+                            holder.getImgCost());
+
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }

@@ -1,8 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +22,9 @@ import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
 
 public class LoginActivity extends BaseActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();

@@ -1,8 +1,6 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -25,6 +23,8 @@ import br.com.battista.arcadiacaller.adapter.SceneryAdapter;
 import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
 
 public class SceneriesFragment extends BaseFragment {
 

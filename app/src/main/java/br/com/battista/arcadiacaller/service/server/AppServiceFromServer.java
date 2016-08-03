@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
-import static br.com.battista.arcadiacaller.listener.AppListener.URI_HEALTH;
-import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -21,12 +18,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AppServiceFromServer extends BaseService implements AppService {
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_HEALTH;
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
 
-    private static final String TAG = AppServiceFromServer.class.getSimpleName();
+public class AppServiceFromServer extends BaseService implements AppService {
 
     public static final String APP_SERVER_IS_OFFLINE = "App server is offline!";
     public static final String APP_SERVER_IS_ONLINE = "App server is online!";
+    private static final String TAG = AppServiceFromServer.class.getSimpleName();
 
     @Override
     public void ping() {

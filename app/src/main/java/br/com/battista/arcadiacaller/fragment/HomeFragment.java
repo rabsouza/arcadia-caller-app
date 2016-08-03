@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import java.util.Calendar;
 
 import br.com.battista.arcadiacaller.Inject;
@@ -22,6 +19,7 @@ import br.com.battista.arcadiacaller.model.StatisticUser;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.util.AppUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
 
@@ -123,12 +121,12 @@ public class HomeFragment extends BaseFragment {
 
         ImageView imageViewImg = (ImageView) view.findViewById(R.id.card_view_home_img);
         if (imageViewImg != null) {
-            Glide.with(getContext())
-                    .load(user.getUrlAvatar())
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .centerCrop()
-                    .crossFade()
-                    .into(imageViewImg);
+
+            ImageLoadUtils
+                    .loadImageWithImageError(getContext(),
+                            user.getUrlAvatar(),
+                            imageViewImg,
+                            R.drawable.profile);
         }
     }
 

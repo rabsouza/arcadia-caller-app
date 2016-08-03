@@ -1,11 +1,5 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-import static br.com.battista.arcadiacaller.util.AndroidUtils.changeErrorSpinner;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,8 +14,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
@@ -45,7 +37,14 @@ import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static br.com.battista.arcadiacaller.util.AndroidUtils.changeErrorSpinner;
 
 public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 
@@ -378,28 +377,29 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 
     private void loadGuildsImg(View viewFragment) {
         Log.i(TAG, "loadGuildsImg: Load guilds imgs!");
-        Glide.with(getContext())
-                .load(BLUE.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_blue));
 
-        Glide.with(getContext())
-                .load(GREEN.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_green));
+        ImageView imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_blue);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        BLUE.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(RED.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_red));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_green);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        GREEN.getUrlImg(),
+                        imageView);
 
-        Glide.with(getContext())
-                .load(ORANGE.getUrlImg())
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into((ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_orange));
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_red);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        RED.getUrlImg(),
+                        imageView);
+
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_orange);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        ORANGE.getUrlImg(),
+                        imageView);
     }
 }

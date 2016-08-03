@@ -19,7 +19,6 @@ import br.com.battista.arcadiacaller.service.HeroService;
 import retrofit2.Response;
 
 import static br.com.battista.arcadiacaller.listener.HeroListener.URI_FIND_ALL;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class HeroServiceFromServer extends BaseService implements HeroService {
 

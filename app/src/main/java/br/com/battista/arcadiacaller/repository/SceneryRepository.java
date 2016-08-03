@@ -1,19 +1,20 @@
 package br.com.battista.arcadiacaller.repository;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
-
 import android.support.annotation.NonNull;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.Log;
+import com.google.common.collect.Lists;
 
 import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
 
 public class SceneryRepository implements BaseRepository<Scenery> {
 
@@ -45,6 +46,11 @@ public class SceneryRepository implements BaseRepository<Scenery> {
                     if (entity != null) {
                         Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getId()));
                         entity.synchronize();
+
+                        // FIX ActiveAndroid Bug
+                        if (entity.getBenefitTitles() == null) {
+                            entity.setBenefitTitles(Lists.newArrayList(new String[0]));
+                        }
                         entity.save();
                     }
                 }

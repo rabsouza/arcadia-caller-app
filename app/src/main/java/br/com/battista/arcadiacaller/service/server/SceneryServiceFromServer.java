@@ -20,7 +20,6 @@ import br.com.battista.arcadiacaller.service.SceneryService;
 import retrofit2.Response;
 
 import static br.com.battista.arcadiacaller.listener.SceneryListener.URI_FIND_ALL;
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class SceneryServiceFromServer extends BaseService implements SceneryService {
 

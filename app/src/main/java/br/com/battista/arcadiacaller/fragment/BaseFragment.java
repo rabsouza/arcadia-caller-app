@@ -1,8 +1,5 @@
 package br.com.battista.arcadiacaller.fragment;
 
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_FRAGMENT;
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_FRAGMENT;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +11,9 @@ import com.crashlytics.android.answers.CustomEvent;
 
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.util.AppUtils;
+
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_FRAGMENT;
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_FRAGMENT;
 
 public class BaseFragment extends Fragment {
 

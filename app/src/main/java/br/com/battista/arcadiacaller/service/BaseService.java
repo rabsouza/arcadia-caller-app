@@ -34,9 +34,8 @@ import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_A
 
 public class BaseService {
 
-    private static final String TAG = BaseService.class.getSimpleName();
     public static final String METHOD_GET = "GET";
-
+    private static final String TAG = BaseService.class.getSimpleName();
     @Getter(value = AccessLevel.PROTECTED)
     protected Retrofit builder;
 

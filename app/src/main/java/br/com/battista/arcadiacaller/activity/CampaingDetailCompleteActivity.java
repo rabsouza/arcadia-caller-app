@@ -1,8 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +11,9 @@ import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailCompleteScene
 import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailSceneryFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class CampaingDetailCompleteActivity extends BaseActivity {
 

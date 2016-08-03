@@ -25,8 +25,8 @@ import br.com.battista.arcadiacaller.repository.SceneryRepository;
 
 public class CacheManagerService extends Service {
 
-    private static final String TAG = CacheManagerService.class.getSimpleName();
     public static final Boolean CACHED = Boolean.FALSE;
+    private static final String TAG = CacheManagerService.class.getSimpleName();
 
     @Override
     public void onCreate() {
