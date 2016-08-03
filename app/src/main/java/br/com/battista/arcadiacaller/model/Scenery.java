@@ -44,7 +44,7 @@ public class Scenery extends BaseEntity implements Serializable {
     @Column(name = SceneryEntry.COLUMN_NAME_DIFFICULTY, notNull = true, index = true)
     private DifficultySceneryEnum difficulty;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_BENEFIT_TITLES, notNull = false, onNullConflict = Column.ConflictAction.IGNORE)
+    @Column(name = SceneryEntry.COLUMN_NAME_BENEFIT_TITLES)
     private List<String> benefitTitles = Lists.newArrayList();
 
     @Column(name = SceneryEntry.COLUMN_NAME_LOCATION, notNull = true, index = true)

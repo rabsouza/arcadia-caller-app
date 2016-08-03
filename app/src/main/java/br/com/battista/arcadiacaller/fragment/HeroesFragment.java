@@ -3,6 +3,7 @@ package br.com.battista.arcadiacaller.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,8 +20,11 @@ import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.HeroAdapter;
+import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
 
 
 public class HeroesFragment extends BaseFragment {
@@ -29,6 +33,7 @@ public class HeroesFragment extends BaseFragment {
 
     private List<Hero> heroes = Lists.newArrayList();
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout refreshLayout;
 
     public HeroesFragment() {
     }
@@ -50,6 +55,15 @@ public class HeroesFragment extends BaseFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
+
+        refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                EventCache.createEvent(LOAD_HERO_DATA);
+                refreshLayout.setRefreshing(false);
+            }
+        });
 
         return view;
     }

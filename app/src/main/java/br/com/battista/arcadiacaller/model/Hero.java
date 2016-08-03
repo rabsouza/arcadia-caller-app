@@ -28,18 +28,25 @@ public class Hero extends BaseEntity implements Serializable {
     @Column(name = HeroEntry.COLUMN_NAME_NAME, notNull = true, index = true, unique = true)
     private String name;
 
+    @Column(name = HeroEntry.COLUMN_NAME_URL_PHOTO, notNull = true)
     private String urlPhoto;
 
+    @Column(name = HeroEntry.COLUMN_NAME_DEFENSE, notNull = true)
     private Integer defense;
 
+    @Column(name = HeroEntry.COLUMN_NAME_LIFE, notNull = true)
     private Integer life;
 
+    @Column(name = HeroEntry.COLUMN_NAME_ACTIVE, notNull = true, index = true)
     private Boolean active = Boolean.TRUE;
 
+    @Column(name = HeroEntry.COLUMN_NAME_REVISE, notNull = true, index = true)
     private Boolean revise = Boolean.FALSE;
 
+    @Column(name = HeroEntry.COLUMN_NAME_DENOUNCE, notNull = true, index = true)
     private Boolean denounce = Boolean.FALSE;
 
+    @Column(name = HeroEntry.COLUMN_NAME_DELETED, notNull = true, index = true)
     private Boolean deleted = Boolean.FALSE;
 
     @Override

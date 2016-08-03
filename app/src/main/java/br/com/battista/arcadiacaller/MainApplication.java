@@ -24,6 +24,7 @@ import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.HeroGuild;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
+import br.com.battista.arcadiacaller.model.StatisticUser;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -153,7 +154,8 @@ public class MainApplication extends MultiDexApplication {
                 HeroGuild.class,
                 Scenery.class,
                 SceneryCampaign.class,
-                User.class);
+                User.class,
+                StatisticUser.class);
 
         configurationBuilder.setCacheSize(DEFAULT_CACHE_SIZE);
         configurationBuilder.setDatabaseName(DEFAULT_DATABASE_NAME);

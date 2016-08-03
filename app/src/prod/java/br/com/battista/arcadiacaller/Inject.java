@@ -10,7 +10,9 @@ import br.com.battista.arcadiacaller.service.SceneryService;
 import br.com.battista.arcadiacaller.service.StatisticUserService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.service.database.CardServiceFromDatabase;
+import br.com.battista.arcadiacaller.service.database.HeroServiceFromDatabase;
 import br.com.battista.arcadiacaller.service.database.SceneryServiceFromDatabase;
+import br.com.battista.arcadiacaller.service.database.StatisticUserServiceFromDatabase;
 import br.com.battista.arcadiacaller.service.server.AppServiceFromServer;
 import br.com.battista.arcadiacaller.service.server.CampaignServiceFromServer;
 import br.com.battista.arcadiacaller.service.server.CardServiceFromServer;
@@ -35,7 +37,14 @@ public class Inject {
     }
 
     public synchronized static HeroService provideHeroService() {
-        return new HeroServiceFromServer();
+        return provideHeroService(Boolean.TRUE);
+    }
+
+    public synchronized static HeroService provideHeroService(Boolean cached) {
+        if (!cached && MainApplication.instance().checkOnlineServer()) {
+            return new HeroServiceFromServer();
+        }
+        return new HeroServiceFromDatabase();
     }
 
     public synchronized static CardService provideCardService() {
@@ -65,7 +74,14 @@ public class Inject {
     }
 
     public synchronized static StatisticUserService provideStatisticUserService() {
-        return new StatisticUserServiceFromServer();
+        return provideStatisticUserService(Boolean.TRUE);
+    }
+
+    public synchronized static StatisticUserService provideStatisticUserService(Boolean cached) {
+        if (!cached && MainApplication.instance().checkOnlineServer()) {
+            return new StatisticUserServiceFromServer();
+        }
+        return new StatisticUserServiceFromDatabase();
     }
 
     public synchronized static CampaignCompleteService provideCampaignCompleteService() {

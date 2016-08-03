@@ -18,10 +18,15 @@ import java.util.List;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.model.Card;
+import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.Scenery;
+import br.com.battista.arcadiacaller.model.StatisticUser;
+import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum;
 import br.com.battista.arcadiacaller.repository.CardRepository;
+import br.com.battista.arcadiacaller.repository.HeroRepository;
 import br.com.battista.arcadiacaller.repository.SceneryRepository;
+import br.com.battista.arcadiacaller.repository.StatisticUserRepository;
 
 public class CacheManagerService extends Service {
 
@@ -44,18 +49,35 @@ public class CacheManagerService extends Service {
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onActionCache(ActionCacheEnum action) {
-        final String token = MainApplication.instance().getToken();
+        MainApplication instance = MainApplication.instance();
+        final String token = instance.getToken();
+        final User user = instance.getUser();
         if (action != null && !Strings.isNullOrEmpty(token)) {
             Log.i(TAG, MessageFormat.format("onActionCache: Process to action: {0}.", action));
             if (ActionCacheEnum.LOAD_CARD_DATA.equals(action)) {
                 loadAllDataCardAddToCache(token);
+            } else if (ActionCacheEnum.LOAD_HERO_DATA.equals(action)) {
+                loadAllDataHeroAddToCache(token);
             } else if (ActionCacheEnum.LOAD_SCENERY_DATA.equals(action)) {
                 loadAllDataSceneryAddToCache(token);
+            } else if (ActionCacheEnum.LOAD_STATISTIC_USER_DATA.equals(action)) {
+                loadAllDataStatisticUserAddToCache(token, user);
             }
         } else {
             Log.i(TAG, MessageFormat.format("onActionCache: No process to action: {0}.", action));
         }
 
+    }
+
+    private void loadAllDataHeroAddToCache(String token) {
+        Log.i(TAG, "loadAllDataHeroAddToCache: Find all in server!");
+        List<Hero> heroes = Inject.provideHeroService(CACHED).findAll(token);
+
+        final HeroRepository heroRepository = new HeroRepository();
+        Log.i(TAG, "loadAllDataHeroAddToCache: Clear table Hero!");
+        heroRepository.deleteAll();
+        Log.i(TAG, "loadAllDataHeroAddToCache: Update table Hero!");
+        heroRepository.saveAll(heroes);
     }
 
     private void loadAllDataCardAddToCache(String token) {
@@ -78,6 +100,15 @@ public class CacheManagerService extends Service {
         sceneryRepository.deleteAll();
         Log.i(TAG, "loadAllDataSceneryAddToCache: Update table scenery!");
         sceneryRepository.saveAll(sceneries);
+    }
+
+    private void loadAllDataStatisticUserAddToCache(String token, User user) {
+        Log.i(TAG, "loadAllDataStatisticUserAddToCache: Find all in server!");
+        StatisticUser statisticUser = Inject.provideStatisticUserService(CACHED).findByUser(token, user.getUsername());
+
+        final StatisticUserRepository statisticUserRepository = new StatisticUserRepository();
+        Log.i(TAG, "loadAllDataStatisticUserAddToCache: Update table StatisticUser!");
+        statisticUserRepository.save(statisticUser);
     }
 
     @Override

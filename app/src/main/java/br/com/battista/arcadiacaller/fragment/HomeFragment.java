@@ -3,6 +3,7 @@ package br.com.battista.arcadiacaller.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.StatisticUser;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.util.AppUtils;
@@ -22,10 +24,14 @@ import br.com.battista.arcadiacaller.util.DateUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_STATISTIC_USER_DATA;
+
 
 public class HomeFragment extends BaseFragment {
 
     private static final String TAG = HomeFragment.class.getSimpleName();
+
+    private SwipeRefreshLayout refreshLayout;
 
     public HomeFragment() {
     }
@@ -42,11 +48,22 @@ public class HomeFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: Create new fragment Home!");
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        MainApplication application = MainApplication.instance();
+        final MainApplication application = MainApplication.instance();
         AppUtils.goToHomeIfUserIsNull(application, getContext());
         User user = application.getUser();
+
+        refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                EventCache.createEvent(LOAD_STATISTIC_USER_DATA);
+                loadStatisticUser(view, application);
+                refreshLayout.setRefreshing(false);
+            }
+        });
+
         loadUserInfo(view, user);
         loadStatisticUser(view, application);
         return view;

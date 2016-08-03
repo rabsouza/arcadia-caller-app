@@ -13,6 +13,7 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.EntityAlreadyExistsException;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
@@ -22,6 +23,10 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
 import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_STATISTIC_USER_DATA;
 
 public class SignInActivity extends BaseActivity {
 
@@ -74,6 +79,9 @@ public class SignInActivity extends BaseActivity {
                     Log.d(TAG, "onPostExecute: Success in create user!");
                     MainApplication.instance().setToken(token);
                     MainApplication.instance().setUser(user);
+
+                    EventCache.createEvent(LOAD_CARD_DATA, LOAD_HERO_DATA, LOAD_SCENERY_DATA, LOAD_STATISTIC_USER_DATA);
+
                     loadMainActivity();
                 }
                 dismissProgress();

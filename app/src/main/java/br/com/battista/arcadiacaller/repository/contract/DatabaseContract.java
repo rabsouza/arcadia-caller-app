@@ -58,6 +58,13 @@ public class DatabaseContract {
 
         public static final String TABLE_NAME = "HERO";
         public static final String COLUMN_NAME_NAME = "NAME";
+        public static final String COLUMN_NAME_URL_PHOTO = "URL_PHOTO";
+        public static final String COLUMN_NAME_DEFENSE = "DEFENSE";
+        public static final String COLUMN_NAME_LIFE = "LIFE";
+        public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
+        public static final String COLUMN_NAME_REVISE = "REVISE";
+        public static final String COLUMN_NAME_DENOUNCE = "DENOUNCE";
+        public static final String COLUMN_NAME_DELETED = "DELETED";
     }
 
     public static abstract class HeroGuildEntry extends BaseEntry {

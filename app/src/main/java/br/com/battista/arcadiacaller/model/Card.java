@@ -39,7 +39,7 @@ public class Card extends BaseEntity implements Serializable {
     @Column(name = CardEntry.COLUMN_NAME_GROUP, notNull = true, index = true)
     private GroupCardEnum group;
 
-    @Column(name = CardEntry.COLUMN_NAME_COST, index = true)
+    @Column(name = CardEntry.COLUMN_NAME_COST)
     private Integer cost;
 
     @Column(name = CardEntry.COLUMN_NAME_ACTIVE, notNull = true, index = true)

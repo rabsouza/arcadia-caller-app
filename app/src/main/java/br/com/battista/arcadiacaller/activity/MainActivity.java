@@ -14,6 +14,7 @@ import com.crashlytics.android.Crashlytics;
 
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.CampaignsFragment;
 import br.com.battista.arcadiacaller.fragment.CardsFragment;
@@ -28,6 +29,7 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import static br.com.battista.arcadiacaller.R.id.container;
 import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
 import static br.com.battista.arcadiacaller.R.id.nav_menu_friends;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_STATISTIC_USER_DATA;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -161,5 +163,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         intent.putExtras(args);
 
         getContext().startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventCache.createEvent(LOAD_STATISTIC_USER_DATA);
     }
 }

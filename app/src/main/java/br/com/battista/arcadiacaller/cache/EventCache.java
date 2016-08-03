@@ -5,14 +5,18 @@ import android.util.Log;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.text.MessageFormat;
+
 import br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum;
 
 public class EventCache {
 
     private static final String TAG = EventCache.class.getSimpleName();
 
-    public synchronized static void createEvent(@NonNull ActionCacheEnum actionCache) {
-        Log.i(TAG, "createEvent: Create new event cache!");
-        EventBus.getDefault().post(actionCache);
+    public synchronized static void createEvent(@NonNull ActionCacheEnum... actionsCache) {
+        for (ActionCacheEnum actionCache : actionsCache) {
+            Log.i(TAG, MessageFormat.format("createEvent: Create new event {0} cache!", actionCache));
+            EventBus.getDefault().post(actionCache);
+        }
     }
 }

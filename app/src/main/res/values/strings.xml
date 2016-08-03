@@ -145,7 +145,7 @@
     <string name="alert_confirmation_dialog_text_delete">Deseja excluir a campanha {0}? Essa operação não pode ser revetida.</string>
     <string name="alert_confirmation_dialog_title_play">Tem certeza?</string>
     <string name="alert_confirmation_dialog_text_play">Deseja iniciar a campanha {0}? Essa operação não pode ser revetida e a campanha não poderá ser editada ou excluída.</string>
-    <string name="alert_confirmation_dialog_text_logout">Deseja sair da aplicação?</string>
+    <string name="alert_confirmation_dialog_text_logout">Deseja terminar a sua sessão na aplicação?</string>
     <string name="alert_confirmation_dialog_text_scenery">Deseja finalizar o Cenário {0}? Essa operação não pode ser revetida.</string>
 
     <!-- ################### OTHERS #################### -->
