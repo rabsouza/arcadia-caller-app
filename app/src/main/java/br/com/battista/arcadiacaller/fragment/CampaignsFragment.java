@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +35,7 @@ public class CampaignsFragment extends BaseFragment {
 
     private List<Campaign> campaigns = Lists.newArrayList();
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout refreshLayout;
 
     public CampaignsFragment() {
     }
@@ -55,6 +57,15 @@ public class CampaignsFragment extends BaseFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(false);
+
+        refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshLayout.setRefreshing(false);
+                loadCampaigns();
+            }
+        });
 
         loadFloatingAction(view);
 

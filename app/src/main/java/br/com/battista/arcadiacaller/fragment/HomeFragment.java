@@ -59,17 +59,17 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onRefresh() {
                 EventCache.createEvent(LOAD_STATISTIC_USER_DATA);
-                loadStatisticUser(view, application);
+                loadStatisticUser(view, application, true);
                 refreshLayout.setRefreshing(false);
             }
         });
 
         loadUserInfo(view, user);
-        loadStatisticUser(view, application);
+        loadStatisticUser(view, application, false);
         return view;
     }
 
-    private void loadStatisticUser(final View view, MainApplication application) {
+    private void loadStatisticUser(final View view, MainApplication application, final Boolean cache) {
 
         final User user = application.getUser();
         final String token = application.getToken();
@@ -112,7 +112,7 @@ public class HomeFragment extends BaseFragment {
             @Override
             protected Boolean doInBackground(Void... params) {
                 try {
-                    statisticUser = Inject.provideStatisticUserService().findByUser(token, user.getUsername());
+                    statisticUser = Inject.provideStatisticUserService(cache).findByUser(token, user.getUsername());
                     return true;
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);

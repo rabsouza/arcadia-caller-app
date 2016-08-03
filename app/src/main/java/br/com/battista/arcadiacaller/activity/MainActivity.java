@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             }
         }
         Log.i(TAG, "loadFragmentInitial: Load the HomeFragment!");
-        navigationView.getMenu().getItem(1).setChecked(true);
+        navigationView.getMenu().getItem(0).setChecked(true);
         replaceFragment(HomeFragment.newInstance());
     }
 
