@@ -1,5 +1,9 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
+import static br.com.battista.arcadiacaller.R.id.nav_menu_friends;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_STATISTIC_USER_DATA;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,12 +28,6 @@ import br.com.battista.arcadiacaller.fragment.HomeFragment;
 import br.com.battista.arcadiacaller.fragment.SceneriesFragment;
 import br.com.battista.arcadiacaller.fragment.dialog.AboutDialog;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
-import br.com.battista.arcadiacaller.util.AndroidUtils;
-
-import static br.com.battista.arcadiacaller.R.id.container;
-import static br.com.battista.arcadiacaller.R.id.nav_menu_campaign;
-import static br.com.battista.arcadiacaller.R.id.nav_menu_friends;
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_STATISTIC_USER_DATA;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -128,11 +126,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             Log.d(TAG, "onNavigationItemSelected: Go to menu Sceneries.");
             changeToolbarTitleByMenu(menuItem);
             replaceFragment(SceneriesFragment.newInstance());
-
-        } else if (id == R.id.nav_menu_manage) {
-            Log.d(TAG, "onNavigationItemSelected: Go to menu Manage.");
-            changeToolbarTitleByMenu(menuItem);
-            AndroidUtils.snackbar(findViewById(container), R.string.msg_blank_fragment);
 
         } else if (id == R.id.nav_menu_about) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Help.");

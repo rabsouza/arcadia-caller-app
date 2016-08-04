@@ -26,16 +26,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/card_view_friend_img"
                 android:layout_width="@dimen/dimen_friend_img_width"
                 android:layout_height="@dimen/dimen_friend_img_height"
-                android:scaleType="centerCrop"
-                android:src="@drawable/profile"/>
+                app:srcCompat="@drawable/ic_friend"/>
 
             <TextView
                 android:id="@+id/card_view_friend_username"
-                style="@style/NavDrawerTextStyle"
+                style="@style/CardTextBoldStyle"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/dimen_friend_img_height"
                 android:layout_marginLeft="@dimen/element_horizontal_margin"

@@ -1,11 +1,13 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
+
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import lombok.AllArgsConstructor;
@@ -14,8 +16,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
 
 @Builder
 @AllArgsConstructor
@@ -41,11 +41,11 @@ public class User extends BaseEntity implements Serializable {
     private ProfileAppConstant profile;
 
     @Column(name = UserEntry.COLUMN_NAME_FRIENDS)
-    private List<String> friends = Lists.newArrayList();
+    private Set<String> friends = Sets.newLinkedHashSet();
 
     public Boolean addFriend(String friend) {
         if (friends == null) {
-            friends = Lists.newArrayList();
+            friends = Sets.newLinkedHashSet();
         }
         return friends.add(friend);
     }

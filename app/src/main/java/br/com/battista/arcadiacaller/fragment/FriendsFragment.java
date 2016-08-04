@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -31,8 +33,6 @@ import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
 
 public class FriendsFragment extends BaseFragment {
 
@@ -138,7 +138,8 @@ public class FriendsFragment extends BaseFragment {
                         user = userService.addFriends(token, user);
                         if (user != null) {
                             instance.setUser(user);
-                            friends = user.getFriends();
+                            friends.clear();
+                            friends.addAll(user.getFriends());
                             return true;
                         }
                     }
@@ -183,11 +184,12 @@ public class FriendsFragment extends BaseFragment {
                     String token = instance.getToken();
                     final User userMain = instance.getUser();
                     User user = Inject.provideUserService().findByUsername(token, userMain.getUsername());
+                    friends.clear();
                     if (user != null) {
                         instance.setUser(user);
-                        friends = user.getFriends();
+                        friends.addAll(user.getFriends());
                     } else {
-                        friends = userMain.getFriends();
+                        friends.addAll(userMain.getFriends());
                     }
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
