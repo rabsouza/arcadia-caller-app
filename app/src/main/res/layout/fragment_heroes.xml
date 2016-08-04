@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/item_img_height"
+
             android:cacheColorHint="@android:color/transparent"
             android:clipToPadding="false"
             android:dividerHeight="0dp"

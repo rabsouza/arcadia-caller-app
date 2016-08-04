@@ -4,6 +4,25 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ## PHASE - BETA
 
+
+### Version - 2.0.0
+**Date release**
+ - 03/08/2016
+
+**Features**
+ - Adiciona tela para adicionar amigos.
+ - Adiciona tela para visualizar uma campanha.
+ - Adiciona cache em banco de dados para Home, Card, Hero e Scenery.
+
+**Bugs**
+ - Correções de bugs.
+
+**Improvements**
+ - Melhorias nos icones da aplicaçãp.
+ - Melhorias de layout.
+ - Melhoria teste e informações.
+
+
 ### Version - 1.3.0
 **Date release**
  - 02/08/2016

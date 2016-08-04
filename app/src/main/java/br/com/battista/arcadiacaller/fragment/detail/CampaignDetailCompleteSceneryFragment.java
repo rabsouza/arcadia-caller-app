@@ -1,5 +1,11 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static br.com.battista.arcadiacaller.util.AndroidUtils.changeErrorSpinner;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,12 +45,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-import static br.com.battista.arcadiacaller.util.AndroidUtils.changeErrorSpinner;
 
 public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 

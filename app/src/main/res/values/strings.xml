@@ -5,6 +5,7 @@
     <string name="title_home">Inicial</string>
     <string name="title_campaigns">Campanhas</string>
     <string name="title_friends">Amigos</string>
+    <string name="title_campaign_view">Campanha</string>
     <string name="title_campaign_detail">Campanha</string>
     <string name="title_campaign_completed">Campanha</string>
     <string name="title_campaign_active">Campanha atual</string>
@@ -107,6 +108,8 @@
     <string name="hint_add_friends_obs_1">Obs.: Se o jogador tem interesse em criar sua propria campanha ou acompanhar o seu andamento no aplicativo ele deve se cadastrar pela tela inicial da aplicação.</string>
     <string name="hint_add_friends_obs_2">Obs.: Um jogador cadastrado como amigo, só poderá jogar campanhas de outro jogador.</string>
     <string name="hint_add_friends_obs_3">Obs.: Ele não terão acesso a aplicação.</string>
+    <string name="hint_view_card_guild_name">Guilda {0}</string>
+    <string name="hint_view_card_username">Usuário: {0}</string>
 
 
     <!-- ################### MSG #################### -->

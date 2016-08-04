@@ -15,16 +15,17 @@
             android:id="@+id/card_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/item_img_height"
+
             android:cacheColorHint="@android:color/transparent"
             android:clipToPadding="false"
             android:dividerHeight="0dp"
             android:listSelector="@android:color/transparent"
             android:paddingBottom="@dimen/md_keylines"
-            android:layout_marginBottom="@dimen/item_img_height"
             android:paddingTop="@dimen/md_keylines"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
@@ -34,6 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_add"/>
 
 </FrameLayout>

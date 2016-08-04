@@ -1,0 +1,654 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.battista.arcadiacaller.fragment.view.CampaignViewGuildsFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/view_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/fab_margin_bottom"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/view_card_view_campaign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <TextView
+                        android:id="@+id/view_card_view_campaign_title"
+                        style="@style/CardTitle02Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_campaign_active"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:background="@color/gray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            app:srcCompat="@drawable/ic_menu_campaign"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_campaign_alias"
+                            style="@style/CardTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/view_card_view_guild_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_blue_img"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_blue_title"
+                            style="@style/CardTitle02Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:background="@color/gray"/>
+
+                    <TextView
+                        android:id="@+id/view_card_view_guild_blue_username"
+                        style="@style/CardTextBoldStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_blue_hero_01_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_blue_hero_01_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_blue_hero_02_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_blue_hero_02_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_blue_hero_03_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_blue_hero_03_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/view_card_view_guild_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_green_img"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_green_title"
+                            style="@style/CardTitle02Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:background="@color/gray"/>
+
+                    <TextView
+                        android:id="@+id/view_card_view_guild_green_username"
+                        style="@style/CardTextBoldStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_green_hero_01_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_green_hero_01_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_green_hero_02_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_green_hero_02_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_green_hero_03_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_green_hero_03_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/view_card_view_guild_red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_red_img"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_red_title"
+                            style="@style/CardTitle02Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:background="@color/gray"/>
+
+                    <TextView
+                        android:id="@+id/view_card_view_guild_red_username"
+                        style="@style/CardTextBoldStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_red_hero_01_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_red_hero_01_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_red_hero_02_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_red_hero_02_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_red_hero_03_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_red_hero_03_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/view_card_view_guild_orange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_orange_img"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_orange_title"
+                            style="@style/CardTitle02Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:background="@color/gray"/>
+
+                    <TextView
+                        android:id="@+id/view_card_view_guild_orange_username"
+                        style="@style/CardTextBoldStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_orange_hero_01_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_orange_hero_01_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_orange_hero_02_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_orange_hero_02_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/view_card_view_guild_orange_hero_03_img"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"/>
+
+                        <TextView
+                            android:id="@+id/view_card_view_guild_orange_hero_03_name"
+                            style="@style/CardTextBoldStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_img_height"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_next_view_scenery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_anchor="@id/view_scroll_view"
+        app:layout_anchorGravity="bottom|right"
+        app:srcCompat="@drawable/ic_next"/>
+
+
+</android.support.design.widget.CoordinatorLayout>

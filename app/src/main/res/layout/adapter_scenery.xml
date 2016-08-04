@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
-    android:id="@+id/card_view_scenery"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:foreground="?attr/selectableItemBackground"
-    android:padding="@dimen/no_dimen"
-    app:cardBackgroundColor="@android:color/transparent"
-    app:cardElevation="1dp"
-    app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="2dp"
-    card_view:cardElevation="1dp"
-    card_view:cardUseCompatPadding="true">
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    xmlns:card_view="http://schemas.android.com/tools"
+                                    android:id="@+id/card_view_scenery"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:foreground="?attr/selectableItemBackground"
+                                    android:padding="@dimen/no_dimen"
+                                    app:cardBackgroundColor="@android:color/transparent"
+                                    app:cardElevation="1dp"
+                                    app:cardPreventCornerOverlap="false"
+                                    app:cardUseCompatPadding="true"
+                                    card_view:cardCornerRadius="2dp"
+                                    card_view:cardElevation="1dp"
+                                    card_view:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,19 +27,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:paddingLeft="@dimen/activity_padding" />
+            android:paddingLeft="@dimen/activity_padding"/>
 
         <TextView
             android:id="@+id/card_view_scenery_difficulty"
             style="@style/CardHead02Style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray" />
+            android:background="@color/gray"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,14 +53,14 @@
                 android:layout_marginLeft="@dimen/activity_padding"
                 android:layout_marginRight="@dimen/element_padding"
                 android:scaleType="fitXY"
-                android:src="@drawable/won_reward" />
+                android:src="@drawable/won_reward"/>
 
             <TextView
                 android:id="@+id/card_view_scenery_won_reward"
                 style="@style/CardTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"/>
 
         </LinearLayout>
 
@@ -76,14 +76,14 @@
                 android:layout_marginLeft="@dimen/activity_padding"
                 android:layout_marginRight="@dimen/element_padding"
                 android:scaleType="fitXY"
-                android:src="@drawable/won_title" />
+                android:src="@drawable/won_title"/>
 
             <TextView
                 android:id="@+id/card_view_scenery_won_title"
                 style="@style/CardTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"/>
 
         </LinearLayout>
 

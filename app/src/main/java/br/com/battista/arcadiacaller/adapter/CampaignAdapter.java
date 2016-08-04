@@ -1,5 +1,10 @@
 package br.com.battista.arcadiacaller.adapter;
 
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,6 +32,7 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.activity.CampaingCompleteActivity;
 import br.com.battista.arcadiacaller.activity.CampaingDetailActivity;
 import br.com.battista.arcadiacaller.activity.CampaingDetailCompleteActivity;
+import br.com.battista.arcadiacaller.activity.CampaingViewActivity;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
 import br.com.battista.arcadiacaller.adapter.item.SceneryItemAdapter;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
@@ -37,11 +43,6 @@ import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
 import lombok.Getter;
-
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 
@@ -162,7 +163,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
             holder.getBtnInfo().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AndroidUtils.snackbar(viewCampaign, R.string.msg_blank_fragment);
+                    loadCampaignViewActivity(campaign);
                 }
             });
 
@@ -252,6 +253,15 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
         Intent intent = new Intent(getContext(), CampaingDetailCompleteActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
+    }
+
+    private void loadCampaignViewActivity(Campaign campaign) {
+        Bundle args = new Bundle();
+        args.putSerializable(BundleConstant.DATA, campaign);
+        Intent intent = new Intent(getContext(), CampaingViewActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);

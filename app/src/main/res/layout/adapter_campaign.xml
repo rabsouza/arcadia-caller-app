@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:id="@+id/card_view_campaign"
@@ -32,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:paddingLeft="@dimen/activity_padding" />
+                android:paddingLeft="@dimen/activity_padding"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -43,7 +44,7 @@
                     style="@style/CardHead03Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"/>
 
                 <ImageView
                     android:layout_width="20dp"
@@ -51,7 +52,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="4dp"
                     android:layout_toLeftOf="@id/card_view_campaign_key"
-                    app:srcCompat="@drawable/ic_key" />
+                    app:srcCompat="@drawable/ic_key"/>
 
             </RelativeLayout>
 
@@ -59,15 +60,15 @@
                 android:id="@+id/card_view_campaign_date"
                 style="@style/CardHead03Style"
                 android:layout_width="match_parent"
-                android:gravity="center_horizontal"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/card_view_campaign_status"
                 style="@style/CardHead03Style"
                 android:layout_width="match_parent"
-                android:gravity="center_horizontal"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -104,13 +105,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:text="@string/title_guilds" />
+                            android:text="@string/title_guilds"/>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1px"
                             android:layout_marginBottom="@dimen/element_vertical_margin"
-                            android:background="@color/gray" />
+                            android:background="@color/gray"/>
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/card_view_campaign_guilds_recycler_view"
@@ -118,7 +119,7 @@
                             android:layout_height="wrap_content"
                             android:clipToPadding="false"
                             android:padding="@dimen/no_dimen"
-                            android:scrollbars="none" />
+                            android:scrollbars="none"/>
 
                     </LinearLayout>
 
@@ -153,21 +154,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:text="@string/title_sceneries" />
+                            android:text="@string/title_sceneries"/>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1px"
                             android:layout_marginBottom="@dimen/element_vertical_margin"
-                            android:background="@color/gray" />
+                            android:background="@color/gray"/>
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/card_view_campaign_sceneries_recycler_view"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+
                             android:clipToPadding="false"
                             android:padding="@dimen/no_dimen"
-                            android:scrollbars="none" />
+                            android:scrollbars="none"/>
 
                     </LinearLayout>
 
@@ -191,7 +193,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/fab_margin_right"
                 android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_delete" />
+                app:srcCompat="@drawable/ic_delete"/>
 
             <ImageButton
                 android:id="@+id/card_view_campaign_finish"
@@ -201,7 +203,7 @@
                 android:layout_marginRight="@dimen/element_horizontal_margin"
                 android:layout_toLeftOf="@id/card_view_campaign_delete"
                 android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_finish" />
+                app:srcCompat="@drawable/ic_finish"/>
 
             <ImageButton
                 android:id="@+id/card_view_campaign_play"
@@ -211,7 +213,7 @@
                 android:layout_marginRight="@dimen/element_horizontal_margin"
                 android:layout_toLeftOf="@id/card_view_campaign_finish"
                 android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_play" />
+                app:srcCompat="@drawable/ic_play"/>
 
             <ImageButton
                 android:id="@+id/card_view_campaign_edit"
@@ -221,7 +223,7 @@
                 android:layout_marginRight="@dimen/element_horizontal_margin"
                 android:layout_toLeftOf="@id/card_view_campaign_play"
                 android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_edit" />
+                app:srcCompat="@drawable/ic_edit"/>
 
             <ImageButton
                 android:id="@+id/card_view_campaign_info"
@@ -231,7 +233,7 @@
                 android:layout_marginRight="@dimen/element_horizontal_margin"
                 android:layout_toLeftOf="@id/card_view_campaign_edit"
                 android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_info" />
+                app:srcCompat="@drawable/ic_info"/>
 
         </RelativeLayout>
 

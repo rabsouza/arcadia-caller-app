@@ -55,13 +55,30 @@
                         android:layout_marginBottom="@dimen/activity_vertical_margin"
                         android:background="@color/gray"/>
 
-                    <TextView
-                        android:id="@+id/detail_card_view_campaign_alias"
-                        style="@style/CardTextStyle"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/element_vertical_margin"
-                        android:textStyle="bold"/>
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/element_horizontal_margin"
+                        android:paddingRight="@dimen/element_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginRight="@dimen/element_horizontal_margin"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            app:srcCompat="@drawable/ic_menu_campaign"/>
+
+                        <TextView
+                            android:id="@+id/detail_card_view_campaign_alias"
+                            style="@style/CardTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
