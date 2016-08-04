@@ -5,6 +5,21 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 
 
+### Version - 2.0.1
+**Date release**
+ - 04/08/2016
+
+**Features**
+
+
+**Bugs**
+ - Correção de bug ao adicionar um amigo.
+ - Correção de bug ao carregar os cenários.
+
+**Improvements**
+ - Melhoria na exibição das informações.
+
+
 ### Version - 2.0.0
 **Date release**
  - 03/08/2016
