@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.model;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
-
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.google.common.collect.Sets;
@@ -17,13 +15,16 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"username"}, callSuper = false)
-@Table(name = UserEntry.TABLE_NAME)
+@Table(name = UserEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
 public class User extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,8 +51,4 @@ public class User extends BaseEntity implements Serializable {
         return friends.add(friend);
     }
 
-    @Override
-    public Object getPk() {
-        return getId();
-    }
 }

@@ -20,7 +20,7 @@ public class StatisticUserRepository implements BaseRepository<StatisticUser> {
     @Override
     public void save(StatisticUser entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to statisticUser with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to statisticUser with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.initEntity();
@@ -43,7 +43,7 @@ public class StatisticUserRepository implements BaseRepository<StatisticUser> {
             try {
                 for (StatisticUser entity : entities) {
                     if (entity != null) {
-                        Log.i(TAG, MessageFormat.format("Save to statisticUser with id: {0}.", entity.getId()));
+                        Log.i(TAG, MessageFormat.format("Save to statisticUser with id: {0}.", entity.getPk()));
                         entity.initEntity();
                         entity.synchronize();
                         entity.save();
@@ -78,7 +78,7 @@ public class StatisticUserRepository implements BaseRepository<StatisticUser> {
     @Override
     public void update(StatisticUser entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the statisticUser with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Update the statisticUser with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.updateEntity();

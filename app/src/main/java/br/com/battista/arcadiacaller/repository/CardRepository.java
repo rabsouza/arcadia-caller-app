@@ -19,7 +19,7 @@ public class CardRepository implements BaseRepository<Card> {
     @Override
     public void save(Card entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();
@@ -40,7 +40,7 @@ public class CardRepository implements BaseRepository<Card> {
             try {
                 for (Card entity : entities) {
                     if (entity != null) {
-                        Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getId()));
+                        Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getPk()));
                         entity.synchronize();
                         entity.save();
                     }
@@ -66,7 +66,7 @@ public class CardRepository implements BaseRepository<Card> {
     @Override
     public void update(Card entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the card with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Update the card with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();

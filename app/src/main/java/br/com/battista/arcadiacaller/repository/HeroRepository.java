@@ -19,7 +19,7 @@ public class HeroRepository implements BaseRepository<Hero> {
     @Override
     public void save(Hero entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to hero with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to hero with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();
@@ -40,7 +40,7 @@ public class HeroRepository implements BaseRepository<Hero> {
             try {
                 for (Hero entity : entities) {
                     if (entity != null) {
-                        Log.i(TAG, MessageFormat.format("Save to hero with id: {0}.", entity.getId()));
+                        Log.i(TAG, MessageFormat.format("Save to hero with id: {0}.", entity.getPk()));
                         entity.synchronize();
                         entity.save();
                     }
@@ -66,7 +66,7 @@ public class HeroRepository implements BaseRepository<Hero> {
     @Override
     public void update(Hero entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the hero with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Update the hero with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();

@@ -4,6 +4,7 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,6 +25,9 @@ public abstract class BaseEntity extends Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty(value = "id")
+    private Long pk;
+
     @Column(name = BaseEntry.COLUMN_NAME_CREATED_AT, notNull = true)
     private Date createdAt;
 
@@ -38,8 +42,6 @@ public abstract class BaseEntity extends Model implements Serializable {
 
     @Column(name = BaseEntry.COLUMN_NAME_SYNCHRONIZED_AT, index = true)
     private Date synchronizedAt;
-
-    public abstract Object getPk();
 
     public void initEntity() {
         createdAt = new Date();

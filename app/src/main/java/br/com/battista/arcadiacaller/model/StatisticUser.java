@@ -13,13 +13,15 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(callSuper = false)
-@Table(name = StatisticUserEntry.TABLE_NAME)
+@Table(name = StatisticUserEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
 public class StatisticUser extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -104,8 +106,4 @@ public class StatisticUser extends BaseEntity implements Serializable {
         sceneryWonTitles = 0;
     }
 
-    @Override
-    public Object getPk() {
-        return getId();
-    }
 }

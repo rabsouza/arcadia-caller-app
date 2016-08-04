@@ -23,6 +23,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
 
 @Builder
@@ -31,7 +32,7 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"key"}, callSuper = false)
-@Table(name = CampaignEntry.TABLE_NAME)
+@Table(name = CampaignEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
 public class Campaign extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -278,8 +279,4 @@ public class Campaign extends BaseEntity implements Serializable {
         return status;
     }
 
-    @Override
-    public Object getPk() {
-        return getId();
-    }
 }

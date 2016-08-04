@@ -13,6 +13,7 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.cache.CacheManagerService;
 import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.EntityAlreadyExistsException;
@@ -77,9 +78,6 @@ public class SignInActivity extends BaseActivity {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_create_user);
                 } else {
                     Log.d(TAG, "onPostExecute: Success in create user!");
-                    MainApplication.instance().setToken(token);
-                    MainApplication.instance().setUser(user);
-
                     EventCache.createEvent(LOAD_CARD_DATA, LOAD_HERO_DATA, LOAD_SCENERY_DATA, LOAD_STATISTIC_USER_DATA);
 
                     loadMainActivity();
@@ -103,6 +101,11 @@ public class SignInActivity extends BaseActivity {
                     user = service.create(userBuild);
                     if (user != null && DEFAULT_VERSION.equals(user.getVersion())) {
                         token = service.login(user.getUsername());
+
+                        MainApplication instance = MainApplication.instance();
+                        instance.setToken(token);
+                        instance.setUser(user);
+                        new CacheManagerService().onActionCache(LOAD_STATISTIC_USER_DATA);
                     }
                     return true;
                 } catch (EntityAlreadyExistsException e) {

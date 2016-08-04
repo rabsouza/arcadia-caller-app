@@ -14,6 +14,7 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.cache.CacheManagerService;
 import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.AuthenticationException;
@@ -87,17 +88,14 @@ public class LoginActivity extends BaseActivity {
                 if (Strings.isNullOrEmpty(token) || user == null) {
                     Log.d(TAG, "onPostExecute: Failed in login!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
-                } else if(ProfileAppConstant.FRIEND.equals(user.getProfile())) {
+                } else if (ProfileAppConstant.FRIEND.equals(user.getProfile())) {
                     Log.d(TAG, "onPostExecute: Failed in login a Friend!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
-                }else{
-                        Log.d(TAG, "onPostExecute: Success in login!");
-                        instance.setToken(token);
-                        instance.setUser(user);
+                } else {
+                    Log.d(TAG, "onPostExecute: Success in login!");
+                    EventCache.createEvent(LOAD_CARD_DATA, LOAD_HERO_DATA, LOAD_SCENERY_DATA, LOAD_STATISTIC_USER_DATA);
 
-                        EventCache.createEvent(LOAD_CARD_DATA, LOAD_HERO_DATA, LOAD_SCENERY_DATA, LOAD_STATISTIC_USER_DATA);
-
-                        loadMainActivity();
+                    loadMainActivity();
                 }
                 dismissProgress();
             }
@@ -114,6 +112,10 @@ public class LoginActivity extends BaseActivity {
                         Log.d(TAG, MessageFormat.format("doInBackground: Find user by username: {}.", username));
 
                         user = userService.findByUsername(token, username);
+                        instance.setToken(token);
+                        instance.setUser(user);
+
+                        new CacheManagerService().onActionCache(LOAD_STATISTIC_USER_DATA);
                     }
                 } catch (AuthenticationException e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);

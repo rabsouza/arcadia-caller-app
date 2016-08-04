@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
 
 @Builder
@@ -20,7 +21,7 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"name"}, callSuper = false)
-@Table(name = HeroEntry.TABLE_NAME)
+@Table(name = HeroEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
 public class Hero extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,8 +50,4 @@ public class Hero extends BaseEntity implements Serializable {
     @Column(name = HeroEntry.COLUMN_NAME_DELETED, notNull = true, index = true)
     private Boolean deleted = Boolean.FALSE;
 
-    @Override
-    public Object getPk() {
-        return getId();
-    }
 }

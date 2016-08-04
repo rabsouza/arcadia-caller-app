@@ -15,6 +15,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.GuildEntry;
 
 @Builder
@@ -23,7 +24,7 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @Data
 @EqualsAndHashCode(callSuper = false)
 @ToString(includeFieldNames = true, callSuper = true)
-@Table(name = GuildEntry.TABLE_NAME)
+@Table(name = GuildEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
 public class Guild extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -77,8 +78,4 @@ public class Guild extends BaseEntity implements Serializable {
         rewardCards.add(rewardCard);
     }
 
-    @Override
-    public Object getPk() {
-        return getId();
-    }
 }

@@ -11,6 +11,7 @@ import com.google.common.collect.Lists;
 import java.text.MessageFormat;
 import java.util.List;
 
+import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 
@@ -23,7 +24,7 @@ public class SceneryRepository implements BaseRepository<Scenery> {
     @Override
     public void save(Scenery entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();
@@ -44,12 +45,17 @@ public class SceneryRepository implements BaseRepository<Scenery> {
             try {
                 for (Scenery entity : entities) {
                     if (entity != null) {
-                        Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getId()));
+                        Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getPk()));
                         entity.synchronize();
 
                         // FIX ActiveAndroid Bug
                         if (entity.getBenefitTitles() == null) {
                             entity.setBenefitTitles(Lists.newArrayList(new String[0]));
+                        }
+                        Card wonReward = entity.getWonReward();
+                        if(wonReward != null){
+                            wonReward.synchronize();
+                            wonReward.save();
                         }
                         entity.save();
                     }
@@ -75,7 +81,7 @@ public class SceneryRepository implements BaseRepository<Scenery> {
     @Override
     public void update(Scenery entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the scenery with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Update the scenery with id: {0}.", entity.getPk()));
             ActiveAndroid.beginTransaction();
             try {
                 entity.save();
