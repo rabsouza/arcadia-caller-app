@@ -70,6 +70,18 @@
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
 
         <meta-data
+            android:name="DATABASE"
+            android:value="arcadia_caller.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="30" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="br.com.battista.arcadiacaller.model" />
+        <meta-data
             android:name="io.fabric.ApiKey"
             android:value="259f20ad704f17270f36dedac2ff04ed2f044dfb"/>
 

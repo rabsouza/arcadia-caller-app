@@ -1,8 +1,8 @@
 package br.com.battista.arcadiacaller.model;
 
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
 import com.google.common.collect.Lists;
+import com.orm.dsl.Column;
+import com.orm.dsl.Table;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +16,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
 
 @Builder
@@ -25,42 +24,42 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"name"}, callSuper = false)
-@Table(name = SceneryEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
+@Table(name = SceneryEntry.TABLE_NAME)
 public class Scenery extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_NAME, notNull = true, index = true, unique = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_NAME, notNull = true, unique = true)
     private String name;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_URL_SYMBOL, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_URL_SYMBOL)
     private String urlSymbol;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_WON_TITLE, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_WON_TITLE)
     private String wonTitle;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_WON_REWARD, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_WON_REWARD)
     private Card wonReward;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_DIFFICULTY, notNull = true, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_DIFFICULTY, notNull = true)
     private DifficultySceneryEnum difficulty;
 
     @Column(name = SceneryEntry.COLUMN_NAME_BENEFIT_TITLES)
     private List<String> benefitTitles = Lists.newArrayList();
 
-    @Column(name = SceneryEntry.COLUMN_NAME_LOCATION, notNull = true, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_LOCATION, notNull = true)
     private LocationSceneryEnum location;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_ACTIVE, notNull = true, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_ACTIVE, notNull = true)
     private Boolean active = Boolean.TRUE;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_REVISE, notNull = true, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_REVISE, notNull = true)
     private Boolean revise = Boolean.FALSE;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_DENOUNCE, notNull = true, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_DENOUNCE, notNull = true)
     private Boolean denounce = Boolean.FALSE;
 
-    @Column(name = SceneryEntry.COLUMN_NAME_DELETED, notNull = true, index = true)
+    @Column(name = SceneryEntry.COLUMN_NAME_DELETED, notNull = true)
     private Boolean deleted = Boolean.FALSE;
 
 }

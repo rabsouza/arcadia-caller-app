@@ -7,24 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
-import com.activeandroid.ActiveAndroid;
-import com.activeandroid.Configuration;
 import com.crashlytics.android.Crashlytics;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.orm.SugarContext;
 
 import java.io.IOException;
 
 import br.com.battista.arcadiacaller.adapter.FontsAdapter;
 import br.com.battista.arcadiacaller.cache.CacheManagerService;
-import br.com.battista.arcadiacaller.model.Campaign;
-import br.com.battista.arcadiacaller.model.Card;
-import br.com.battista.arcadiacaller.model.Guild;
-import br.com.battista.arcadiacaller.model.Hero;
-import br.com.battista.arcadiacaller.model.HeroGuild;
-import br.com.battista.arcadiacaller.model.Scenery;
-import br.com.battista.arcadiacaller.model.SceneryCampaign;
-import br.com.battista.arcadiacaller.model.StatisticUser;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -32,9 +23,7 @@ import io.fabric.sdk.android.Fabric;
 import lombok.Getter;
 import lombok.Setter;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
 import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_VERSION;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
 import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
@@ -145,27 +134,10 @@ public class MainApplication extends MultiDexApplication {
 
     protected void initializeDB() {
         Log.i(TAG, "initializeDB: Initialize Database to App.");
-
-        Configuration.Builder configurationBuilder = new Configuration.Builder(this);
-        configurationBuilder.addModelClasses(Campaign.class,
-                Card.class,
-                Guild.class,
-                Hero.class,
-                HeroGuild.class,
-                Scenery.class,
-                SceneryCampaign.class,
-                User.class,
-                StatisticUser.class);
-
-        configurationBuilder.setCacheSize(DEFAULT_CACHE_SIZE);
-        configurationBuilder.setDatabaseName(DEFAULT_DATABASE_NAME);
-        configurationBuilder.setDatabaseVersion(DEFAULT_DATABASE_VERSION);
-
         if (checkOnlineServer()) {
             getApplicationContext().deleteDatabase(DEFAULT_DATABASE_NAME);
         }
-
-        ActiveAndroid.initialize(configurationBuilder.create(), true);
+        SugarContext.init(getApplicationContext());
     }
 
     private void initializeSystemFont() {
@@ -186,6 +158,7 @@ public class MainApplication extends MultiDexApplication {
     private void terminateCacheManager() {
         Log.i(TAG, "terminateCacheManager: Terminate event cache manager!");
         getApplicationContext().stopService(new Intent(getApplicationContext(), CacheManagerService.class));
+        SugarContext.terminate();
     }
 
 }

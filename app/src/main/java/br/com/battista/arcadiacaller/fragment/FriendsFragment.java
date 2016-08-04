@@ -1,8 +1,6 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -129,8 +127,16 @@ public class FriendsFragment extends BaseFragment {
                             .profile(FriendConstant.PROFILE_FRIEND)
                             .build();
 
-                    User userFriend = loginService.create(userBuild);
-                    if (userFriend != null && DEFAULT_VERSION.equals(userFriend.getVersion())) {
+                    User userFriend = null;
+                    if (userService.existsUsername(token, username)) {
+                        Log.i(TAG, "doInBackground: Add a friend existing!");
+                        userFriend = userService.findByUsername(token, username);
+                    } else {
+                        Log.i(TAG, "doInBackground: Create new friend!");
+                        userFriend = loginService.create(userBuild);
+                    }
+
+                    if (userFriend != null) {
                         Log.d(TAG, MessageFormat.format(
                                 "doInBackground: Add to friend {0} the user: {1}.", username, user.getUsername()));
                         user.addFriend(username);

@@ -1,8 +1,8 @@
 package br.com.battista.arcadiacaller.model;
 
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
 import com.google.common.collect.Lists;
+import com.orm.dsl.Column;
+import com.orm.dsl.Table;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +14,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryCampaignEntry;
 
 @Builder
@@ -23,12 +22,12 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"name"}, callSuper = false)
-@Table(name = SceneryCampaignEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
+@Table(name = SceneryCampaignEntry.TABLE_NAME)
 public class SceneryCampaign extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = SceneryCampaignEntry.COLUMN_NAME_NAME, notNull = true, index = true, unique = false)
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_NAME, notNull = true, unique = false)
     private String name;
 
     private Scenery scenery;

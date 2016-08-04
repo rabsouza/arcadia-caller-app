@@ -9,7 +9,7 @@ public class DatabaseContract {
 
     public static abstract class BaseEntry implements BaseColumns {
 
-        public static final String COLUMN_NAME_PK = "PK";
+        public static final String COLUMN_NAME_ID = "ID";
         public static final String COLUMN_NAME_CREATED_AT = "CREATED_AT";
         public static final String COLUMN_NAME_UPDATED_AT = "UPDATED_AT";
         public static final String COLUMN_NAME_VERSION = "VERSION";

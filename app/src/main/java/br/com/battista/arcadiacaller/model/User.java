@@ -1,8 +1,8 @@
 package br.com.battista.arcadiacaller.model;
 
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
 import com.google.common.collect.Sets;
+import com.orm.dsl.Column;
+import com.orm.dsl.Table;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -15,7 +15,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
 
 @Builder
@@ -24,21 +23,21 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"username"}, callSuper = false)
-@Table(name = UserEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
+@Table(name = UserEntry.TABLE_NAME)
 public class User extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = UserEntry.COLUMN_NAME_USERNAME, notNull = true, index = true, unique = true)
+    @Column(name = UserEntry.COLUMN_NAME_USERNAME, notNull = true, unique = true)
     private String username;
 
-    @Column(name = UserEntry.COLUMN_NAME_MAIL, notNull = true, index = true)
+    @Column(name = UserEntry.COLUMN_NAME_MAIL, notNull = true)
     private String mail;
 
     @Column(name = UserEntry.COLUMN_NAME_URL_AVATAR, notNull = true)
     private String urlAvatar;
 
-    @Column(name = UserEntry.COLUMN_NAME_PROFILE, notNull = true, index = true)
+    @Column(name = UserEntry.COLUMN_NAME_PROFILE, notNull = true)
     private ProfileAppConstant profile;
 
     @Column(name = UserEntry.COLUMN_NAME_FRIENDS)

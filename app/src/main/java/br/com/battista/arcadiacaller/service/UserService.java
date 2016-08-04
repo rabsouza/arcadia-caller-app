@@ -10,7 +10,6 @@ public interface UserService {
     @Nullable
     User findByUsername(@NonNull String token, @NonNull String username);
 
-    @Nullable
     Boolean existsUsername(@NonNull String token, @NonNull String username);
 
     @Nullable

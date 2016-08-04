@@ -82,7 +82,7 @@ dependencies {
     compile "com.squareup.retrofit2:converter-jackson:$rootProject.ext.retrofitVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.loggingInterceptorVersion"
 
-    compile "com.michaelpardo:activeandroid:$rootProject.ext.activeAndroidrxVersion"
+    compile 'com.github.satyan:sugar:1.4'
     compile "com.android.support:multidex:$rootProject.ext.multidexVersion"
 
     compile "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"

@@ -1,7 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
+import com.orm.dsl.Column;
+import com.orm.dsl.Table;
 
 import java.io.Serializable;
 
@@ -13,15 +13,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(callSuper = false)
-@Table(name = StatisticUserEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
+@Table(name = StatisticUserEntry.TABLE_NAME)
 public class StatisticUser extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

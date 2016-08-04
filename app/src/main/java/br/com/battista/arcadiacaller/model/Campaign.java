@@ -2,10 +2,10 @@ package br.com.battista.arcadiacaller.model;
 
 import android.support.annotation.NonNull;
 
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.orm.dsl.Column;
+import com.orm.dsl.Table;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,7 +23,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
 
 @Builder
@@ -32,7 +31,7 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 @Data
 @ToString(includeFieldNames = true, callSuper = true)
 @EqualsAndHashCode(of = {"key"}, callSuper = false)
-@Table(name = CampaignEntry.TABLE_NAME, id = BaseEntry.COLUMN_NAME_PK)
+@Table(name = CampaignEntry.TABLE_NAME)
 public class Campaign extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,7 +56,7 @@ public class Campaign extends BaseEntity implements Serializable {
 
     private Guild heroesGuild04;
 
-    @Column(name = CampaignEntry.COLUMN_NAME_KEY, notNull = true, index = true, unique = true)
+    @Column(name = CampaignEntry.COLUMN_NAME_KEY, notNull = true, unique = true)
     private String key;
 
     private SceneryCampaign scenery1;

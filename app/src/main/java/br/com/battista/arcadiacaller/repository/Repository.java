@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.battista.arcadiacaller.model.BaseEntity;
 
-public interface BaseRepository<Entity extends BaseEntity> {
+public interface Repository<Entity extends BaseEntity> {
 
     void saveAll(List<Entity> entities);
 
