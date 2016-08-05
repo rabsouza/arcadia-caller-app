@@ -57,7 +57,7 @@ ext {
     retrofitVersion = '2.1.0'
     okhttpVersion = '2.4.0'
     loggingInterceptorVersion = "3.3.1"
-    activeAndroidrxVersion = '3.1.0-SNAPSHOT'
+    sugarVersion = '1.5'
     libraryMaterialVersion = '1.1.0'
     multidexVersion = '1.0.1'
     rxjavaVersion = "1.1.8"

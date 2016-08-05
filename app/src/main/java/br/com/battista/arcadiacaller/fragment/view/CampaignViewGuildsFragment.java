@@ -6,6 +6,7 @@ import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
 import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
 import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
@@ -20,11 +21,14 @@ import com.google.common.base.Strings;
 import java.text.MessageFormat;
 
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.activity.MainActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.HeroGuild;
+import br.com.battista.arcadiacaller.model.SceneryCampaign;
+import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
@@ -53,17 +57,38 @@ public class CampaignViewGuildsFragment extends BaseFragment {
         Log.i(TAG, "onCreateView: Create detail new campaign!");
         final View viewFragment = inflater.inflate(R.layout.fragment_campaign_view_guilds, container, false);
 
-        FloatingActionButton fab = (FloatingActionButton) viewFragment.findViewById(R.id.fab_next_view_scenery);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                processNextAction(viewFragment);
-            }
-        });
-
         processDataFragment(viewFragment, getArguments());
 
+        FloatingActionButton fab = (FloatingActionButton) viewFragment.findViewById(R.id.fab_next_view_scenery);
+        final SceneryCampaign scenery1 = campaign.getScenery1();
+        if (scenery1 != null && scenery1.getCompleted()) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    processNextAction(viewFragment);
+                }
+            });
+        } else {
+            fab.setImageResource(R.drawable.ic_done);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    loadMainActivity();
+                }
+            });
+        }
+
+
         return viewFragment;
+    }
+
+    private void loadMainActivity() {
+        Bundle args = new Bundle();
+        args.putString(BundleConstant.ACTION, ActionEnum.START_FRAGMENT_CAMPAIGNS.name());
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
     }
 
     private void processDataFragment(View viewFragment, Bundle bundle) {
@@ -79,6 +104,9 @@ public class CampaignViewGuildsFragment extends BaseFragment {
             fillGuildRed(viewFragment);
             fillGuildOrange(viewFragment);
 
+        } else {
+            campaign = new Campaign();
+            AndroidUtils.snackbar(viewFragment, getContext().getText(R.string.msg_error_campaign_not_found).toString());
         }
     }
 
@@ -313,7 +341,7 @@ public class CampaignViewGuildsFragment extends BaseFragment {
     private void processNextAction(View view) {
         Log.d(TAG, "processNextAction: Process next action -> Fragment CampaignDetailGuildsFragment!");
 
-        AndroidUtils.snackbar(view, R.string.msg_blank_fragment);
+        replaceDetailFragment(CampaignViewSceneryFragment.newInstance(campaign, campaign.getScenery1(), 1), R.id.detail_container_view);
     }
 
 }

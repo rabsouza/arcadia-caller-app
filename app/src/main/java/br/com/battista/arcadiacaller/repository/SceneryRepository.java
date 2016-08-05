@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.repository;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -11,8 +13,6 @@ import java.util.List;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
 
 public class SceneryRepository implements Repository<Scenery> {
 
@@ -105,7 +105,7 @@ public class SceneryRepository implements Repository<Scenery> {
         Log.i(TAG, MessageFormat.format("Find all sceneries by location: {0}.", location));
         return Select
                 .from(Scenery.class)
-                .where(MessageFormat.format("{0} = {1}", SceneryEntry.COLUMN_NAME_LOCATION, location))
+                .where(MessageFormat.format("{0} = ?", SceneryEntry.COLUMN_NAME_LOCATION), new String[]{location.name()})
                 .orderBy(MessageFormat.format("{0} ASC, {1} ASC", SceneryEntry.COLUMN_NAME_LOCATION, SceneryEntry.COLUMN_NAME_NAME))
                 .list();
     }
