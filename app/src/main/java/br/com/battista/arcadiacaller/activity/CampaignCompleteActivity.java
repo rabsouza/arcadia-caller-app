@@ -1,10 +1,8 @@
 package br.com.battista.arcadiacaller.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -246,24 +244,6 @@ public class CampaignCompleteActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        dialogCloseActivity();
-    }
-
-    private void dialogCloseActivity() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.alert_confirmation_dialog_title_exit)
-                .setMessage(R.string.alert_confirmation_dialog_text_exit)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setPositiveButton(R.string.btn_confirmation_dialog_exit, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        superOnBackPressed();
-                    }
-
-                })
-                .setNegativeButton(R.string.btn_confirmation_dialog_cancel, null).show();
-    }
-
-    private void superOnBackPressed() {
         super.onBackPressed();
     }
 

@@ -46,6 +46,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/element_vertical_margin"
+                    android:text="@string/hint_add_friends_obs_1"/>
+
+                <TextView
+                    style="@style/HintTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/element_vertical_margin"
                     android:text="@string/hint_add_friends_obs_2"/>
 
                 <TextView

@@ -7,7 +7,6 @@ import com.orm.query.Select;
 import java.text.MessageFormat;
 import java.util.List;
 
-import br.com.battista.arcadiacaller.model.BaseEntity;
 import br.com.battista.arcadiacaller.model.StatisticUser;
 
 import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.StatisticUserEntry;
@@ -26,9 +25,16 @@ public class StatisticUserRepository implements Repository<StatisticUser> {
         }
     }
 
-    private void saveEntity(BaseEntity entity) {
+    private void saveEntity(StatisticUser entity) {
         entity.synchronize();
-        entity.save();
+
+        StatisticUser statisticUser = findByUsername(entity.getUsername());
+        if (statisticUser != null && statisticUser.getId() != null) {
+            entity.setId(statisticUser.getId());
+            entity.update();
+        } else {
+            entity.save();
+        }
     }
 
     @Override

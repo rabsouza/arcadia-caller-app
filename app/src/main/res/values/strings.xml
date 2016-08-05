@@ -105,9 +105,9 @@
     <string name="hint_complete_winners_won_titles">Títulos recebidos:</string>
     <string name="hint_complete_winner_text">A Guilda {0} vençeu o sexto e último cenário da campanha (o Confronto Final), Arcadia finalmente estará livre! Obrigado! Você tem o poder e glória por controlar Arcadia! Mas as suas ações ao longo da campanha vão determinar o quanto de controle você realmente tem sobre Arcadia, agora que a cidade foi reconquistada.</string>
     <string name="hint_add_friends_obs">Cadastre um novo amigo para jogar na sua campanha.</string>
-    <string name="hint_add_friends_obs_1">Obs.: Se o jogador tem interesse em criar sua propria campanha ou acompanhar o seu andamento no aplicativo ele deve se cadastrar pela tela inicial da aplicação.</string>
-    <string name="hint_add_friends_obs_2">Obs.: Um jogador cadastrado como amigo, só poderá jogar campanhas de outro jogador.</string>
-    <string name="hint_add_friends_obs_3">Obs.: Ele não terão acesso a aplicação.</string>
+    <string name="hint_add_friends_obs_1">Se o jogador tem interesse em utilizar o aplicativo ele deve se cadastrar pela tela inicial.</string>
+    <string name="hint_add_friends_obs_2">Um jogador cadastrado como amigo, só poderá jogar campanhas de outro jogador.</string>
+    <string name="hint_add_friends_obs_3">Obs.: Ele não terá acesso a aplicação.</string>
     <string name="hint_view_card_guild_name">Guilda {0}</string>
     <string name="hint_view_card_username">Usuário: {0}</string>
     <string name="hint_view_user_winner">Usuário vencedor: {0}</string>

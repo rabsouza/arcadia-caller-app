@@ -77,8 +77,8 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
         keysBlue.add(R.id.detail_card_view_scenery_won_reward_blue);
         keysBlue.add(R.id.detail_card_view_scenery_won_title_blue);
         keysBlue.add(R.id.detail_card_view_scenery_saved_coin_blue);
-        keysBlue.add(R.id.detail_card_view_scenery_guilds_img_orange);
-        keysBlue.add(R.id.detail_card_view_scenery_guilds_login_orange);
+        keysBlue.add(R.id.detail_card_view_scenery_guilds_img_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_guilds_login_blue);
         guildKeys.put(nameGuildBlue, keysBlue);
 
         NameGuildEnum nameGuildGreen = NameGuildEnum.GREEN;
@@ -89,8 +89,8 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
         keysGreen.add(R.id.detail_card_view_scenery_won_reward_green);
         keysGreen.add(R.id.detail_card_view_scenery_won_title_green);
         keysGreen.add(R.id.detail_card_view_scenery_saved_coin_green);
-        keysGreen.add(R.id.detail_card_view_scenery_guilds_img_orange);
-        keysGreen.add(R.id.detail_card_view_scenery_guilds_login_orange);
+        keysGreen.add(R.id.detail_card_view_scenery_guilds_img_green);
+        keysGreen.add(R.id.detail_card_view_scenery_guilds_login_green);
         guildKeys.put(nameGuildGreen, keysGreen);
 
         NameGuildEnum nameGuildRed = NameGuildEnum.RED;
@@ -101,8 +101,8 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
         keysRed.add(R.id.detail_card_view_scenery_won_reward_red);
         keysRed.add(R.id.detail_card_view_scenery_won_title_red);
         keysRed.add(R.id.detail_card_view_scenery_saved_coin_red);
-        keysRed.add(R.id.detail_card_view_scenery_guilds_img_orange);
-        keysRed.add(R.id.detail_card_view_scenery_guilds_login_orange);
+        keysRed.add(R.id.detail_card_view_scenery_guilds_img_red);
+        keysRed.add(R.id.detail_card_view_scenery_guilds_login_red);
         guildKeys.put(nameGuildRed, keysRed);
 
         NameGuildEnum nameGuildOrange = NameGuildEnum.ORANGE;
