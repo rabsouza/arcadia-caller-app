@@ -204,6 +204,27 @@ public class Campaign extends BaseEntity implements Serializable {
     }
 
     @NonNull
+    public SceneryCampaign getSceneryPosition(@NonNull Integer position) {
+        SceneryCampaign scenery;
+        if (scenery6 != null && position == 6) {
+            scenery = scenery6;
+        } else if (scenery5 != null && position == 5) {
+            scenery = scenery5;
+        } else if (scenery4 != null && position == 4) {
+            scenery = scenery4;
+        } else if (scenery3 != null && position == 3) {
+            scenery = scenery3;
+        } else if (scenery2 != null && position == 2) {
+            scenery = scenery2;
+        } else if (scenery1 != null && position == 1) {
+            scenery = scenery1;
+        } else {
+            scenery = new SceneryCampaign();
+        }
+        return scenery;
+    }
+
+    @NonNull
     public SceneryCampaign getNextScenery() {
         SceneryCampaign scenery;
         if (scenery6 != null && !scenery6.getCompleted()) {

@@ -29,10 +29,10 @@ import java.util.List;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.activity.CampaingCompleteActivity;
-import br.com.battista.arcadiacaller.activity.CampaingDetailActivity;
-import br.com.battista.arcadiacaller.activity.CampaingDetailCompleteActivity;
-import br.com.battista.arcadiacaller.activity.CampaingViewActivity;
+import br.com.battista.arcadiacaller.activity.CampaignViewActivity;
+import br.com.battista.arcadiacaller.activity.CampaignCompleteActivity;
+import br.com.battista.arcadiacaller.activity.CampaignDetailActivity;
+import br.com.battista.arcadiacaller.activity.CampaignDetailCompleteActivity;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
 import br.com.battista.arcadiacaller.adapter.item.SceneryItemAdapter;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
@@ -186,7 +186,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private void createEditCampaign(Campaign campaign, RecyclerView.Adapter adapterCurrent) {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
-        Intent intent = new Intent(getContext(), CampaingDetailActivity.class);
+        Intent intent = new Intent(getContext(), CampaignDetailActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);
@@ -252,7 +252,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private void loadCampaignDetailCompleteActivity(Campaign campaign) {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
-        Intent intent = new Intent(getContext(), CampaingDetailCompleteActivity.class);
+        Intent intent = new Intent(getContext(), CampaignDetailCompleteActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);
@@ -261,7 +261,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private void loadCampaignViewActivity(Campaign campaign) {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
-        Intent intent = new Intent(getContext(), CampaingViewActivity.class);
+        Intent intent = new Intent(getContext(), CampaignViewActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);
@@ -270,7 +270,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private void loadCampaignCompleteActivity(Campaign campaign) {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
-        Intent intent = new Intent(getContext(), CampaingCompleteActivity.class);
+        Intent intent = new Intent(getContext(), CampaignCompleteActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);

@@ -1,12 +1,8 @@
 package br.com.battista.arcadiacaller.fragment.view;
 
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,10 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.text.MessageFormat;
+import java.util.List;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
@@ -27,12 +25,18 @@ import br.com.battista.arcadiacaller.activity.MainActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
+import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
+
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
 
 
 public class CampaignViewSceneryFragment extends BaseFragment {
@@ -42,6 +46,7 @@ public class CampaignViewSceneryFragment extends BaseFragment {
     private Campaign campaign;
 
     private TextView txtAliasCampaign;
+    private TextView txtScenery;
     private TextView txtLocationScenery;
     private TextView txtNameScenery;
     private TextView txtWonRewardScenery;
@@ -51,57 +56,60 @@ public class CampaignViewSceneryFragment extends BaseFragment {
     private SceneryCampaign sceneryCurrent;
     private int position;
 
-    private Map<NameGuildEnum, Integer[]> guildKeys = Maps.newHashMap();
+    private Map<NameGuildEnum, List<Integer>> guildKeys = Maps.newHashMap();
 
     public CampaignViewSceneryFragment() {
 
         NameGuildEnum nameGuildBlue = NameGuildEnum.BLUE;
-        Integer keysBlue[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_blue,
-                R.id.detail_card_view_scenery_least_deaths_blue,
-                R.id.detail_card_view_scenery_most_coins_blue,
-                R.id.detail_card_view_scenery_won_reward_blue,
-                R.id.detail_card_view_scenery_won_title_blue,
-                R.id.detail_card_view_scenery_saved_coin_blue};
+        List<Integer> keysBlue = Lists.newLinkedList();
+        keysBlue.add(R.id.detail_card_view_complete_scenery_result_guild_img_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_least_deaths_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_most_coins_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_won_reward_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_won_title_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_saved_coin_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_guilds_blue);
         guildKeys.put(nameGuildBlue, keysBlue);
 
         NameGuildEnum nameGuildGreen = NameGuildEnum.GREEN;
-        Integer keysGreen[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_green,
-                R.id.detail_card_view_scenery_least_deaths_green,
-                R.id.detail_card_view_scenery_most_coins_green,
-                R.id.detail_card_view_scenery_won_reward_green,
-                R.id.detail_card_view_scenery_won_title_green,
-                R.id.detail_card_view_scenery_saved_coin_green};
+        List<Integer> keysGreen = Lists.newLinkedList();
+        keysGreen.add(R.id.detail_card_view_complete_scenery_result_guild_img_green);
+        keysGreen.add(R.id.detail_card_view_scenery_least_deaths_green);
+        keysGreen.add(R.id.detail_card_view_scenery_most_coins_green);
+        keysGreen.add(R.id.detail_card_view_scenery_won_reward_green);
+        keysGreen.add(R.id.detail_card_view_scenery_won_title_green);
+        keysGreen.add(R.id.detail_card_view_scenery_saved_coin_green);
+        keysBlue.add(R.id.detail_card_view_scenery_guilds_green);
         guildKeys.put(nameGuildGreen, keysGreen);
 
         NameGuildEnum nameGuildRed = NameGuildEnum.RED;
-        Integer keysRed[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_red,
-                R.id.detail_card_view_scenery_least_deaths_red,
-                R.id.detail_card_view_scenery_most_coins_red,
-                R.id.detail_card_view_scenery_won_reward_red,
-                R.id.detail_card_view_scenery_won_title_red,
-                R.id.detail_card_view_scenery_saved_coin_red};
+        List<Integer> keysRed = Lists.newLinkedList();
+        keysRed.add(R.id.detail_card_view_complete_scenery_result_guild_img_red);
+        keysRed.add(R.id.detail_card_view_scenery_least_deaths_red);
+        keysRed.add(R.id.detail_card_view_scenery_most_coins_red);
+        keysRed.add(R.id.detail_card_view_scenery_won_reward_red);
+        keysRed.add(R.id.detail_card_view_scenery_won_title_red);
+        keysRed.add(R.id.detail_card_view_scenery_saved_coin_red);
+        keysBlue.add(R.id.detail_card_view_scenery_guilds_red);
         guildKeys.put(nameGuildRed, keysRed);
 
         NameGuildEnum nameGuildOrange = NameGuildEnum.ORANGE;
-        Integer keysOrange[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_orange,
-                R.id.detail_card_view_scenery_least_deaths_orange,
-                R.id.detail_card_view_scenery_most_coins_orange,
-                R.id.detail_card_view_scenery_won_reward_orange,
-                R.id.detail_card_view_scenery_won_title_orange,
-                R.id.detail_card_view_scenery_saved_coin_orange};
+        List<Integer> keysOrange = Lists.newLinkedList();
+        keysOrange.add(R.id.detail_card_view_complete_scenery_result_guild_img_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_least_deaths_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_most_coins_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_won_reward_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_won_title_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_saved_coin_orange);
+        keysBlue.add(R.id.detail_card_view_scenery_guilds_orange);
         guildKeys.put(nameGuildOrange, keysOrange);
 
     }
 
-    public static CampaignViewSceneryFragment newInstance(Campaign campaign, SceneryCampaign sceneryCurrent, Integer position) {
+    public static CampaignViewSceneryFragment newInstance(Campaign campaign, Integer position) {
         CampaignViewSceneryFragment fragment = new CampaignViewSceneryFragment();
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
-        args.putSerializable(BundleConstant.SCENERY, sceneryCurrent);
         args.putInt(BundleConstant.POSITION, position);
         fragment.setArguments(args);
         return fragment;
@@ -116,11 +124,13 @@ public class CampaignViewSceneryFragment extends BaseFragment {
         processDataFragment(viewFragment, getArguments());
 
         FloatingActionButton fab = (FloatingActionButton) viewFragment.findViewById(R.id.fab_next_view_scenery_campaign);
-        if (sceneryCurrent != null && sceneryCurrent.getCompleted()) {
+
+        SceneryCampaign nextScenery = campaign.getSceneryPosition(position + 1);
+        if (nextScenery.getCompleted()) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    processNextAction(viewFragment);
+                    processNextAction();
                 }
             });
         } else {
@@ -145,9 +155,11 @@ public class CampaignViewSceneryFragment extends BaseFragment {
         getContext().startActivity(intent);
     }
 
-    private void processNextAction(final View view) {
-        Log.d(TAG, "processNextAction: Process next action -> Activity MainActivity -> Fragment CampaignsFragment!");
-
+    private void processNextAction() {
+        Log.d(TAG, MessageFormat.format(
+                "processNextAction: Process next action -> Activity CampaignViewActivity -> Fragment CampaignViewSceneryFragment -> Position: {0}!",
+                position));
+        replaceDetailFragment(CampaignViewSceneryFragment.newInstance(campaign, ++position), R.id.detail_container_view);
     }
 
     private void processDataFragment(final View viewFragment, Bundle bundle) {
@@ -158,34 +170,151 @@ public class CampaignViewSceneryFragment extends BaseFragment {
             txtAliasCampaign = (TextView) viewFragment.findViewById(R.id.detail_card_view_scenery_alias);
             txtAliasCampaign.setText(MessageFormat.format("{0} - {1}", campaign.getKey(), campaign.getAlias()));
 
-            sceneryCurrent = (SceneryCampaign) bundle.getSerializable(BundleConstant.SCENERY);
-            if (sceneryCurrent != null && sceneryCurrent.getCompleted()) {
-                Scenery scenery = sceneryCurrent.getScenery();
-                loadDataScenery(viewFragment, scenery);
-                loadGuildsImg(viewFragment);
-                loadGuildWinner(viewFragment, sceneryCurrent);
-                showGuildsActive(viewFragment, campaign);
-                fillGuildsActive(viewFragment, campaign, sceneryCurrent);
-            } else {
-                AndroidUtils.snackbar(viewFragment, getContext().getText(R.string.msg_error_campaign_not_found).toString());
-            }
 
             if (bundle.containsKey(BundleConstant.POSITION)) {
                 position = bundle.getInt(BundleConstant.POSITION);
             } else {
                 position = 1;
             }
+            sceneryCurrent = campaign.getSceneryPosition(position);
+
+            if (sceneryCurrent.getCompleted()) {
+                Scenery scenery = sceneryCurrent.getScenery();
+                loadDataScenery(viewFragment, scenery);
+                loadGuildsImg(viewFragment);
+                loadGuildWinner(viewFragment);
+                fillGuildsActive(viewFragment);
+                showGuildsActive(viewFragment);
+            } else {
+                AndroidUtils.snackbar(viewFragment, getContext().getText(R.string.msg_error_campaign_not_found).toString());
+            }
+
+            txtScenery = (TextView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_title);
+            String textSceneryCurrent = getString(R.string.hint_view_scenery_current);
+            txtScenery.setText(MessageFormat.format(textSceneryCurrent, position));
+
         } else {
             campaign = new Campaign();
             AndroidUtils.snackbar(viewFragment, getContext().getText(R.string.msg_error_campaign_not_found).toString());
         }
     }
 
-    private void fillGuildsActive(View viewFragment, Campaign campaign, SceneryCampaign sceneryCurrent) {
+    private void fillGuildsActive(@NonNull View viewFragment) {
+
+        List<String> leastDeaths = sceneryCurrent.getLeastDeaths();
+        if (leastDeaths == null) {
+            leastDeaths = Lists.newLinkedList();
+        }
+        List<String> mostCoins = sceneryCurrent.getMostCoins();
+        if (mostCoins == null) {
+            mostCoins = Lists.newLinkedList();
+        }
+        List<String> wonReward = sceneryCurrent.getWonReward();
+        if (wonReward == null) {
+            wonReward = Lists.newLinkedList();
+        }
+        List<String> wonTitle = sceneryCurrent.getWonTitle();
+        if (wonTitle == null) {
+            wonTitle = Lists.newLinkedList();
+        }
+
         Log.i(TAG, "showGuildsActive: Fill the view elements of guild active!");
+
+        final String guild01 = campaign.getGuild01();
+        final Guild heroesGuild01 = campaign.getHeroesGuild01();
+        if (!Strings.isNullOrEmpty(guild01) && heroesGuild01 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 01 user: {0}!", guild01));
+            List<Integer> keys = guildKeys.get(NameGuildEnum.BLUE);
+
+            int visibility = leastDeaths.contains(guild01) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(1)).setVisibility(visibility);
+
+            visibility = mostCoins.contains(guild01) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(2)).setVisibility(visibility);
+
+            visibility = wonReward.contains(guild01) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(3)).setVisibility(visibility);
+
+            visibility = wonTitle.contains(guild01) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(4)).setVisibility(visibility);
+
+            visibility = heroesGuild01.getSavedMoney() ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(5)).setVisibility(visibility);
+        }
+
+        final String guild02 = campaign.getGuild02();
+        final Guild heroesGuild02 = campaign.getHeroesGuild02();
+        if (!Strings.isNullOrEmpty(guild02) && heroesGuild02 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 02 user: {0}!", guild02));
+            List<Integer> keys = guildKeys.get(NameGuildEnum.GREEN);
+
+            int visibility = leastDeaths.contains(guild02) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(1)).setVisibility(visibility);
+
+            visibility = mostCoins.contains(guild02) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(2)).setVisibility(visibility);
+
+            visibility = wonReward.contains(guild02) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(3)).setVisibility(visibility);
+
+            visibility = wonTitle.contains(guild02) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(4)).setVisibility(visibility);
+
+            visibility = heroesGuild02.getSavedMoney() ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(5)).setVisibility(visibility);
+        }
+
+        final String guild03 = campaign.getGuild03();
+        final Guild heroesGuild03 = campaign.getHeroesGuild03();
+        if (!Strings.isNullOrEmpty(guild03) && heroesGuild03 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 03 user: {0}!", guild03));
+            List<Integer> keys = guildKeys.get(NameGuildEnum.RED);
+
+            int visibility = leastDeaths.contains(guild03) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(1)).setVisibility(visibility);
+
+            visibility = mostCoins.contains(guild03) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(2)).setVisibility(visibility);
+
+            visibility = wonReward.contains(guild03) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(3)).setVisibility(visibility);
+
+            visibility = wonTitle.contains(guild03) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(4)).setVisibility(visibility);
+
+            visibility = heroesGuild03.getSavedMoney() ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(5)).setVisibility(visibility);
+        }
+
+        final String guild04 = campaign.getGuild04();
+        final Guild heroesGuild04 = campaign.getHeroesGuild04();
+        if (!Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 04 user: {0}!", guild04));
+            List<Integer> keys = guildKeys.get(NameGuildEnum.ORANGE);
+
+            int visibility = leastDeaths.contains(guild04) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(1)).setVisibility(visibility);
+            Log.i(TAG, MessageFormat.format("ID: {0}, GUILD: {1}, TEST: {2}, VISIBILITY:{3}!", keys.get(1), guild04, leastDeaths.contains(guild04), visibility));
+
+            visibility = mostCoins.contains(guild04) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(2)).setVisibility(visibility);
+            Log.i(TAG, MessageFormat.format("ID: {0}, GUILD: {1}, TEST: {2}, VISIBILITY:{3}!", keys.get(2), guild04, mostCoins.contains(guild04), visibility));
+
+            visibility = wonReward.contains(guild04) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(3)).setVisibility(visibility);
+            Log.i(TAG, MessageFormat.format("ID: {0}, GUILD: {1}, TEST: {2}, VISIBILITY:{3}!", keys.get(3), guild04, wonReward.contains(guild04), visibility));
+
+            visibility = wonTitle.contains(guild04) ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(4)).setVisibility(visibility);
+            Log.i(TAG, MessageFormat.format("ID: {0}, GUILD: {1}, TEST: {2}, VISIBILITY:{3}!", keys.get(4), guild04, wonTitle.contains(guild04), visibility));
+
+            visibility = heroesGuild04.getSavedMoney() ? View.VISIBLE : View.INVISIBLE;
+            viewFragment.findViewById(keys.get(5)).setVisibility(visibility);
+            Log.i(TAG, MessageFormat.format("ID: {0}, GUILD: {1}, TEST: {2}, VISIBILITY:{3}!", keys.get(5), guild04, heroesGuild04.getSavedMoney(), visibility));
+        }
     }
 
-    private void showGuildsActive(View viewFragment, Campaign campaign) {
+    private void showGuildsActive(@NonNull View viewFragment) {
         Log.i(TAG, "showGuildsActive: Show the view elements of guild active!");
         if (Strings.isNullOrEmpty(campaign.getGuild01()) || campaign.getHeroesGuild01() == null) {
             for (Integer viewGuildResId : guildKeys.get(NameGuildEnum.BLUE)) {
@@ -243,7 +372,7 @@ public class CampaignViewSceneryFragment extends BaseFragment {
         }
     }
 
-    private void loadGuildWinner(View viewFragment, SceneryCampaign sceneryCurrent) {
+    private void loadGuildWinner(View viewFragment) {
         Log.i(TAG, "loadGuildWinner: Load all guilds active for winners!");
 
         TextView txtWinner = (TextView) viewFragment.findViewById(R.id.detail_card_view_scenery_winner);
@@ -260,11 +389,24 @@ public class CampaignViewSceneryFragment extends BaseFragment {
                         BLUE.getUrlImg(),
                         imageView);
 
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_scenery_guilds_img_blue);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        BLUE.getUrlImg(),
+                        imageView);
+
         imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_green);
         ImageLoadUtils
                 .loadImage(getContext(),
                         GREEN.getUrlImg(),
                         imageView);
+
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_scenery_guilds_img_green);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        GREEN.getUrlImg(),
+                        imageView);
+
 
         imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_red);
         ImageLoadUtils
@@ -272,7 +414,19 @@ public class CampaignViewSceneryFragment extends BaseFragment {
                         RED.getUrlImg(),
                         imageView);
 
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_scenery_guilds_img_red);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        RED.getUrlImg(),
+                        imageView);
+
         imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_complete_scenery_result_guild_img_orange);
+        ImageLoadUtils
+                .loadImage(getContext(),
+                        ORANGE.getUrlImg(),
+                        imageView);
+
+        imageView = (ImageView) viewFragment.findViewById(R.id.detail_card_view_scenery_guilds_img_orange);
         ImageLoadUtils
                 .loadImage(getContext(),
                         ORANGE.getUrlImg(),

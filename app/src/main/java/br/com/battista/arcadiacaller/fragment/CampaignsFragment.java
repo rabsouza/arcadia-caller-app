@@ -21,7 +21,7 @@ import java.util.List;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.activity.CampaingDetailActivity;
+import br.com.battista.arcadiacaller.activity.CampaignDetailActivity;
 import br.com.battista.arcadiacaller.adapter.CampaignAdapter;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.model.Campaign;
@@ -96,7 +96,7 @@ public class CampaignsFragment extends BaseFragment {
     private void loadCampaignDetailActivity() {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, new Campaign());
-        Intent intent = new Intent(getContext(), CampaingDetailActivity.class);
+        Intent intent = new Intent(getContext(), CampaignDetailActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);

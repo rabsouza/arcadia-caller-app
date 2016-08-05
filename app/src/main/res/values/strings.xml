@@ -111,6 +111,7 @@
     <string name="hint_view_card_guild_name">Guilda {0}</string>
     <string name="hint_view_card_username">Usuário: {0}</string>
     <string name="hint_view_user_winner">Usuário vencedor: {0}</string>
+    <string name="hint_view_scenery_current">{0}° Cenário</string>
 
 
     <!-- ################### MSG #################### -->

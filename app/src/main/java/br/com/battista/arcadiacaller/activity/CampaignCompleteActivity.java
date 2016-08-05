@@ -19,9 +19,9 @@ import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 
-public class CampaingCompleteActivity extends BaseActivity {
+public class CampaignCompleteActivity extends BaseActivity {
 
-    private static final String TAG = CampaingDetailActivity.class.getSimpleName();
+    private static final String TAG = CampaignDetailActivity.class.getSimpleName();
 
     private Campaign campaign;
     private TextView txtAliasCampaign;
@@ -52,7 +52,7 @@ public class CampaingCompleteActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_campaing_complete);
+        setContentView(R.layout.activity_campaign_complete);
 
         setupToolbarDetail();
         changeTitleCollapsingToolbar(R.string.title_campaign_completed);

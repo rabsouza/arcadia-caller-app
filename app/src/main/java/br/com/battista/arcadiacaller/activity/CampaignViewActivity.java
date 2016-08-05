@@ -8,16 +8,16 @@ import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.view.CampaignViewGuildsFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 
-public class CampaingViewActivity extends BaseActivity {
+public class CampaignViewActivity extends BaseActivity {
 
-    private static final String TAG = CampaingViewActivity.class.getSimpleName();
+    private static final String TAG = CampaignViewActivity.class.getSimpleName();
 
     private Campaign campaign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_campaing_view);
+        setContentView(R.layout.activity_campaign_view);
 
         setupToolbarDetail();
         changeTitleCollapsingToolbar(R.string.title_campaign_view);

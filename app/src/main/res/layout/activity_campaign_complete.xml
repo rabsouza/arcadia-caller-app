@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
-    tools:context="br.com.battista.arcadiacaller.activity.CampaingCompleteActivity">
+    tools:context="br.com.battista.arcadiacaller.activity.CampaignCompleteActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/detail_appbar"

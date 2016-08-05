@@ -13,16 +13,16 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-public class CampaingDetailActivity extends BaseActivity {
+public class CampaignDetailActivity extends BaseActivity {
 
-    private static final String TAG = CampaingDetailActivity.class.getSimpleName();
+    private static final String TAG = CampaignDetailActivity.class.getSimpleName();
 
     private Campaign campaign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_campaing_detail);
+        setContentView(R.layout.activity_campaign_detail);
 
         setupToolbarDetail();
         changeTitleCollapsingToolbar(R.string.title_campaign_detail);

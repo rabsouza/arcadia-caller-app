@@ -47,24 +47,24 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
         <activity
-            android:name=".activity.CampaingDetailActivity"
+            android:name=".activity.CampaignDetailActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
         <activity
-            android:name=".activity.CampaingDetailCompleteActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
-
-        <activity
-            android:name=".activity.CampaingCompleteActivity"
+            android:name=".activity.CampaignDetailCompleteActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
 
         <activity
-            android:name=".activity.CampaingViewActivity"
+            android:name=".activity.CampaignCompleteActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
+
+        <activity
+            android:name=".activity.CampaignViewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>

@@ -1,11 +1,5 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-import static br.com.battista.arcadiacaller.util.AndroidUtils.changeErrorSpinner;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
@@ -31,7 +26,7 @@ import java.util.Map;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.activity.CampaingCompleteActivity;
+import br.com.battista.arcadiacaller.activity.CampaignCompleteActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
@@ -46,6 +41,12 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static br.com.battista.arcadiacaller.util.AndroidUtils.changeErrorSpinner;
+
 public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
 
     private static final String TAG = CampaignDetailCompleteSceneryFragment.class.getSimpleName();
@@ -59,48 +60,48 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
     private TextView txtWonTitleScenery;
     private MaterialBetterSpinner spnGuildWinner;
 
-    private Map<NameGuildEnum, Integer[]> guildKeys = Maps.newHashMap();
+    private Map<NameGuildEnum, List<Integer>> guildKeys = Maps.newHashMap();
 
     public CampaignDetailCompleteSceneryFragment() {
 
         NameGuildEnum nameGuildBlue = NameGuildEnum.BLUE;
-        Integer keysBlue[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_blue,
-                R.id.detail_card_view_scenery_least_deaths_blue,
-                R.id.detail_card_view_scenery_most_coins_blue,
-                R.id.detail_card_view_scenery_won_reward_blue,
-                R.id.detail_card_view_scenery_won_title_blue,
-                R.id.detail_card_view_scenery_saved_coin_blue};
+        List<Integer> keysBlue = Lists.newLinkedList();
+        keysBlue.add(R.id.detail_card_view_complete_scenery_result_guild_img_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_least_deaths_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_most_coins_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_won_reward_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_won_title_blue);
+        keysBlue.add(R.id.detail_card_view_scenery_saved_coin_blue);
         guildKeys.put(nameGuildBlue, keysBlue);
 
-        NameGuildEnum nameGuildGrenn = NameGuildEnum.GREEN;
-        Integer keysGrenn[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_green,
-                R.id.detail_card_view_scenery_least_deaths_green,
-                R.id.detail_card_view_scenery_most_coins_green,
-                R.id.detail_card_view_scenery_won_reward_green,
-                R.id.detail_card_view_scenery_won_title_green,
-                R.id.detail_card_view_scenery_saved_coin_green};
-        guildKeys.put(nameGuildGrenn, keysGrenn);
+        NameGuildEnum nameGuildGreen = NameGuildEnum.GREEN;
+        List<Integer> keysGreen = Lists.newLinkedList();
+        keysGreen.add(R.id.detail_card_view_complete_scenery_result_guild_img_green);
+        keysGreen.add(R.id.detail_card_view_scenery_least_deaths_green);
+        keysGreen.add(R.id.detail_card_view_scenery_most_coins_green);
+        keysGreen.add(R.id.detail_card_view_scenery_won_reward_green);
+        keysGreen.add(R.id.detail_card_view_scenery_won_title_green);
+        keysGreen.add(R.id.detail_card_view_scenery_saved_coin_green);
+        guildKeys.put(nameGuildGreen, keysGreen);
 
         NameGuildEnum nameGuildRed = NameGuildEnum.RED;
-        Integer keysRed[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_red,
-                R.id.detail_card_view_scenery_least_deaths_red,
-                R.id.detail_card_view_scenery_most_coins_red,
-                R.id.detail_card_view_scenery_won_reward_red,
-                R.id.detail_card_view_scenery_won_title_red,
-                R.id.detail_card_view_scenery_saved_coin_red};
+        List<Integer> keysRed = Lists.newLinkedList();
+        keysRed.add(R.id.detail_card_view_complete_scenery_result_guild_img_red);
+        keysRed.add(R.id.detail_card_view_scenery_least_deaths_red);
+        keysRed.add(R.id.detail_card_view_scenery_most_coins_red);
+        keysRed.add(R.id.detail_card_view_scenery_won_reward_red);
+        keysRed.add(R.id.detail_card_view_scenery_won_title_red);
+        keysRed.add(R.id.detail_card_view_scenery_saved_coin_red);
         guildKeys.put(nameGuildRed, keysRed);
 
         NameGuildEnum nameGuildOrange = NameGuildEnum.ORANGE;
-        Integer keysOrange[] = {
-                R.id.detail_card_view_complete_scenery_result_guild_img_orange,
-                R.id.detail_card_view_scenery_least_deaths_orange,
-                R.id.detail_card_view_scenery_most_coins_orange,
-                R.id.detail_card_view_scenery_won_reward_orange,
-                R.id.detail_card_view_scenery_won_title_orange,
-                R.id.detail_card_view_scenery_saved_coin_orange};
+        List<Integer> keysOrange = Lists.newLinkedList();
+        keysOrange.add(R.id.detail_card_view_complete_scenery_result_guild_img_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_least_deaths_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_most_coins_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_won_reward_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_won_title_orange);
+        keysOrange.add(R.id.detail_card_view_scenery_saved_coin_orange);
         guildKeys.put(nameGuildOrange, keysOrange);
 
     }
@@ -151,22 +152,22 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
             sceneryCurrent.setWinner(guildWinner);
             Guild guild01 = campaign.getHeroesGuild01();
             String campaignGuild01 = campaign.getGuild01();
-            Integer[] keyGuildBlue = guildKeys.get(NameGuildEnum.BLUE);
+            List<Integer> keyGuildBlue = guildKeys.get(NameGuildEnum.BLUE);
             fillResultGuild(view, sceneryCurrent, guildWinner, guild01, campaignGuild01, keyGuildBlue);
 
             Guild guild02 = campaign.getHeroesGuild02();
             String campaignGuild02 = campaign.getGuild02();
-            Integer[] keyGuildGreen = guildKeys.get(NameGuildEnum.GREEN);
+            List<Integer> keyGuildGreen = guildKeys.get(NameGuildEnum.GREEN);
             fillResultGuild(view, sceneryCurrent, guildWinner, guild02, campaignGuild02, keyGuildGreen);
 
             Guild guild03 = campaign.getHeroesGuild03();
             String campaignGuild03 = campaign.getGuild03();
-            Integer[] keyGuildRed = guildKeys.get(NameGuildEnum.RED);
+            List<Integer> keyGuildRed = guildKeys.get(NameGuildEnum.RED);
             fillResultGuild(view, sceneryCurrent, guildWinner, guild03, campaignGuild03, keyGuildRed);
 
             Guild guild04 = campaign.getHeroesGuild04();
             String campaignGuild04 = campaign.getGuild04();
-            Integer[] keyGuildOrange = guildKeys.get(NameGuildEnum.ORANGE);
+            List<Integer> keyGuildOrange = guildKeys.get(NameGuildEnum.ORANGE);
             fillResultGuild(view, sceneryCurrent, guildWinner, guild04, campaignGuild04, keyGuildOrange);
 
             sceneryCurrent.setCompleted(Boolean.TRUE);
@@ -245,13 +246,13 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
     private void loadCampaignCompleteActivity(Campaign campaign) {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
-        Intent intent = new Intent(getContext(), CampaingCompleteActivity.class);
+        Intent intent = new Intent(getContext(), CampaignCompleteActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);
     }
 
-    private void fillResultGuild(View view, SceneryCampaign sceneryCurrent, String guildWinner, Guild guild, String campaignGuild, Integer[] keyGuild) {
+    private void fillResultGuild(View view, SceneryCampaign sceneryCurrent, String guildWinner, Guild guild, String campaignGuild, List<Integer> keyGuild) {
         if (!Strings.isNullOrEmpty(campaignGuild) && guild != null) {
             if (campaignGuild.equalsIgnoreCase(guildWinner)) {
                 guild.incVictories();
@@ -259,29 +260,29 @@ public class CampaignDetailCompleteSceneryFragment extends BaseFragment {
                 guild.incDefeats();
             }
 
-            if (keyGuild.length > 1 && ((CheckBox) view.findViewById(keyGuild[1])).isChecked()) {
+            if (keyGuild.size() > 1 && ((CheckBox) view.findViewById(keyGuild.get(1))).isChecked()) {
                 sceneryCurrent.addLeastDeaths(campaignGuild);
             }
 
-            if (keyGuild.length > 2 && ((CheckBox) view.findViewById(keyGuild[2])).isChecked()) {
+            if (keyGuild.size() > 2 && ((CheckBox) view.findViewById(keyGuild.get(2))).isChecked()) {
                 sceneryCurrent.addMostCoins(campaignGuild);
             }
 
-            if (keyGuild.length > 3 && ((CheckBox) view.findViewById(keyGuild[3])).isChecked()) {
+            if (keyGuild.size() > 3 && ((CheckBox) view.findViewById(keyGuild.get(3))).isChecked()) {
                 sceneryCurrent.addWonReward(campaignGuild);
                 if (sceneryCurrent.getScenery() != null && sceneryCurrent.getScenery().getWonReward() != null) {
                     guild.addRewardCards(sceneryCurrent.getScenery().getWonReward().getName());
                 }
             }
 
-            if (keyGuild.length > 4 && ((CheckBox) view.findViewById(keyGuild[4])).isChecked()) {
+            if (keyGuild.size() > 4 && ((CheckBox) view.findViewById(keyGuild.get(4))).isChecked()) {
                 sceneryCurrent.addWonTitle(campaignGuild);
                 if (sceneryCurrent.getScenery() != null) {
                     guild.addBenefitTitles(sceneryCurrent.getScenery().getWonTitle());
                 }
             }
 
-            if (keyGuild.length > 5 && ((CheckBox) view.findViewById(keyGuild[5])).isChecked()) {
+            if (keyGuild.size() > 5 && ((CheckBox) view.findViewById(keyGuild.get(5))).isChecked()) {
                 guild.setSavedMoney(Boolean.TRUE);
             } else {
                 guild.setSavedMoney(Boolean.FALSE);
