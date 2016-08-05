@@ -5,6 +5,22 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 
 
+### Version - 2.1.0
+**Date release**
+ - 05/08/2016
+
+**Features**
+ - Adiciona tela para visualizar uma campanha.
+
+**Bugs**
+ - Correção de bug na tela de selecionar Cenário.
+
+**Improvements**
+ - Melhoria na exibição das informações.
+ - Melhoria na exibição das Guildas nas telas de Visualizar Campanha.
+ - Melhoria na exibição das Guildas nas telas de Finalizar Cenário.
+
+
 ### Version - 2.0.1
 **Date release**
  - 04/08/2016
