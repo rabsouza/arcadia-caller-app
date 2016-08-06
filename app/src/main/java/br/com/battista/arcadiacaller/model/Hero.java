@@ -1,10 +1,13 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
+
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
 
 import java.io.Serializable;
 
+import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +15,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(includeFieldNames = true, callSuper = true)
+@ToString(callSuper = true)
 @EqualsAndHashCode(of = {"name"}, callSuper = false)
 @Table(name = HeroEntry.TABLE_NAME)
 public class Hero extends BaseEntity implements Serializable {
@@ -36,6 +37,12 @@ public class Hero extends BaseEntity implements Serializable {
 
     @Column(name = HeroEntry.COLUMN_NAME_LIFE, notNull = true)
     private Integer life;
+
+    @Column(name = HeroEntry.COLUMN_NAME_ABILITY, notNull = true)
+    private String ability;
+
+    @Column(name = HeroEntry.COLUMN_NAME_GROUP, notNull = true)
+    private GroupHeroEnum group;
 
     @Column(name = HeroEntry.COLUMN_NAME_ACTIVE, notNull = true)
     private Boolean active = Boolean.TRUE;

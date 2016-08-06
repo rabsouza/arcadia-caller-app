@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
+
 import com.google.common.collect.Lists;
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
@@ -16,13 +18,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(includeFieldNames = true, callSuper = true)
+@ToString(callSuper = true)
 @EqualsAndHashCode(of = {"name"}, callSuper = false)
 @Table(name = SceneryEntry.TABLE_NAME)
 public class Scenery extends BaseEntity implements Serializable {

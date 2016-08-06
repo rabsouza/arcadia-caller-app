@@ -1,8 +1,11 @@
 package br.com.battista.arcadiacaller.repository;
 
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
+
 import android.util.Log;
 
+import com.google.common.collect.Lists;
 import com.orm.query.Select;
 
 import java.text.MessageFormat;
@@ -10,8 +13,7 @@ import java.util.List;
 
 import br.com.battista.arcadiacaller.model.BaseEntity;
 import br.com.battista.arcadiacaller.model.Card;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
+import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
 
 public class CardRepository implements Repository<Card> {
 
@@ -62,6 +64,20 @@ public class CardRepository implements Repository<Card> {
                 .first();
     }
 
+    public List<Card> findByGroup(GroupCardEnum groupCard) {
+        Log.i(TAG, MessageFormat.format("Find the card by group: {0}.", groupCard));
+        if (groupCard != null) {
+
+            return Select
+                    .from(Card.class)
+                    .where(MessageFormat.format("{0} = ?", CardEntry.COLUMN_NAME_GROUP), new String[]{groupCard.name()})
+                    .orderBy(MessageFormat.format("{0} ASC", CardEntry.COLUMN_NAME_KEY))
+                    .list();
+        } else {
+            return Lists.newArrayList();
+        }
+    }
+
     @Override
     public void update(Card entity) {
         if (entity != null) {
@@ -86,7 +102,7 @@ public class CardRepository implements Repository<Card> {
         Log.i(TAG, "Find all cards.");
         return Select
                 .from(Card.class)
-                .orderBy(MessageFormat.format("{0} ASC, {1} ASC", CardEntry.COLUMN_NAME_GROUP, CardEntry.COLUMN_NAME_NAME))
+                .orderBy(MessageFormat.format("{0} ASC, {1} ASC", CardEntry.COLUMN_NAME_GROUP, CardEntry.COLUMN_NAME_KEY))
                 .list();
     }
 

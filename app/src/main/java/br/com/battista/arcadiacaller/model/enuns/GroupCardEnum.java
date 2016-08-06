@@ -43,4 +43,14 @@ public enum GroupCardEnum {
         return LOOK_UP.get(MoreObjects.firstNonNull(groupCard, NONE.name()).toUpperCase());
     }
 
+    public static GroupCardEnum get(int ordenal) {
+        for (GroupCardEnum groupCard : GroupCardEnum.values()) {
+            if (groupCard.ordinal() == ordenal) {
+                return groupCard;
+            }
+        }
+        return GroupCardEnum.NONE;
+    }
+
+
 }

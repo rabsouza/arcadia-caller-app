@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryCampaignEntry;
+
 import com.google.common.collect.Lists;
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
@@ -14,38 +16,45 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryCampaignEntry;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(includeFieldNames = true, callSuper = true)
+@ToString(callSuper = true)
 @EqualsAndHashCode(of = {"name"}, callSuper = false)
 @Table(name = SceneryCampaignEntry.TABLE_NAME)
 public class SceneryCampaign extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = SceneryCampaignEntry.COLUMN_NAME_NAME, notNull = true, unique = false)
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_NAME, notNull = true)
     private String name;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_SCENERY, notNull = true)
     private Scenery scenery;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_WINNER)
     private String winner;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_LEAST_DEATHS)
     private List<String> leastDeaths;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_MOST_COINS)
     private List<String> mostCoins;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_WON_REWARD)
     private List<String> wonReward;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_WON_TITLE)
     private List<String> wonTitle;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_ACTIVE, notNull = true)
     private Boolean active = Boolean.TRUE;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_COMPLETED, notNull = true)
     private Boolean completed = Boolean.FALSE;
 
+    @Column(name = SceneryCampaignEntry.COLUMN_NAME_DELETED, notNull = true)
     private Boolean deleted = Boolean.FALSE;
 
     public void addLeastDeaths(String guild) {

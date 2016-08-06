@@ -46,15 +46,23 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/card_view_card_type"
+                    android:id="@+id/card_view_card_group_effect"
                     style="@style/CardHeadStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/activity_padding"/>
 
                 <TextView
-                    android:id="@+id/card_view_card_group"
+                    android:id="@+id/card_view_card_type_effect"
                     style="@style/CardTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/element_vertical_margin"
+                    android:paddingLeft="@dimen/activity_padding"/>
+
+                <TextView
+                    android:id="@+id/card_view_card_group"
+                    style="@style/CardTextBoldStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/element_vertical_margin"

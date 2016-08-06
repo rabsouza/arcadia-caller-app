@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.adapter;
 
+import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
+
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -16,8 +18,6 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
-
-import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
 
 public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
     private static final String TAG = CardAdapter.class.getSimpleName();
@@ -46,7 +46,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
                     "onBindViewHolder: Fill to row position: %S with %s.", position, card));
 
             TextView txtTitle = holder.getTxtTitle();
-            txtTitle.setText(card.getName());
+            txtTitle.setText(MessageFormat.format("{0} ({1})", card.getName(), card.getKey()));
 
             GroupCardEnum cardGroup = card.getGroup();
             txtTitle.setTextColor(ContextCompat.getColor(context, cardGroup.getColorRes()));
@@ -54,7 +54,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
             String textGroup = MessageFormat.format(String.valueOf(context.getText(R.string.hint_card_group)), context.getText(cardGroup.getDescRes()));
             holder.getTxtGroup().setText(textGroup);
 
-            holder.getTxtType().setText(card.getType().getDescRes());
+            holder.getTxtGroupEffect().setText(card.getGroupEffect());
+
+
+            String textTypeEffect = context.getText(R.string.hint_card_type_effect).toString();
+            holder.getTxtTypeEffect().setText(MessageFormat.format(textTypeEffect, card.getTypeEffect()));
 
             ImageLoadUtils
                     .loadImage(context,

@@ -17,7 +17,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(includeFieldNames = true, callSuper = true)
+@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false)
 @Table(name = StatisticUserEntry.TABLE_NAME)
 public class StatisticUser extends BaseEntity implements Serializable {

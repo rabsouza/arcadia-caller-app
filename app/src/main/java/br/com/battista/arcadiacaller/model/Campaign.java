@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
+
 import android.support.annotation.NonNull;
 
 import com.google.common.base.Strings;
@@ -23,73 +25,98 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(includeFieldNames = true, callSuper = true)
+@ToString(callSuper = true)
 @EqualsAndHashCode(of = {"key"}, callSuper = false)
 @Table(name = CampaignEntry.TABLE_NAME)
 public class Campaign extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_ALIAS, notNull = true)
     private String alias;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_WHEN, notNull = true)
     private Date when;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_GUILD_01)
     private String guild01;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_HEROES_GUILD_01)
     private Guild heroesGuild01;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_GUILD_02)
     private String guild02;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_HEROES_GUILD_02)
     private Guild heroesGuild02;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_GUILD_03)
     private String guild03;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_HEROES_GUILD_03)
     private Guild heroesGuild03;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_GUILD_04)
     private String guild04;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_HEROES_GUILD_04)
     private Guild heroesGuild04;
 
     @Column(name = CampaignEntry.COLUMN_NAME_KEY, notNull = true, unique = true)
     private String key;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_SCENERY_01)
     private SceneryCampaign scenery1;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_SCENERY_02)
     private SceneryCampaign scenery2;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_SCENERY_03)
     private SceneryCampaign scenery3;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_SCENERY_04)
     private SceneryCampaign scenery4;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_SCENERY_05)
     private SceneryCampaign scenery5;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_SCENERY_06)
     private SceneryCampaign scenery6;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_CREATED)
     private String created;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_WINNER)
     private String winner;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_WINNERS)
     private List<String> winners;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_LEAST_DEATHS)
     private List<String> leastDeaths;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_MOST_COINS)
     private List<String> mostCoins;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_WON_REWARD)
     private List<String> wonReward;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_WON_TITLE)
     private List<String> wonTitle;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_ACTIVE, notNull = true)
     private Boolean active = Boolean.TRUE;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_COMPLETED, notNull = true)
     private Boolean completed = Boolean.FALSE;
 
+    @Column(name = CampaignEntry.COLUMN_NAME_DELETED, notNull = true)
     private Boolean deleted = Boolean.FALSE;
+
 
     public List<GuildDto> generateGuildsDto() {
         List<GuildDto> guilds = Lists.newArrayList();

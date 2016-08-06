@@ -14,6 +14,12 @@ public class HeroViewHolder extends RecyclerView.ViewHolder {
     private TextView txtTitle;
 
     @Getter
+    private TextView txtGroup;
+
+    @Getter
+    private TextView txtAbility;
+
+    @Getter
     private ImageView imgHero;
 
     @Getter
@@ -26,6 +32,9 @@ public class HeroViewHolder extends RecyclerView.ViewHolder {
         super(view);
 
         txtTitle = (TextView) view.findViewById(R.id.card_view_hero_title);
+        txtGroup = (TextView) view.findViewById(R.id.card_view_hero_group);
+        txtAbility = (TextView) view.findViewById(R.id.card_view_hero_ability);
+
         imgHero = (ImageView) view.findViewById(R.id.card_view_hero_img_hero);
         imgLife = (ImageView) view.findViewById(R.id.card_view_hero_life);
         imgDefense = (ImageView) view.findViewById(R.id.card_view_hero_defense);

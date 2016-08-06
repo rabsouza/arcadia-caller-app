@@ -1,5 +1,8 @@
 package br.com.battista.arcadiacaller.adapter;
 
+import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroDefenseRes;
+import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroLifeRes;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,14 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
-
-import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroDefenseRes;
-import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroLifeRes;
 
 public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
     private static final String TAG = HeroAdapter.class.getSimpleName();
@@ -42,6 +43,10 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
                     "onBindViewHolder: Fill to row position: %S with %s.", position, hero));
 
             holder.getTxtTitle().setText(hero.getName());
+            holder.getTxtGroup().setText(hero.getGroup().getDescRes());
+
+            String textAbility = context.getString(R.string.hint_hero_ability);
+            holder.getTxtAbility().setText(MessageFormat.format(textAbility, hero.getAbility()));
 
             ImageLoadUtils
                     .loadImage(context,

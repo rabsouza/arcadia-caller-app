@@ -17,7 +17,10 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
     private ImageView imgCost;
 
     @Getter
-    private TextView txtType;
+    private TextView txtTypeEffect;
+
+    @Getter
+    private TextView txtGroupEffect;
 
     @Getter
     private TextView txtGroup;
@@ -26,7 +29,8 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
         super(view);
 
         txtTitle = (TextView) view.findViewById(R.id.card_view_card_title);
-        txtType = (TextView) view.findViewById(R.id.card_view_card_type);
+        txtTypeEffect = (TextView) view.findViewById(R.id.card_view_card_type_effect);
+        txtGroupEffect = (TextView) view.findViewById(R.id.card_view_card_group_effect);
         txtGroup = (TextView) view.findViewById(R.id.card_view_card_group);
         imgCost = (ImageView) view.findViewById(R.id.card_view_card_cost);
     }

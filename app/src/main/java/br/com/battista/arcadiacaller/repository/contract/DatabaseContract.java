@@ -30,7 +30,33 @@ public class DatabaseContract {
     public static abstract class CampaignEntry extends BaseEntry {
 
         public static final String TABLE_NAME = "CAMPAIGN";
+        public static final String COLUMN_NAME_ALIAS = "ALIAS";
+        public static final String COLUMN_NAME_WHEN = "WHEN";
+        public static final String COLUMN_NAME_GUILD_01 = "GUILD_01";
+        public static final String COLUMN_NAME_HEROES_GUILD_01 = "HEROES_GUILD_01";
+        public static final String COLUMN_NAME_GUILD_02 = "GUILD_02";
+        public static final String COLUMN_NAME_HEROES_GUILD_02 = "HEROES_GUILD_02";
+        public static final String COLUMN_NAME_GUILD_03 = "GUILD_03";
+        public static final String COLUMN_NAME_HEROES_GUILD_03 = "HEROES_GUILD_03";
+        public static final String COLUMN_NAME_GUILD_04 = "GUILD_04";
+        public static final String COLUMN_NAME_HEROES_GUILD_04 = "HEROES_GUILD_04";
         public static final String COLUMN_NAME_KEY = "KEY";
+        public static final String COLUMN_NAME_SCENERY_01 = "SCENERY_01";
+        public static final String COLUMN_NAME_SCENERY_02 = "SCENERY_02";
+        public static final String COLUMN_NAME_SCENERY_03 = "SCENERY_03";
+        public static final String COLUMN_NAME_SCENERY_04 = "SCENERY_04";
+        public static final String COLUMN_NAME_SCENERY_05 = "SCENERY_05";
+        public static final String COLUMN_NAME_SCENERY_06 = "SCENERY_06";
+        public static final String COLUMN_NAME_CREATED = "CREATED";
+        public static final String COLUMN_NAME_WINNER = "WINNER";
+        public static final String COLUMN_NAME_WINNERS = "WINNERS";
+        public static final String COLUMN_NAME_LEAST_DEATHS = "LEAST_DEATHS";
+        public static final String COLUMN_NAME_MOST_COINS = "MOST_COINS";
+        public static final String COLUMN_NAME_WON_REWARD = "WON_REWARD";
+        public static final String COLUMN_NAME_WON_TITLE = "WON_TITLE";
+        public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
+        public static final String COLUMN_NAME_COMPLETED = "COMPLETED";
+        public static final String COLUMN_NAME_DELETED = "DELETED";
     }
 
     public static abstract class CardEntry extends BaseEntry {
@@ -40,6 +66,8 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_KEY = "KEY";
         public static final String COLUMN_NAME_TYPE = "TYPE_CARD";
         public static final String COLUMN_NAME_GROUP = "GROUP_CARD";
+        public static final String COLUMN_NAME_TYPE_EFFECT = "TYPE_EFFECT";
+        public static final String COLUMN_NAME_GROUP_EFFECT = "GROUP_EFFECT";
         public static final String COLUMN_NAME_COST = "COST";
         public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
         public static final String COLUMN_NAME_REVISE = "REVISE";
@@ -51,7 +79,16 @@ public class DatabaseContract {
     public static abstract class GuildEntry extends BaseEntry {
 
         public static final String TABLE_NAME = "GUILD";
+        public static final String COLUMN_NAME_VICTORIES = "VICTORIES";
+        public static final String COLUMN_NAME_DEFEATS = "DEFEATS";
+        public static final String COLUMN_NAME_BENEFIT_TITLES = "BENEFIT_TITLES";
+        public static final String COLUMN_NAME_REWARD_CARDS = "REWARD_CARDS";
         public static final String COLUMN_NAME_NAME = "NAME";
+        public static final String COLUMN_NAME_USER = "USER";
+        public static final String COLUMN_NAME_HERO_01 = "HERO_01";
+        public static final String COLUMN_NAME_HERO_02 = "HERO_02";
+        public static final String COLUMN_NAME_HERO_03 = "HERO_03";
+        public static final String COLUMN_NAME_SAVED_MONEY = "SAVED_MONEY";
     }
 
     public static abstract class HeroEntry extends BaseEntry {
@@ -61,6 +98,8 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_URL_PHOTO = "URL_PHOTO";
         public static final String COLUMN_NAME_DEFENSE = "DEFENSE";
         public static final String COLUMN_NAME_LIFE = "LIFE";
+        public static final String COLUMN_NAME_ABILITY = "ABILITY";
+        public static final String COLUMN_NAME_GROUP = "GROUP_HERO";
         public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
         public static final String COLUMN_NAME_REVISE = "REVISE";
         public static final String COLUMN_NAME_DENOUNCE = "DENOUNCE";
@@ -71,6 +110,13 @@ public class DatabaseContract {
 
         public static final String TABLE_NAME = "HERO_GUILD";
         public static final String COLUMN_NAME_HERO = "HERO";
+        public static final String COLUMN_NAME_CARD_01 = "CARD_01";
+        public static final String COLUMN_NAME_CARD_02 = "CARD_02";
+        public static final String COLUMN_NAME_CARD_03 = "CARD_03";
+        public static final String COLUMN_NAME_CARD_04 = "CARD_04";
+        public static final String COLUMN_NAME_CURSE_CARD = "CURSE_CARD";
+        public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
+        public static final String COLUMN_NAME_DELETED = "DELETED";
     }
 
     public static abstract class SceneryEntry extends BaseEntry {
@@ -93,6 +139,15 @@ public class DatabaseContract {
 
         public static final String TABLE_NAME = "SCENERY_CAMPAIGN";
         public static final String COLUMN_NAME_NAME = "NAME";
+        public static final String COLUMN_NAME_SCENERY = "SCENERY";
+        public static final String COLUMN_NAME_WINNER = "WINNER";
+        public static final String COLUMN_NAME_LEAST_DEATHS = "LEAST_DEATHS";
+        public static final String COLUMN_NAME_MOST_COINS = "MOST_COINS";
+        public static final String COLUMN_NAME_WON_REWARD = "WON_REWARD";
+        public static final String COLUMN_NAME_WON_TITLE = "WON_TITLE";
+        public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
+        public static final String COLUMN_NAME_COMPLETED = "COMPLETED";
+        public static final String COLUMN_NAME_DELETED = "DELETED";
     }
 
     public static abstract class StatisticUserEntry extends BaseEntry {

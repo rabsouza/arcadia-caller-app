@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
+
 import com.google.common.collect.Sets;
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
@@ -15,13 +17,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(includeFieldNames = true, callSuper = true)
+@ToString(callSuper = true)
 @EqualsAndHashCode(of = {"username"}, callSuper = false)
 @Table(name = UserEntry.TABLE_NAME)
 public class User extends BaseEntity implements Serializable {

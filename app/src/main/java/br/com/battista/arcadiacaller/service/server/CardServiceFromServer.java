@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
+import static br.com.battista.arcadiacaller.listener.CardListener.URI_FIND_ALL;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -14,11 +16,10 @@ import br.com.battista.arcadiacaller.constants.HttpStatus;
 import br.com.battista.arcadiacaller.constants.RestConstant;
 import br.com.battista.arcadiacaller.listener.CardListener;
 import br.com.battista.arcadiacaller.model.Card;
+import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
 import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.CardService;
 import retrofit2.Response;
-
-import static br.com.battista.arcadiacaller.listener.CardListener.URI_FIND_ALL;
 
 public class CardServiceFromServer extends BaseService implements CardService {
 
@@ -50,6 +51,12 @@ public class CardServiceFromServer extends BaseService implements CardService {
         }
 
         return cards;
+    }
+
+    @NonNull
+    @Override
+    public List<Card> findByGroup(@NonNull String token, @NonNull GroupCardEnum groupCard) {
+        return findAll(token);
     }
 
 }
