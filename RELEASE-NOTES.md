@@ -7,7 +7,7 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ### Version - 2.1.0
 **Date release**
- - 05/08/2016
+ - 06/08/2016
 
 **Features**
  - Adiciona tela para visualizar uma campanha.
@@ -19,6 +19,8 @@ Os Pacotes liberados para testes e produção da aplicação.
  - Melhoria na exibição das informações.
  - Melhoria na exibição das Guildas nas telas de Visualizar Campanha.
  - Melhoria na exibição das Guildas nas telas de Finalizar Cenário.
+ - Melhoria na tela de Cartas.
+ - Melhoria na tela de Heróis.
 
 
 ### Version - 2.0.1
