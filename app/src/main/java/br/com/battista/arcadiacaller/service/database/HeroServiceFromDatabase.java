@@ -31,8 +31,8 @@ public class HeroServiceFromDatabase implements HeroService {
 
     @NonNull
     @Override
-    public List<Hero> findByGroup(@NonNull String token, @NonNull GroupHeroEnum groupHero) {
-        Log.i(TAG, MessageFormat.format("Find heroes by group: {0} in database!", groupHero.name()));
+    public List<Hero> findByGroup(@NonNull String token, @NonNull GroupHeroEnum... groupHero) {
+        Log.i(TAG, MessageFormat.format("Find heroes by group: {0} in database!", groupHero));
 
         return heroRepository.findByGroup(groupHero);
     }

@@ -53,31 +53,6 @@ public class StatisticUserRepository implements Repository<StatisticUser> {
     }
 
     @Override
-    public StatisticUser findById(Long id) {
-        Log.i(TAG, MessageFormat.format("Find the statisticUser by id: {0}.", id));
-        return StatisticUser.findById(StatisticUser.class, id);
-    }
-
-    @Override
-    public void update(StatisticUser entity) {
-        if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update to statisticUser to user: {0}.", entity.getUsername()));
-            saveEntity(entity);
-        } else {
-            Log.i(TAG, "Entity can not be null!");
-        }
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        Log.i(TAG, MessageFormat.format("Delete the statisticUser with id: {0}.", id));
-        StatisticUser entity = findById(id);
-        if (entity != null) {
-            entity.delete();
-        }
-    }
-
-    @Override
     public List<StatisticUser> findAll() {
         Log.i(TAG, "Find all statisticUsers.");
         return Select

@@ -17,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import com.google.common.base.Strings;
@@ -39,6 +41,7 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.HeroGuild;
+import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -49,7 +52,9 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
     private static final String TAG = CampaignDetailHeroesFragment.class.getSimpleName();
     private final Map<String, Hero> heroMap = Maps.newLinkedHashMap();
+
     private Campaign campaign;
+
     private MaterialBetterSpinner spnGuildBlueHero01;
     private MaterialBetterSpinner spnGuildBlueHero02;
     private MaterialBetterSpinner spnGuildBlueHero03;
@@ -62,6 +67,8 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
     private MaterialBetterSpinner spnGuildOrangeHero01;
     private MaterialBetterSpinner spnGuildOrangeHero02;
     private MaterialBetterSpinner spnGuildOrangeHero03;
+
+    private List<GroupHeroEnum> groupsHero = Lists.newArrayList(GroupHeroEnum.CORE_BOX);
 
     public CampaignDetailHeroesFragment() {
     }
@@ -89,10 +96,97 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
             }
         });
 
+        fillAllHeroes();
         loadGuildsImg(viewFragment);
+        loadCheckGroupHeroes(viewFragment);
         processDataFragment(viewFragment, getArguments());
 
         return viewFragment;
+    }
+
+    private void fillAllHeroes() {
+        new AsyncTask<Void, Integer, Boolean>() {
+            List<Hero> heroes;
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                try {
+                    String token = MainApplication.instance().getToken();
+                    HeroService heroService = Inject.provideHeroService();
+                    heroes = heroService.findAll(token);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+                    return false;
+                }
+                return true;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                Log.i(TAG, "onPostExecute: Load all heroes Guilds!");
+
+                for (Hero hero : heroes) {
+                    heroMap.put(hero.getName(), hero);
+                }
+            }
+
+        }.execute();
+    }
+
+    private void loadCheckGroupHeroes(final View viewFragment) {
+        Log.i(TAG, "loadCheckGroupHeroes: Load checkBok Group Heroes!");
+
+        CheckBox beyondTheGraveExpansion = (CheckBox) viewFragment.findViewById(R.id.detail_card_view_heroes_select_group_beyond_the_grave_expansion);
+        beyondTheGraveExpansion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    groupsHero.add(GroupHeroEnum.BEYOND_THE_GRAVE_EXPANSION);
+                } else {
+                    groupsHero.remove(GroupHeroEnum.BEYOND_THE_GRAVE_EXPANSION);
+                }
+                loadHeroes(viewFragment);
+            }
+        });
+
+        CheckBox promoHeroes = (CheckBox) viewFragment.findViewById(R.id.detail_card_view_heroes_select_group_promo_heroes);
+        promoHeroes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    groupsHero.add(GroupHeroEnum.PROMO_HEROES);
+                } else {
+                    groupsHero.remove(GroupHeroEnum.PROMO_HEROES);
+                }
+                loadHeroes(viewFragment);
+            }
+        });
+
+        CheckBox monstersAsHeroes = (CheckBox) viewFragment.findViewById(R.id.detail_card_view_heroes_select_group_monsters_as_heroes);
+        monstersAsHeroes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    groupsHero.add(GroupHeroEnum.MONSTERS_AS_HEROES);
+                } else {
+                    groupsHero.remove(GroupHeroEnum.MONSTERS_AS_HEROES);
+                }
+                loadHeroes(viewFragment);
+            }
+        });
+
+        CheckBox heroesExtra = (CheckBox) viewFragment.findViewById(R.id.detail_card_view_heroes_select_group_heroes_extra);
+        heroesExtra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    groupsHero.add(GroupHeroEnum.EXTRA);
+                } else {
+                    groupsHero.remove(GroupHeroEnum.EXTRA);
+                }
+                loadHeroes(viewFragment);
+            }
+        });
     }
 
     private void loadGuildsImg(View viewFragment) {
@@ -134,7 +228,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
     private void loadHeroes(final View viewFragment) {
 
         final Context context = getContext();
-        new AsyncTask<Void, Integer, Boolean>() {
+        new ProgressApp(getActivity(), R.string.msg_action_loading, false) {
 
             List<Hero> heroes;
 
@@ -143,7 +237,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
                 try {
                     String token = MainApplication.instance().getToken();
                     HeroService heroService = Inject.provideHeroService();
-                    heroes = heroService.findAll(token);
+                    heroes = heroService.findByGroup(token, groupsHero.toArray(new GroupHeroEnum[0]));
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                     return false;
@@ -153,12 +247,14 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
             @Override
             protected void onPostExecute(Boolean result) {
-                Log.i(TAG, "onPostExecute: Load all heroes Guilds!");
+                Log.i(TAG, "onPostExecute: Load available heroes Guilds!");
+
+                List<String> nameHeroesAvailable = Lists.newArrayList();
                 for (Hero hero : heroes) {
-                    heroMap.put(hero.getName(), hero);
+                    nameHeroesAvailable.add(hero.getName());
                 }
 
-                ArrayList<String> namesHeroes = Lists.newArrayList(heroMap.keySet());
+                ArrayList<String> namesHeroes = Lists.newArrayList(nameHeroesAvailable);
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context,
                         android.R.layout.simple_dropdown_item_1line, namesHeroes);
 

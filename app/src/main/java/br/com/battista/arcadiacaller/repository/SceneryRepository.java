@@ -5,6 +5,7 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.google.common.collect.Lists;
 import com.orm.query.Select;
 
 import java.text.MessageFormat;
@@ -23,7 +24,7 @@ public class SceneryRepository implements Repository<Scenery> {
     @Override
     public void save(Scenery entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to scenery with name: {0}.", entity.getName()));
             saveEntity(entity);
         } else {
             Log.w(TAG, "Entity can not be null!");
@@ -32,17 +33,32 @@ public class SceneryRepository implements Repository<Scenery> {
 
     private void saveEntity(Scenery entity) {
         entity.synchronize();
+        if (entity.getBenefitTitles() == null) {
+            entity.setBenefitTitles(Lists.newArrayList(new String[0]));
+        }
+
         Card wonReward = entity.getWonReward();
         if (wonReward != null) {
             Card card = cardRepository.findByKey(wonReward.getKey());
-            if (card != null) {
-                entity.setWonReward(card);
-            } else {
-                wonReward.synchronize();
+            if (card == null) {
                 cardRepository.save(wonReward);
+                card = wonReward;
             }
+            entity.setWonReward(card);
+            entity.setKeyWonReward(card.getKey());
+            Log.d(TAG, MessageFormat.format("saveEntity: Set card wonReward with id: {0} and key: {1}.", wonReward.getId(), wonReward.getKey()));
         }
         entity.save();
+    }
+
+
+    private void loadWonReward(Scenery scenery) {
+        String wonReward = scenery.getKeyWonReward();
+        if (wonReward != null) {
+            Card card = cardRepository.findByKey(wonReward);
+            scenery.setWonReward(card);
+            Log.d(TAG, MessageFormat.format("loadWonReward: Set card wonReward with id: {0} and key: {1}.", card.getId(), card.getKey()));
+        }
     }
 
     @Override
@@ -51,7 +67,7 @@ public class SceneryRepository implements Repository<Scenery> {
             Log.i(TAG, MessageFormat.format("Save {0} sceneries.", entities.size()));
             for (Scenery entity : entities) {
                 if (entity != null) {
-                    Log.i(TAG, MessageFormat.format("Save to scenery with id: {0}.", entity.getId()));
+                    Log.i(TAG, MessageFormat.format("Save to scenery with name: {0}.", entity.getName()));
                     saveEntity(entity);
                 }
             }
@@ -61,37 +77,17 @@ public class SceneryRepository implements Repository<Scenery> {
     }
 
     @Override
-    public Scenery findById(Long id) {
-        Log.i(TAG, MessageFormat.format("Find the scenery by id: {0}.", id));
-        return Scenery.findById(Scenery.class, id);
-    }
-
-    @Override
-    public void update(Scenery entity) {
-        if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the scenery with id: {0}.", entity.getId()));
-            saveEntity(entity);
-        } else {
-            Log.i(TAG, "Entity can not be null!");
-        }
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        Log.i(TAG, MessageFormat.format("Delete the scenery with id: {0}.", id));
-        Scenery entity = findById(id);
-        if (entity != null) {
-            entity.delete();
-        }
-    }
-
-    @Override
     public List<Scenery> findAll() {
         Log.i(TAG, "Find all sceneries.");
-        return Select
+        final List<Scenery> sceneries = Select
                 .from(Scenery.class)
                 .orderBy(MessageFormat.format("{0} ASC, {1} ASC", SceneryEntry.COLUMN_NAME_LOCATION, SceneryEntry.COLUMN_NAME_NAME))
                 .list();
+
+        for (Scenery scenery : sceneries) {
+            loadWonReward(scenery);
+        }
+        return sceneries;
     }
 
     @Override
@@ -103,11 +99,15 @@ public class SceneryRepository implements Repository<Scenery> {
 
     public List<Scenery> findByLocation(@NonNull LocationSceneryEnum location) {
         Log.i(TAG, MessageFormat.format("Find all sceneries by location: {0}.", location));
-        return Select
+        final List<Scenery> sceneries = Select
                 .from(Scenery.class)
                 .where(MessageFormat.format("{0} = ?", SceneryEntry.COLUMN_NAME_LOCATION), new String[]{location.name()})
                 .orderBy(MessageFormat.format("{0} ASC, {1} ASC", SceneryEntry.COLUMN_NAME_LOCATION, SceneryEntry.COLUMN_NAME_NAME))
                 .list();
+        for (Scenery scenery : sceneries) {
+            loadWonReward(scenery);
+        }
+        return sceneries;
     }
 
 }

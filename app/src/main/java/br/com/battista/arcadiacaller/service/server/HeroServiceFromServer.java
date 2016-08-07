@@ -55,7 +55,7 @@ public class HeroServiceFromServer extends BaseService implements HeroService {
 
     @NonNull
     @Override
-    public List<Hero> findByGroup(@NonNull String token, @NonNull GroupHeroEnum groupHero) {
+    public List<Hero> findByGroup(@NonNull String token, @NonNull GroupHeroEnum... groupHero) {
         return findAll(token);
     }
 

@@ -126,6 +126,7 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_URL_SYMBOL = "URL_SYMBOL";
         public static final String COLUMN_NAME_WON_TITLE = "WON_TITLE";
         public static final String COLUMN_NAME_WON_REWARD = "WON_REWARD";
+        public static final String COLUMN_NAME_KEY_WON_REWARD = "KEY_WON_REWARD";
         public static final String COLUMN_NAME_DIFFICULTY = "DIFFICULTY";
         public static final String COLUMN_NAME_BENEFIT_TITLES = "BENEFIT_TITLES";
         public static final String COLUMN_NAME_LOCATION = "LOCATION";

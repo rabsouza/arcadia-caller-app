@@ -22,7 +22,7 @@ public class CardRepository implements Repository<Card> {
     @Override
     public void save(Card entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to card with key: {0}.", entity.getKey()));
             saveEntity(entity);
         } else {
             Log.w(TAG, "Entity can not be null!");
@@ -40,7 +40,7 @@ public class CardRepository implements Repository<Card> {
             Log.i(TAG, MessageFormat.format("Save {0} cards.", entities.size()));
             for (Card entity : entities) {
                 if (entity != null) {
-                    Log.i(TAG, MessageFormat.format("Save to card with id: {0}.", entity.getId()));
+                    Log.i(TAG, MessageFormat.format("Save to card with key: {0}.", entity.getKey()));
                     saveEntity(entity);
                 }
             }
@@ -48,13 +48,6 @@ public class CardRepository implements Repository<Card> {
             Log.w(TAG, "Entities can not be null!");
         }
     }
-
-    @Override
-    public Card findById(Long id) {
-        Log.i(TAG, MessageFormat.format("Find the card by id: {0}.", id));
-        return Card.findById(Card.class, id);
-    }
-
 
     public Card findByKey(String key) {
         Log.i(TAG, MessageFormat.format("Find the card by key: {0}.", key));
@@ -75,25 +68,6 @@ public class CardRepository implements Repository<Card> {
                     .list();
         } else {
             return Lists.newArrayList();
-        }
-    }
-
-    @Override
-    public void update(Card entity) {
-        if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the card with id: {0}.", entity.getId()));
-            saveEntity(entity);
-        } else {
-            Log.i(TAG, "Entity can not be null!");
-        }
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        Log.i(TAG, MessageFormat.format("Delete the card with id: {0}.", id));
-        Card entity = findById(id);
-        if (entity != null) {
-            entity.delete();
         }
     }
 

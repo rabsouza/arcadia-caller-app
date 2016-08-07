@@ -22,7 +22,7 @@ public class HeroRepository implements Repository<Hero> {
     @Override
     public void save(Hero entity) {
         if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Save to hero with id: {0}.", entity.getId()));
+            Log.i(TAG, MessageFormat.format("Save to hero with name: {0}.", entity.getName()));
             saveEntity(entity);
         } else {
             Log.w(TAG, "Entity can not be null!");
@@ -40,7 +40,7 @@ public class HeroRepository implements Repository<Hero> {
             Log.i(TAG, MessageFormat.format("Save {0} heroes.", entities.size()));
             for (Hero entity : entities) {
                 if (entity != null) {
-                    Log.i(TAG, MessageFormat.format("Save to hero with id: {0}.", entity.getId()));
+                    Log.i(TAG, MessageFormat.format("Save to hero with name: {0}.", entity.getName()));
                     saveEntity(entity);
                 }
             }
@@ -49,19 +49,19 @@ public class HeroRepository implements Repository<Hero> {
         }
     }
 
-    @Override
-    public Hero findById(Long id) {
-        Log.i(TAG, MessageFormat.format("Find the hero by id: {0}.", id));
-        return Hero.findById(Hero.class, id);
-    }
+    public List<Hero> findByGroup(GroupHeroEnum... groupHeroes) {
+        List<GroupHeroEnum> groups = Lists.newArrayList(groupHeroes);
 
-    public List<Hero> findByGroup(GroupHeroEnum groupHero) {
-        Log.i(TAG, MessageFormat.format("Find the hero by group: {0}.", groupHero));
-        if (groupHero != null) {
+        Log.i(TAG, MessageFormat.format("Find the hero by groups: {0}.", groups));
+        if (!groups.isEmpty()) {
+            List<String> nameGroups = Lists.newArrayList();
+            for (GroupHeroEnum group : groups) {
+                nameGroups.add(group.name());
+            }
 
             return Select
                     .from(Hero.class)
-                    .where(MessageFormat.format("{0} = ?", DatabaseContract.HeroEntry.COLUMN_NAME_GROUP), new String[]{groupHero.name()})
+                    .where(MessageFormat.format("{0} IN( {1} )", DatabaseContract.HeroEntry.COLUMN_NAME_GROUP, makePlaceholders(nameGroups.size())), nameGroups.toArray(new String[0]))
                     .orderBy(MessageFormat.format("{0} ASC", HeroEntry.COLUMN_NAME_NAME))
                     .list();
         } else {
@@ -69,22 +69,16 @@ public class HeroRepository implements Repository<Hero> {
         }
     }
 
-    @Override
-    public void update(Hero entity) {
-        if (entity != null) {
-            Log.i(TAG, MessageFormat.format("Update the hero with id: {0}.", entity.getId()));
-            saveEntity(entity);
+    String makePlaceholders(int len) {
+        if (len < 1) {
+            throw new RuntimeException("No placeholders");
         } else {
-            Log.i(TAG, "Entity can not be null!");
-        }
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        Log.i(TAG, MessageFormat.format("Delete the hero with id: {0}.", id));
-        Hero entity = findById(id);
-        if (entity != null) {
-            entity.delete();
+            StringBuilder sb = new StringBuilder(len * 2 - 1);
+            sb.append("?");
+            for (int i = 1; i < len; i++) {
+                sb.append(",?");
+            }
+            return sb.toString();
         }
     }
 

@@ -15,7 +15,7 @@ public enum GroupHeroEnum {
     PROMO_HEROES(R.string.group_hero_promo_heroes),
     CORE_BOX(R.string.group_hero_core_box),
     MONSTERS_AS_HEROES(R.string.group_hero_monsters_as_heroes),
-    EXTRA(R.string.group_hero_extra);
+    EXTRA(R.string.group_heroes_extra);
 
     private static final Map<String, GroupHeroEnum> LOOK_UP = Maps.newHashMap();
 

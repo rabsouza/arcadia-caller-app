@@ -41,6 +41,9 @@ public class Scenery extends BaseEntity implements Serializable {
     @Column(name = SceneryEntry.COLUMN_NAME_WON_REWARD)
     private Card wonReward;
 
+    @Column(name = SceneryEntry.COLUMN_NAME_KEY_WON_REWARD)
+    private String keyWonReward;
+
     @Column(name = SceneryEntry.COLUMN_NAME_DIFFICULTY, notNull = true)
     private DifficultySceneryEnum difficulty;
 

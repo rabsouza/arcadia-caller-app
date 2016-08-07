@@ -69,6 +69,7 @@
     <string name="hint_detail_heroes_guild_hero_02">Herói 02</string>
     <string name="hint_detail_heroes_guild_hero_03">Herói 03</string>
     <string name="hint_detail_heroes_selected">*¹ Você deve selecionar os 3 Heróis para todas as Guildas ativas!</string>
+    <string name="hint_detail_group_heroes_selected">Selecione os grupos de Hérois que esteja utilizando na Campanha ativa!</string>
     <string name="hint_detail_scenery">Cenário</string>
     <string name="hint_detail_scenery_current">Cenário atual</string>
     <string name="hint_detail_scenery_current_result">Resultado</string>
@@ -173,6 +174,9 @@ Versão: %s<br><br>
 Nome: Rafael ALessandro Batista<br>
 E-mail: rabsouza@gmail.com<br>
 <br><br>
+<b>Suporte:</b><br>
+* O aplicativo suporta a caixa base e todos os componentes lançados pela Galapagos Jogos para o Jogo Arcadia Quest!
+<br><br>
 <i>Código fonte live??? Isso mesmo!!!</i>
 	]]>
     </string>
@@ -195,10 +199,10 @@ E-mail: rabsouza@gmail.com<br>
     <!-- ################### HERO #################### -->
     <string name="group_hero_none">Todos os Heróis</string>
     <string name="group_hero_beyond_the_grave_expansion">Exp. Beyond The Grave</string>
-    <string name="group_hero_promo_heroes">Herói Promocional (KS)</string>
+    <string name="group_hero_promo_heroes">Heróis Promocionais (KS)</string>
     <string name="group_hero_core_box">Caixa Base</string>
-    <string name="group_hero_monsters_as_heroes">Monstro como Herói</string>
-    <string name="group_hero_extra">Expansão Extra</string>
+    <string name="group_hero_monsters_as_heroes">Monstros como Heróis</string>
+    <string name="group_heroes_extra">Heróis Exp. Extras</string>
 
 
     <!-- ################### SCENERY #################### -->

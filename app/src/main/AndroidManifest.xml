@@ -71,10 +71,10 @@
 
         <meta-data
             android:name="DATABASE"
-            android:value="arcadia_caller.db" />
+            android:value="arcadia_caller_db.db" />
         <meta-data
             android:name="VERSION"
-            android:value="30" />
+            android:value="40" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="false" />
