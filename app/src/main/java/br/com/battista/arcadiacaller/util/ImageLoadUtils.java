@@ -7,8 +7,6 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import br.com.battista.arcadiacaller.R;
-
 public class ImageLoadUtils {
 
     private ImageLoadUtils() {
@@ -30,15 +28,6 @@ public class ImageLoadUtils {
                 .into(img);
     }
 
-    public static void loadImageWithPlaceHolder(@NonNull Context context, @NonNull String url, @NonNull ImageView img) {
-        Glide.with(context)
-                .load(url)
-                .placeholder(R.drawable.image_loading)
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .crossFade()
-                .into(img);
-    }
-
     public static void loadImageWithImageError(@NonNull Context context, @NonNull String url, @NonNull ImageView img, int resIdError) {
         Glide.with(context)
                 .load(url)
@@ -51,7 +40,6 @@ public class ImageLoadUtils {
     public static void loadImageWithPlaceHolderAndError(@NonNull Context context, @NonNull String url, @NonNull ImageView img, int resIdError) {
         Glide.with(context)
                 .load(url)
-                .placeholder(R.drawable.image_loading)
                 .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .crossFade()
                 .error(resIdError)
