@@ -120,7 +120,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_01"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -129,7 +129,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_02"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -138,7 +138,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_03"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                         </LinearLayout>
@@ -204,7 +204,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_01"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -213,7 +213,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_02"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -222,7 +222,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_03"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                         </LinearLayout>
@@ -288,7 +288,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_01"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -297,7 +297,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_02"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -306,7 +306,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_03"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                         </LinearLayout>
@@ -372,7 +372,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_01"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -381,7 +381,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_02"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
@@ -390,7 +390,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_detail_heroes_guild_hero_03"
-                                android:textColorHint="@color/colorAccent"
+
                                 app:met_floatingLabel="highlight"/>
 
                         </LinearLayout>

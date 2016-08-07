@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -36,9 +39,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.SceneryService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class CampaignDetailSceneryFragment extends BaseFragment {
 

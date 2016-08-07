@@ -11,11 +11,10 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/card_recycler_view"
+            android:id="@+id/scenery_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/item_img_height"
-
             android:cacheColorHint="@android:color/transparent"
             android:clipToPadding="false"
             android:dividerHeight="0dp"

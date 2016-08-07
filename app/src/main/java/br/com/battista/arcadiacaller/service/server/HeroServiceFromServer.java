@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
+import static br.com.battista.arcadiacaller.listener.HeroListener.URI_FIND_ALL;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -14,11 +16,10 @@ import br.com.battista.arcadiacaller.constants.HttpStatus;
 import br.com.battista.arcadiacaller.constants.RestConstant;
 import br.com.battista.arcadiacaller.listener.HeroListener;
 import br.com.battista.arcadiacaller.model.Hero;
+import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
 import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.HeroService;
 import retrofit2.Response;
-
-import static br.com.battista.arcadiacaller.listener.HeroListener.URI_FIND_ALL;
 
 public class HeroServiceFromServer extends BaseService implements HeroService {
 
@@ -50,6 +51,12 @@ public class HeroServiceFromServer extends BaseService implements HeroService {
         }
 
         return heroes;
+    }
+
+    @NonNull
+    @Override
+    public List<Hero> findByGroup(@NonNull String token, @NonNull GroupHeroEnum groupHero) {
+        return findAll(token);
     }
 
 }

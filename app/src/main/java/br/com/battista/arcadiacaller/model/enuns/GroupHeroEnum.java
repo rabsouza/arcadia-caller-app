@@ -17,9 +17,6 @@ public enum GroupHeroEnum {
     MONSTERS_AS_HEROES(R.string.group_hero_monsters_as_heroes),
     EXTRA(R.string.group_hero_extra);
 
-    @Getter
-    private int descRes;
-
     private static final Map<String, GroupHeroEnum> LOOK_UP = Maps.newHashMap();
 
     static {
@@ -29,6 +26,9 @@ public enum GroupHeroEnum {
         }
     }
 
+    @Getter
+    private int descRes;
+
     GroupHeroEnum(int descRes) {
         this.descRes = descRes;
     }
@@ -36,6 +36,15 @@ public enum GroupHeroEnum {
 
     public static GroupHeroEnum get(String groupHero) {
         return LOOK_UP.get(MoreObjects.firstNonNull(groupHero, NONE.name()).toUpperCase());
+    }
+
+    public static GroupHeroEnum get(int ordenal) {
+        for (GroupHeroEnum groupHero : GroupHeroEnum.values()) {
+            if (groupHero.ordinal() == ordenal) {
+                return groupHero;
+            }
+        }
+        return GroupHeroEnum.NONE;
     }
 
 }

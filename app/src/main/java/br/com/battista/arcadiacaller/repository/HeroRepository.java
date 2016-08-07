@@ -1,7 +1,10 @@
 package br.com.battista.arcadiacaller.repository;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
+
 import android.util.Log;
 
+import com.google.common.collect.Lists;
 import com.orm.query.Select;
 
 import java.text.MessageFormat;
@@ -9,8 +12,8 @@ import java.util.List;
 
 import br.com.battista.arcadiacaller.model.BaseEntity;
 import br.com.battista.arcadiacaller.model.Hero;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
+import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
+import br.com.battista.arcadiacaller.repository.contract.DatabaseContract;
 
 public class HeroRepository implements Repository<Hero> {
 
@@ -50,6 +53,20 @@ public class HeroRepository implements Repository<Hero> {
     public Hero findById(Long id) {
         Log.i(TAG, MessageFormat.format("Find the hero by id: {0}.", id));
         return Hero.findById(Hero.class, id);
+    }
+
+    public List<Hero> findByGroup(GroupHeroEnum groupHero) {
+        Log.i(TAG, MessageFormat.format("Find the hero by group: {0}.", groupHero));
+        if (groupHero != null) {
+
+            return Select
+                    .from(Hero.class)
+                    .where(MessageFormat.format("{0} = ?", DatabaseContract.HeroEntry.COLUMN_NAME_GROUP), new String[]{groupHero.name()})
+                    .orderBy(MessageFormat.format("{0} ASC", HeroEntry.COLUMN_NAME_NAME))
+                    .list();
+        } else {
+            return Lists.newArrayList();
+        }
     }
 
     @Override

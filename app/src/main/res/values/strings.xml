@@ -39,6 +39,7 @@
     <string name="hint_hero_ability">Hab. : {0}</string>
     <string name="hint_card_group">Grupo: {0}</string>
     <string name="hint_card_group_card">Grupo</string>
+    <string name="hint_hero_group_hero">Grupo</string>
     <string name="hint_card_type_effect">Tipo: {0}</string>
     <string name="hint_scenery_head">{0} - {1}</string>
     <string name="hint_saved_username">Lembrar-me!</string>
@@ -192,7 +193,7 @@ E-mail: rabsouza@gmail.com<br>
 
 
     <!-- ################### HERO #################### -->
-    <string name="group_hero_none"></string>
+    <string name="group_hero_none">Todos os Heróis</string>
     <string name="group_hero_beyond_the_grave_expansion">Exp. Beyond The Grave</string>
     <string name="group_hero_promo_heroes">Herói Promocional (KS)</string>
     <string name="group_hero_core_box">Caixa Base</string>

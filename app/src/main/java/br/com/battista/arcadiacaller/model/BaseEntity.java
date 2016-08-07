@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.orm.SugarRecord;
@@ -12,8 +14,6 @@ import br.com.battista.arcadiacaller.constants.EntityConstant;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 
 @Data
 @ToString(includeFieldNames = true, callSuper = false)
@@ -50,7 +50,7 @@ public abstract class BaseEntity extends SugarRecord implements Serializable {
     }
 
     public void synchronize() {
-        if(getVersion() == null || getVersion() == 0){
+        if (getVersion() == null || getVersion() == 0) {
             initEntity();
         }
 

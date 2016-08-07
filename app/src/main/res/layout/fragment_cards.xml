@@ -25,7 +25,7 @@
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:hint="@string/hint_card_group_card"
-                android:textColorHint="@color/colorAccent"
+
                 app:met_floatingLabel="highlight"/>
 
             <android.support.v7.widget.RecyclerView

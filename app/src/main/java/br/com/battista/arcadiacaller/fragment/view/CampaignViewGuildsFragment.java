@@ -1,6 +1,11 @@
 package br.com.battista.arcadiacaller.fragment.view;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -28,16 +33,10 @@ import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-
 public class CampaignViewGuildsFragment extends BaseFragment {
 
-    private static final String TAG = CampaignViewGuildsFragment.class.getSimpleName();
     public static final int POSITION_INITIAL = 1;
-
+    private static final String TAG = CampaignViewGuildsFragment.class.getSimpleName();
     private Campaign campaign;
 
     public CampaignViewGuildsFragment() {

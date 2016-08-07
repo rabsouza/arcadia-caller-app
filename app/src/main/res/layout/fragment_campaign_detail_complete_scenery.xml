@@ -112,12 +112,12 @@
                         style="@style/CardTitle02Style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/hint_detail_guilds" />
+                        android:text="@string/hint_detail_guilds"/>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1px"
-                        android:background="@color/gray" />
+                        android:background="@color/gray"/>
 
                     <LinearLayout
                         android:id="@+id/detail_card_view_scenery_guilds_blue"
@@ -131,7 +131,7 @@
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginRight="@dimen/element_horizontal_margin"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:scaleType="centerCrop" />
+                            android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/detail_card_view_scenery_guilds_login_blue"
@@ -139,7 +139,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"/>
 
                     </LinearLayout>
 
@@ -155,7 +155,7 @@
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginRight="@dimen/element_horizontal_margin"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:scaleType="centerCrop" />
+                            android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/detail_card_view_scenery_guilds_login_green"
@@ -163,7 +163,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"/>
 
                     </LinearLayout>
 
@@ -179,7 +179,7 @@
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginRight="@dimen/element_horizontal_margin"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:scaleType="centerCrop" />
+                            android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/detail_card_view_scenery_guilds_login_red"
@@ -187,7 +187,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"/>
 
                     </LinearLayout>
 
@@ -203,7 +203,7 @@
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginRight="@dimen/element_horizontal_margin"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:scaleType="centerCrop" />
+                            android:scaleType="centerCrop"/>
 
                         <TextView
                             android:id="@+id/detail_card_view_scenery_guilds_login_orange"
@@ -211,7 +211,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/item_img_height"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"/>
 
                     </LinearLayout>
 
@@ -318,7 +318,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/element_vertical_margin"
                         android:hint="@string/hint_detail_card_view_scenery_winner"
-                        android:textColorHint="@color/colorAccent"
                         app:met_floatingLabel="highlight"/>
 
                 </LinearLayout>

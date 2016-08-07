@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -23,8 +25,6 @@ import br.com.battista.arcadiacaller.adapter.SceneryAdapter;
 import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
 
 public class SceneriesFragment extends BaseFragment {
 
@@ -50,7 +50,7 @@ public class SceneriesFragment extends BaseFragment {
         Log.d(TAG, "onCreateView: Create new fragment Scenery!");
         View view = inflater.inflate(R.layout.fragment_sceneries, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.card_recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.scenery_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);

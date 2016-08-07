@@ -10,21 +10,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/card_recycler_view"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/item_img_height"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            android:cacheColorHint="@android:color/transparent"
-            android:clipToPadding="false"
-            android:dividerHeight="0dp"
-            android:listSelector="@android:color/transparent"
-            android:paddingBottom="@dimen/md_keylines"
-            android:paddingTop="@dimen/md_keylines"
-            android:scrollbarStyle="outsideOverlay"
-            android:scrollbars="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/hero_recycler_view_group"
+                style="@style/InputStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/element_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:hint="@string/hint_hero_group_hero"
+
+                app:met_floatingLabel="highlight"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/hero_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/item_img_height"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:cacheColorHint="@android:color/transparent"
+                android:clipToPadding="false"
+                android:dividerHeight="0dp"
+                android:listSelector="@android:color/transparent"
+                android:paddingBottom="@dimen/md_keylines"
+                android:paddingTop="@dimen/md_keylines"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        </LinearLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
