@@ -20,6 +20,7 @@ Os Pacotes liberados para testes e produção da aplicação.
  - Melhoria na tela de Heróis.
  - Melhoria na tela de informação.
 
+------------------------------------------------------------------------
 
 ### Version - 2.1.0
 **Date release**
@@ -38,6 +39,7 @@ Os Pacotes liberados para testes e produção da aplicação.
  - Melhoria na tela de Cartas.
  - Melhoria na tela de Heróis.
 
+------------------------------------------------------------------------
 
 ### Version - 2.0.1
 **Date release**
@@ -53,6 +55,7 @@ Os Pacotes liberados para testes e produção da aplicação.
 **Improvements**
  - Melhoria na exibição das informações.
 
+------------------------------------------------------------------------
 
 ### Version - 2.0.0
 **Date release**
@@ -71,6 +74,7 @@ Os Pacotes liberados para testes e produção da aplicação.
  - Melhorias de layout.
  - Melhoria teste e informações.
 
+------------------------------------------------------------------------
 
 ### Version - 1.3.0
 **Date release**
@@ -87,6 +91,7 @@ Os Pacotes liberados para testes e produção da aplicação.
  - Melhorias de layout.
  - Melhoria nas ordenações de Cartas, Cenários e Heróis.
 
+------------------------------------------------------------------------
 
 ### Version - 1.2.0
 **Date release**
