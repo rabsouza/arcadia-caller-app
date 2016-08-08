@@ -4,6 +4,22 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ## PHASE - BETA
 
+### Version - 2.1.1
+**Date release**
+ - 07/08/2016
+
+**Features**
+
+**Bugs**
+ - Correção do bug ao abrir a tela Heróis com Android Antigo.
+ - Correção do bug quando existia mais de 1 Guilda inválida.
+
+**Improvements**
+ - Melhoria na exibição dos botões.
+ - Melhoria na tela de seleção de Heróis.
+ - Melhoria na tela de Heróis.
+ - Melhoria na tela de informação.
+
 
 ### Version - 2.1.0
 **Date release**

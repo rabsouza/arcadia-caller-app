@@ -169,15 +169,16 @@
     <string name="about_dialog_text">
     <![CDATA[
 <h3>Arcadia Caller @2016</h3><br>
-Versão: %s<br><br>
+Versão: %s<br>
+Data Release: 07/08/2016<br><br>
+<b>Suporte:</b><br>
+* O aplicativo suporta a caixa base e todos os componentes lançados pela Galapagos Jogos!
+<br><br>
 <b>Contato:</b><br>
 Nome: Rafael ALessandro Batista<br>
 E-mail: rabsouza@gmail.com<br>
 <br><br>
-<b>Suporte:</b><br>
-* O aplicativo suporta a caixa base e todos os componentes lançados pela Galapagos Jogos para o Jogo Arcadia Quest!
-<br><br>
-<i>Código fonte live??? Isso mesmo!!!</i>
+<i>Agradecimento aos Beta Testes!!!</i>
 	]]>
     </string>
 

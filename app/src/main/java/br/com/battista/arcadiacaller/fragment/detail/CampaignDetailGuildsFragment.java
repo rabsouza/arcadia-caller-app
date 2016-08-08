@@ -97,7 +97,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
             public void onFocusChange(View view, boolean hasFocus) {
 
                 final EditText textEdit = (EditText) view.findViewById(resIdText);
-                if (!hasFocus && !Strings.isNullOrEmpty(textEdit.getText().toString())) {
+                if (!hasFocus && !Strings.isNullOrEmpty(textEdit.getText().toString()) && textEdit.getError() == null) {
 
                     final String loginGuild = textEdit.getText().toString().trim();
                     Log.i(TAG, MessageFormat.format("onFocusChange: Validate the login guild: {0}.", loginGuild));

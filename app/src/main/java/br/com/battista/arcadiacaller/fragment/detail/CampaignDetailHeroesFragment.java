@@ -390,7 +390,7 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
                 } else {
                     viewFragment.findViewById(R.id.detail_card_view_heroes_guild_orange).setVisibility(View.GONE);
                 }
-
+                dismissProgress();
             }
 
         }.execute();
