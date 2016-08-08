@@ -14,6 +14,7 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 **Improvements**
  - Melhoria para exibir as Guildas na tela de Campanha Finalizada!
+ - Melhoria para exibir Resultado Campanha na tela de Visualizar Cenário Finalizado!
 
 ------------------------------------------------------------------------
 
