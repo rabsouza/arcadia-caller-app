@@ -4,6 +4,19 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ## PHASE - BETA
 
+### Version - 2.1.2
+**Date release**
+ - 07/08/2016
+
+**Features**
+
+**Bugs**
+
+**Improvements**
+ - Melhoria para exibir as Guildas na tela de Campanha Finalizada!
+
+------------------------------------------------------------------------
+
 ### Version - 2.1.1
 **Date release**
  - 07/08/2016

@@ -1,21 +1,35 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 import java.text.MessageFormat;
 import java.util.List;
+import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.model.Campaign;
+import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.SceneryCampaign;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
+import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
+import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
 public class CampaignCompleteActivity extends BaseActivity {
 
@@ -47,6 +61,36 @@ public class CampaignCompleteActivity extends BaseActivity {
     private TextView txtGuildWinner;
     private TextView txtGuildWinnerHint;
 
+    private Map<NameGuildEnum, List<Integer>> guildKeys = Maps.newHashMap();
+
+    public CampaignCompleteActivity() {
+
+        NameGuildEnum nameGuildBlue = NameGuildEnum.BLUE;
+        List<Integer> keysBlue = Lists.newLinkedList();
+        keysBlue.add(R.id.complete_card_view_scenery_guilds_img_blue);
+        keysBlue.add(R.id.complete_card_view_scenery_guilds_login_blue);
+        guildKeys.put(nameGuildBlue, keysBlue);
+
+        NameGuildEnum nameGuildGreen = NameGuildEnum.GREEN;
+        List<Integer> keysGreen = Lists.newLinkedList();
+        keysGreen.add(R.id.complete_card_view_scenery_guilds_img_green);
+        keysGreen.add(R.id.complete_card_view_scenery_guilds_login_green);
+        guildKeys.put(nameGuildGreen, keysGreen);
+
+        NameGuildEnum nameGuildRed = NameGuildEnum.RED;
+        List<Integer> keysRed = Lists.newLinkedList();
+        keysRed.add(R.id.complete_card_view_scenery_guilds_img_red);
+        keysRed.add(R.id.complete_card_view_scenery_guilds_login_red);
+        guildKeys.put(nameGuildRed, keysRed);
+
+        NameGuildEnum nameGuildOrange = NameGuildEnum.ORANGE;
+        List<Integer> keysOrange = Lists.newLinkedList();
+        keysOrange.add(R.id.complete_card_view_scenery_guilds_img_orange);
+        keysOrange.add(R.id.complete_card_view_scenery_guilds_login_orange);
+        guildKeys.put(nameGuildOrange, keysOrange);
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +102,120 @@ public class CampaignCompleteActivity extends BaseActivity {
         processDataActivity(getIntent().getExtras());
         loadFloatingAction();
 
+    }
+
+    private void loadGuildsImg() {
+        Log.i(TAG, "loadGuildsImg: Load guilds imgs!");
+
+        if (!Strings.isNullOrEmpty(campaign.getGuild01()) && campaign.getHeroesGuild01() != null) {
+            ImageView imageView = (ImageView) findViewById(R.id.complete_card_view_scenery_guilds_img_blue);
+            ImageLoadUtils
+                    .loadImage(getContext(),
+                            BLUE.getUrlImg(),
+                            imageView);
+        }
+
+        if (!Strings.isNullOrEmpty(campaign.getGuild02()) && campaign.getHeroesGuild02() != null) {
+            ImageView imageView = (ImageView) findViewById(R.id.complete_card_view_scenery_guilds_img_green);
+            ImageLoadUtils
+                    .loadImage(getContext(),
+                            GREEN.getUrlImg(),
+                            imageView);
+        }
+
+        if (!Strings.isNullOrEmpty(campaign.getGuild03()) && campaign.getHeroesGuild03() != null) {
+            ImageView imageView = (ImageView) findViewById(R.id.complete_card_view_scenery_guilds_img_red);
+            ImageLoadUtils
+                    .loadImage(getContext(),
+                            RED.getUrlImg(),
+                            imageView);
+        }
+
+        if (!Strings.isNullOrEmpty(campaign.getGuild04()) && campaign.getHeroesGuild04() != null) {
+            ImageView imageView = (ImageView) findViewById(R.id.complete_card_view_scenery_guilds_img_orange);
+            ImageLoadUtils
+                    .loadImage(getContext(),
+                            ORANGE.getUrlImg(),
+                            imageView);
+        }
+    }
+
+    private void showGuildsActive(Campaign campaign) {
+        Log.i(TAG, "showGuildsActive: Show the view elements of guild active!");
+        if (Strings.isNullOrEmpty(campaign.getGuild01()) || campaign.getHeroesGuild01() == null) {
+            for (Integer viewGuildResId : guildKeys.get(NameGuildEnum.BLUE)) {
+                findViewById(viewGuildResId).setVisibility(View.GONE);
+            }
+        }
+
+        if (Strings.isNullOrEmpty(campaign.getGuild02()) || campaign.getHeroesGuild02() == null) {
+            for (Integer viewGuildResId : guildKeys.get(NameGuildEnum.GREEN)) {
+                findViewById(viewGuildResId).setVisibility(View.GONE);
+            }
+        }
+
+        if (Strings.isNullOrEmpty(campaign.getGuild03()) || campaign.getHeroesGuild03() == null) {
+            for (Integer viewGuildResId : guildKeys.get(NameGuildEnum.RED)) {
+                findViewById(viewGuildResId).setVisibility(View.GONE);
+            }
+        }
+
+        if (Strings.isNullOrEmpty(campaign.getGuild04()) || campaign.getHeroesGuild04() == null) {
+            for (Integer viewGuildResId : guildKeys.get(NameGuildEnum.ORANGE)) {
+                findViewById(viewGuildResId).setVisibility(View.GONE);
+            }
+        }
+    }
+
+    private void fillGuildsActive() {
+
+        Log.i(TAG, "showGuildsActive: Fill the view elements of guild active!");
+
+        final String guild01 = campaign.getGuild01();
+        final Guild heroesGuild01 = campaign.getHeroesGuild01();
+        if (!Strings.isNullOrEmpty(guild01) && heroesGuild01 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 01 user: {0}!", guild01));
+
+            TextView txtGuildUser = (TextView) findViewById(R.id.complete_card_view_scenery_guilds_login_blue);
+            String textGuildUser = getString(R.string.hint_view_card_guild_user);
+            String textNameGuild = getString(NameGuildEnum.BLUE.getResId());
+            txtGuildUser.setText(MessageFormat.format(textGuildUser, textNameGuild, guild01));
+        }
+
+        final String guild02 = campaign.getGuild02();
+        final Guild heroesGuild02 = campaign.getHeroesGuild02();
+        if (!Strings.isNullOrEmpty(guild02) && heroesGuild02 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 02 user: {0}!", guild02));
+
+            TextView txtGuildUser = (TextView) findViewById(R.id.complete_card_view_scenery_guilds_login_green);
+            String textGuildUser = getString(R.string.hint_view_card_guild_user);
+            String textNameGuild = getString(NameGuildEnum.GREEN.getResId());
+            txtGuildUser.setText(MessageFormat.format(textGuildUser, textNameGuild, guild02));
+
+        }
+
+        final String guild03 = campaign.getGuild03();
+        final Guild heroesGuild03 = campaign.getHeroesGuild03();
+        if (!Strings.isNullOrEmpty(guild03) && heroesGuild03 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 03 user: {0}!", guild03));
+
+            TextView txtGuildUser = (TextView) findViewById(R.id.complete_card_view_scenery_guilds_login_red);
+            String textGuildUser = getString(R.string.hint_view_card_guild_user);
+            String textNameGuild = getString(NameGuildEnum.RED.getResId());
+            txtGuildUser.setText(MessageFormat.format(textGuildUser, textNameGuild, guild03));
+
+        }
+
+        final String guild04 = campaign.getGuild04();
+        final Guild heroesGuild04 = campaign.getHeroesGuild04();
+        if (!Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
+            Log.i(TAG, MessageFormat.format("fillGuildsActive: Fill Guild 04 user: {0}!", guild04));
+
+            TextView txtGuildUser = (TextView) findViewById(R.id.complete_card_view_scenery_guilds_login_orange);
+            String textGuildUser = getString(R.string.hint_view_card_guild_user);
+            String textNameGuild = getString(NameGuildEnum.ORANGE.getResId());
+            txtGuildUser.setText(MessageFormat.format(textGuildUser, textNameGuild, guild04));
+        }
     }
 
     private void loadFloatingAction() {
@@ -78,6 +236,10 @@ public class CampaignCompleteActivity extends BaseActivity {
             if (!campaign.getCompleted()) {
                 loadMainActivity();
             }
+
+            loadGuildsImg();
+            showGuildsActive(campaign);
+            fillGuildsActive();
 
             String guildNameWinner = campaign.getSceneryCurrent().getWinner();
             txtGuildWinner = (TextView) findViewById(R.id.complete_card_view_guild_winner_name);
