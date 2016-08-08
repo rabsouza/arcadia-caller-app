@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.activity.CampaignCompleteActivity;
 import br.com.battista.arcadiacaller.activity.MainActivity;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
@@ -135,6 +136,13 @@ public class CampaignViewSceneryFragment extends BaseFragment {
                     processNextAction();
                 }
             });
+        } else if (position == 6 && campaign.getCompleted()) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    loadCampaignCompleteActivity(campaign);
+                }
+            });
         } else {
             fab.setImageResource(R.drawable.ic_done);
             fab.setOnClickListener(new View.OnClickListener() {
@@ -146,6 +154,15 @@ public class CampaignViewSceneryFragment extends BaseFragment {
         }
 
         return viewFragment;
+    }
+
+    private void loadCampaignCompleteActivity(Campaign campaign) {
+        Bundle args = new Bundle();
+        args.putSerializable(BundleConstant.DATA, campaign);
+        Intent intent = new Intent(getContext(), CampaignCompleteActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
     }
 
     private void loadMainActivity() {
