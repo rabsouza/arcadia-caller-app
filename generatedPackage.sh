@@ -3,6 +3,9 @@
 apk_name="ArcadiaCaller.apk"
 echo "Create and publish new apk version: $apk_name!"
 
+echo "Clean build app"
+./gradlew clean
+
 echo "Build to app"
 ./gradlew :app:assembleProdDebug
 
