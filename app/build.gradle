@@ -25,7 +25,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
@@ -40,10 +40,9 @@ android {
             versionName "1.0.0"
         }
         prod {
-            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationIdSuffix = ".prd"
             versionCode 1
             versionName "1.0.0"
-            applicationIdSuffix = ".prd"
         }
         dev {
             applicationIdSuffix = ".dev"
@@ -114,7 +113,6 @@ dependencies {
     }
     compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
-    compile 'com.android.support:support-v4:24.1.1'
 }
 
 /*
