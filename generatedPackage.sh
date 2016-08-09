@@ -7,13 +7,13 @@ echo "Clean build app"
 ./gradlew clean
 
 echo "Build to app"
-./gradlew :app:assembleProdDebug
+./gradlew :app:assembleDevDebug
 
 echo "Copy to apk file"
-cp ./app/build/outputs/apk/app-prod-debug.apk ./app/build/outputs/apk/$apk_name
+cp ./app/build/outputs/apk/app-dev-debug.apk ./app/build/outputs/apk/$apk_name
 
 echo "Add apk to git"
-cp ./app/build/outputs/apk/app-prod-debug.apk ./$apk_name
+cp ./app/build/outputs/apk/app-dev-debug.apk ./$apk_name
 git add --force ./$apk_name
 git ci -m "[shell] Generate new version $apk_name"
 

@@ -17,8 +17,6 @@ android {
         applicationId "br.com.battista.arcadiacaller"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 212
-        versionName "2.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -38,18 +36,29 @@ android {
     productFlavors {
         mock {
             applicationIdSuffix = ".mock"
+            versionCode 1
+            versionName "1.0.0"
         }
         prod {
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            versionCode 1
+            versionName "1.0.0"
+            applicationIdSuffix = ".prd"
+        }
+        dev {
+            applicationIdSuffix = ".dev"
+            versionCode 213
+            versionName "2.1.3"
         }
     }
 
     android.variantFilter { variant ->
         if (variant.buildType.name.equals('release')
-                && variant.getFlavors().get(0).name.equals('mock')) {
+                && (variant.getFlavors().get(0).name.equals('mock')
+                || variant.getFlavors().get(0).name.equals('dev'))) {
             variant.setIgnore(true);
         }
     }
-
 
     testOptions.unitTests.all {
         testLogging {

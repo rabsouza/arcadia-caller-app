@@ -13,5 +13,5 @@ public interface HeroService {
     List<Hero> findAll(@NonNull String token);
 
     @NonNull
-    List<Hero> findByGroup(@NonNull String token, @NonNull GroupHeroEnum... groupHero);
+    List<Hero> findByGroup(@NonNull String token, @NonNull GroupHeroEnum... groupsHero);
 }

@@ -4,6 +4,15 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ## PHASE - BETA
 
+
+### Version - 2.1.3
+**Date release**
+ - 08/08/2016
+
+- Ajuste para subida de produção!
+
+------------------------------------------------------------------------
+
 ### Version - 2.1.2
 **Date release**
  - 07/08/2016

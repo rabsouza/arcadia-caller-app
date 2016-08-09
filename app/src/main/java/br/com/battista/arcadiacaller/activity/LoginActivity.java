@@ -1,5 +1,6 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.ANSWERS_LOGIN_METHOD;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.LoginEvent;
 import com.google.common.base.Strings;
 
 import java.text.MessageFormat;
@@ -88,12 +91,24 @@ public class LoginActivity extends BaseActivity {
                 if (Strings.isNullOrEmpty(token) || user == null) {
                     Log.d(TAG, "onPostExecute: Failed in login!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
+
+                    Answers.getInstance().logLogin(new LoginEvent()
+                            .putMethod(ANSWERS_LOGIN_METHOD)
+                            .putSuccess(false));
                 } else if (ProfileAppConstant.FRIEND.equals(user.getProfile())) {
                     Log.d(TAG, "onPostExecute: Failed in login a Friend!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
+
+                    Answers.getInstance().logLogin(new LoginEvent()
+                            .putMethod(ANSWERS_LOGIN_METHOD)
+                            .putSuccess(false));
                 } else {
                     Log.d(TAG, "onPostExecute: Success in login!");
                     EventCache.createEvent(LOAD_CARD_DATA, LOAD_HERO_DATA, LOAD_SCENERY_DATA, LOAD_STATISTIC_USER_DATA);
+
+                    Answers.getInstance().logLogin(new LoginEvent()
+                            .putMethod(ANSWERS_LOGIN_METHOD)
+                            .putSuccess(true));
 
                     loadMainActivity();
                 }

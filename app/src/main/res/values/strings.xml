@@ -1,6 +1,6 @@
 <resources>
     <!-- ################### TITLE #################### -->
-    <string name="app_name">Arcadia Caller</string>
+    <string name="app_name">Arcadia Caller - Beta</string>
     <string name="title_app">Arcadia Caller</string>
     <string name="title_home">Inicial</string>
     <string name="title_campaigns">Campanhas</string>
@@ -170,12 +170,12 @@
     <![CDATA[
 <h3>Arcadia Caller @2016</h3><br>
 Versão: %s<br>
-Data Release: 07/08/2016<br><br>
+Data Release: 08/08/2016<br><br>
 <b>Suporte:</b><br>
 * O aplicativo suporta a caixa base e todos os componentes lançados pela Galapagos Jogos!
 <br><br>
 <b>Contato:</b><br>
-Nome: Rafael ALessandro Batista<br>
+Nome: Rafael Alessandro Batista<br>
 E-mail: rabsouza@gmail.com<br>
 <br><br>
 <i>Agradecimento aos Beta Testes!!!</i>

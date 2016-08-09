@@ -1,5 +1,6 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.ANSWERS_SIGN_UP_METHOD;
 import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.SignUpEvent;
 import com.google.common.base.Strings;
 
 import java.text.MessageFormat;
@@ -73,12 +76,24 @@ public class SignInActivity extends BaseActivity {
                 if (!result && alreadyExistseUser) {
                     Log.d(TAG, "onPostExecute: Failed in create user!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_already_exists_user);
+
+                    Answers.getInstance().logSignUp(new SignUpEvent()
+                            .putMethod(ANSWERS_SIGN_UP_METHOD)
+                            .putSuccess(false));
                 } else if (!result || user == null || user.getVersion() == null) {
                     Log.d(TAG, "onPostExecute: Failed in create user!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_create_user);
+
+                    Answers.getInstance().logSignUp(new SignUpEvent()
+                            .putMethod(ANSWERS_SIGN_UP_METHOD)
+                            .putSuccess(false));
                 } else {
                     Log.d(TAG, "onPostExecute: Success in create user!");
                     EventCache.createEvent(LOAD_CARD_DATA, LOAD_HERO_DATA, LOAD_SCENERY_DATA, LOAD_STATISTIC_USER_DATA);
+
+                    Answers.getInstance().logSignUp(new SignUpEvent()
+                            .putMethod(ANSWERS_SIGN_UP_METHOD)
+                            .putSuccess(true));
 
                     loadMainActivity();
                 }

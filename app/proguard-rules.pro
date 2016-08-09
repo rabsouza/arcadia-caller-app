@@ -21,6 +21,7 @@
 -dontskipnonpubliclibraryclasses
 -dontpreverify
 -verbose
+-ignorewarnings
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 
 -keep public class * extends android.app.Activity
@@ -58,4 +59,3 @@
   **[] $VALUES;
   public *;
 }
--keepresourcexmlelements manifest/application/meta-data@value=GlideModule
