@@ -6,14 +6,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public class SceneryItemViewHolder extends RecyclerView.ViewHolder {
 
-    @Getter
     private TextView txtName;
 
-    @Getter
     private ImageView imgAction;
 
 
@@ -24,4 +21,11 @@ public class SceneryItemViewHolder extends RecyclerView.ViewHolder {
         imgAction = (ImageView) view.findViewById(R.id.item_scenery_action);
     }
 
+    public TextView getTxtName() {
+        return txtName;
+    }
+
+    public ImageView getImgAction() {
+        return imgAction;
+    }
 }

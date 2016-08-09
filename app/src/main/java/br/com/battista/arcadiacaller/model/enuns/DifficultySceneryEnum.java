@@ -6,7 +6,6 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public enum DifficultySceneryEnum {
     NONE(R.string.difficulty_scenery_none),
@@ -23,7 +22,6 @@ public enum DifficultySceneryEnum {
         }
     }
 
-    @Getter
     private int descRes;
 
     DifficultySceneryEnum(int descRes) {
@@ -34,4 +32,7 @@ public enum DifficultySceneryEnum {
         return LOOK_UP.get(MoreObjects.firstNonNull(groupCard, NONE.name()).toUpperCase());
     }
 
+    public int getDescRes() {
+        return descRes;
+    }
 }

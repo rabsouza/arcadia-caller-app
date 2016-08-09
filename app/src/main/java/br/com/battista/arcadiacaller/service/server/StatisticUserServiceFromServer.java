@@ -1,8 +1,6 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
-import static br.com.battista.arcadiacaller.listener.StatisticUserListener.URI_FIND_BY_USER;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -16,6 +14,8 @@ import br.com.battista.arcadiacaller.model.StatisticUser;
 import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.StatisticUserService;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.StatisticUserListener.URI_FIND_BY_USER;
 
 public class StatisticUserServiceFromServer extends BaseService implements StatisticUserService {
 

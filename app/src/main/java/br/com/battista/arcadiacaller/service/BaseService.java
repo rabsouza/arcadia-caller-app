@@ -1,11 +1,5 @@
 package br.com.battista.arcadiacaller.service;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_KEY;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_VALUE;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_KEY;
-import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_VALUE;
-
 import android.net.http.HttpResponseCache;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -21,8 +15,6 @@ import br.com.battista.arcadiacaller.exception.AuthenticationException;
 import br.com.battista.arcadiacaller.exception.EntityAlreadyExistsException;
 import br.com.battista.arcadiacaller.exception.EntityNotFoundException;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
-import lombok.AccessLevel;
-import lombok.Getter;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -32,11 +24,17 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_KEY;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_VALUE;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_KEY;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_VALUE;
+
 public class BaseService {
 
     public static final String METHOD_GET = "GET";
     private static final String TAG = BaseService.class.getSimpleName();
-    @Getter(value = AccessLevel.PROTECTED)
+
     protected Retrofit builder;
 
     public BaseService() {
@@ -53,8 +51,12 @@ public class BaseService {
         builder = new Retrofit.Builder()
                 .baseUrl(RestConstant.REST_API_ENDPOINT.concat(RestConstant.REST_API_V1))
                 .addConverterFactory(JacksonConverterFactory.create())
-                .client(httpClient.build())
-                .build();
+                .client(httpClient.build()).build();
+        ;
+    }
+
+    protected Retrofit getBuilder() {
+        return builder;
     }
 
     @NonNull

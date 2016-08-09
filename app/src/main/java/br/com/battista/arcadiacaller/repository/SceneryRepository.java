@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.repository;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -14,6 +12,8 @@ import java.util.List;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
 
 public class SceneryRepository implements Repository<Scenery> {
 

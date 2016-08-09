@@ -1,10 +1,5 @@
 package br.com.battista.arcadiacaller.adapter;
 
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -42,16 +37,18 @@ import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
-import lombok.Getter;
+
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 
     private static final String TAG = CampaignAdapter.class.getSimpleName();
 
-    @Getter
     private Context context;
 
-    @Getter
     private Activity activity;
 
     private List<Campaign> campaigns;
@@ -61,6 +58,22 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
         this.activity = activity;
         this.context = context;
         this.campaigns = campaigns;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     @Override

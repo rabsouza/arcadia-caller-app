@@ -6,7 +6,6 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public enum GroupHeroEnum {
 
@@ -26,7 +25,6 @@ public enum GroupHeroEnum {
         }
     }
 
-    @Getter
     private int descRes;
 
     GroupHeroEnum(int descRes) {
@@ -47,4 +45,7 @@ public enum GroupHeroEnum {
         return GroupHeroEnum.NONE;
     }
 
+    public int getDescRes() {
+        return descRes;
+    }
 }

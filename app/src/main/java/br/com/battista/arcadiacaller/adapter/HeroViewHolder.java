@@ -6,26 +6,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public class HeroViewHolder extends RecyclerView.ViewHolder {
 
-    @Getter
     private TextView txtTitle;
 
-    @Getter
     private TextView txtGroup;
 
-    @Getter
     private TextView txtAbility;
 
-    @Getter
     private ImageView imgHero;
 
-    @Getter
     private ImageView imgLife;
 
-    @Getter
     private ImageView imgDefense;
 
     public HeroViewHolder(View view) {
@@ -40,4 +33,27 @@ public class HeroViewHolder extends RecyclerView.ViewHolder {
         imgDefense = (ImageView) view.findViewById(R.id.card_view_hero_defense);
     }
 
+    public TextView getTxtTitle() {
+        return txtTitle;
+    }
+
+    public TextView getTxtGroup() {
+        return txtGroup;
+    }
+
+    public TextView getTxtAbility() {
+        return txtAbility;
+    }
+
+    public ImageView getImgHero() {
+        return imgHero;
+    }
+
+    public ImageView getImgLife() {
+        return imgLife;
+    }
+
+    public ImageView getImgDefense() {
+        return imgDefense;
+    }
 }

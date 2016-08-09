@@ -1,11 +1,6 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_CREATE;
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_DELETE;
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_FIND_BY_USER;
-import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_UPDATE;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -24,6 +19,11 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_CREATE;
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_DELETE;
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_FIND_BY_USER;
+import static br.com.battista.arcadiacaller.listener.CampaignListener.URI_UPDATE;
 
 public class CampaignServiceFromServer extends BaseService implements CampaignService {
 

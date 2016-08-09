@@ -6,7 +6,6 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public enum GroupCardEnum {
 
@@ -29,9 +28,7 @@ public enum GroupCardEnum {
         }
     }
 
-    @Getter
     private int descRes;
-    @Getter
     private int colorRes;
 
     GroupCardEnum(int descRes, int colorRes) {
@@ -52,5 +49,11 @@ public enum GroupCardEnum {
         return GroupCardEnum.NONE;
     }
 
+    public int getDescRes() {
+        return descRes;
+    }
 
+    public int getColorRes() {
+        return colorRes;
+    }
 }

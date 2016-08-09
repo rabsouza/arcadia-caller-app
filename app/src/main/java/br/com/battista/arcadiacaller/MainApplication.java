@@ -1,14 +1,5 @@
 package br.com.battista.arcadiacaller;
 
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
-import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
-import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,8 +20,15 @@ import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import io.fabric.sdk.android.Fabric;
-import lombok.Getter;
-import lombok.Setter;
+
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_DATABASE_NAME;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.DEFAULT_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.MONOSPACE;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_FONT;
+import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
+import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
 
 public class MainApplication extends MultiDexApplication {
 
@@ -39,14 +37,10 @@ public class MainApplication extends MultiDexApplication {
     private static MainApplication instance = null;
     private final SharedPreferencesKeyEnum keyUser = SharedPreferencesKeyEnum.SAVED_USER;
 
-    @Getter
-    @Setter
     private transient String token;
 
     private User user;
 
-    @Setter
-    @Getter
     private Boolean onlineServer = Boolean.FALSE;
 
     private SharedPreferences preferences;
@@ -68,6 +62,22 @@ public class MainApplication extends MultiDexApplication {
         instance = this;
         initializeDB();
         initializeCacheManager();
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Boolean getOnlineServer() {
+        return onlineServer;
+    }
+
+    public void setOnlineServer(Boolean onlineServer) {
+        this.onlineServer = onlineServer;
     }
 
     private void initializeLoadImage() {

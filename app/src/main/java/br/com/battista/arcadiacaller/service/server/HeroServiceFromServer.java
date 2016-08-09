@@ -1,8 +1,6 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
-import static br.com.battista.arcadiacaller.listener.HeroListener.URI_FIND_ALL;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -20,6 +18,8 @@ import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
 import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.HeroService;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.HeroListener.URI_FIND_ALL;
 
 public class HeroServiceFromServer extends BaseService implements HeroService {
 

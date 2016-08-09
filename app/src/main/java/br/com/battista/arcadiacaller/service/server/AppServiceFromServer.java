@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
-import static br.com.battista.arcadiacaller.listener.AppListener.URI_HEALTH;
-import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
-
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -20,6 +17,9 @@ import br.com.battista.arcadiacaller.service.BaseService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_HEALTH;
+import static br.com.battista.arcadiacaller.listener.AppListener.URI_PING;
 
 public class AppServiceFromServer extends BaseService implements AppService {
 

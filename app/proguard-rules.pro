@@ -24,6 +24,9 @@
 -ignorewarnings
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 
+-keepattributes *Annotation*
+-dontwarn butterknife.internal.**
+
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
 -keep public class * extends android.app.Service

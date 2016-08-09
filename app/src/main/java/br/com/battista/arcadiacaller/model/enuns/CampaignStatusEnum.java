@@ -1,14 +1,13 @@
 package br.com.battista.arcadiacaller.model.enuns;
 
-import static br.com.battista.arcadiacaller.constants.HttpStatus.CREATED;
-
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.Maps;
 
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
+
+import static br.com.battista.arcadiacaller.constants.HttpStatus.CREATED;
 
 public enum CampaignStatusEnum {
 
@@ -26,7 +25,6 @@ public enum CampaignStatusEnum {
         }
     }
 
-    @Getter
     private int descRes;
 
     CampaignStatusEnum(int descRes) {
@@ -37,4 +35,7 @@ public enum CampaignStatusEnum {
         return LOOK_UP.get(MoreObjects.firstNonNull(typeCard, CREATED.name()).toUpperCase());
     }
 
+    public int getDescRes() {
+        return descRes;
+    }
 }

@@ -6,7 +6,6 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public enum TypeCardEnum {
     NONE(R.string.type_card_none),
@@ -22,7 +21,6 @@ public enum TypeCardEnum {
         }
     }
 
-    @Getter
     private int descRes;
 
     TypeCardEnum(int descRes) {
@@ -33,4 +31,7 @@ public enum TypeCardEnum {
         return LOOK_UP.get(MoreObjects.firstNonNull(typeCard, NONE.name()).toUpperCase());
     }
 
+    public int getDescRes() {
+        return descRes;
+    }
 }

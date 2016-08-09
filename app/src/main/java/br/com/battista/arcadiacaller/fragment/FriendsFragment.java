@@ -121,11 +121,10 @@ public class FriendsFragment extends BaseFragment {
                     Log.d(TAG, MessageFormat.format(
                             "doInBackground: create to friend with username: {0}.", username));
 
-                    User userBuild = User.builder()
+                    User userBuild = new User()
                             .username(username)
                             .mail(FriendConstant.MAIL_FRIEND)
-                            .profile(FriendConstant.PROFILE_FRIEND)
-                            .build();
+                            .profile(FriendConstant.PROFILE_FRIEND);
 
                     User userFriend = null;
                     if (userService.existsUsername(token, username)) {

@@ -1,24 +1,13 @@
 package br.com.battista.arcadiacaller.model;
 
+import com.google.common.base.MoreObjects;
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
 
 import java.io.Serializable;
 
 import br.com.battista.arcadiacaller.repository.contract.DatabaseContract.StatisticUserEntry;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = false)
 @Table(name = StatisticUserEntry.TABLE_NAME)
 public class StatisticUser extends BaseEntity implements Serializable {
 
@@ -104,4 +93,289 @@ public class StatisticUser extends BaseEntity implements Serializable {
         sceneryWonTitles = 0;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getUrlAvatar() {
+        return urlAvatar;
+    }
+
+    public void setUrlAvatar(String urlAvatar) {
+        this.urlAvatar = urlAvatar;
+    }
+
+    public Integer getCampaigns() {
+        return campaigns;
+    }
+
+    public void setCampaigns(Integer campaigns) {
+        this.campaigns = campaigns;
+    }
+
+    public Integer getCompleteds() {
+        return completeds;
+    }
+
+    public void setCompleteds(Integer completeds) {
+        this.completeds = completeds;
+    }
+
+    public Integer getSceneries() {
+        return sceneries;
+    }
+
+    public void setSceneries(Integer sceneries) {
+        this.sceneries = sceneries;
+    }
+
+    public Integer getGuilds() {
+        return guilds;
+    }
+
+    public void setGuilds(Integer guilds) {
+        this.guilds = guilds;
+    }
+
+    public Integer getCampaignWinners() {
+        return campaignWinners;
+    }
+
+    public void setCampaignWinners(Integer campaignWinners) {
+        this.campaignWinners = campaignWinners;
+    }
+
+    public Integer getCampaignDefeats() {
+        return campaignDefeats;
+    }
+
+    public void setCampaignDefeats(Integer campaignDefeats) {
+        this.campaignDefeats = campaignDefeats;
+    }
+
+    public Integer getCampaignMedalsWinners() {
+        return campaignMedalsWinners;
+    }
+
+    public void setCampaignMedalsWinners(Integer campaignMedalsWinners) {
+        this.campaignMedalsWinners = campaignMedalsWinners;
+    }
+
+    public Integer getCampaignMedalsLeastDeaths() {
+        return campaignMedalsLeastDeaths;
+    }
+
+    public void setCampaignMedalsLeastDeaths(Integer campaignMedalsLeastDeaths) {
+        this.campaignMedalsLeastDeaths = campaignMedalsLeastDeaths;
+    }
+
+    public Integer getCampaignMedalsMostCoins() {
+        return campaignMedalsMostCoins;
+    }
+
+    public void setCampaignMedalsMostCoins(Integer campaignMedalsMostCoins) {
+        this.campaignMedalsMostCoins = campaignMedalsMostCoins;
+    }
+
+    public Integer getCampaignMedalsWonRewards() {
+        return campaignMedalsWonRewards;
+    }
+
+    public void setCampaignMedalsWonRewards(Integer campaignMedalsWonRewards) {
+        this.campaignMedalsWonRewards = campaignMedalsWonRewards;
+    }
+
+    public Integer getCampaignMedalsWonTitles() {
+        return campaignMedalsWonTitles;
+    }
+
+    public void setCampaignMedalsWonTitles(Integer campaignMedalsWonTitles) {
+        this.campaignMedalsWonTitles = campaignMedalsWonTitles;
+    }
+
+    public Integer getSceneryWinners() {
+        return sceneryWinners;
+    }
+
+    public void setSceneryWinners(Integer sceneryWinners) {
+        this.sceneryWinners = sceneryWinners;
+    }
+
+    public Integer getSceneryDefeats() {
+        return sceneryDefeats;
+    }
+
+    public void setSceneryDefeats(Integer sceneryDefeats) {
+        this.sceneryDefeats = sceneryDefeats;
+    }
+
+    public Integer getSceneryLeastDeaths() {
+        return sceneryLeastDeaths;
+    }
+
+    public void setSceneryLeastDeaths(Integer sceneryLeastDeaths) {
+        this.sceneryLeastDeaths = sceneryLeastDeaths;
+    }
+
+    public Integer getSceneryMostCoins() {
+        return sceneryMostCoins;
+    }
+
+    public void setSceneryMostCoins(Integer sceneryMostCoins) {
+        this.sceneryMostCoins = sceneryMostCoins;
+    }
+
+    public Integer getSceneryWonRewards() {
+        return sceneryWonRewards;
+    }
+
+    public void setSceneryWonRewards(Integer sceneryWonRewards) {
+        this.sceneryWonRewards = sceneryWonRewards;
+    }
+
+    public Integer getSceneryWonTitles() {
+        return sceneryWonTitles;
+    }
+
+    public void setSceneryWonTitles(Integer sceneryWonTitles) {
+        this.sceneryWonTitles = sceneryWonTitles;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("username", username)
+                .add("mail", mail)
+                .add("urlAvatar", urlAvatar)
+                .add("campaigns", campaigns)
+                .add("completeds", completeds)
+                .add("sceneries", sceneries)
+                .add("guilds", guilds)
+                .add("campaignWinners", campaignWinners)
+                .add("campaignDefeats", campaignDefeats)
+                .add("campaignMedalsWinners", campaignMedalsWinners)
+                .add("campaignMedalsLeastDeaths", campaignMedalsLeastDeaths)
+                .add("campaignMedalsMostCoins", campaignMedalsMostCoins)
+                .add("campaignMedalsWonRewards", campaignMedalsWonRewards)
+                .add("campaignMedalsWonTitles", campaignMedalsWonTitles)
+                .add("sceneryWinners", sceneryWinners)
+                .add("sceneryDefeats", sceneryDefeats)
+                .add("sceneryLeastDeaths", sceneryLeastDeaths)
+                .add("sceneryMostCoins", sceneryMostCoins)
+                .add("sceneryWonRewards", sceneryWonRewards)
+                .add("sceneryWonTitles", sceneryWonTitles)
+                .toString();
+    }
+
+    public StatisticUser username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public StatisticUser mail(String mail) {
+        this.mail = mail;
+        return this;
+    }
+
+    public StatisticUser urlAvatar(String urlAvatar) {
+        this.urlAvatar = urlAvatar;
+        return this;
+    }
+
+    public StatisticUser campaigns(Integer campaigns) {
+        this.campaigns = campaigns;
+        return this;
+    }
+
+    public StatisticUser completeds(Integer completeds) {
+        this.completeds = completeds;
+        return this;
+    }
+
+    public StatisticUser sceneries(Integer sceneries) {
+        this.sceneries = sceneries;
+        return this;
+    }
+
+    public StatisticUser guilds(Integer guilds) {
+        this.guilds = guilds;
+        return this;
+    }
+
+    public StatisticUser campaignWinners(Integer campaignWinners) {
+        this.campaignWinners = campaignWinners;
+        return this;
+    }
+
+    public StatisticUser campaignDefeats(Integer campaignDefeats) {
+        this.campaignDefeats = campaignDefeats;
+        return this;
+    }
+
+    public StatisticUser campaignMedalsWinners(Integer campaignMedalsWinners) {
+        this.campaignMedalsWinners = campaignMedalsWinners;
+        return this;
+    }
+
+    public StatisticUser campaignMedalsLeastDeaths(Integer campaignMedalsLeastDeaths) {
+        this.campaignMedalsLeastDeaths = campaignMedalsLeastDeaths;
+        return this;
+    }
+
+    public StatisticUser campaignMedalsMostCoins(Integer campaignMedalsMostCoins) {
+        this.campaignMedalsMostCoins = campaignMedalsMostCoins;
+        return this;
+    }
+
+    public StatisticUser campaignMedalsWonRewards(Integer campaignMedalsWonRewards) {
+        this.campaignMedalsWonRewards = campaignMedalsWonRewards;
+        return this;
+    }
+
+    public StatisticUser campaignMedalsWonTitles(Integer campaignMedalsWonTitles) {
+        this.campaignMedalsWonTitles = campaignMedalsWonTitles;
+        return this;
+    }
+
+    public StatisticUser sceneryWinners(Integer sceneryWinners) {
+        this.sceneryWinners = sceneryWinners;
+        return this;
+    }
+
+    public StatisticUser sceneryDefeats(Integer sceneryDefeats) {
+        this.sceneryDefeats = sceneryDefeats;
+        return this;
+    }
+
+    public StatisticUser sceneryLeastDeaths(Integer sceneryLeastDeaths) {
+        this.sceneryLeastDeaths = sceneryLeastDeaths;
+        return this;
+    }
+
+    public StatisticUser sceneryMostCoins(Integer sceneryMostCoins) {
+        this.sceneryMostCoins = sceneryMostCoins;
+        return this;
+    }
+
+    public StatisticUser sceneryWonRewards(Integer sceneryWonRewards) {
+        this.sceneryWonRewards = sceneryWonRewards;
+        return this;
+    }
+
+    public StatisticUser sceneryWonTitles(Integer sceneryWonTitles) {
+        this.sceneryWonTitles = sceneryWonTitles;
+        return this;
+    }
 }

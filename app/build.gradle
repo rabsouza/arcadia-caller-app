@@ -82,9 +82,6 @@ dependencies {
     compile "de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"
     compile "com.google.guava:guava:$rootProject.ext.guavaVersion"
 
-    provided "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
-    apt "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
-
     compile "com.squareup.okhttp:okhttp:$rootProject.ext.okhttpVersion"
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-jackson:$rootProject.ext.retrofitVersion"
@@ -111,6 +108,7 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.6.1@aar') {
         transitive = true;
     }
+
     compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
 }

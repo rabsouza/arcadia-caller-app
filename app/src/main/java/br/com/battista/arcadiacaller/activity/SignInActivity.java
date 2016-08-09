@@ -1,12 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.ANSWERS_SIGN_UP_METHOD;
-import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_STATISTIC_USER_DATA;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +24,13 @@ import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.ANSWERS_SIGN_UP_METHOD;
+import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_STATISTIC_USER_DATA;
 
 public class SignInActivity extends BaseActivity {
 
@@ -107,11 +107,10 @@ public class SignInActivity extends BaseActivity {
                     Log.d(TAG, MessageFormat.format(
                             "doInBackground: create to user with username: {0} and mail {1}.", username, mail));
 
-                    User userBuild = User.builder()
+                    User userBuild = new User()
                             .username(username)
                             .mail(mail)
-                            .profile(ProfileAppConstant.APP)
-                            .build();
+                            .profile(ProfileAppConstant.APP);
 
                     user = service.create(userBuild);
                     if (user != null && DEFAULT_VERSION.equals(user.getVersion())) {

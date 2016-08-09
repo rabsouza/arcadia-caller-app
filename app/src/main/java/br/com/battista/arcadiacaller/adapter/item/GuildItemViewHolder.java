@@ -6,17 +6,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public class GuildItemViewHolder extends RecyclerView.ViewHolder {
 
-    @Getter
     private TextView txtName;
 
-    @Getter
     private TextView txtUsername;
 
-    @Getter
     private ImageView imgImg;
 
 
@@ -28,4 +24,15 @@ public class GuildItemViewHolder extends RecyclerView.ViewHolder {
         imgImg = (ImageView) view.findViewById(R.id.item_guild_img);
     }
 
+    public TextView getTxtName() {
+        return txtName;
+    }
+
+    public TextView getTxtUsername() {
+        return txtUsername;
+    }
+
+    public ImageView getImgImg() {
+        return imgImg;
+    }
 }

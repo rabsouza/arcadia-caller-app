@@ -6,7 +6,6 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public enum LocationSceneryEnum {
     NONE(R.string.location_scenery_none, R.color.colorLocationSceneryNone),
@@ -23,9 +22,7 @@ public enum LocationSceneryEnum {
         }
     }
 
-    @Getter
     private int descRes;
-    @Getter
     private int colorRes;
 
     LocationSceneryEnum(int descRes, int colorRes) {
@@ -37,4 +34,11 @@ public enum LocationSceneryEnum {
         return LOOK_UP.get(MoreObjects.firstNonNull(groupCard, NONE.name()).toUpperCase());
     }
 
+    public int getDescRes() {
+        return descRes;
+    }
+
+    public int getColorRes() {
+        return colorRes;
+    }
 }

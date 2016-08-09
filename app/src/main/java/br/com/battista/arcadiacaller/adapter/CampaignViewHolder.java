@@ -6,35 +6,25 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public class CampaignViewHolder extends RecyclerView.ViewHolder {
 
-    @Getter
     private TextView txtTitle;
 
-    @Getter
     private TextView txtKey;
 
-    @Getter
     private TextView txtDate;
 
-    @Getter
     private TextView txtStatus;
 
-    @Getter
     private ImageButton btnFinish;
 
-    @Getter
     private ImageButton btnEdit;
 
-    @Getter
     private ImageButton btnDelete;
 
-    @Getter
     private ImageButton btnPlay;
 
-    @Getter
     private ImageButton btnInfo;
 
     public CampaignViewHolder(View view) {
@@ -52,4 +42,39 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
         btnInfo = (ImageButton) view.findViewById(R.id.card_view_campaign_info);
     }
 
+    public TextView getTxtTitle() {
+        return txtTitle;
+    }
+
+    public TextView getTxtKey() {
+        return txtKey;
+    }
+
+    public TextView getTxtDate() {
+        return txtDate;
+    }
+
+    public TextView getTxtStatus() {
+        return txtStatus;
+    }
+
+    public ImageButton getBtnFinish() {
+        return btnFinish;
+    }
+
+    public ImageButton getBtnEdit() {
+        return btnEdit;
+    }
+
+    public ImageButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public ImageButton getBtnPlay() {
+        return btnPlay;
+    }
+
+    public ImageButton getBtnInfo() {
+        return btnInfo;
+    }
 }

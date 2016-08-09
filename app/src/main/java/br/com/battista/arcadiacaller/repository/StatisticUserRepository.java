@@ -1,7 +1,5 @@
 package br.com.battista.arcadiacaller.repository;
 
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.StatisticUserEntry;
-
 import android.util.Log;
 
 import com.orm.query.Select;
@@ -10,6 +8,8 @@ import java.text.MessageFormat;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.model.StatisticUser;
+
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.StatisticUserEntry;
 
 public class StatisticUserRepository implements Repository<StatisticUser> {
 

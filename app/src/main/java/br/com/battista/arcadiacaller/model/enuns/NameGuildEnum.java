@@ -6,7 +6,6 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public enum NameGuildEnum {
     ORANGE(R.string.name_guild_orange, "https://storage.googleapis.com/arcadia-quest-storage/guilds/guild_orange.png"),
@@ -24,10 +23,8 @@ public enum NameGuildEnum {
         }
     }
 
-    @Getter
     private final int resId;
 
-    @Getter
     private final String urlImg;
 
     NameGuildEnum(int resId, String urlImg) {
@@ -39,4 +36,11 @@ public enum NameGuildEnum {
         return LOOK_UP.get(MoreObjects.firstNonNull(name, BLUE.name()).toUpperCase());
     }
 
+    public int getResId() {
+        return resId;
+    }
+
+    public String getUrlImg() {
+        return urlImg;
+    }
 }

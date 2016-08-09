@@ -5,20 +5,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import br.com.battista.arcadiacaller.R;
-import lombok.Getter;
 
 public class SceneryViewHolder extends RecyclerView.ViewHolder {
 
-    @Getter
     private TextView txtTitle;
 
-    @Getter
     private TextView txtDifficulty;
 
-    @Getter
     private TextView txtWonReward;
 
-    @Getter
     private TextView txtWonTitle;
 
 
@@ -31,4 +26,19 @@ public class SceneryViewHolder extends RecyclerView.ViewHolder {
         txtWonTitle = (TextView) view.findViewById(R.id.card_view_scenery_won_title);
     }
 
+    public TextView getTxtTitle() {
+        return txtTitle;
+    }
+
+    public TextView getTxtDifficulty() {
+        return txtDifficulty;
+    }
+
+    public TextView getTxtWonReward() {
+        return txtWonReward;
+    }
+
+    public TextView getTxtWonTitle() {
+        return txtWonTitle;
+    }
 }

@@ -1,12 +1,6 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-import static java.lang.Boolean.FALSE;
-
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -35,6 +29,12 @@ import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static java.lang.Boolean.FALSE;
 
 public class CampaignDetailGuildsFragment extends BaseFragment {
 
@@ -215,7 +215,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         User user = userService.findByUsername(token, loginBlue);
                         Guild guild = campaign.getHeroesGuild01();
                         if (guild == null) {
-                            guild = Guild.builder().name(BLUE).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                            guild = new Guild().name(BLUE).user(user).savedMoney(FALSE).defeats(0).victories(0);
                         } else {
                             guild.setUser(user);
                             guild.setName(BLUE);
@@ -233,7 +233,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         User user = userService.findByUsername(token, loginGreen);
                         Guild guild = campaign.getHeroesGuild02();
                         if (guild == null) {
-                            guild = Guild.builder().name(GREEN).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                            guild = new Guild().name(GREEN).user(user).savedMoney(FALSE).defeats(0).victories(0);
                         } else {
                             guild.setUser(user);
                             guild.setName(GREEN);
@@ -251,7 +251,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         User user = userService.findByUsername(token, loginRed);
                         Guild guild = campaign.getHeroesGuild03();
                         if (guild == null) {
-                            guild = Guild.builder().name(RED).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                            guild = new Guild().name(RED).user(user).savedMoney(FALSE).defeats(0).victories(0);
                         } else {
                             guild.setUser(user);
                             guild.setName(RED);
@@ -269,7 +269,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         User user = userService.findByUsername(token, loginOrange);
                         Guild guild = campaign.getHeroesGuild04();
                         if (guild == null) {
-                            guild = Guild.builder().name(ORANGE).user(user).savedMoney(FALSE).defeats(0).victories(0).build();
+                            guild = new Guild().name(ORANGE).user(user).savedMoney(FALSE).defeats(0).victories(0);
                         } else {
                             guild.setUser(user);
                             guild.setName(ORANGE);

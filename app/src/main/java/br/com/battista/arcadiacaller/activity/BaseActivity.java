@@ -1,8 +1,5 @@
 package br.com.battista.arcadiacaller.activity;
 
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -30,14 +27,19 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.util.AppUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
-import lombok.Getter;
+
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
 
 public class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
-    @Getter
     private Toolbar toolbar;
+
+    public Toolbar getToolbar() {
+        return toolbar;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

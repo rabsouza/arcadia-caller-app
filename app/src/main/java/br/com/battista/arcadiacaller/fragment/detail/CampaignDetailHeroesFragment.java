@@ -1,13 +1,6 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -47,6 +40,13 @@ import br.com.battista.arcadiacaller.service.HeroService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
+
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class CampaignDetailHeroesFragment extends BaseFragment {
 
@@ -411,17 +411,17 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
             Hero hero01 = heroMap.get(spnGuildBlueHero01.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 01: {0} to Guild Blue!", hero01));
-            HeroGuild heroGuild = HeroGuild.builder().hero(hero01).active(TRUE).deleted(FALSE).build();
+            HeroGuild heroGuild = new HeroGuild().hero(hero01).active(TRUE).deleted(FALSE);
             heroesGuild01.setHero01(heroGuild);
 
             Hero hero02 = heroMap.get(spnGuildBlueHero02.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 02: {0} to Guild Blue!", hero02));
-            heroGuild = HeroGuild.builder().hero(hero02).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero02).active(TRUE).deleted(FALSE);
             heroesGuild01.setHero02(heroGuild);
 
             Hero hero03 = heroMap.get(spnGuildBlueHero03.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 03: {0} to Guild Blue!", hero03));
-            heroGuild = HeroGuild.builder().hero(hero03).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero03).active(TRUE).deleted(FALSE);
             heroesGuild01.setHero03(heroGuild);
         }
 
@@ -430,17 +430,17 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
             Hero hero01 = heroMap.get(spnGuildGreenHero01.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 01: {0} to Guild Green!", hero01));
-            HeroGuild heroGuild = HeroGuild.builder().hero(hero01).active(TRUE).deleted(FALSE).build();
+            HeroGuild heroGuild = new HeroGuild().hero(hero01).active(TRUE).deleted(FALSE);
             heroesGuild02.setHero01(heroGuild);
 
             Hero hero02 = heroMap.get(spnGuildGreenHero02.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 02: {0} to Guild Green!", hero02));
-            heroGuild = HeroGuild.builder().hero(hero02).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero02).active(TRUE).deleted(FALSE);
             heroesGuild02.setHero02(heroGuild);
 
             Hero hero03 = heroMap.get(spnGuildGreenHero03.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 03: {0} to Guild Green!", hero03));
-            heroGuild = HeroGuild.builder().hero(hero03).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero03).active(TRUE).deleted(FALSE);
             heroesGuild02.setHero03(heroGuild);
         }
 
@@ -449,17 +449,17 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
             Hero hero01 = heroMap.get(spnGuildRedHero01.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 01: {0} to Guild Red!", hero01));
-            HeroGuild heroGuild = HeroGuild.builder().hero(hero01).active(TRUE).deleted(FALSE).build();
+            HeroGuild heroGuild = new HeroGuild().hero(hero01).active(TRUE).deleted(FALSE);
             heroesGuild03.setHero01(heroGuild);
 
             Hero hero02 = heroMap.get(spnGuildRedHero02.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 02: {0} to Guild Red!", hero02));
-            heroGuild = HeroGuild.builder().hero(hero02).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero02).active(TRUE).deleted(FALSE);
             heroesGuild03.setHero02(heroGuild);
 
             Hero hero03 = heroMap.get(spnGuildRedHero03.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 03: {0} to Guild Red!", hero03));
-            heroGuild = HeroGuild.builder().hero(hero03).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero03).active(TRUE).deleted(FALSE);
             heroesGuild03.setHero03(heroGuild);
         }
 
@@ -468,17 +468,17 @@ public class CampaignDetailHeroesFragment extends BaseFragment {
 
             Hero hero01 = heroMap.get(spnGuildOrangeHero01.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 01: {0} to Guild Orange!", hero01));
-            HeroGuild heroGuild = HeroGuild.builder().hero(hero01).active(TRUE).deleted(FALSE).build();
+            HeroGuild heroGuild = new HeroGuild().hero(hero01).active(TRUE).deleted(FALSE);
             heroesGuild04.setHero01(heroGuild);
 
             Hero hero02 = heroMap.get(spnGuildOrangeHero02.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 02: {0} to Guild Orange!", hero02));
-            heroGuild = HeroGuild.builder().hero(hero02).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero02).active(TRUE).deleted(FALSE);
             heroesGuild04.setHero02(heroGuild);
 
             Hero hero03 = heroMap.get(spnGuildOrangeHero03.getText().toString());
             Log.i(TAG, MessageFormat.format("processNextAction: Fill the hero 03: {0} to Guild Orange!", hero03));
-            heroGuild = HeroGuild.builder().hero(hero03).active(TRUE).deleted(FALSE).build();
+            heroGuild = new HeroGuild().hero(hero03).active(TRUE).deleted(FALSE);
             heroesGuild04.setHero03(heroGuild);
         }
 

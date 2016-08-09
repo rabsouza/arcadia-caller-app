@@ -19,11 +19,10 @@ public class LoginActivityHelper {
 
     public static User createNewUser() {
         LoginService loginService = Inject.provideLoginService();
-        User user = User.builder()
+        User user = new User()
                 .username(DATA_USER_TEST_USERNAME)
                 .mail(DATA_USER_TEST_MAIL)
-                .profile(DATA_USER_TEST_PROFILE)
-                .build();
+                .profile(DATA_USER_TEST_PROFILE);
 
         try {
             loginService.create(user);
