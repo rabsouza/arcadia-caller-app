@@ -2,8 +2,31 @@
 
 Os Pacotes liberados para testes e produção da aplicação.
 
-## PHASE - BETA
+## PHASE - PRD
 
+### Version - 1.0.0
+**Date release**
+ - 09/08/2016
+
+**Features**
+ - Criar novo usuário
+ - Fazer login do usuário
+ - Listagem de cartas
+ - Listagem de cenários
+ - Listagem de heróis
+ - Informação da app
+ - Trocar de usuário
+ - Cadastrar, visualizar, finalizar, editar e excluir uma campanha
+ - Cadastrar amigos
+ - Home com estatísticas
+
+**Bugs**
+
+**Improvements**
+
+------------------------------------------------------------------------
+
+## PHASE - BETA
 
 ### Version - 2.1.3
 **Date release**
