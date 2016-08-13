@@ -2,40 +2,50 @@
 
 Essa aplicação é uma app cliente para ArcadiaCaller.
 
-Utilizada para gerenciar as partidas do jogo de tabuleiro: [Arcadia Quest]
+Utilizada para gerenciar as partidas/campanhas do jogo de tabuleiro: [Arcadia Quest]
 
 
 ## Funcionalidade
 
-* Login
-* Cadastro de Hérois
-* Cadastro de Cartas
-* Cadastro de Cenários
+ - Criar novo usuário
+ - Fazer login do usuário
+ - Listagem de cartas
+ - Listagem de cenários
+ - Listagem de heróis
+ - Informação da app
+ - Trocar de usuário
+ - Cadastrar, visualizar, finalizar, editar e excluir uma campanha
+ - Cadastrar amigos
+ - Home com estatísticas
 
 ## Suporte a multi-idioma
-* PortuguÊs Brasil (pt)(default)
+* Português Brasil (pt)(default)
 
 ## Frameworks
 
-* gradle
-* android
-* guava
-* appcompat-v7
-* support-v4
-* design
-* recyclerview
-* cardview
-* picasso
-* circleimageview
+ * supportLibrary
+ * constraint
+ * guava
+ * circleimageview
+ * glide
+ * lombok
+ * retrofit
+ * okhttp
+ * sugar
+ * libraryMaterial
+ * multidex
+ * rxjava
+ * eventBus
 
 ## Framework Test
 
-* junit
-* hamcrest
-* mockito
-* powemock
-* espresso
-* support-annotations
+ * junit
+ * mockito
+ * hamcrest
+ * powerMockito
+ * runner
+ * rules
+ * espresso
 
 ### Versão
 
@@ -60,9 +70,17 @@ Executar os testes
 $ gradle test --continue
 ```
 
-## Download apk
+## Release notes
+
+- Link: [ReleaseNotes]
+
+## APK Debug
 
 - Link: [ArcadiaCaller.apk]
+
+## Google Play
+
+- Link: ...
 
 ## Contatos
 
@@ -80,6 +98,9 @@ GNU GENERAL PUBLIC LICENSE
 **Free Source Code, Hell Yeah! :+1:**
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+
+[ReleaseNotes]: <https://github.com/rabsouza/arcadia-caller-app/blob/master/RELEASE-NOTES.md>
 
 [ArcadiaCaller.apk]: <https://github.com/rabsouza/arcadia-caller-app/blob/master/ArcadiaCaller.apk?raw=true>
 

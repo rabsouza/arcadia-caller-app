@@ -153,9 +153,6 @@
 }
 
 ################### CONFIG RETROFIT2 ###########################
-# Retrofit 2.X
-## https://square.github.io/retrofit/ ##
-
 -dontwarn retrofit2.**
 -keep class retrofit2.** { *; }
 -keepattributes Signature
@@ -172,3 +169,36 @@
 -keep interface okhttp3.** { *; }
 -dontwarn okhttp3.**
 -dontwarn okio.*
+
+###################### CONFIG EVENT BUS ################################
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }
+
+# Only required if you use AsyncExecutor
+-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+    <init>(java.lang.Throwable);
+}
+
+################### CONFIG SUGGAR ###########################
+-dontwarn com.orm.**
+-keep class com.orm.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+-keep public class * extends com.orm.SugarRecord {
+  public protected *;
+}
+
+################### CONFIG CIRCLE IMAGE VIEW ###########################
+-dontwarn de.hdodenhof.**
+-keep class de.hdodenhof.** { *; }
+
+################### CONFIG crashlytics ###########################
+-keepattributes SourceFile,LineNumberTable
+-keep public class * extends java.lang.Exception
+
+################### CONFIG SPINNER MATERIAL DESIGN ###########################
+-dontwarn com.weiwangcn.betterspinner.**
+-keep class com.weiwangcn.betterspinner.** { *; }

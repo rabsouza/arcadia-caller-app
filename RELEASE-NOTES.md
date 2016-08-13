@@ -6,7 +6,8 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ### Version - 1.0.0
 **Date release**
- - 09/08/2016
+ - 12/08/2016
+ - Mudança de nome para: Arcadia Companion
 
 **Features**
  - Criar novo usuário

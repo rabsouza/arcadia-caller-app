@@ -37,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/background_header"
+                android:src="@drawable/background_campaign"
                 app:layout_collapseMode="parallax"/>
 
             <android.support.v7.widget.Toolbar

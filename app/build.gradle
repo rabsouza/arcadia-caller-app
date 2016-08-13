@@ -3,7 +3,6 @@ apply plugin: 'io.fabric'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileOptions {
@@ -36,7 +35,7 @@ android {
             versionName "1.0.0"
         }
         prod {
-            applicationIdSuffix = ".prd"
+            applicationIdSuffix = ".app"
             versionCode 1
             versionName "1.0.0"
         }
