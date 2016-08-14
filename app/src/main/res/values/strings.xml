@@ -1,7 +1,5 @@
 <resources>
     <!-- ################### TITLE #################### -->
-    <string name="app_name">Arcadia Companion</string>
-    <string name="title_app">Arcadia Companion</string>
     <string name="title_home">Inicial</string>
     <string name="title_campaigns">Campanhas</string>
     <string name="title_friends">Amigos</string>
@@ -169,8 +167,8 @@
     <string name="about_dialog_text">
     <![CDATA[
 <h3>Arcadia Companion @2016</h3><br>
-Versão: %s<br>
-Data Release: 09/08/2016<br><br>
+Versão: {0} ({1})<br>
+Data Release: {2}<br><br>
 <b>Suporte:</b><br>
 * O aplicativo suporta a caixa base e todos os componentes lançados pela Galapagos Jogos!
 <br><br>

@@ -62,7 +62,7 @@
     <style name="NavDrawerTextStyle">
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:typeface">sans</item>
     </style>
 

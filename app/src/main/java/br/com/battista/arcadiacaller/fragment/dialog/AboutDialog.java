@@ -15,8 +15,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
+import java.text.MessageFormat;
+import java.util.Calendar;
+
+import br.com.battista.arcadiacaller.BuildConfig;
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.DateUtils;
 
 public class AboutDialog extends DialogFragment {
 
@@ -36,8 +40,13 @@ public class AboutDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         SpannableStringBuilder aboutBody = new SpannableStringBuilder();
-        String versionName = AndroidUtils.getVersionName(getActivity());
-        aboutBody.append(Html.fromHtml(getString(R.string.about_dialog_text, versionName)));
+        String versionName = BuildConfig.VERSION_NAME;
+        Integer versionNumber = BuildConfig.VERSION_CODE;
+
+        Calendar buildDate = Calendar.getInstance();
+        buildDate.setTimeInMillis(BuildConfig.TIMESTAMP);
+        String info = MessageFormat.format(getString(R.string.about_dialog_text), versionName, versionNumber, DateUtils.format(buildDate));
+        aboutBody.append(Html.fromHtml(info));
 
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         TextView view = (TextView) inflater.inflate(R.layout.dialog_about, null);

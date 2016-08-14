@@ -17,15 +17,20 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "Arcadia Companion"
+            resValue "string", "title_app", "Arcadia Companion"
         }
         debug {
             minifyEnabled false
             testCoverageEnabled = true
+            resValue "string", "app_name", "Arcadia Companion - Debug"
+            resValue "string", "title_app", "Arcadia Companion - Debug"
         }
     }
     productFlavors {
@@ -41,8 +46,8 @@ android {
         }
         dev {
             applicationIdSuffix = ".dev"
-            versionCode 214
-            versionName "2.1.4"
+            versionCode 215
+            versionName "2.1.5"
         }
     }
     android.variantFilter { variant ->
