@@ -178,63 +178,77 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="@dimen/element_vertical_margin">
-
-            <ImageButton
-                android:id="@+id/card_view_campaign_delete"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/cards_button_width"
-                android:layout_height="@dimen/cards_button_height"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/fab_margin_right"
-                android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_delete"/>
-
-            <ImageButton
-                android:id="@+id/card_view_campaign_finish"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/cards_button_width"
-                android:layout_height="@dimen/cards_button_height"
-                android:layout_marginRight="@dimen/element_horizontal_margin"
-                android:layout_toLeftOf="@id/card_view_campaign_delete"
-                android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_finish"/>
-
-            <ImageButton
-                android:id="@+id/card_view_campaign_play"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/cards_button_width"
-                android:layout_height="@dimen/cards_button_height"
-                android:layout_marginRight="@dimen/element_horizontal_margin"
-                android:layout_toLeftOf="@id/card_view_campaign_finish"
-                android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_play"/>
-
-            <ImageButton
-                android:id="@+id/card_view_campaign_edit"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/cards_button_width"
-                android:layout_height="@dimen/cards_button_height"
-                android:layout_marginRight="@dimen/element_horizontal_margin"
-                android:layout_toLeftOf="@id/card_view_campaign_play"
-                android:tint="@color/gray"
-                app:srcCompat="@drawable/ic_edit"/>
+            android:layout_marginTop="@dimen/element_vertical_margin"
+            android:gravity="right"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/card_view_campaign_info"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="@dimen/cards_button_width"
                 android:layout_height="@dimen/cards_button_height"
-                android:layout_marginRight="@dimen/element_horizontal_margin"
-                android:layout_toLeftOf="@id/card_view_campaign_edit"
+                android:layout_marginLeft="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginRight="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"
                 android:tint="@color/gray"
                 app:srcCompat="@drawable/ic_info"/>
 
-        </RelativeLayout>
+            <ImageButton
+                android:id="@+id/card_view_campaign_edit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/cards_button_width"
+                android:layout_height="@dimen/cards_button_height"
+                android:layout_marginLeft="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginRight="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:tint="@color/gray"
+                app:srcCompat="@drawable/ic_edit"/>
+
+            <ImageButton
+                android:id="@+id/card_view_campaign_play"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/cards_button_width"
+                android:layout_height="@dimen/cards_button_height"
+                android:layout_marginLeft="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginRight="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:tint="@color/gray"
+                app:srcCompat="@drawable/ic_play"/>
+
+            <ImageButton
+                android:id="@+id/card_view_campaign_finish"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/cards_button_width"
+                android:layout_height="@dimen/cards_button_height"
+                android:layout_marginLeft="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginRight="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:tint="@color/gray"
+                app:srcCompat="@drawable/ic_finish"/>
+
+            <ImageButton
+                android:id="@+id/card_view_campaign_delete"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/cards_button_width"
+                android:layout_height="@dimen/cards_button_height"
+                android:layout_marginLeft="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginRight="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:tint="@color/gray"
+                app:srcCompat="@drawable/ic_delete"/>
+
+            <View
+                android:layout_width="@dimen/cards_button_width"
+                android:layout_height="@dimen/cards_button_height"
+                android:layout_marginLeft="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginRight="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

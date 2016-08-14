@@ -1,5 +1,10 @@
 package br.com.battista.arcadiacaller.adapter;
 
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -37,11 +42,6 @@ import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
-
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 
@@ -123,6 +123,9 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
             final View viewCurrent = viewCampaign;
 
             final int positionRemoved = holder.getAdapterPosition();
+
+            int visibilityBtnDelete = CREATED_CAMPAIGN.equals(statusCurrent) ? View.VISIBLE : View.GONE;
+            holder.getBtnDelete().setVisibility(visibilityBtnDelete);
             holder.getBtnDelete().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -135,6 +138,8 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 }
             });
 
+            int visibilityBtnEdit = CREATED_CAMPAIGN.equals(statusCurrent) ? View.VISIBLE : View.GONE;
+            holder.getBtnEdit().setVisibility(visibilityBtnEdit);
             holder.getBtnEdit().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -147,10 +152,14 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 }
             });
 
+            int visibilityBtnPlay = (CREATED_CAMPAIGN.equals(statusCurrent) && campaign.existsHeroes() && campaign.getScenery1() != null)
+                    || (Lists.newArrayList(EDITED_SCENERY, ADDED_SCENERY).contains(statusCurrent) && campaign.existsHeroes())
+                    ? View.VISIBLE : View.GONE;
+            holder.getBtnPlay().setVisibility(visibilityBtnPlay);
             holder.getBtnPlay().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (CREATED_CAMPAIGN.equals(statusCurrent) && campaign.existsHeroes()) {
+                    if (CREATED_CAMPAIGN.equals(statusCurrent) && campaign.existsHeroes() && campaign.getScenery1() != null) {
                         createDialogPlayCampaign(campaign, viewCurrent);
                     } else if (Lists.newArrayList(EDITED_SCENERY, ADDED_SCENERY).contains(statusCurrent) && campaign.existsHeroes()) {
                         loadCampaignDetailCompleteActivity(campaign);
@@ -161,6 +170,8 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 }
             });
 
+            int visibilityBtnFinish = COMPLETED_CAMPAIGN.equals(statusCurrent) ? View.VISIBLE : View.GONE;
+            holder.getBtnFinish().setVisibility(visibilityBtnFinish);
             holder.getBtnFinish().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

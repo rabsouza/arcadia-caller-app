@@ -36,6 +36,8 @@
     <dimen name="img_card_horizontal_margin">4dp</dimen>
     <dimen name="img_card_vertical_margin">4dp</dimen>
 
+    <dimen name="btn_card_action_horizontal_margin">4dp</dimen>
+
     <dimen name="item_text_card_scenery_height">55dp</dimen>
 
     <dimen name="dimen_friend_img_width">28dp</dimen>
