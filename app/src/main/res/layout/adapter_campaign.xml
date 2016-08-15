@@ -209,6 +209,17 @@
                 app:srcCompat="@drawable/ic_edit"/>
 
             <ImageButton
+                android:id="@+id/card_view_campaign_inventory"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/cards_button_width"
+                android:layout_height="@dimen/cards_button_height"
+                android:layout_marginLeft="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginRight="@dimen/btn_card_action_horizontal_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:tint="@color/gray"
+                app:srcCompat="@drawable/ic_inventory"/>
+
+            <ImageButton
                 android:id="@+id/card_view_campaign_play"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="@dimen/cards_button_width"

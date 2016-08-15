@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -28,8 +30,6 @@ import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
 
 
 public class HeroesFragment extends BaseFragment {

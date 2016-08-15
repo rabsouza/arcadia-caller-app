@@ -2,7 +2,27 @@
 
 Os Pacotes liberados para testes e produção da aplicação.
 
+------------------------------------------------------------------------
 ## PHASE - PRD
+------------------------------------------------------------------------
+
+### Version - 1.1.0
+**Date release**
+ - 15/08/2016
+
+**Features**
+ - Cadastro de inventário da Guilda
+
+**Bugs**
+
+**Improvements**
+ - Melhoria espaçamento dos texto!
+ - Melhoria imagens de background!
+ - Ajuste nos botões de ações da campanha!
+ - Melhoria na tela de Guildas com adição do AutoComplete!
+ - Melhoria na tela de amigos!
+ 
+------------------------------------------------------------------------
 
 ### Version - 1.0.0
 **Date release**
@@ -26,8 +46,26 @@ Os Pacotes liberados para testes e produção da aplicação.
 **Improvements**
 
 ------------------------------------------------------------------------
-
 ## PHASE - BETA
+------------------------------------------------------------------------
+
+### Version - 2.2.0
+**Date release**
+ - 15/08/2016
+
+**Features**
+ - Cadastro de inventário da Guilda
+
+**Bugs**
+
+**Improvements**
+ - Melhoria espaçamento dos texto!
+ - Melhoria imagens de background!
+ - Ajuste nos botões de ações da campanha!
+ - Melhoria na tela de Guildas com adição do AutoComplete!
+ - Melhoria na tela de amigos!
+ 
+------------------------------------------------------------------------
 
 ### Version - 2.1.3
 **Date release**

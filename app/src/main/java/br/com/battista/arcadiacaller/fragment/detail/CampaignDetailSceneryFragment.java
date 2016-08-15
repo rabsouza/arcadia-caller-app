@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -36,9 +39,6 @@ import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.SceneryService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class CampaignDetailSceneryFragment extends BaseFragment {
 
@@ -142,7 +142,7 @@ public class CampaignDetailSceneryFragment extends BaseFragment {
     }
 
     private void processDataFragment(final View viewFragment, Bundle bundle) {
-        Log.d(TAG, "processDataFragment: Processs bundle data Fragment!");
+        Log.d(TAG, "processDataFragment: Process bundle data Fragment!");
         if (bundle.containsKey(BundleConstant.DATA)) {
             campaign = (Campaign) bundle.getSerializable(BundleConstant.DATA);
         }

@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
+import static br.com.battista.arcadiacaller.listener.LoginListener.URI_CREATE;
+import static br.com.battista.arcadiacaller.listener.LoginListener.URI_LOGIN;
+
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -16,9 +19,6 @@ import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.LoginService;
 import retrofit2.Response;
-
-import static br.com.battista.arcadiacaller.listener.LoginListener.URI_CREATE;
-import static br.com.battista.arcadiacaller.listener.LoginListener.URI_LOGIN;
 
 public class LoginServiceFromServer extends BaseService implements LoginService {
 

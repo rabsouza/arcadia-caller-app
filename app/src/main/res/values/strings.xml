@@ -47,7 +47,7 @@
     <string name="hint_text_login_samples">*¹ Por exemplos: user01, user.01, user-01 ou user_01.</string>
     <string name="hint_text_mail">*² Deve ser um e-mail válido.</string>
     <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente ao site http://gravatar.com para o seu e-mail.</string>
-    <string name="hint_detail_alias_campaign">Nome/Apelido</string>
+    <string name="hint_detail_alias_campaign">Nome/Apelido para a Campanha</string>
     <string name="hint_text_detail_alias_campaign">*¹ O nome/apelido será utilizado para identificar sua campanha.</string>
     <string name="hint_detail_friend_login">Login do Amigo/Usuário</string>
     <string name="hint_detail_guilds">Guildas</string>
@@ -116,6 +116,15 @@
     <string name="hint_view_user_winner">Usuário vencedor: {0}</string>
     <string name="hint_view_scenery_current">{0}° Cenário</string>
     <string name="hint_view_card_guild_user">Guilda {0} ({1})</string>
+    <string name="hint_view_inventory_guild_name">Inventário {0}</string>
+    <string name="hint_view_inventory_username">Usuário: {0}</string>
+    <string name="hint_view_inventory_cards">* Adicione as cartas que cada Guilda possui até este momento (usando, para isso, os códigos das cartas) e as cartas de Maldição Mortal que seus Heróis possam ter.</string>
+    <string name="hint_view_inventory_cards_keys">* Só é possível adicionar os códigos de cartas de Melhoria e Maldições Mortais cadastradas no aplicativo. Para mais detalhes acesse o menu Cartas!</string>
+    <string name="hint_view_inventory_card_upgrade_01">Carta 01</string>
+    <string name="hint_view_inventory_card_upgrade_02">Carta 02</string>
+    <string name="hint_view_inventory_card_upgrade_03">Carta 03</string>
+    <string name="hint_view_inventory_card_upgrade_04">Carta 04</string>
+    <string name="hint_view_inventory_card_death_curse_01">Maldição Mortal</string>
 
 
     <!-- ################### MSG #################### -->
@@ -142,10 +151,13 @@
     <string name="msg_warn_delete_campaign">A Campanha {0} já foi iniciada e não pode ser excluida!</string>
     <string name="msg_warn_edit_campaign">A Campanha {0} já foi iniciada e não pode ser alterada!</string>
     <string name="msg_warn_play_campaign">Existe pendências para a Campanha {0}! Ela não pode está concluída ou com pendências!</string>
+    <string name="msg_warn_inventory_campaign">Existe pendências para a Campanha {0}! Ela não pode está concluída ou com pendências!</string>
     <string name="msg_warn_complete_campaign">Existe Cenários pendentes para a Campanha {0}. Complete os seis Cenários para finaliza-la!</string>
     <string name="msg_warn_heroes">Existe Guildas com Heróis pendentes!</string>
     <string name="msg_warn_guild_winner">Você deve selecionar a Guilda vencedora do cenário atual!</string>
     <string name="msg_empty_friends">Você ainda não tem nenhuma amigo cadastrado. Por favor, adicione um novo amigo!</string>
+    <string name="msg_warn_key_card">Código de carta invalido ou inexistente!</string>
+    <string name="msg_error_campaign_update_inventory">Erro ao adicionar informações de inventário na Campanha! Por favor, sigas as orientações de tela.</string>
 
 
     <!-- ################### ALERT #################### -->

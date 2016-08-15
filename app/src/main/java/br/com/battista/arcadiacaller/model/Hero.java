@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
+
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.orm.dsl.Column;
@@ -8,8 +10,6 @@ import com.orm.dsl.Table;
 import java.io.Serializable;
 
 import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
 
 @Table(name = HeroEntry.TABLE_NAME)
 public class Hero extends BaseEntity implements Serializable {

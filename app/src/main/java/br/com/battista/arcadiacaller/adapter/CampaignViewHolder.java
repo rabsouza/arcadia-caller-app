@@ -9,23 +9,25 @@ import br.com.battista.arcadiacaller.R;
 
 public class CampaignViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView txtTitle;
+    private final TextView txtTitle;
 
-    private TextView txtKey;
+    private final TextView txtKey;
 
-    private TextView txtDate;
+    private final TextView txtDate;
 
-    private TextView txtStatus;
+    private final TextView txtStatus;
 
-    private ImageButton btnFinish;
+    private final ImageButton btnFinish;
 
-    private ImageButton btnEdit;
+    private final ImageButton btnEdit;
 
-    private ImageButton btnDelete;
+    private final ImageButton btnDelete;
 
-    private ImageButton btnPlay;
+    private final ImageButton btnInventory;
 
-    private ImageButton btnInfo;
+    private final ImageButton btnPlay;
+
+    private final ImageButton btnInfo;
 
     public CampaignViewHolder(View view) {
         super(view);
@@ -37,6 +39,7 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
 
         btnFinish = (ImageButton) view.findViewById(R.id.card_view_campaign_finish);
         btnPlay = (ImageButton) view.findViewById(R.id.card_view_campaign_play);
+        btnInventory = (ImageButton) view.findViewById(R.id.card_view_campaign_inventory);
         btnEdit = (ImageButton) view.findViewById(R.id.card_view_campaign_edit);
         btnDelete = (ImageButton) view.findViewById(R.id.card_view_campaign_delete);
         btnInfo = (ImageButton) view.findViewById(R.id.card_view_campaign_info);
@@ -77,4 +80,9 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
     public ImageButton getBtnInfo() {
         return btnInfo;
     }
+
+    public ImageButton getBtnInventory() {
+        return btnInventory;
+    }
+
 }

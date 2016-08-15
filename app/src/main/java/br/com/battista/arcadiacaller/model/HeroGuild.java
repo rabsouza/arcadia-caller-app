@@ -1,12 +1,12 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroGuildEntry;
+
 import com.google.common.base.MoreObjects;
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
 
 import java.io.Serializable;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroGuildEntry;
 
 @Table(name = HeroGuildEntry.TABLE_NAME)
 public class HeroGuild extends BaseEntity implements Serializable {

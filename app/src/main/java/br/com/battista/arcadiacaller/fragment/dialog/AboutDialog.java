@@ -44,7 +44,7 @@ public class AboutDialog extends DialogFragment {
         Integer versionNumber = BuildConfig.VERSION_CODE;
 
         Calendar buildDate = Calendar.getInstance();
-        buildDate.setTimeInMillis(BuildConfig.TIMESTAMP);
+        buildDate.setTimeInMillis(BuildConfig.BUILD_UPDATED);
         String info = MessageFormat.format(getString(R.string.about_dialog_text), versionName, versionNumber, DateUtils.format(buildDate));
         aboutBody.append(Html.fromHtml(info));
 

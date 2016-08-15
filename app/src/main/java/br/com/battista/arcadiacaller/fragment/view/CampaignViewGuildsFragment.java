@@ -1,6 +1,11 @@
 package br.com.battista.arcadiacaller.fragment.view;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,11 +32,6 @@ import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
-
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
 
 public class CampaignViewGuildsFragment extends BaseFragment {
 
@@ -92,7 +92,7 @@ public class CampaignViewGuildsFragment extends BaseFragment {
     }
 
     private void processDataFragment(View viewFragment, Bundle bundle) {
-        Log.d(TAG, "processDataFragment: Processs bundle data Fragment!");
+        Log.d(TAG, "processDataFragment: Process bundle data Fragment!");
         if (bundle.containsKey(BundleConstant.DATA)) {
             campaign = (Campaign) bundle.getSerializable(BundleConstant.DATA);
 

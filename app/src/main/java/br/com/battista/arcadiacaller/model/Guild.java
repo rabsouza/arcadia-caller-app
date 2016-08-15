@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.GuildEntry;
+
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.Lists;
 import com.orm.dsl.Column;
@@ -9,8 +11,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.GuildEntry;
 
 @Table(name = GuildEntry.TABLE_NAME)
 public class Guild extends BaseEntity implements Serializable {
@@ -148,6 +148,9 @@ public class Guild extends BaseEntity implements Serializable {
     }
 
     public Boolean getSavedMoney() {
+        if(savedMoney == null){
+            savedMoney = Boolean.FALSE;
+        }
         return savedMoney;
     }
 

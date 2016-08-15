@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="br.com.battista.arcadiacaller"
-    android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="br.com.battista.arcadiacaller"
+          android:installLocation="auto">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -18,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:replace="android:allowBackup">
-
         <service
             android:name=".cache.CacheManagerService"
             android:enabled="true"/>
@@ -56,34 +54,38 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
-
         <activity
             android:name=".activity.CampaignCompleteActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
-
         <activity
             android:name=".activity.CampaignViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
+        <activity
+            android:name=".activity.CampaignInventoryActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NavDrawer"/>
 
         <meta-data
             android:name="DATABASE"
-            android:value="arcadia_caller_db.db" />
+            android:value="arcadia_caller_db.db"/>
         <meta-data
             android:name="VERSION"
-            android:value="40" />
+            android:value="40"/>
         <meta-data
             android:name="QUERY_LOG"
-            android:value="false" />
+            android:value="false"/>
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
-            android:value="br.com.battista.arcadiacaller.model" />
+            android:value="br.com.battista.arcadiacaller.model"/>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="259f20ad704f17270f36dedac2ff04ed2f044dfb"/>
+
 
     </application>
 

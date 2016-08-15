@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.common.base.MoreObjects;
@@ -11,8 +13,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 import br.com.battista.arcadiacaller.constants.EntityConstant;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.BaseEntry;
 
 @JsonAutoDetect
 @JsonIgnoreProperties(ignoreUnknown = true)

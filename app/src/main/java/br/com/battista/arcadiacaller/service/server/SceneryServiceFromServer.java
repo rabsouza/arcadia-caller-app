@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.service.server;
 
 
+import static br.com.battista.arcadiacaller.listener.SceneryListener.URI_FIND_ALL;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -18,8 +20,6 @@ import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 import br.com.battista.arcadiacaller.service.BaseService;
 import br.com.battista.arcadiacaller.service.SceneryService;
 import retrofit2.Response;
-
-import static br.com.battista.arcadiacaller.listener.SceneryListener.URI_FIND_ALL;
 
 public class SceneryServiceFromServer extends BaseService implements SceneryService {
 

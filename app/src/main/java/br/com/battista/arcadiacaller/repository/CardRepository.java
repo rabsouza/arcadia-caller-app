@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.repository;
 
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
+
 import android.util.Log;
 
 import com.google.common.collect.Lists;
@@ -12,8 +14,6 @@ import java.util.List;
 import br.com.battista.arcadiacaller.model.BaseEntity;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
 
 public class CardRepository implements Repository<Card> {
 

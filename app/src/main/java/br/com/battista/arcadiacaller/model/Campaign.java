@@ -1,6 +1,9 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
+
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
@@ -18,8 +21,6 @@ import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CampaignEntry;
 
 @Table(name = CampaignEntry.TABLE_NAME)
 public class Campaign extends BaseEntity implements Serializable {
@@ -115,17 +116,14 @@ public class Campaign extends BaseEntity implements Serializable {
             GuildDto guildDto = new GuildDto().username(guild01).name(heroesGuild01.getName());
             guilds.add(guildDto);
         }
-
         if (!Strings.isNullOrEmpty(guild02) && heroesGuild02 != null) {
             GuildDto guildDto = new GuildDto().username(guild02).name(heroesGuild02.getName());
             guilds.add(guildDto);
         }
-
         if (!Strings.isNullOrEmpty(guild03) && heroesGuild03 != null) {
             GuildDto guildDto = new GuildDto().username(guild03).name(heroesGuild03.getName());
             guilds.add(guildDto);
         }
-
         if (!Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
             GuildDto guildDto = new GuildDto().username(guild04).name(heroesGuild04.getName());
             guilds.add(guildDto);
@@ -157,27 +155,22 @@ public class Campaign extends BaseEntity implements Serializable {
             SceneryDto sceneryDto = new SceneryDto().name(scenery1.getName()).completed(scenery1.getCompleted());
             sceneries.add(sceneryDto);
         }
-
         if (scenery2 != null) {
             SceneryDto sceneryDto = new SceneryDto().name(scenery2.getName()).completed(scenery2.getCompleted());
             sceneries.add(sceneryDto);
         }
-
         if (scenery3 != null) {
             SceneryDto sceneryDto = new SceneryDto().name(scenery3.getName()).completed(scenery3.getCompleted());
             sceneries.add(sceneryDto);
         }
-
         if (scenery4 != null) {
             SceneryDto sceneryDto = new SceneryDto().name(scenery4.getName()).completed(scenery4.getCompleted());
             sceneries.add(sceneryDto);
         }
-
         if (scenery5 != null) {
             SceneryDto sceneryDto = new SceneryDto().name(scenery5.getName()).completed(scenery5.getCompleted());
             sceneries.add(sceneryDto);
         }
-
         if (scenery6 != null) {
             SceneryDto sceneryDto = new SceneryDto().name(scenery6.getName()).completed(scenery6.getCompleted());
             sceneries.add(sceneryDto);
@@ -239,6 +232,29 @@ public class Campaign extends BaseEntity implements Serializable {
             scenery = new SceneryCampaign();
         }
         return scenery;
+    }
+
+    @Nullable
+    public Guild getGuildPosition(@NonNull Integer position) {
+        List<Guild> guilds = Lists.newLinkedList();
+        if (!Strings.isNullOrEmpty(guild01) && heroesGuild01 != null) {
+            guilds.add(heroesGuild01);
+        }
+        if (!Strings.isNullOrEmpty(guild02) && heroesGuild02 != null) {
+            guilds.add(heroesGuild02);
+        }
+        if (!Strings.isNullOrEmpty(guild03) && heroesGuild03 != null) {
+            guilds.add(heroesGuild03);
+        }
+        if (!Strings.isNullOrEmpty(guild04) && heroesGuild04 != null) {
+            guilds.add(heroesGuild04);
+        }
+
+        if (guilds.size() > position) {
+            return guilds.get(position);
+        } else {
+            return null;
+        }
     }
 
     @NonNull

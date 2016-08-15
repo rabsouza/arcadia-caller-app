@@ -32,6 +32,7 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.activity.CampaignCompleteActivity;
 import br.com.battista.arcadiacaller.activity.CampaignDetailActivity;
 import br.com.battista.arcadiacaller.activity.CampaignDetailCompleteActivity;
+import br.com.battista.arcadiacaller.activity.CampaignInventoryActivity;
 import br.com.battista.arcadiacaller.activity.CampaignViewActivity;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
 import br.com.battista.arcadiacaller.adapter.item.SceneryItemAdapter;
@@ -148,6 +149,23 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                     } else {
                         String msgWarnDelete = getContext().getResources().getString(R.string.msg_warn_edit_campaign);
                         AndroidUtils.snackbar(viewCampaign, MessageFormat.format(msgWarnDelete, campaign.getKey()));
+                    }
+                }
+            });
+
+            int visibilityBtnInventory = (CREATED_CAMPAIGN.equals(statusCurrent) && campaign.existsHeroes())
+                    || (Lists.newArrayList(EDITED_SCENERY, ADDED_SCENERY).contains(statusCurrent) && campaign.existsHeroes())
+                    ? View.VISIBLE : View.GONE;
+            holder.getBtnInventory().setVisibility(visibilityBtnInventory);
+            holder.getBtnInventory().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if ((CREATED_CAMPAIGN.equals(statusCurrent) && campaign.existsHeroes()) ||
+                            (Lists.newArrayList(EDITED_SCENERY, ADDED_SCENERY).contains(statusCurrent) && campaign.existsHeroes())) {
+                        loadCampaignInventoryActivity(campaign);
+                    } else {
+                        String msgWarnPlay = getContext().getResources().getString(R.string.msg_warn_inventory_campaign);
+                        AndroidUtils.snackbar(viewCampaign, MessageFormat.format(msgWarnPlay, campaign.getKey()));
                     }
                 }
             });
@@ -277,6 +295,15 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
         Intent intent = new Intent(getContext(), CampaignDetailCompleteActivity.class);
+        intent.putExtras(args);
+
+        getContext().startActivity(intent);
+    }
+
+    private void loadCampaignInventoryActivity(Campaign campaign) {
+        Bundle args = new Bundle();
+        args.putSerializable(BundleConstant.DATA, campaign);
+        Intent intent = new Intent(getContext(), CampaignInventoryActivity.class);
         intent.putExtras(args);
 
         getContext().startActivity(intent);

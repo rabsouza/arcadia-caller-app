@@ -10,34 +10,27 @@ import android.util.Log;
 
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
-import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailCompleteSceneryFragment;
-import br.com.battista.arcadiacaller.fragment.detail.CampaignDetailSceneryFragment;
+import br.com.battista.arcadiacaller.fragment.inventory.CampaignInventoryFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
-import br.com.battista.arcadiacaller.model.SceneryCampaign;
 
-public class CampaignDetailCompleteActivity extends BaseActivity {
+public class CampaignInventoryActivity extends BaseActivity {
 
-    private static final String TAG = CampaignDetailActivity.class.getSimpleName();
-
+    public static final int POSITION_INITIAL = 0;
+    private static final String TAG = CampaignInventoryActivity.class.getSimpleName();
     private Campaign campaign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_campaign_detail_complete);
+        setContentView(R.layout.activity_campaign_inventory);
 
         setupToolbarDetail();
         changeTitleCollapsingToolbar(R.string.title_campaign_detail);
 
         processDataActivity(getIntent().getExtras());
-
-        SceneryCampaign sceneryCurrent = campaign.getSceneryCurrent();
-        if (!sceneryCurrent.getCompleted()) {
-            replaceDetailFragment(CampaignDetailCompleteSceneryFragment.newInstance(campaign), R.id.detail_container_complete);
-        } else {
-            replaceDetailFragment(CampaignDetailSceneryFragment.newInstance(campaign, campaign.getLocationCurrent()), R.id.detail_container_complete);
-        }
+        replaceDetailFragment(CampaignInventoryFragment.newInstance(campaign, POSITION_INITIAL), R.id.inventory_container);
     }
+
 
     private void processDataActivity(Bundle bundle) {
         Log.d(TAG, "processDataActivity: Process bundle data Activity!");
@@ -76,4 +69,5 @@ public class CampaignDetailCompleteActivity extends BaseActivity {
     private void superOnBackPressed() {
         super.onBackPressed();
     }
+
 }

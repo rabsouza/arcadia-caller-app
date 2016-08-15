@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.repository;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
+
 import android.util.Log;
 
 import com.google.common.collect.Lists;
@@ -12,8 +14,6 @@ import br.com.battista.arcadiacaller.model.BaseEntity;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.model.enuns.GroupHeroEnum;
 import br.com.battista.arcadiacaller.repository.contract.DatabaseContract;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.HeroEntry;
 
 public class HeroRepository implements Repository<Hero> {
 

@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
+
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
@@ -11,8 +13,6 @@ import java.util.List;
 
 import br.com.battista.arcadiacaller.model.enuns.DifficultySceneryEnum;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryEntry;
 
 @Table(name = SceneryEntry.TABLE_NAME)
 public class Scenery extends BaseEntity implements Serializable {

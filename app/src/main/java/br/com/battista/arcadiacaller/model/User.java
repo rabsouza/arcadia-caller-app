@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
+
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.Sets;
@@ -10,8 +12,6 @@ import java.io.Serializable;
 import java.util.Set;
 
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.UserEntry;
 
 @Table(name = UserEntry.TABLE_NAME)
 public class User extends BaseEntity implements Serializable {

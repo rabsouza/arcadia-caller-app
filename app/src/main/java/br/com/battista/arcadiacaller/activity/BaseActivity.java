@@ -1,5 +1,8 @@
 package br.com.battista.arcadiacaller.activity;
 
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
+import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,9 +31,6 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.util.AppUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
-
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_ACTIVITY;
-import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OPEN_ACTIVITY;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -110,16 +111,18 @@ public class BaseActivity extends AppCompatActivity {
     protected void replaceFragment(Fragment fragment) {
         if (fragment != null) {
             Log.d(TAG, "replaceFragment: Change to fragment!");
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, fragment, fragment.getTag()).commit();
+            final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, fragment, fragment.getTag());
+            transaction.commit();
         }
     }
 
     protected void replaceDetailFragment(Fragment fragment, int resIdContainer) {
         if (fragment != null) {
             Log.d(TAG, "replaceFragment: Change to detail fragment!");
-            getSupportFragmentManager().beginTransaction()
-                    .replace(resIdContainer, fragment).commit();
+            final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(resIdContainer, fragment);
+            transaction.commit();
         }
     }
 

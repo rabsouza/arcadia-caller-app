@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
+
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.orm.dsl.Column;
@@ -9,8 +11,6 @@ import java.io.Serializable;
 
 import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
 import br.com.battista.arcadiacaller.model.enuns.TypeCardEnum;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.CardEntry;
 
 @Table(name = CardEntry.TABLE_NAME)
 public class Card extends BaseEntity implements Serializable {

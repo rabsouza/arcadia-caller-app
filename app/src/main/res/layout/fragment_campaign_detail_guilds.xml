@@ -71,13 +71,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:id="@+id/detail_card_view_guilds_login_blue"
                                 style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
+                                android:completionThreshold="1"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
                                 android:hint="@string/hint_detail_guilds_login_blue"
+                                android:imeOptions="actionNext"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1"/>
                         </android.support.design.widget.TextInputLayout>
@@ -100,13 +104,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:id="@+id/detail_card_view_guilds_login_green"
                                 style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
+                                android:completionThreshold="1"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
                                 android:hint="@string/hint_detail_guilds_login_green"
+                                android:imeOptions="actionNext"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1"/>
                         </android.support.design.widget.TextInputLayout>
@@ -129,13 +137,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:id="@+id/detail_card_view_guilds_login_red"
                                 style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
+                                android:completionThreshold="1"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
                                 android:hint="@string/hint_detail_guilds_login_red"
+                                android:imeOptions="actionNext"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1"/>
                         </android.support.design.widget.TextInputLayout>
@@ -158,13 +170,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:id="@+id/detail_card_view_guilds_login_orange"
                                 style="@style/InputStyle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/element_vertical_margin"
+                                android:completionThreshold="1"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
                                 android:hint="@string/hint_detail_guilds_login_orange"
+                                android:imeOptions="actionDone"
                                 android:inputType="textAutoComplete"
                                 android:maxLines="1"/>
                         </android.support.design.widget.TextInputLayout>

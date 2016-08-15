@@ -1,5 +1,12 @@
 package br.com.battista.arcadiacaller.fragment.view;
 
+import static br.com.battista.arcadiacaller.R.id.detail_card_view_scenery_guilds_img_blue;
+import static br.com.battista.arcadiacaller.R.id.detail_card_view_scenery_guilds_login_blue;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -33,13 +40,6 @@ import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
-
-import static br.com.battista.arcadiacaller.R.id.detail_card_view_scenery_guilds_img_blue;
-import static br.com.battista.arcadiacaller.R.id.detail_card_view_scenery_guilds_login_blue;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
 
 
 public class CampaignViewSceneryFragment extends BaseFragment {

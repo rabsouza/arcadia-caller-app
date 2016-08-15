@@ -1,5 +1,7 @@
 package br.com.battista.arcadiacaller.model;
 
+import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryCampaignEntry;
+
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.Lists;
 import com.orm.dsl.Column;
@@ -7,8 +9,6 @@ import com.orm.dsl.Table;
 
 import java.io.Serializable;
 import java.util.List;
-
-import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract.SceneryCampaignEntry;
 
 @Table(name = SceneryCampaignEntry.TABLE_NAME)
 public class SceneryCampaign extends BaseEntity implements Serializable {

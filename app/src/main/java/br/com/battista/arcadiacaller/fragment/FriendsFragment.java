@@ -15,9 +15,10 @@ import android.widget.ImageButton;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import java.text.MessageFormat;
-import java.util.List;
+import java.util.Set;
 
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
@@ -36,7 +37,7 @@ public class FriendsFragment extends BaseFragment {
 
     private static final String TAG = FriendsFragment.class.getSimpleName();
 
-    private List<String> friends = Lists.newArrayList();
+    private Set<String> friends = Sets.newTreeSet();
     private RecyclerView recyclerView;
     private ImageButton btnAdd;
     private EditText txtUsername;
@@ -102,7 +103,7 @@ public class FriendsFragment extends BaseFragment {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_already_exists_friend);
                 } else {
                     txtUsername.setText("");
-                    recyclerView.setAdapter(new FriendAdapter(getContext(), friends));
+                    recyclerView.setAdapter(new FriendAdapter(getContext(), Lists.newArrayList(friends)));
                     Log.d(TAG, "onPostExecute: Success in create user!");
                 }
                 dismissProgress();
@@ -177,7 +178,7 @@ public class FriendsFragment extends BaseFragment {
                 if (friends == null || friends.isEmpty()) {
                     AndroidUtils.snackbar(getView(), R.string.msg_empty_friends);
                 } else {
-                    recyclerView.setAdapter(new FriendAdapter(getContext(), friends));
+                    recyclerView.setAdapter(new FriendAdapter(getContext(), Lists.newArrayList(friends)));
                 }
                 dismissProgress();
             }
@@ -190,10 +191,10 @@ public class FriendsFragment extends BaseFragment {
                     final User userMain = instance.getUser();
                     User user = Inject.provideUserService().findByUsername(token, userMain.getUsername());
                     friends.clear();
-                    if (user != null) {
+                    if (user != null && user.getFriends() != null) {
                         instance.setUser(user);
                         friends.addAll(user.getFriends());
-                    } else {
+                    } else if (userMain.getFriends() != null) {
                         friends.addAll(userMain.getFriends());
                     }
                 } catch (Exception e) {

@@ -1,6 +1,12 @@
 package br.com.battista.arcadiacaller.fragment.detail;
 
 
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
+import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
+import static java.lang.Boolean.FALSE;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,12 +15,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import java.text.MessageFormat;
+import java.util.Set;
 
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
@@ -30,21 +41,17 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.BLUE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.GREEN;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.ORANGE;
-import static br.com.battista.arcadiacaller.model.enuns.NameGuildEnum.RED;
-import static java.lang.Boolean.FALSE;
-
 public class CampaignDetailGuildsFragment extends BaseFragment {
 
     private static final String TAG = CampaignDetailGuildsFragment.class.getSimpleName();
 
     private Campaign campaign;
-    private EditText txtLoginBlue;
-    private EditText txtLoginRed;
-    private EditText txtLoginOrange;
-    private EditText txtLoginGreen;
+    private AutoCompleteTextView txtLoginBlue;
+    private AutoCompleteTextView txtLoginRed;
+    private AutoCompleteTextView txtLoginOrange;
+    private AutoCompleteTextView txtLoginGreen;
+
+    private Set<String> favoriteGuilds = Sets.newTreeSet();
 
     public CampaignDetailGuildsFragment() {
     }
@@ -72,16 +79,29 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
             }
         });
 
-        txtLoginBlue = (EditText) viewFragment.findViewById(R.id.detail_card_view_guilds_login_blue);
+        final User user = MainApplication.instance().getUser();
+        if (user.getFriends() != null) {
+            favoriteGuilds.addAll(user.getFriends());
+        }
+        favoriteGuilds.add(user.getUsername());
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_dropdown_item_1line, Lists.newArrayList(favoriteGuilds));
+
+        txtLoginBlue = (AutoCompleteTextView) viewFragment.findViewById(R.id.detail_card_view_guilds_login_blue);
+        txtLoginBlue.setAdapter(adapter);
         createValidateLoginGuild(txtLoginBlue);
 
-        txtLoginOrange = (EditText) viewFragment.findViewById(R.id.detail_card_view_guilds_login_orange);
+        txtLoginOrange = (AutoCompleteTextView) viewFragment.findViewById(R.id.detail_card_view_guilds_login_orange);
+        txtLoginOrange.setAdapter(adapter);
         createValidateLoginGuild(txtLoginOrange);
 
-        txtLoginRed = (EditText) viewFragment.findViewById(R.id.detail_card_view_guilds_login_red);
+        txtLoginRed = (AutoCompleteTextView) viewFragment.findViewById(R.id.detail_card_view_guilds_login_red);
+        txtLoginRed.setAdapter(adapter);
         createValidateLoginGuild(txtLoginRed);
 
-        txtLoginGreen = (EditText) viewFragment.findViewById(R.id.detail_card_view_guilds_login_green);
+        txtLoginGreen = (AutoCompleteTextView) viewFragment.findViewById(R.id.detail_card_view_guilds_login_green);
+        txtLoginGreen.setAdapter(adapter);
         createValidateLoginGuild(txtLoginGreen);
 
         loadGuildsImg(viewFragment);
@@ -90,13 +110,13 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
         return viewFragment;
     }
 
-    private void createValidateLoginGuild(EditText txtLoginGuild) {
+    private void createValidateLoginGuild(AutoCompleteTextView txtLoginGuild) {
         final int resIdText = txtLoginGuild.getId();
         txtLoginGuild.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
 
-                final EditText textEdit = (EditText) view.findViewById(resIdText);
+                final AutoCompleteTextView textEdit = (AutoCompleteTextView) view.findViewById(resIdText);
                 if (!hasFocus && !Strings.isNullOrEmpty(textEdit.getText().toString()) && textEdit.getError() == null) {
 
                     final String loginGuild = textEdit.getText().toString().trim();
@@ -120,10 +140,10 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                             if (!result) {
                                 Log.i(TAG, MessageFormat.format("onPostExecute: Not exists the login guild: {0}.", loginGuild));
                                 String msgErrorUsername = context.getString(R.string.msg_username_guild_required);
-                                AndroidUtils.changeErrorEditText(textEdit, msgErrorUsername, true);
+                                AndroidUtils.changeErrorEditText((EditText) textEdit, msgErrorUsername, true);
                             } else {
                                 Log.i(TAG, MessageFormat.format("onPostExecute: Exists the login guild: {0}.", loginGuild));
-                                AndroidUtils.changeErrorEditText(textEdit);
+                                AndroidUtils.changeErrorEditText((EditText) textEdit);
                             }
                         }
 
@@ -160,7 +180,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
     }
 
     private void processDataFragment(View view, Bundle bundle) {
-        Log.d(TAG, "processDataFragment: Processs bundle data Fragment!");
+        Log.d(TAG, "processDataFragment: Process bundle data Fragment!");
         if (bundle.containsKey(BundleConstant.DATA)) {
             campaign = (Campaign) bundle.getSerializable(BundleConstant.DATA);
 
@@ -179,13 +199,13 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
             return;
         }
 
-        txtLoginBlue = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_blue);
+        txtLoginBlue = (AutoCompleteTextView) view.findViewById(R.id.detail_card_view_guilds_login_blue);
         final String loginBlue = txtLoginBlue.getText().toString().trim();
-        txtLoginGreen = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_green);
+        txtLoginGreen = (AutoCompleteTextView) view.findViewById(R.id.detail_card_view_guilds_login_green);
         final String loginGreen = txtLoginGreen.getText().toString().trim();
-        txtLoginRed = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_red);
+        txtLoginRed = (AutoCompleteTextView) view.findViewById(R.id.detail_card_view_guilds_login_red);
         final String loginRed = txtLoginRed.getText().toString().trim();
-        txtLoginOrange = (EditText) view.findViewById(R.id.detail_card_view_guilds_login_orange);
+        txtLoginOrange = (AutoCompleteTextView) view.findViewById(R.id.detail_card_view_guilds_login_orange);
         final String loginOrange = txtLoginOrange.getText().toString().trim();
 
         if (Strings.isNullOrEmpty(loginBlue) && Strings.isNullOrEmpty(loginGreen) && Strings.isNullOrEmpty(loginRed) && Strings.isNullOrEmpty(loginOrange)) {
