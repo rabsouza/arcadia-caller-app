@@ -46,7 +46,7 @@ android {
         }
         dev {
             applicationIdSuffix = ".dev"
-            versionCode 10
+            versionCode 220
             versionName "2.2.0"
         }
     }
