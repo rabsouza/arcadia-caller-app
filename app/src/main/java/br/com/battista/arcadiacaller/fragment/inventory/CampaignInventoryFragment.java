@@ -36,6 +36,7 @@ import br.com.battista.arcadiacaller.model.HeroGuild;
 import br.com.battista.arcadiacaller.model.enuns.ActionEnum;
 import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
 import br.com.battista.arcadiacaller.model.enuns.NameGuildEnum;
+import br.com.battista.arcadiacaller.model.enuns.TypeCardEnum;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
@@ -347,7 +348,7 @@ public class CampaignInventoryFragment extends BaseFragment {
                 final String keyCardDeathCurse = ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_01_card_death_curse_01)).getText().toString().trim().toUpperCase();
                 if (!Strings.isNullOrEmpty(keyCardDeathCurse)) {
                     final Card card = cardMap.get(keyCardDeathCurse);
-                    if (card != null) {
+                    if (card != null && TypeCardEnum.DEATH_CURSE.equals(card.getType())) {
                         hero01.setCurseCard(card);
                     } else {
                         hasError = Boolean.TRUE;
@@ -402,7 +403,7 @@ public class CampaignInventoryFragment extends BaseFragment {
                 final String keyCardDeathCurse = ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_02_card_death_curse_01)).getText().toString().trim().toUpperCase();
                 if (!Strings.isNullOrEmpty(keyCardDeathCurse)) {
                     final Card card = cardMap.get(keyCardDeathCurse);
-                    if (card != null) {
+                    if (card != null && TypeCardEnum.DEATH_CURSE.equals(card.getType())) {
                         hero02.setCurseCard(card);
                     } else {
                         hasError = Boolean.TRUE;
@@ -457,7 +458,7 @@ public class CampaignInventoryFragment extends BaseFragment {
                 final String keyCardDeathCurse = ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_03_card_death_curse_01)).getText().toString().trim().toUpperCase();
                 if (!Strings.isNullOrEmpty(keyCardDeathCurse)) {
                     final Card card = cardMap.get(keyCardDeathCurse);
-                    if (card != null) {
+                    if (card != null && TypeCardEnum.DEATH_CURSE.equals(card.getType())) {
                         hero03.setCurseCard(card);
                     } else {
                         hasError = Boolean.TRUE;

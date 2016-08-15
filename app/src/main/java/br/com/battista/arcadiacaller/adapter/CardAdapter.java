@@ -1,6 +1,7 @@
 package br.com.battista.arcadiacaller.adapter;
 
 import static br.com.battista.arcadiacaller.util.CardUtils.getCardCostRes;
+import static br.com.battista.arcadiacaller.util.CardUtils.getCardDeathCurseRes;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -17,6 +18,7 @@ import java.util.List;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
+import br.com.battista.arcadiacaller.model.enuns.TypeCardEnum;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
 public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
@@ -60,10 +62,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
             String textTypeEffect = context.getText(R.string.hint_card_type_effect).toString();
             holder.getTxtTypeEffect().setText(MessageFormat.format(textTypeEffect, card.getTypeEffect()));
 
-            ImageLoadUtils
-                    .loadImage(context,
-                            getCardCostRes(card.getCost()),
-                            holder.getImgCost());
+            if (TypeCardEnum.DEATH_CURSE.equals(card.getType())) {
+                ImageLoadUtils
+                        .loadImage(context,
+                                getCardDeathCurseRes(card.getCost()),
+                                holder.getImgCost());
+            } else {
+                ImageLoadUtils
+                        .loadImage(context,
+                                getCardCostRes(card.getCost()),
+                                holder.getImgCost());
+            }
 
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");

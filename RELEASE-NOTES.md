@@ -11,7 +11,8 @@ Os Pacotes liberados para testes e produção da aplicação.
  - 15/08/2016
 
 **Features**
- - Cadastro de inventário da Guilda
+ - Cadastro de inventário da Guilda!
+ - Adiciona cartas de Maldição Mortal!
 
 **Bugs**
 
@@ -21,6 +22,7 @@ Os Pacotes liberados para testes e produção da aplicação.
  - Ajuste nos botões de ações da campanha!
  - Melhoria na tela de Guildas com adição do AutoComplete!
  - Melhoria na tela de amigos!
+ - Adiciona validação de Maldição Mortal no inventário da Guilda!
  
 ------------------------------------------------------------------------
 
@@ -49,12 +51,28 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+
+### Version - 2.2.1
+**Date release**
+ - 15/08/2016
+
+**Features**
+ - Adiciona cartas de Maldição Mortal!
+ 
+**Bugs**
+
+**Improvements**
+- Adiciona validação de Maldição Mortal no inventário da Guilda!
+
+------------------------------------------------------------------------
+
 ### Version - 2.2.0
 **Date release**
  - 15/08/2016
 
 **Features**
  - Cadastro de inventário da Guilda
+ 
 
 **Bugs**
 
