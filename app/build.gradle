@@ -110,7 +110,6 @@ dependencies {
 
     compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
-    compile 'com.android.support:support-v4:24.1.1'
 }
 
 /*
