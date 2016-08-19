@@ -6,6 +6,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.2.0
+**Date release**
+ - 18/08/2016
+
+**Features**
+ 
+**Bugs**
+
+**Improvements**
+- Melhoria na tela de amigos para mostrar fotos e destacar amigos.
+- Melhoria na tela de Guilda para exibir a lista de amigos e usuário corrente.
+
+------------------------------------------------------------------------
+
 ### Version - 1.1.0
 **Date release**
  - 15/08/2016
@@ -51,6 +65,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+
+### Version - 2.3.0
+**Date release**
+ - 18/08/2016
+
+**Features**
+ 
+**Bugs**
+
+**Improvements**
+- Melhoria na tela de amigos para mostrar fotos e destacar amigos.
+- Melhoria na tela de Guilda para exibir a lista de amigos e usuário corrente.
+
+------------------------------------------------------------------------
 
 ### Version - 2.2.1
 **Date release**
