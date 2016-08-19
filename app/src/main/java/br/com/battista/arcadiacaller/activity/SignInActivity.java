@@ -2,6 +2,7 @@ package br.com.battista.arcadiacaller.activity;
 
 import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.ANSWERS_SIGN_UP_METHOD;
 import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_VERSION;
+import static br.com.battista.arcadiacaller.constants.FriendConstant.URL_AVATAR;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
@@ -28,7 +29,9 @@ import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.EntityAlreadyExistsException;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.model.dto.FriendDto;
 import br.com.battista.arcadiacaller.service.LoginService;
+import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
@@ -118,6 +121,7 @@ public class SignInActivity extends BaseActivity {
 
                         MainApplication instance = MainApplication.instance();
                         instance.setToken(token);
+                        loadAllFriend(user, token);
                         instance.setUser(user);
                         new CacheManagerService().onActionCache(LOAD_STATISTIC_USER_DATA);
                     }
@@ -131,6 +135,27 @@ public class SignInActivity extends BaseActivity {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                 }
                 return false;
+            }
+
+            private void loadAllFriend(User user, String token) {
+                if (user != null && !user.getFriends().isEmpty()) {
+                    UserService userService = Inject.provideUserService();
+
+                    for (String friend : user.getFriends()) {
+
+                        final User userFriend = userService.findByUsername(token, friend);
+                        if (userFriend != null) {
+                            final String urlAvatar;
+                            if (ProfileAppConstant.FRIEND.equals(userFriend.getProfile())) {
+                                urlAvatar = URL_AVATAR;
+                            } else {
+                                urlAvatar = userFriend.getUrlAvatar();
+                            }
+                            final FriendDto friendDto = new FriendDto().username(userFriend.getUsername()).urlAvatar(urlAvatar).profile(userFriend.getProfile());
+                            user.addFriend(friendDto);
+                        }
+                    }
+                }
             }
         }.execute();
     }

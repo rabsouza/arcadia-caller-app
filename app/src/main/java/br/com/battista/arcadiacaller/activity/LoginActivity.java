@@ -1,6 +1,7 @@
 package br.com.battista.arcadiacaller.activity;
 
 import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.ANSWERS_LOGIN_METHOD;
+import static br.com.battista.arcadiacaller.constants.FriendConstant.URL_AVATAR;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_CARD_DATA;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_HERO_DATA;
 import static br.com.battista.arcadiacaller.model.enuns.ActionCacheEnum.LOAD_SCENERY_DATA;
@@ -27,6 +28,7 @@ import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.AuthenticationException;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.model.dto.FriendDto;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.service.LoginService;
@@ -128,6 +130,7 @@ public class LoginActivity extends BaseActivity {
 
                         user = userService.findByUsername(token, username);
                         instance.setToken(token);
+                        loadAllFriend(user, token);
                         instance.setUser(user);
 
                         new CacheManagerService().onActionCache(LOAD_STATISTIC_USER_DATA);
@@ -140,6 +143,27 @@ public class LoginActivity extends BaseActivity {
                     return false;
                 }
                 return true;
+            }
+
+            private void loadAllFriend(User user, String token) {
+                if (user != null && !user.getFriends().isEmpty()) {
+                    UserService userService = Inject.provideUserService();
+
+                    for (String friend : user.getFriends()) {
+
+                        final User userFriend = userService.findByUsername(token, friend);
+                        if (userFriend != null) {
+                            final String urlAvatar;
+                            if (ProfileAppConstant.FRIEND.equals(userFriend.getProfile())) {
+                                urlAvatar = URL_AVATAR;
+                            } else {
+                                urlAvatar = userFriend.getUrlAvatar();
+                            }
+                            final FriendDto friendDto = new FriendDto().username(userFriend.getUsername()).urlAvatar(urlAvatar).profile(userFriend.getProfile());
+                            user.addFriend(friendDto);
+                        }
+                    }
+                }
             }
         }.execute();
     }

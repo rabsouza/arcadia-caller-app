@@ -11,6 +11,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,11 +33,13 @@ import java.util.Set;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
+import br.com.battista.arcadiacaller.adapter.FriendGuildsAdapter;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
 import br.com.battista.arcadiacaller.fragment.BaseFragment;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.Guild;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.model.dto.FriendDto;
 import br.com.battista.arcadiacaller.service.CampaignService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -52,6 +57,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
     private AutoCompleteTextView txtLoginGreen;
 
     private Set<String> favoriteGuilds = Sets.newTreeSet();
+    private Set<FriendDto> favoriteFriends = Sets.newTreeSet();
 
     public CampaignDetailGuildsFragment() {
     }
@@ -79,11 +85,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
             }
         });
 
-        final User user = MainApplication.instance().getUser();
-        if (user.getFriends() != null) {
-            favoriteGuilds.addAll(user.getFriends());
-        }
-        favoriteGuilds.add(user.getUsername());
+        loadFavoriteFriends(viewFragment);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_dropdown_item_1line, Lists.newArrayList(favoriteGuilds));
@@ -108,6 +110,22 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
         processDataFragment(viewFragment, getArguments());
 
         return viewFragment;
+    }
+
+    private void loadFavoriteFriends(View viewFragment) {
+        RecyclerView recyclerView = (RecyclerView) viewFragment.findViewById(R.id.friends_guilds_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setHasFixedSize(true);
+
+        final User user = MainApplication.instance().getUser();
+        favoriteGuilds.add(user.getUsername());
+        favoriteFriends.add(new FriendDto().username(user.getUsername()).urlAvatar(user.getUrlAvatar()).profile(user.getProfile()));
+        if (user.getFriends() != null) {
+            favoriteGuilds.addAll(user.getFriends());
+            favoriteFriends.addAll(user.getFriendsDto());
+        }
+        recyclerView.setAdapter(new FriendGuildsAdapter(getContext(), Lists.newArrayList(favoriteFriends)));
     }
 
     private void createValidateLoginGuild(AutoCompleteTextView txtLoginGuild) {

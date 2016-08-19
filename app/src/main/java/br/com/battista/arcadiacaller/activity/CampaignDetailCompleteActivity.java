@@ -27,7 +27,7 @@ public class CampaignDetailCompleteActivity extends BaseActivity {
         setContentView(R.layout.activity_campaign_detail_complete);
 
         setupToolbarDetail();
-        changeTitleCollapsingToolbar(R.string.title_campaign_detail);
+        changeTitleCollapsingToolbar(R.string.title_campaign_detail_complete);
 
         processDataActivity(getIntent().getExtras());
 

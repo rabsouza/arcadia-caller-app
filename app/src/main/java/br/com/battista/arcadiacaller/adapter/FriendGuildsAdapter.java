@@ -9,20 +9,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.common.base.Strings;
+
 import java.util.List;
 
+import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
+import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.model.dto.FriendDto;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
-public class FriendAdapter extends RecyclerView.Adapter<FriendViewHolder> {
-    private static final String TAG = FriendAdapter.class.getSimpleName();
+public class FriendGuildsAdapter extends RecyclerView.Adapter<FriendViewHolder> {
+    private static final String TAG = FriendGuildsAdapter.class.getSimpleName();
 
     private Context context;
     private List<FriendDto> friends;
 
-    public FriendAdapter(Context context, List<FriendDto> friends) {
+    public FriendGuildsAdapter(Context context, List<FriendDto> friends) {
         this.context = context;
         this.friends = friends;
     }
@@ -30,7 +34,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendViewHolder> {
     @Override
     public FriendViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.adapter_friend, viewGroup, false);
+                .inflate(R.layout.adapter_friend_guilds, viewGroup, false);
         return new FriendViewHolder(view);
     }
 
@@ -43,8 +47,12 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendViewHolder> {
 
             final TextView txtUsername = holder.getTxtUsername();
             txtUsername.setText(friend.getUsername());
+
+            User user = MainApplication.instance().getUser();
             if (ProfileAppConstant.FRIEND.equals(friend.getProfile())) {
                 txtUsername.setTypeface(txtUsername.getTypeface(), Typeface.ITALIC);
+            } else if (user != null && !Strings.isNullOrEmpty(user.getUsername()) && user.getUsername().equals(friend.getUsername())) {
+                txtUsername.setTypeface(txtUsername.getTypeface(), Typeface.BOLD);
             }
 
             ImageLoadUtils
