@@ -53,7 +53,7 @@
     <string name="hint_detail_alias_campaign">Nome/Apelido para a Campanha</string>
     <string name="hint_text_detail_alias_campaign">*¹ O nome/apelido será utilizado para identificar sua campanha.</string>
     <string name="hint_detail_friend_login">Login do Amigo/Usuário</string>
-    <string name="hint_detail_friends">Amigos</string>
+    <string name="hint_detail_friends_and_user">Usuário/Amigos</string>
     <string name="hint_detail_guilds">Guildas</string>
     <string name="hint_detail_guilds_login">Login da Guilda/Usuário</string>
     <string name="hint_detail_guilds_login_blue">Login da Guilda/Usuário</string>
