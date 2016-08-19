@@ -1,6 +1,8 @@
 package br.com.battista.arcadiacaller.fragment;
 
 
+import static br.com.battista.arcadiacaller.constants.FriendConstant.URL_AVATAR;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -25,9 +27,11 @@ import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.adapter.FriendAdapter;
 import br.com.battista.arcadiacaller.constants.FriendConstant;
+import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.EntityAlreadyExistsException;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.model.dto.FriendDto;
 import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -37,7 +41,7 @@ public class FriendsFragment extends BaseFragment {
 
     private static final String TAG = FriendsFragment.class.getSimpleName();
 
-    private Set<String> friends = Sets.newTreeSet();
+    private Set<FriendDto> friends = Sets.newTreeSet();
     private RecyclerView recyclerView;
     private ImageButton btnAdd;
     private EditText txtUsername;
@@ -144,8 +148,9 @@ public class FriendsFragment extends BaseFragment {
                         user = userService.addFriends(token, user);
                         if (user != null) {
                             instance.setUser(user);
+                            loadAllFriend(user, token);
                             friends.clear();
-                            friends.addAll(user.getFriends());
+                            friends.addAll(user.getFriendsDto());
                             return true;
                         }
                     }
@@ -159,6 +164,28 @@ public class FriendsFragment extends BaseFragment {
                 }
                 return false;
             }
+
+            private void loadAllFriend(User user, String token) {
+                if (user != null && !user.getFriends().isEmpty()) {
+                    UserService userService = Inject.provideUserService();
+
+                    for (String friend : user.getFriends()) {
+
+                        final User userFriend = userService.findByUsername(token, friend);
+                        if (userFriend != null) {
+                            final String urlAvatar;
+                            if (ProfileAppConstant.FRIEND.equals(userFriend.getProfile())) {
+                                urlAvatar = URL_AVATAR;
+                            } else {
+                                urlAvatar = userFriend.getUrlAvatar();
+                            }
+                            final FriendDto friendDto = new FriendDto().username(userFriend.getUsername()).urlAvatar(urlAvatar).profile(userFriend.getProfile());
+                            user.addFriend(friendDto);
+                        }
+                    }
+                }
+            }
+
         }.execute();
     }
 
@@ -193,15 +220,38 @@ public class FriendsFragment extends BaseFragment {
                     friends.clear();
                     if (user != null && user.getFriends() != null) {
                         instance.setUser(user);
-                        friends.addAll(user.getFriends());
+                        loadAllFriend(user, token);
+                        friends.addAll(user.getFriendsDto());
                     } else if (userMain.getFriends() != null) {
-                        friends.addAll(userMain.getFriends());
+                        friends.addAll(userMain.getFriendsDto());
                     }
                 } catch (Exception e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
                     return false;
                 }
                 return true;
+            }
+
+            private void loadAllFriend(User user, String token) {
+                Log.i(TAG, "loadAllFriend: Load all friends!");
+                if (user != null && !user.getFriends().isEmpty()) {
+                    UserService userService = Inject.provideUserService();
+
+                    for (String friend : user.getFriends()) {
+
+                        final User userFriend = userService.findByUsername(token, friend);
+                        if (userFriend != null) {
+                            final String urlAvatar;
+                            if (ProfileAppConstant.FRIEND.equals(userFriend.getProfile())) {
+                                urlAvatar = URL_AVATAR;
+                            } else {
+                                urlAvatar = userFriend.getUrlAvatar();
+                            }
+                            final FriendDto friendDto = new FriendDto().username(userFriend.getUsername()).urlAvatar(urlAvatar).profile(userFriend.getProfile());
+                            user.addFriend(friendDto);
+                        }
+                    }
+                }
             }
         }.execute();
 

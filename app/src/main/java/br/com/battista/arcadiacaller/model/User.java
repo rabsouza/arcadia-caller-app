@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
+import br.com.battista.arcadiacaller.model.dto.FriendDto;
 
 @Table(name = UserEntry.TABLE_NAME)
 public class User extends BaseEntity implements Serializable {
@@ -33,11 +34,21 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = UserEntry.COLUMN_NAME_FRIENDS)
     private Set<String> friends = Sets.newLinkedHashSet();
 
+    @Column(name = UserEntry.COLUMN_NAME_FRIENDS)
+    private Set<FriendDto> friendsDto = Sets.newLinkedHashSet();
+
     public Boolean addFriend(String friend) {
         if (friends == null) {
             friends = Sets.newLinkedHashSet();
         }
         return friends.add(friend);
+    }
+
+    public Boolean addFriend(FriendDto friend) {
+        if (friendsDto == null) {
+            friendsDto = Sets.newLinkedHashSet();
+        }
+        return friendsDto.add(friend);
     }
 
     public String getUsername() {
@@ -78,6 +89,14 @@ public class User extends BaseEntity implements Serializable {
 
     public void setFriends(Set<String> friends) {
         this.friends = friends;
+    }
+
+    public Set<FriendDto> getFriendsDto() {
+        return friendsDto;
+    }
+
+    public void setFriendsDto(Set<FriendDto> friendsDto) {
+        this.friendsDto = friendsDto;
     }
 
     @Override
@@ -127,6 +146,11 @@ public class User extends BaseEntity implements Serializable {
 
     public User friends(Set<String> friends) {
         this.friends = friends;
+        return this;
+    }
+
+    public User friendsDto(Set<FriendDto> friendsDto) {
+        this.friendsDto = friendsDto;
         return this;
     }
 }
