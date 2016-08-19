@@ -20,6 +20,61 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.CardView
+                android:id="@+id/detail_card_view_friends_guilds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding">
+
+                    <TextView
+                        android:id="@+id/detail_card_view_friends_guilds_title"
+                        style="@style/CardTitle02Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_detail_friends"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="@dimen/element_vertical_margin"
+                        android:background="@color/gray"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/friends_guilds_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cacheColorHint="@android:color/transparent"
+                        android:clipToPadding="false"
+                        android:dividerHeight="5dp"
+                        android:listSelector="@android:color/transparent"
+                        android:paddingBottom="@dimen/element_vertical_margin"
+                        android:paddingTop="@dimen/element_vertical_margin"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:scrollbars="horizontal"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/detail_card_view_guilds"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

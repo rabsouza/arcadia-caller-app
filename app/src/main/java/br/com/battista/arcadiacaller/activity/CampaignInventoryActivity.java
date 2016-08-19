@@ -25,7 +25,7 @@ public class CampaignInventoryActivity extends BaseActivity {
         setContentView(R.layout.activity_campaign_inventory);
 
         setupToolbarDetail();
-        changeTitleCollapsingToolbar(R.string.title_campaign_detail);
+        changeTitleCollapsingToolbar(R.string.title_campaign_inventory);
 
         processDataActivity(getIntent().getExtras());
         replaceDetailFragment(CampaignInventoryFragment.newInstance(campaign, POSITION_INITIAL), R.id.inventory_container);

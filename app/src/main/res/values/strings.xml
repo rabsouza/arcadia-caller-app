@@ -5,8 +5,11 @@
     <string name="title_friends">Amigos</string>
     <string name="title_campaign_view">Campanha</string>
     <string name="title_campaign_detail">Campanha</string>
-    <string name="title_campaign_completed">Campanha</string>
+    <string name="title_campaign_detail_complete">Campanha</string>
+    <string name="title_campaign_completed">Resultado</string>
+    <string name="title_campaign_inventory">Inventário</string>
     <string name="title_campaign_active">Campanha atual</string>
+    <string name="title_campaign_new">Campanha</string>
     <string name="title_heroes">Heróis</string>
     <string name="title_cards">Cartas</string>
     <string name="title_sceneries">Cenários</string>
@@ -50,6 +53,7 @@
     <string name="hint_detail_alias_campaign">Nome/Apelido para a Campanha</string>
     <string name="hint_text_detail_alias_campaign">*¹ O nome/apelido será utilizado para identificar sua campanha.</string>
     <string name="hint_detail_friend_login">Login do Amigo/Usuário</string>
+    <string name="hint_detail_friends">Amigos</string>
     <string name="hint_detail_guilds">Guildas</string>
     <string name="hint_detail_guilds_login">Login da Guilda/Usuário</string>
     <string name="hint_detail_guilds_login_blue">Login da Guilda/Usuário</string>

@@ -650,5 +650,4 @@
         app:layout_anchorGravity="bottom|right"
         app:srcCompat="@drawable/ic_next"/>
 
-
 </android.support.design.widget.CoordinatorLayout>

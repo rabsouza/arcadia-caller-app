@@ -43,4 +43,7 @@
     <dimen name="dimen_friend_img_width">28dp</dimen>
     <dimen name="dimen_friend_img_height">28dp</dimen>
 
+    <dimen name="dimen_big_friend_img_width">48dp</dimen>
+    <dimen name="dimen_big_friend_img_height">48dp</dimen>
+
 </resources>
