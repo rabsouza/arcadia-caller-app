@@ -75,7 +75,7 @@ public class LoginActivity extends BaseActivity {
         Log.d(TAG, MessageFormat.format("Login user with username: {0}", username));
 
         chbSavedUsername = (CheckBox) findViewById(R.id.chb_saved_username);
-        final MainApplication instance = MainApplication.instance();
+        MainApplication instance = MainApplication.instance();
         if (chbSavedUsername.isChecked()) {
             instance.putPreferences(SharedPreferencesKeyEnum.SAVED_USERNAME, username);
         } else {
@@ -129,7 +129,10 @@ public class LoginActivity extends BaseActivity {
                         Log.d(TAG, MessageFormat.format("doInBackground: Find user by username: {}.", username));
 
                         user = userService.findByUsername(token, username);
+                        MainApplication instance = MainApplication.instance();
                         instance.setToken(token);
+                        instance.setUser(user);
+
                         loadAllFriend(user, token);
                         instance.setUser(user);
 

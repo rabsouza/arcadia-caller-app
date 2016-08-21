@@ -26,6 +26,8 @@ import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;
 import com.crashlytics.android.answers.CustomEvent;
 
+import java.text.MessageFormat;
+
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
@@ -134,8 +136,8 @@ public class BaseActivity extends AppCompatActivity {
             View view = navigationView.getHeaderView(0);
             if (view != null) {
                 User user = mainApplication.getUser();
-                Log.i(TAG, String.format(
-                        "loadNavigationViewHeader: Fill navigation header with user: !", user));
+                Log.i(TAG, MessageFormat.format(
+                        "loadNavigationViewHeader: Fill navigation header with user: {0}!", user));
 
                 TextView textViewName = (TextView) view.findViewById(R.id.nav_view_header_username);
                 if (textViewName != null) {

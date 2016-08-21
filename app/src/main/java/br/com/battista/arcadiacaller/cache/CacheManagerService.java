@@ -51,7 +51,6 @@ public class CacheManagerService extends Service {
     public void onActionCache(ActionCacheEnum action) {
         MainApplication instance = MainApplication.instance();
         final String token = instance.getToken();
-        final User user = instance.getUser();
         if (action != null && !Strings.isNullOrEmpty(token)) {
             Log.i(TAG, MessageFormat.format("onActionCache: Process to action: {0}.", action));
             if (ActionCacheEnum.LOAD_CARD_DATA.equals(action)) {
@@ -61,7 +60,7 @@ public class CacheManagerService extends Service {
             } else if (ActionCacheEnum.LOAD_SCENERY_DATA.equals(action)) {
                 loadAllDataSceneryAddToCache(token);
             } else if (ActionCacheEnum.LOAD_STATISTIC_USER_DATA.equals(action)) {
-                loadAllDataStatisticUserAddToCache(token, user);
+                loadAllDataStatisticUserAddToCache(token);
             }
         } else {
             Log.i(TAG, MessageFormat.format("onActionCache: No process to action: {0}.", action));
@@ -102,7 +101,8 @@ public class CacheManagerService extends Service {
         sceneryRepository.saveAll(sceneries);
     }
 
-    private void loadAllDataStatisticUserAddToCache(String token, User user) {
+    private void loadAllDataStatisticUserAddToCache(String token) {
+        User user = MainApplication.instance().getUser();
         Log.i(TAG, "loadAllDataStatisticUserAddToCache: Find all in server!");
         StatisticUser statisticUser = Inject.provideStatisticUserService(CACHED).findByUser(token, user.getUsername());
 

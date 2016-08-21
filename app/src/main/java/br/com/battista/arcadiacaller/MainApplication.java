@@ -19,6 +19,7 @@ import android.util.Log;
 import com.crashlytics.android.Crashlytics;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Strings;
 import com.orm.SugarContext;
 
 import java.io.IOException;
@@ -108,7 +109,9 @@ public class MainApplication extends MultiDexApplication {
     }
 
     public User getUser() {
-        if (user == null && preferences.contains(keyUser.name())) {
+        if ((user == null
+                || Strings.isNullOrEmpty(user.getUsername()))
+                && preferences.contains(keyUser.name())) {
             try {
                 String jsonUSer = getPreferences(keyUser);
                 user = new ObjectMapper().readValue(jsonUSer, User.class);
@@ -120,6 +123,7 @@ public class MainApplication extends MultiDexApplication {
     }
 
     public void setUser(User user) {
+        this.user = user;
         try {
             String jsonUser = new ObjectMapper().writeValueAsString(user);
             putPreferences(keyUser, jsonUser);
@@ -127,7 +131,6 @@ public class MainApplication extends MultiDexApplication {
             Log.e(TAG, "setUser: error convert user!", e);
         }
 
-        this.user = user;
     }
 
     public Boolean checkOnlineServer() {
