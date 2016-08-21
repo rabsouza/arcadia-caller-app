@@ -209,6 +209,16 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 }
             });
 
+            int visibilityBtnShare = Lists.newArrayList(EDITED_SCENERY, ADDED_SCENERY, COMPLETED_CAMPAIGN).contains(statusCurrent)
+                    ? View.VISIBLE : View.GONE;
+            holder.getBtnShare().setVisibility(View.GONE);
+            holder.getBtnShare().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showShareCampaign(campaign);
+                }
+            });
+
             List<GuildDto> guildDtos = campaign.generateGuildsDto();
             Log.i(TAG, MessageFormat.format("onBindViewHolder: Load {0} guildDtos to campaign: {1}!"
                     , guildDtos.size(), campaign.getKey()));
@@ -223,6 +233,15 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
 
+    }
+
+    private void showShareCampaign(Campaign campaign) {
+        String textShare = MessageFormat.format(getContext().getString(R.string.hint_share_camping), campaign.getKey(), getContext().getText(R.string.app_name));
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, textShare);
+        sendIntent.setType("text/plain");
+        getContext().startActivity(sendIntent);
     }
 
     private void createEditCampaign(Campaign campaign, RecyclerView.Adapter adapterCurrent) {

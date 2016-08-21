@@ -29,6 +29,8 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
 
     private final ImageButton btnInfo;
 
+    private final ImageButton btnShare;
+
     public CampaignViewHolder(View view) {
         super(view);
 
@@ -43,6 +45,7 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
         btnEdit = (ImageButton) view.findViewById(R.id.card_view_campaign_edit);
         btnDelete = (ImageButton) view.findViewById(R.id.card_view_campaign_delete);
         btnInfo = (ImageButton) view.findViewById(R.id.card_view_campaign_info);
+        btnShare = (ImageButton) view.findViewById(R.id.card_view_campaign_share);
     }
 
     public TextView getTxtTitle() {
@@ -85,4 +88,7 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder {
         return btnInventory;
     }
 
+    public ImageButton getBtnShare() {
+        return btnShare;
+    }
 }
