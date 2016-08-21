@@ -6,6 +6,21 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+
+### Version - 1.2.1
+**Date release**
+ - 21/08/2016
+
+**Features**
+ 
+**Bugs**
+ - Correção do defeito ao troca de usuário.
+
+**Improvements**
+
+------------------------------------------------------------------------
+
+
 ### Version - 1.2.0
 **Date release**
  - 18/08/2016
@@ -65,6 +80,18 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+### Version - 2.3.1
+**Date release**
+ - 21/08/2016
+
+**Features**
+ 
+**Bugs**
+ - Correção do defeito ao troca de usuário.
+
+**Improvements**
+
+------------------------------------------------------------------------
 
 ### Version - 2.3.0
 **Date release**
