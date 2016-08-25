@@ -6,6 +6,19 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.2.2
+**Date release**
+ - 24/08/2016
+
+**Features**
+ 
+**Bugs**
+
+**Improvements**
+ - Melhoria de perfomance.
+ - Melhoria na tela de seleção de Guildas.
+ 
+------------------------------------------------------------------------
 
 ### Version - 1.2.1
 **Date release**
@@ -78,6 +91,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ------------------------------------------------------------------------
 ## PHASE - BETA
+------------------------------------------------------------------------
+
+### Version - 2.3.2
+**Date release**
+ - 24/08/2016
+
+**Features**
+ 
+**Bugs**
+
+**Improvements**
+ - Melhoria de perfomance.
+ - Melhoria na tela de seleção de Guildas.
+
 ------------------------------------------------------------------------
 
 ### Version - 2.3.1

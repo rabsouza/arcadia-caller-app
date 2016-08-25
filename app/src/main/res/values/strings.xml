@@ -60,8 +60,9 @@
     <string name="hint_detail_guilds_login_red">Login da Guilda/Usuário</string>
     <string name="hint_detail_guilds_login_green">Login da Guilda/Usuário</string>
     <string name="hint_detail_guilds_login_orange">Login da Guilda/Usuário</string>
+    <string name="hint_text_detail_guilds_friends">*¹ Adicione novos amigos para facilitar a seleção do login da Guilda.</string>
     <string name="hint_text_detail_guilds_login">*¹ Deve ser um login de uma Guilda já existente na aplicação.</string>
-    <string name="hint_text_detail_guilds_login_2">*² Será necessário criar um novo login da Guilda quando inexistente.</string>
+    <string name="hint_text_detail_guilds_login_2">*² Será necessário criar um novo login ou adicionar um novo amigo quando login da Guilda inexistente.</string>
     <string name="hint_detail_heroes">Heróis</string>
     <string name="hint_detail_heroes_guild_blue_title">Guilda Águia</string>
     <string name="hint_detail_heroes_guild_green_title">Guilda Panda</string>
