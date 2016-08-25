@@ -15,7 +15,7 @@ Os Pacotes liberados para testes e produção da aplicação.
 **Bugs**
 
 **Improvements**
- - Melhoria de perfomance.
+ - Melhoria de performance.
  - Melhoria na tela de seleção de Guildas.
  
 ------------------------------------------------------------------------
