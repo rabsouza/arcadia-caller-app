@@ -1,38 +1,32 @@
 package br.com.battista.arcadiacaller.service.server;
 
-import static br.com.battista.arcadia.caller.constants.LocaleConstant.LOCALE_EN;
-import static br.com.battista.arcadia.caller.constants.LocaleConstant.LOCALE_PT;
+import static br.com.battista.arcadiacaller.service.server.LocaleService.SupportedLocale.EN;
+import static br.com.battista.arcadiacaller.service.server.LocaleService.SupportedLocale.PT;
+
+import com.google.common.collect.Maps;
 
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-
-import org.springframework.stereotype.Component;
-
-import com.google.common.base.Strings;
-import com.google.common.collect.Maps;
-
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
-@Component
 public class LocaleService {
 
-    private Map<String, Locale> supportedLocales;
-
-    @PostConstruct
-    public void init() {
-        supportedLocales = Maps.newHashMap();
-        supportedLocales.put(LOCALE_PT, new Locale(LOCALE_PT));
-        supportedLocales.put(LOCALE_EN, new Locale(LOCALE_EN));
+    public enum SupportedLocale {
+        PT, EN;
     }
 
-    public Locale processSupportedLocales(String locale) {
-        if (Strings.isNullOrEmpty(locale) || !supportedLocales.containsKey(locale.toLowerCase())) {
-            return null;
+    private Map<String, String> supportedLocales;
+
+    public LocaleService() {
+        supportedLocales = Maps.newHashMap();
+        supportedLocales.put(PT.name().toLowerCase(), PT.name().toLowerCase());
+        supportedLocales.put(EN.name().toLowerCase(), EN.name().toLowerCase());
+    }
+
+    public String processSupportedLocales(Locale locale) {
+        if (locale == null || !supportedLocales.containsKey(locale.getLanguage().toLowerCase())) {
+            return EN.name();
         }
-        return supportedLocales.get(locale.toLowerCase());
+        return supportedLocales.get(locale.getLanguage().toLowerCase());
     }
 
 }

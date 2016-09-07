@@ -11,9 +11,10 @@
     tools:context="br.com.battista.arcadiacaller.activity.LoginActivity">
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_margin="@dimen/activity_margin"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_padding">
@@ -39,6 +40,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="textAutoComplete"
                 android:maxLines="1"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <CheckBox
@@ -58,8 +60,10 @@
                 style="@style/ButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:onClick="login"
                 android:text="@string/btn_login"/>
 
@@ -69,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/btn_login"
+                android:layout_toStartOf="@id/btn_login"
                 android:onClick="signIn"
                 android:text="@string/btn_sign_in"/>
 

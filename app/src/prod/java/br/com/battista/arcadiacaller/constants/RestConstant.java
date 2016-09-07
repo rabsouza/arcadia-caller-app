@@ -11,7 +11,7 @@ public class RestConstant {
     public static final String HEADER_CACHE_CONTROL_MAX_AGE_VALUE = "public, max-age=9600, max-stale=3600";
     public static final String HEADER_USER_AGENT_KEY = "User-Agent";
     public static final String HEADER_USER_AGENT_VALUE = "arcadia-caller-app";
-
+    public static final String HEADER_LOCALE_KEY = "locale";
 
     private RestConstant() {
     }

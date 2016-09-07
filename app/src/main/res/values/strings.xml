@@ -1,248 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- ################### TITLE #################### -->
-    <string name="title_home">Inicial</string>
-    <string name="title_campaigns">Campanhas</string>
-    <string name="title_friends">Amigos</string>
-    <string name="title_campaign_view">Campanha</string>
-    <string name="title_campaign_detail">Campanha</string>
-    <string name="title_campaign_detail_complete">Cenário</string>
-    <string name="title_campaign_completed">Resultado</string>
-    <string name="title_campaign_inventory">Inventário</string>
-    <string name="title_campaign_active">Campanha atual</string>
-    <string name="title_campaign_new">Campanha</string>
-    <string name="title_heroes">Heróis</string>
-    <string name="title_cards">Cartas</string>
-    <string name="title_sceneries">Cenários</string>
-    <string name="title_guilds">Guildas</string>
-    <string name="title_manage">Configurações</string>
-    <string name="title_about">Informação</string>
-    <string name="title_logout">Terminar Sessão</string>
-    <string name="title_home_detail">Meu perfil</string>
-    <string name="title_home_detail_statistic">Estatísticas</string>
-    <string name="title_home_detail_campaigns">Campanhas</string>
-    <string name="title_home_detail_sceneries">Cenários</string>
-    <string name="title_observation">Observação</string>
+    <string name="title_home">Home</string>
+    <string name="title_campaigns">Campaigns</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_campaign_view">Campaign</string>
+    <string name="title_campaign_detail">Campaign</string>
+    <string name="title_campaign_detail_complete">Scenario</string>
+    <string name="title_campaign_completed">Result</string>
+    <string name="title_campaign_inventory">Inventory</string>
+    <string name="title_campaign_active">Current Campaign</string>
+    <string name="title_campaign_new">Campaign</string>
+    <string name="title_heroes">Heroes</string>
+    <string name="title_cards">Cards</string>
+    <string name="title_sceneries">Scenarios</string>
+    <string name="title_guilds">Guilds</string>
+    <string name="title_manage">Settings</string>
+    <string name="title_about">Information</string>
+    <string name="title_logout">End Session</string>
+    <string name="title_home_detail">Profile</string>
+    <string name="title_home_detail_statistic">Statistics</string>
+    <string name="title_home_detail_campaigns">Stat. Campaigns</string>
+    <string name="title_home_detail_sceneries">Stat. Scenarios</string>
+    <string name="title_observation">Obs</string>
 
     <!-- ################### ELEMENTS #################### -->
-    <string name="btn_login">ENTRAR</string>
-    <string name="btn_sign_in">CRIAR CONTA</string>
-    <string name="btn_save">SALVAR</string>
-    <string name="btn_create">CRIAR</string>
-    <string name="btn_cancel">CANCELAR</string>
+    <string name="btn_login">LOG IN</string>
+    <string name="btn_sign_in">CREATE ACCOUNT</string>
+    <string name="btn_save">SAVE</string>
+    <string name="btn_create">CREATE</string>
+    <string name="btn_cancel">CANCEL</string>
     <string name="btn_ok">OK</string>
-    <string name="btn_confirmation_dialog_exit">SAIR</string>
-    <string name="btn_confirmation_dialog_cancel">CANCELAR</string>
-    <string name="btn_confirmation_dialog_delete">EXCLUIR</string>
-    <string name="btn_confirmation_dialog_play">JOGAR</string>
-    <string name="btn_confirmation_dialog_finish">FINALIZAR</string>
+    <string name="btn_confirmation_dialog_exit">LEAVE</string>
+    <string name="btn_confirmation_dialog_cancel">CANCEL</string>
+    <string name="btn_confirmation_dialog_delete">DELETE</string>
+    <string name="btn_confirmation_dialog_play">PLAY</string>
+    <string name="btn_confirmation_dialog_finish">FINISH</string>
 
     <!-- ################### HINT #################### -->
-    <string name="hint_hero_ability">Hab. : {0}</string>
-    <string name="hint_card_group">Grupo: {0}</string>
-    <string name="hint_card_group_card">Grupo</string>
-    <string name="hint_hero_group_hero">Grupo</string>
-    <string name="hint_card_type_effect">Tipo: {0}</string>
+    <string name="hint_hero_ability">Abil. : {0}</string>
+    <string name="hint_card_group">Group: {0}</string>
+    <string name="hint_card_group_card">Group</string>
+    <string name="hint_hero_group_hero">Group</string>
+    <string name="hint_card_type_effect">Type: {0}</string>
     <string name="hint_scenery_head">{0} - {1}</string>
-    <string name="hint_saved_username">Lembrar-me!</string>
+    <string name="hint_saved_username">Remember me!</string>
     <string name="hint_btn_login">Login</string>
     <string name="hint_btn_mail">E-mail</string>
-    <string name="hint_text_login">*¹ O login de conter de 5 até 30 caracteres formado por um conjunto de letras, números e/ou os caracteres \'_\', \'-\' e \'.\'.</string>
-    <string name="hint_text_login_samples">*¹ Por exemplos: user01, user.01, user-01 ou user_01.</string>
-    <string name="hint_text_mail">*² Deve ser um e-mail válido.</string>
-    <string name="hint_text_partten_mail">*³ A imagem do seu perfil será a correspodente ao site http://gravatar.com para o seu e-mail.</string>
-    <string name="hint_detail_alias_campaign">Nome/Apelido para a Campanha</string>
-    <string name="hint_text_detail_alias_campaign">*¹ O nome/apelido será utilizado para identificar sua campanha.</string>
-    <string name="hint_detail_friend_login">Login do Amigo/Usuário</string>
-    <string name="hint_detail_friends_and_user">Usuário/Amigos</string>
-    <string name="hint_detail_guilds">Guildas</string>
-    <string name="hint_detail_guilds_login">Login da Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_blue">Login da Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_red">Login da Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_green">Login da Guilda/Usuário</string>
-    <string name="hint_detail_guilds_login_orange">Login da Guilda/Usuário</string>
-    <string name="hint_text_detail_guilds_friends">*¹ Adicione novos amigos para facilitar a seleção do login da Guilda.</string>
-    <string name="hint_text_detail_guilds_login">*¹ Deve ser um login de uma Guilda já existente na aplicação.</string>
-    <string name="hint_text_detail_guilds_login_2">*² Será necessário criar um novo login ou adicionar um novo amigo quando login da Guilda inexistente.</string>
-    <string name="hint_detail_heroes">Heróis</string>
-    <string name="hint_detail_heroes_guild_blue_title">Guilda Águia</string>
-    <string name="hint_detail_heroes_guild_green_title">Guilda Panda</string>
-    <string name="hint_detail_heroes_guild_orange_title">Guilda Leão</string>
-    <string name="hint_detail_heroes_guild_red_title">Guilda Raposa</string>
-    <string name="hint_detail_heroes_guild_hero_01">Herói 01</string>
-    <string name="hint_detail_heroes_guild_hero_02">Herói 02</string>
-    <string name="hint_detail_heroes_guild_hero_03">Herói 03</string>
-    <string name="hint_detail_heroes_selected">*¹ Você deve selecionar os 3 Heróis para todas as Guildas ativas!</string>
-    <string name="hint_detail_group_heroes_selected">Selecione os grupos de Hérois que esteja utilizando na Campanha ativa!</string>
-    <string name="hint_detail_scenery">Cenário</string>
-    <string name="hint_detail_scenery_current">Cenário atual</string>
-    <string name="hint_detail_scenery_current_result">Resultado</string>
-    <string name="hint_detail_scenery_location">Localização</string>
-    <string name="hint_detail_scenery_name">Nome</string>
-    <string name="hint_detail_scenery_selected_location">*¹ A localização ativa do Cenário é pre-selecionada de acordo com o número de Cenários finalizados da Campanha atual!</string>
-    <string name="hint_detail_scenery_selected">*² Você pode selecionar somentes os Cenários disponíveis para a localização atual!</string>
-    <string name="hint_detail_home_statistic_campaigns">Total de Campanhas jogadas:</string>
-    <string name="hint_detail_home_statistic_campaigns_guilds">Total de Guildas utilizadas:</string>
-    <string name="hint_detail_home_statistic_campaigns_completed">Campanhas finalizadas:</string>
-    <string name="hint_detail_home_statistic_campaigns_winners">Vitórias em Campanhas:</string>
-    <string name="hint_detail_home_statistic_campaigns_defeats">Derrotas em Campanhas:</string>
-    <string name="hint_detail_home_statistic_campaigns_medals_winners">Medalhas de Vitórias:</string>
-    <string name="hint_detail_home_statistic_campaigns_medals_least_deaths">Medalhas de Menos Mortes:</string>
-    <string name="hint_detail_home_statistic_campaigns_medals_most_coins">Medalhas de Mais moedas:</string>
-    <string name="hint_detail_home_statistic_campaigns_medals_won_rewards">Medalhas de Recompensas recebidos:</string>
-    <string name="hint_detail_home_statistic_campaigns_medals_won_titles">Medalhas de Títulos recebidos:</string>
-    <string name="hint_detail_home_statistic_sceneries">Cenários finalizados:</string>
-    <string name="hint_detail_home_statistic_sceneries_winners">Vitórias em Cenários:</string>
-    <string name="hint_detail_home_statistic_sceneries_defeats">Derrotas em Cenários:</string>
-    <string name="hint_detail_home_statistic_sceneries_least_deaths">Menos mortes:</string>
-    <string name="hint_detail_home_statistic_sceneries_most_coins">Mais moedas:</string>
-    <string name="hint_detail_home_statistic_sceneries_won_rewards">Recompensas recebidos:</string>
-    <string name="hint_detail_home_statistic_sceneries_won_titles">Títulos recebidos:</string>
-    <string name="hint_detail_card_view_scenery_winner">Vencedor do cenário</string>
-    <string name="hint_detail_card_view_scenery_least_deaths">Menos mortes:</string>
-    <string name="hint_detail_card_view_scenery_most_coins">Mais moedas:</string>
-    <string name="hint_detail_card_view_scenery_won_reward">Recebeu recompensa:</string>
-    <string name="hint_detail_card_view_scenery_won_title">Recebeu título:</string>
-    <string name="hint_detail_card_view_scenery_saved_coin">Guardou moeda:</string>
-    <string name="hint_complete_sceneries_completed">Cenários completados</string>
-    <string name="hint_complete_winner">Guilda vitoriosa</string>
-    <string name="hint_complete_winners_medals">Ganhadores das medalhas</string>
-    <string name="hint_complete_winners_winners">Vencedores:</string>
-    <string name="hint_complete_winners_least_deaths">Menos Mortes:</string>
-    <string name="hint_complete_winners_most_coins">Mais moedas:</string>
-    <string name="hint_complete_winners_won_rewards">Recompensas recebidos:</string>
-    <string name="hint_complete_winners_won_titles">Títulos recebidos:</string>
-    <string name="hint_complete_winner_text">A Guilda {0} vençeu o sexto e último cenário da campanha (o Confronto Final), Arcadia finalmente estará livre! Obrigado! Você tem o poder e glória por controlar Arcadia! Mas as suas ações ao longo da campanha vão determinar o quanto de controle você realmente tem sobre Arcadia, agora que a cidade foi reconquistada.</string>
-    <string name="hint_add_friends_obs">Cadastre um novo amigo para jogar na sua campanha.</string>
-    <string name="hint_add_friends_obs_1">Se o jogador tem interesse em utilizar o aplicativo ele deve se cadastrar pela tela inicial.</string>
-    <string name="hint_add_friends_obs_2">Um jogador cadastrado como amigo, só poderá jogar campanhas de outro jogador.</string>
-    <string name="hint_add_friends_obs_3">Obs.: Ele não terá acesso a aplicação.</string>
-    <string name="hint_view_card_guild_name">Guilda {0}</string>
-    <string name="hint_view_card_username">Usuário: {0}</string>
-    <string name="hint_view_user_winner">Usuário vencedor: {0}</string>
-    <string name="hint_view_scenery_current">{0}° Cenário</string>
-    <string name="hint_view_card_guild_user">Guilda {0} ({1})</string>
-    <string name="hint_view_inventory_guild_name">Inventário {0}</string>
-    <string name="hint_view_inventory_username">Usuário: {0}</string>
-    <string name="hint_view_inventory_cards">* Adicione as cartas que cada Guilda possui até este momento (usando, para isso, os códigos das cartas) e as cartas de Maldição Mortal que seus Heróis possam ter.</string>
-    <string name="hint_view_inventory_cards_keys">* Só é possível adicionar os códigos de cartas de Melhoria e Maldições Mortais cadastradas no aplicativo. Para mais detalhes acesse o menu Cartas!</string>
-    <string name="hint_view_inventory_card_upgrade_01">Carta 01</string>
-    <string name="hint_view_inventory_card_upgrade_02">Carta 02</string>
-    <string name="hint_view_inventory_card_upgrade_03">Carta 03</string>
-    <string name="hint_view_inventory_card_upgrade_04">Carta 04</string>
-    <string name="hint_view_inventory_card_death_curse_01">Maldição Mortal</string>
-    <string name="hint_share_camping">Veja os detalhes da minha Campanha [{0}] pelo app {1}.</string>
+    <string name="hint_text_login">*¹ Username must contain between 5 and 30 characters containing letters, numbers and/or the following characters \'_\', \'-\' e \'.\'.</string>
+    <string name="hint_text_login_samples">*¹ Example: user01, user.01, user-01 ou user_01.</string>
+    <string name="hint_text_mail">*² Must be a valid e-mail.</string>
+    <string name="hint_text_partten_mail">*³ Your profile image will be the same as the corresponding http://gravatar.com image for your e-mail.</string>
+    <string name="hint_detail_alias_campaign">Campaign alias</string>
+    <string name="hint_text_detail_alias_campaign">*¹ The alias will be used to identify your campaign.</string>
+    <string name="hint_detail_friend_login">Friend/user login</string>
+    <string name="hint_detail_friends_and_user">User/Friends</string>
+    <string name="hint_detail_guilds">Guilds</string>
+    <string name="hint_detail_guilds_login">Guild/User login</string>
+    <string name="hint_detail_guilds_login_blue">Guild/User login</string>
+    <string name="hint_detail_guilds_login_red">Guild/User login</string>
+    <string name="hint_detail_guilds_login_green">Guild/User login</string>
+    <string name="hint_detail_guilds_login_orange">Guild/User login</string>
+    <string name="hint_text_detail_guilds_friends">*¹ Add new friends to make it easier to select them as guild login/user.</string>
+    <string name="hint_text_detail_guilds_login">*¹ Must be a guild login already registered in app.</string>
+    <string name="hint_text_detail_guilds_login_2">*² When "Invalid guild login", it will be necessary to create a new login or add a new friend.</string>
+    <string name="hint_detail_heroes">Heroes</string>
+    <string name="hint_detail_heroes_guild_blue_title">Eagle Guild</string>
+    <string name="hint_detail_heroes_guild_green_title">Panda Guild</string>
+    <string name="hint_detail_heroes_guild_orange_title">Lion Guild</string>
+    <string name="hint_detail_heroes_guild_red_title">Fox Guild</string>
+    <string name="hint_detail_heroes_guild_hero_01">Hero 01</string>
+    <string name="hint_detail_heroes_guild_hero_02">Hero 02</string>
+    <string name="hint_detail_heroes_guild_hero_03">Hero 03</string>
+    <string name="hint_detail_heroes_selected">*¹ You must select all three heroes for all active guild!</string>
+    <string name="hint_detail_group_heroes_selected">Select the group of Heroes that are being used in the active campaign!</string>
+    <string name="hint_detail_scenery">Scenario</string>
+    <string name="hint_detail_scenery_current">Current scenario</string>
+    <string name="hint_detail_scenery_current_result">Results</string>
+    <string name="hint_detail_scenery_location">Location</string>
+    <string name="hint_detail_scenery_name">Name</string>
+    <string name="hint_detail_scenery_selected_location">*¹ The scenario\'s active location is pre-selected according to the number of finished scenarios in current campaign!</string>
+    <string name="hint_detail_scenery_selected">*² You can only select among the available scenarios for current location!</string>
+    <string name="hint_detail_home_statistic_campaigns">Campaigns played:</string>
+    <string name="hint_detail_home_statistic_campaigns_guilds">Guilds used:</string>
+    <string name="hint_detail_home_statistic_campaigns_completed">Finished campaigns:</string>
+    <string name="hint_detail_home_statistic_campaigns_winners">Victories in campaigns:</string>
+    <string name="hint_detail_home_statistic_campaigns_defeats">Defeats in campaigns:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_winners">Victory medals:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_least_deaths">Least Death medals:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_most_coins">Most Coins medals:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_won_rewards">Received Rewards medals:</string>
+    <string name="hint_detail_home_statistic_campaigns_medals_won_titles">Received Titles medals:</string>
+    <string name="hint_detail_home_statistic_sceneries">Finished scenarios:</string>
+    <string name="hint_detail_home_statistic_sceneries_winners">Victories in scenarios:</string>
+    <string name="hint_detail_home_statistic_sceneries_defeats">Defeats in scenarios:</string>
+    <string name="hint_detail_home_statistic_sceneries_least_deaths">Least deaths:</string>
+    <string name="hint_detail_home_statistic_sceneries_most_coins">Most coins:</string>
+    <string name="hint_detail_home_statistic_sceneries_won_rewards">Received rewards:</string>
+    <string name="hint_detail_home_statistic_sceneries_won_titles">Received titles:</string>
+    <string name="hint_detail_card_view_scenery_winner">Scenario winner</string>
+    <string name="hint_detail_card_view_scenery_least_deaths">Least deaths:</string>
+    <string name="hint_detail_card_view_scenery_most_coins">Most coins:</string>
+    <string name="hint_detail_card_view_scenery_won_reward">Received reward:</string>
+    <string name="hint_detail_card_view_scenery_won_title">Received title:</string>
+    <string name="hint_detail_card_view_scenery_saved_coin">Kept coin:</string>
+    <string name="hint_complete_sceneries_completed">Completed Scenarios</string>
+    <string name="hint_complete_winner">Victorious guild</string>
+    <string name="hint_complete_winners_medals">Received medals</string>
+    <string name="hint_complete_winners_winners">Winners:</string>
+    <string name="hint_complete_winners_least_deaths">Least deaths:</string>
+    <string name="hint_complete_winners_most_coins">Most coins:</string>
+    <string name="hint_complete_winners_won_rewards">Received rewards:</string>
+    <string name="hint_complete_winners_won_titles">Received titles:</string>
+    <string name="hint_complete_winner_text">{0} guild won the sixth and last campaign scenario (the Final Showdown), Arcadia is finally free! You have the power and glory for taking back Arcadia! But your actions along the campaign will determine how much of Arcadia you really control, now that the city has been taken back.</string>
+    <string name="hint_add_friends_obs">Register a new friend to play in your campaign.</string>
+    <string name="hint_add_friends_obs_1">If a player is interested in using the app, he must register on first screen.</string>
+    <string name="hint_add_friends_obs_2">A player registered as friend can only play campaigns for another player registered as friend.</string>
+    <string name="hint_add_friends_obs_3">Obs.: He will not have access to the app.</string>
+    <string name="hint_view_card_guild_name">Guild {0}</string>
+    <string name="hint_view_card_username">User: {0}</string>
+    <string name="hint_view_user_winner">Winning player: {0}</string>
+    <string name="hint_view_scenery_current">Scenario {0}</string>
+    <string name="hint_view_card_guild_user">Guild {0} ({1})</string>
+    <string name="hint_view_inventory_guild_name">Inventory {0}</string>
+    <string name="hint_view_inventory_username">User: {0}</string>
+    <string name="hint_view_inventory_cards">* Add each guild\'s cards so far (for that, use card codes) and the Death curse cards your heroes might possess.</string>
+    <string name="hint_view_inventory_cards_keys">* Its only possible to add codes for Upgrades and Death Curse cards that are registered in the app. For more details, access Cards menu!</string>
+    <string name="hint_view_inventory_card_upgrade_01">Card 01</string>
+    <string name="hint_view_inventory_card_upgrade_02">Card 02</string>
+    <string name="hint_view_inventory_card_upgrade_03">Card 03</string>
+    <string name="hint_view_inventory_card_upgrade_04">Card 04</string>
+    <string name="hint_view_inventory_card_death_curse_01">Death Curse</string>
+    <string name="hint_share_camping">See details for my campaign [{0}] through {1} app!</string>
 
 
     <!-- ################### MSG #################### -->
-    <string name="msg_failed_already_exists_friend">Erro ao criar o Login do Amigo/Usuário! Por favor tente outro login!</string>
-    <string name="msg_failed_already_exists_user">Erro ao criar o Usuário! Por favor tente outro login ou e-mail!</string>
-    <string name="msg_failed_create_user">Erro ao criar o Usuário! Siga as orientações da tela!</string>
-    <string name="msg_failed_create_campaign">Erro ao criar a Campanha! Siga as orientações da tela!</string>
-    <string name="msg_failed_update_campaign">Erro ao atualizar a Campanha! Siga as orientações da tela!</string>
-    <string name="msg_failed_login_user">Login invalido! Verifique se seu usuário existe! Por favor, tente novamente!</string>
-    <string name="msg_failed_login_friend">Login invalido! Usuário cadastrado como amigo não tem acesso a aplicação! Por favor, crie um novo usuário!</string>
-    <string name="msg_username_required">Login é obrigatório!</string>
-    <string name="msg_mail_required">E-mail é obrigatório!</string>
-    <string name="msg_action_loading">Aguarde! Carregando&#8230;</string>
-    <string name="msg_action_saving">Aguarde! Salvando&#8230;</string>
-    <string name="msg_action_login">Aguarde! Logando&#8230;</string>
-    <string name="msg_action_sign_in">Aguarde! Criando Conta&#8230;</string>
-    <string name="msg_blank_fragment">Em construção, verifique em breve!</string>
-    <string name="msg_empty_campaigns">Você ainda não tem nenhuma Campanha cadastrada. Por favor, crie uma nova!</string>
-    <string name="msg_alias_required">Nome/Apelido é obrigatório!</string>
-    <string name="msg_username_guild_required">Login da Guilda invalido!</string>
-    <string name="msg_at_east_one_guild_required">Pelo menos uma Guilda deve ser escolhida!</string>
-    <string name="msg_error_campaign_not_found">Erro ao processar a Campanha! Por favor, crie um nova Campanha.</string>
-    <string name="msg_error_delete_campaign">Erro ao excluir a Campanha! Por favor, tente novamente!</string>
-    <string name="msg_warn_delete_campaign">A Campanha {0} já foi iniciada e não pode ser excluida!</string>
-    <string name="msg_warn_edit_campaign">A Campanha {0} já foi iniciada e não pode ser alterada!</string>
-    <string name="msg_warn_play_campaign">Existe pendências para a Campanha {0}! Ela não pode está concluída ou com pendências!</string>
-    <string name="msg_warn_inventory_campaign">Existe pendências para a Campanha {0}! Ela não pode está concluída ou com pendências!</string>
-    <string name="msg_warn_complete_campaign">Existe Cenários pendentes para a Campanha {0}. Complete os seis Cenários para finaliza-la!</string>
-    <string name="msg_warn_heroes">Existe Guildas com Heróis pendentes!</string>
-    <string name="msg_warn_guild_winner">Você deve selecionar a Guilda vencedora do cenário atual!</string>
-    <string name="msg_empty_friends">Você ainda não tem nenhuma amigo cadastrado. Por favor, adicione um novo amigo!</string>
-    <string name="msg_warn_key_card">Código de carta invalido ou inexistente!</string>
-    <string name="msg_error_campaign_update_inventory">Erro ao adicionar informações de inventário na Campanha! Por favor, sigas as orientações de tela.</string>
+    <string name="msg_failed_already_exists_friend">Error creating Friend/User login! Please try another login!</string>
+    <string name="msg_failed_already_exists_user">Error creating User! Please try with another login or e-mail!</string>
+    <string name="msg_failed_create_user">Error creating User! Follow screen steps!</string>
+    <string name="msg_failed_create_campaign">Error creating Campaign! Follow screen steps!</string>
+    <string name="msg_failed_update_campaign">Error updating Campaign! Follow screen steps!</string>
+    <string name="msg_failed_login_user">Invalid login! Check if your user exists. Please try again!</string>
+    <string name="msg_failed_login_friend">Invalid login! User registered as friend does not have access to this app! Please, create a new user!</string>
+    <string name="msg_username_required">Login is mandatory!</string>
+    <string name="msg_mail_required">E-mail is mandatory!</string>
+    <string name="msg_action_loading">Wait! Loading&#8230;</string>
+    <string name="msg_action_saving">Wait! Saving&#8230;</string>
+    <string name="msg_action_login">Wait! Logging in&#8230;</string>
+    <string name="msg_action_sign_in">Wait! Creating Account&#8230;</string>
+    <string name="msg_blank_fragment">Under construction, check again later!</string>
+    <string name="msg_empty_campaigns">You still don\'t have any saved Campaign. Please create a new one!</string>
+    <string name="msg_alias_required">Name/alias is mandatory!</string>
+    <string name="msg_username_guild_required">Invalid Guild login!</string>
+    <string name="msg_at_east_one_guild_required">At least one guild must be selected!</string>
+    <string name="msg_error_campaign_not_found">Error processing campaign! Please create a new campaign.</string>
+    <string name="msg_error_delete_campaign">Error deleting Campaign! Please try again!</string>
+    <string name="msg_warn_delete_campaign">The Campaign {0} was already started and can´t be deleted!</string>
+    <string name="msg_warn_edit_campaign">The Campaign {0} was already started and can´t be edited!</string>
+    <string name="msg_warn_play_campaign">There are pending actions for Campaign {0}! It can\'t be finished or with pending actions!</string>
+    <string name="msg_warn_inventory_campaign">There are pending actions for Campaign {0}! It can\'t be finished or with pending actions!</string>
+    <string name="msg_warn_complete_campaign">There are pending scenarios for Campaign {0}. Complete all 6 scenarios to finish it!</string>
+    <string name="msg_warn_heroes">There are guilds with pending heroes!</string>
+    <string name="msg_warn_guild_winner">You must select current scenario victorious guild!</string>
+    <string name="msg_empty_friends">You still don\'t have any registered friend. Please add a new friend!</string>
+    <string name="msg_warn_key_card">Invalid or inexistent card code!</string>
+    <string name="msg_error_campaign_update_inventory">Error adding inventory information in Campaign! Please follow screen steps.</string>
 
 
     <!-- ################### ALERT #################### -->
-    <string name="alert_success_login">Login realizado com sucesso!</string>
-    <string name="alert_success_sign_in">Usuário criado com sucesso!</string>
-    <string name="alert_confirmation_dialog_title_exit">Tem certeza?</string>
-    <string name="alert_confirmation_dialog_text_exit">Você cancelou as alterações salvas nessa tela. Deseja sair sem salvar?</string>
-    <string name="alert_confirmation_dialog_title_delete">Tem certeza?</string>
-    <string name="alert_confirmation_dialog_text_delete">Deseja excluir a campanha {0}? Essa operação não pode ser revetida.</string>
-    <string name="alert_confirmation_dialog_title_play">Tem certeza?</string>
-    <string name="alert_confirmation_dialog_text_play">Deseja iniciar a campanha {0}? Essa operação não pode ser revetida e a campanha não poderá ser editada ou excluída.</string>
-    <string name="alert_confirmation_dialog_text_logout">Deseja terminar a sua sessão na aplicação?</string>
-    <string name="alert_confirmation_dialog_text_scenery">Deseja finalizar o Cenário {0}? Essa operação não pode ser revetida.</string>
+    <string name="alert_success_login">Login successful!</string>
+    <string name="alert_success_sign_in">User created successfully!</string>
+    <string name="alert_confirmation_dialog_title_exit">Are you sure?</string>
+    <string name="alert_confirmation_dialog_text_exit">You canceled the changes made in this screen. Do you wish to leave without saving?</string>
+    <string name="alert_confirmation_dialog_title_delete">Are you sure?</string>
+    <string name="alert_confirmation_dialog_text_delete">Do you wish to delete campaign {0}? This operation can not be reversed.</string>
+    <string name="alert_confirmation_dialog_title_play">Are you sure?</string>
+    <string name="alert_confirmation_dialog_text_play">Do you wish to start campaign {0}? This can\'t be undone and you won\'t be able to edit or delete it.</string>
+    <string name="alert_confirmation_dialog_text_logout">Do you wish to finish your session?</string>
+    <string name="alert_confirmation_dialog_text_scenery">Do you wish to finish {0} scenario? This can\'t be undone.</string>
 
     <!-- ################### OTHERS #################### -->
-    <string name="navigation_drawer_open">Abrir menu de navegação!</string>
-    <string name="navigation_drawer_close">Fechar menu de navegação!</string>
+    <string name="navigation_drawer_open">Open navigation menu!</string>
+    <string name="navigation_drawer_close">Close navigation menu!</string>
     <string name="none">-</string>
-    <string name="about_dialog_text">
+  <string name="about_dialog_text">
     <![CDATA[
 <h3>Arcadia Companion @2016</h3><br>
 Versão: {0} ({1})<br>
 Data Release: {2}<br><br>
 <b>Suporte:</b><br>
-* O aplicativo suporta a caixa base e todos os componentes lançados pela Galapagos Jogos!
+* The application supports the core box and all components released by Galapagos Games!
 <br><br>
-<b>Contato:</b><br>
+<b>Contact:</b><br>
 Nome: Rafael Alessandro Batista<br>
 E-mail: rabsouza@gmail.com<br>
-<br><br>
-<i>Agradecimento aos Beta Testes!!!</i>
+<br>
 	]]>
-    </string>
+  </string>
 
     <!-- ################### CARD #################### -->
     <string name="type_card_none"></string>
-    <string name="type_card_upgrade">Melhoria</string>
-    <string name="type_card_death_curse">Maldição Mortal</string>
-    <string name="group_card_none">Todas as Cartas</string>
-    <string name="group_card_starting_equipment">Equipamento inicial</string>
-    <string name="group_card_death_curse">Maldição mortal</string>
-    <string name="group_card_reward_cards">Recompensa cenário</string>
-    <string name="group_card_level_1">Cartas nível 1</string>
-    <string name="group_card_level_2">Cartas nível 2</string>
-    <string name="group_card_level_3">Cartas nível 3</string>
-    <string name="group_card_level_4">Cartas nível 4</string>
-    <string name="group_card_level_5">Cartas nível 5</string>
+    <string name="type_card_upgrade">Upgrade</string>
+    <string name="type_card_death_curse">Death curse</string>
+    <string name="group_card_none">All cards</string>
+    <string name="group_card_starting_equipment">Starter item</string>
+    <string name="group_card_death_curse">Death curse</string>
+    <string name="group_card_reward_cards">Scenario reward</string>
+    <string name="group_card_level_1">Level 1 cards</string>
+    <string name="group_card_level_2">Level 2 cards</string>
+    <string name="group_card_level_3">Level 3 cards</string>
+    <string name="group_card_level_4">Level 4 cards</string>
+    <string name="group_card_level_5">Level 5 cards</string>
 
 
     <!-- ################### HERO #################### -->
-    <string name="group_hero_none">Todos os Heróis</string>
-    <string name="group_hero_beyond_the_grave_expansion">Exp. Beyond The Grave</string>
-    <string name="group_hero_promo_heroes">Heróis Promocionais (KS)</string>
-    <string name="group_hero_core_box">Caixa Base</string>
-    <string name="group_hero_monsters_as_heroes">Monstros como Heróis</string>
-    <string name="group_heroes_extra">Heróis Exp. Extras</string>
+    <string name="group_hero_none">All heroes</string>
+    <string name="group_hero_beyond_the_grave_expansion">Beyond the Grave exp</string>
+    <string name="group_hero_promo_heroes">Promotional heroes (KS)</string>
+    <string name="group_hero_core_box">Core Box</string>
+    <string name="group_hero_monsters_as_heroes">Monsters as heroes</string>
+    <string name="group_heroes_extra">Extra Heroes Exp.</string>
 
 
     <!-- ################### SCENERY #################### -->
     <string name="difficulty_scenery_none"></string>
-    <string name="difficulty_scenery_easy">Fácil</string>
-    <string name="difficulty_scenery_normal">Médio</string>
-    <string name="difficulty_scenery_hard">Difícil</string>
+    <string name="difficulty_scenery_easy">Easy</string>
+    <string name="difficulty_scenery_normal">Medium</string>
+    <string name="difficulty_scenery_hard">Hard</string>
     <string name="location_scenery_none"></string>
-    <string name="location_scenery_inner_circle">Círculo Interior</string>
-    <string name="location_scenery_out_circle">Círculo Exterior</string>
-    <string name="location_scenery_ultimate">Confronto Final</string>
+    <string name="location_scenery_inner_circle">Inner Circle</string>
+    <string name="location_scenery_out_circle">Outer Circle</string>
+    <string name="location_scenery_ultimate">Final Showdown</string>
 
     <!-- ################### SCENERY #################### -->
-    <string name="name_guild_blue">Águia</string>
-    <string name="name_guild_red">Raposa</string>
-    <string name="name_guild_orange">Leão</string>
+    <string name="name_guild_blue">Eagle</string>
+    <string name="name_guild_red">Fox</string>
+    <string name="name_guild_orange">Lion</string>
     <string name="name_guild_green">Panda</string>
 
     <!-- ################### CAMPAIGN STATUS #################### -->
-    <string name="campaign_status_created">CRIADA</string>
-    <string name="campaign_status_playing">JOGANDO</string>
-    <string name="campaign_status_completed">FINALIZADA</string>
+    <string name="campaign_status_created">CREATED</string>
+    <string name="campaign_status_playing">PLAYING</string>
+    <string name="campaign_status_completed">COMPLETED</string>
 
-    <string name="hello_blank_fragment">Em construção, por favor aguarde!</string>
+    <string name="hello_blank_fragment">Under construction, please wait!</string>
 
 </resources>

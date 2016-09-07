@@ -16,7 +16,6 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -114,12 +113,12 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/card_view_home_statistic"
+                    android:id="@+id/card_view_home_statistic_campaigns"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="@dimen/element_vertical_margin"
                     android:foreground="?attr/selectableItemBackground"
-                    android:padding="@dimen/no_dimen"
+                    android:padding="@dimen/element_padding"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
@@ -135,443 +134,411 @@
                         android:padding="@dimen/element_padding">
 
                         <TextView
-                            android:id="@+id/card_view_home_statistic_title"
+                            android:id="@+id/card_view_home_statistic_campaigns_title"
                             style="@style/CardTitle02Style"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/title_home_detail_statistic"/>
+                            android:text="@string/title_home_detail_campaigns"/>
 
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_view_home_statistic_campaigns"
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginBottom="@dimen/element_padding"
+                            android:background="@color/gray"/>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="@dimen/no_dimen"
-                            app:cardBackgroundColor="@android:color/transparent"
-                            app:cardElevation="1dp"
-                            app:cardPreventCornerOverlap="false"
-                            app:cardUseCompatPadding="true"
-                            card_view:cardCornerRadius="2dp"
-                            card_view:cardElevation="1dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="@dimen/element_padding">
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns"/>
 
-                                <TextView
-                                    android:id="@+id/card_view_home_statistic_campaigns_title"
-                                    style="@style/CardTitle02Style"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/title_home_detail_campaigns"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_total"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1px"
-                                    android:layout_marginBottom="@dimen/element_padding"
-                                    android:background="@color/gray"/>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_total"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_guilds"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_guilds"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_completed"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_completed"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_winners"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_winners"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_defeats"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_defeats"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_medals_winners"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_medals_winners"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_medals_least_deaths"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_medals_least_deaths"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_medals_most_coins"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_medals_most_coins"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_medals_won_rewards"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_medals_won_rewards"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_campaigns_medals_won_titles"/>
-
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_campaigns_medals_won_titles"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </LinearLayout>
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_view_home_statistic_sceneries"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/element_vertical_margin"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="@dimen/no_dimen"
-                            app:cardBackgroundColor="@android:color/transparent"
-                            app:cardElevation="1dp"
-                            app:cardPreventCornerOverlap="false"
-                            app:cardUseCompatPadding="true"
-                            card_view:cardCornerRadius="2dp"
-                            card_view:cardElevation="1dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="@dimen/element_padding">
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_guilds"/>
 
-                                <TextView
-                                    android:id="@+id/card_view_home_statistic_sceneries_title"
-                                    style="@style/CardTitle02Style"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/title_home_detail_sceneries"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_guilds"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1px"
-                                    android:layout_marginBottom="@dimen/element_padding"
-                                    android:background="@color/gray"/>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_sceneries"/>
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_completed"/>
 
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_sceneries_total"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_completed"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                </LinearLayout>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_sceneries_winners"/>
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_winners"/>
 
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_sceneries_winners"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_winners"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                </LinearLayout>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_sceneries_defeats"/>
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_defeats"/>
 
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_sceneries_defeats"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_defeats"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                </LinearLayout>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_sceneries_least_deaths"/>
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_medals_winners"/>
 
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_sceneries_least_deaths"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_medals_winners"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                </LinearLayout>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_sceneries_most_coins"/>
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_medals_least_deaths"/>
 
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_sceneries_most_coins"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_medals_least_deaths"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                </LinearLayout>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_sceneries_won_rewards"/>
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_medals_most_coins"/>
 
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_sceneries_won_rewards"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_medals_most_coins"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                </LinearLayout>
+                        </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/element_vertical_margin"
-                                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
-                                    <TextView
-                                        style="@style/CardTextTitleStyle"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="@string/hint_detail_home_statistic_sceneries_won_titles"/>
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_medals_won_rewards"/>
 
-                                    <TextView
-                                        android:id="@+id/card_view_home_statistic_sceneries_won_titles"
-                                        style="@style/CardTextStyle"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_medals_won_rewards"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
 
-                                </LinearLayout>
-                            </LinearLayout>
+                        </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
 
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_campaigns_medals_won_titles"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_campaigns_medals_won_titles"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_view_home_statistic_sceneries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/element_vertical_margin"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="@dimen/element_padding"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="1dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="true"
+                    card_view:cardCornerRadius="2dp"
+                    card_view:cardElevation="1dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/element_padding">
+
+                        <TextView
+                            android:id="@+id/card_view_home_statistic_sceneries_title"
+                            style="@style/CardTitle02Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_home_detail_sceneries"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginBottom="@dimen/element_padding"
+                            android:background="@color/gray"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_sceneries"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_sceneries_total"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_sceneries_winners"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_sceneries_winners"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_sceneries_defeats"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_sceneries_defeats"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_sceneries_least_deaths"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_sceneries_least_deaths"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_sceneries_most_coins"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_sceneries_most_coins"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_sceneries_won_rewards"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_sceneries_won_rewards"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/element_vertical_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/CardTextTitleStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/hint_detail_home_statistic_sceneries_won_titles"/>
+
+                            <TextView
+                                android:id="@+id/card_view_home_statistic_sceneries_won_titles"
+                                style="@style/CardTextStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>

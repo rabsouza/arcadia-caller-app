@@ -90,7 +90,7 @@
                 android:id="@+id/card_view_hero_img_hero"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/element_vertical_margin"
                 android:scaleType="fitCenter"/>
 
         </LinearLayout>

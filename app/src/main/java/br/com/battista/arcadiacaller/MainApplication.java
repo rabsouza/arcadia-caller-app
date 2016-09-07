@@ -23,6 +23,7 @@ import com.google.common.base.Strings;
 import com.orm.SugarContext;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import br.com.battista.arcadiacaller.adapter.FontsAdapter;
 import br.com.battista.arcadiacaller.cache.CacheManagerService;
@@ -63,6 +64,10 @@ public class MainApplication extends MultiDexApplication {
         instance = this;
         initializeDB();
         initializeCacheManager();
+    }
+
+    public Locale getCurrentLocale(){
+        return getResources().getConfiguration().locale;
     }
 
     public String getToken() {

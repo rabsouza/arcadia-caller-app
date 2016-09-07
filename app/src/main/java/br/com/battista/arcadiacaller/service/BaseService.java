@@ -3,6 +3,7 @@ package br.com.battista.arcadiacaller.service;
 import static br.com.battista.arcadiacaller.constants.EntityConstant.DEFAULT_CACHE_SIZE;
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_KEY;
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_CACHE_CONTROL_MAX_AGE_VALUE;
+import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_LOCALE_KEY;
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_KEY;
 import static br.com.battista.arcadiacaller.constants.RestConstant.HEADER_USER_AGENT_VALUE;
 
@@ -21,6 +22,7 @@ import br.com.battista.arcadiacaller.exception.AuthenticationException;
 import br.com.battista.arcadiacaller.exception.EntityAlreadyExistsException;
 import br.com.battista.arcadiacaller.exception.EntityNotFoundException;
 import br.com.battista.arcadiacaller.exception.ValidatorException;
+import br.com.battista.arcadiacaller.service.server.LocaleService;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -65,11 +67,19 @@ public class BaseService {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
                 Request request = chain.request();
+                final MainApplication instance = MainApplication.instance();
+                final LocaleService localeService = new LocaleService();
                 if (request.method().equals(METHOD_GET)) {
                     request = request
                             .newBuilder()
                             .addHeader(HEADER_CACHE_CONTROL_MAX_AGE_KEY, HEADER_CACHE_CONTROL_MAX_AGE_VALUE)
                             .addHeader(HEADER_USER_AGENT_KEY, HEADER_USER_AGENT_VALUE)
+                            .addHeader(HEADER_LOCALE_KEY, localeService.processSupportedLocales(instance.getCurrentLocale()))
+                            .build();
+                } else {
+                    request = request
+                            .newBuilder()
+                            .addHeader(HEADER_LOCALE_KEY, localeService.processSupportedLocales(instance.getCurrentLocale()))
                             .build();
                 }
                 return chain.proceed(request);
@@ -97,7 +107,7 @@ public class BaseService {
     @NonNull
     private HttpLoggingInterceptor createHttpLoggingInterceptor() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        logging.setLevel(HttpLoggingInterceptor.Level.HEADERS);
         return logging;
     }
 

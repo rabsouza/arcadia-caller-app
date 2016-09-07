@@ -39,17 +39,22 @@
                     android:padding="@dimen/element_padding">
 
                     <TextView
-                        style="@style/HintTextStyle"
+                        style="@style/CardHead03Style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/hint_add_friends_obs"
                         android:textStyle="bold"/>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"/>
+
                     <TextView
                         style="@style/HintTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
                         android:text="@string/hint_add_friends_obs_1"/>
 
                     <TextView

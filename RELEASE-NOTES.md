@@ -6,6 +6,33 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.2.4
+**Date release**
+ - 06/09/2016
+
+**Features**
+ 
+**Bugs**
+ - Ajusta a versão das libs Android.
+
+**Improvements**
+ - Melhorias nas telas: Home, Cartas, Heróis, Cenários e Inventário.
+
+------------------------------------------------------------------------
+
+### Version - 1.2.3
+**Date release**
+ - 05/09/2016
+
+**Features**
+ - Adiciona traduções para o idioma Inglês.
+ 
+**Bugs**
+
+**Improvements**
+ 
+------------------------------------------------------------------------
+
 ### Version - 1.2.2
 **Date release**
  - 24/08/2016
@@ -91,6 +118,33 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ------------------------------------------------------------------------
 ## PHASE - BETA
+------------------------------------------------------------------------
+
+### Version - 2.3.4
+**Date release**
+ - 06/09/2016
+
+**Features**
+ 
+**Bugs**
+ - Ajusta a versão das libs Android.
+
+**Improvements**
+ - Melhorias nas telas: Home, Cartas, Heróis, Cenários e Inventário.
+
+------------------------------------------------------------------------
+
+### Version - 2.3.3
+**Date release**
+ - 05/09/2016
+
+**Features**
+ - Adiciona traduções para o idioma Inglês.
+ 
+**Bugs**
+
+**Improvements**
+
 ------------------------------------------------------------------------
 
 ### Version - 2.3.2

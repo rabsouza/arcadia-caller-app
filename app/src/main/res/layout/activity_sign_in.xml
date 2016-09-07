@@ -10,108 +10,117 @@
     android:padding="@dimen/no_dimen"
     tools:context="br.com.battista.arcadiacaller.activity.SignInActivity">
 
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_padding">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
-        <TextView
-            style="@style/AppTitleStyle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/activity_margin"
             android:gravity="center"
-            android:text="@string/title_app"/>
+            android:orientation="vertical"
+            android:padding="@dimen/activity_padding">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/txt_username"
-                style="@style/InputStyle"
+            <TextView
+                style="@style/ExpandedTitleStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:hint="@string/hint_btn_login"
-                android:imeOptions="actionNext"
-                android:inputType="textAutoComplete"
-                android:maxLines="1"/>
+                android:gravity="center"
+                android:text="@string/title_app"/>
 
-        </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/txt_username"
+                    style="@style/InputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:hint="@string/hint_btn_login"
+                    android:imeOptions="actionNext"
+                    android:inputType="textAutoComplete"
+                    android:maxLines="1"/>
 
-            <EditText
-                android:id="@+id/txt_mail"
-                style="@style/InputStyle"
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txt_mail"
+                    style="@style/InputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_btn_mail"
+                    android:imeOptions="actionDone"
+                    android:inputType="textWebEmailAddress"
+                    android:maxLines="1"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                style="@style/HintTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_btn_mail"
-                android:imeOptions="actionDone"
-                android:inputType="textWebEmailAddress"
-                android:maxLines="1"/>
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:text="@string/hint_text_login"/>
 
-        </android.support.design.widget.TextInputLayout>
-
-        <TextView
-            style="@style/HintTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/hint_text_login"/>
-
-        <TextView
-            style="@style/HintTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/element_vertical_margin"
-            android:text="@string/hint_text_login_samples"/>
-
-        <TextView
-            style="@style/HintTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/element_vertical_margin"
-            android:text="@string/hint_text_mail"/>
-
-        <TextView
-            style="@style/HintTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/element_vertical_margin"
-            android:text="@string/hint_text_partten_mail"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin">
-
-            <Button
-                android:id="@+id/btn_create"
-                style="@style/ButtonStyle"
-                android:layout_width="wrap_content"
+            <TextView
+                style="@style/HintTextStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:onClick="save"
-                android:text="@string/btn_create"/>
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:text="@string/hint_text_login_samples"/>
 
-            <Button
-                android:id="@+id/btn_cancel"
-                style="@style/ButtonBorderLessStyle"
-                android:layout_width="wrap_content"
+            <TextView
+                style="@style/HintTextStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/btn_create"
-                android:onClick="cancel"
-                android:text="@string/btn_cancel"/>
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:text="@string/hint_text_mail"/>
+
+            <TextView
+                style="@style/HintTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:text="@string/hint_text_partten_mail"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <Button
+                    android:id="@+id/btn_create"
+                    style="@style/ButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:onClick="save"
+                    android:text="@string/btn_create"/>
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/ButtonBorderLessStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/btn_create"
+                    android:onClick="cancel"
+                    android:text="@string/btn_cancel"/>
 
 
-        </RelativeLayout>
-    </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>

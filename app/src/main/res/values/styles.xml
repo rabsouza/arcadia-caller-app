@@ -69,14 +69,14 @@
     <style name="AppTitleStyle">
         <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">52sp</item>
+        <item name="android:textSize">48sp</item>
         <item name="android:typeface">sans</item>
     </style>
 
     <style name="ExpandedTitleStyle">
         <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">48sp</item>
+        <item name="android:textSize">46sp</item>
         <item name="android:typeface">sans</item>
     </style>
 
