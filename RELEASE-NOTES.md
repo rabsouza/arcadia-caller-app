@@ -6,6 +6,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.2.5
+**Date release**
+ - 07/09/2016
+
+**Features**
+ 
+**Bugs**
+ - Corrige o Bug na tela da Home quando e-mail muito grande.
+
+**Improvements**
+ - Melhorias nas telas: Home, Cartas, Heróis, Cenários e Inventário.
+
+------------------------------------------------------------------------
+
 ### Version - 1.2.4
 **Date release**
  - 06/09/2016
@@ -117,7 +131,22 @@ Os Pacotes liberados para testes e produção da aplicação.
 **Improvements**
 
 ------------------------------------------------------------------------
+------------------------------------------------------------------------
 ## PHASE - BETA
+------------------------------------------------------------------------
+
+### Version - 2.3.5
+**Date release**
+ - 07/09/2016
+
+**Features**
+ 
+**Bugs**
+ - Corrige o Bug na tela da Home quando e-mail muito grande.
+
+**Improvements**
+ - Melhorias nas telas: Home, Cartas, Heróis, Cenários e Inventário.
+
 ------------------------------------------------------------------------
 
 ### Version - 2.3.4
@@ -435,21 +464,3 @@ Os Pacotes liberados para testes e produção da aplicação.
  - Melhoria no backgroud cabeçalho para Campanha
 
 ------------------------------------------------------------------------
-
-### Version -
-**Date release**
- -
-
-**Features**
- -
-
-**Bugs**
- -
-
-**Improvements**
- -
-
-
-
-
-

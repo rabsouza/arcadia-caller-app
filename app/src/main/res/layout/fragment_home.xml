@@ -21,7 +21,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
                 <android.support.v7.widget.CardView
                     android:id="@+id/card_view_home"
                     android:layout_width="match_parent"
@@ -65,36 +64,37 @@
                                 android:id="@+id/card_view_home_img"
                                 android:layout_width="@dimen/dimen_profile_img_width"
                                 android:layout_height="@dimen/dimen_profile_img_height"
-                                android:layout_marginTop="@dimen/nav_header_vertical_spacing"
+                                android:padding="@dimen/element_padding"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/profile"/>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/dimen_profile_img_height"
-                                android:layout_marginLeft="@dimen/element_horizontal_margin"
                                 android:layout_marginTop="@dimen/nav_header_vertical_spacing"
                                 android:layout_weight="1"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:paddingEnd="@dimen/element_horizontal_margin"
+                                android:paddingLeft="@dimen/element_horizontal_margin"
+                                android:paddingRight="@dimen/element_horizontal_margin"
+                                android:paddingStart="@dimen/element_horizontal_margin">
 
                                 <TextView
                                     android:id="@+id/card_view_home_username"
-                                    style="@style/NavDrawerTextStyle"
+                                    style="@style/NavDrawerTextBoldStyle"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="@dimen/label_vertical_spacing"
-                                    android:textStyle="bold"/>
+                                    android:layout_height="wrap_content"/>
 
                                 <TextView
                                     android:id="@+id/card_view_home_mail"
                                     style="@style/NavDrawerTextStyle"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
 
                                 <TextView
                                     android:id="@+id/card_view_home_created"
                                     style="@style/NavDrawerTextStyle"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
 
                             </LinearLayout>

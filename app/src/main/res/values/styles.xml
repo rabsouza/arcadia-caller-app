@@ -59,15 +59,24 @@
         <item name="android:typeface">serif</item>
     </style>
 
+    <style name="NavDrawerTextBoldStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
     <style name="NavDrawerTextStyle">
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:typeface">sans</item>
     </style>
 
     <style name="AppTitleStyle">
         <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">48sp</item>
         <item name="android:typeface">sans</item>
@@ -75,8 +84,10 @@
 
     <style name="ExpandedTitleStyle">
         <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">46sp</item>
+        <item name="android:textSize">42sp</item>
         <item name="android:typeface">sans</item>
     </style>
 

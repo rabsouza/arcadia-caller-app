@@ -5,7 +5,6 @@
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/background_header"
     android:gravity="bottom"
-    android:alpha="0.9"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -23,16 +22,16 @@
 
     <TextView
         android:id="@+id/nav_view_header_username"
-        style="@style/NavDrawerTextStyle"
+        style="@style/NavDrawerTextBoldStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/label_vertical_spacing"
-        android:textStyle="bold"/>
+        android:layout_marginTop="@dimen/element_vertical_margin"/>
 
     <TextView
         android:id="@+id/nav_view_header_mail"
         style="@style/NavDrawerTextStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:ellipsize="end"/>
 
 </LinearLayout>
