@@ -25,6 +25,7 @@ public class AppServiceFromServer extends BaseService implements AppService {
 
     public static final String APP_SERVER_IS_OFFLINE = "App server is offline!";
     public static final String APP_SERVER_IS_ONLINE = "App server is online!";
+    public static final String APP_SERVER_IS_MAINTENANCE = "App Server is down for maintenance!";
     private static final String TAG = AppServiceFromServer.class.getSimpleName();
 
     @Override
@@ -81,21 +82,29 @@ public class AppServiceFromServer extends BaseService implements AppService {
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
 
                 Boolean statusCode = response != null && response.code() == HttpStatus.OK.value();
+                final MainApplication instance = MainApplication.instance();
                 if (statusCode && response.body() != null) {
                     String appStauts = String.valueOf(response.body().get(RestConstant.APP_STATUS));
 
                     if (RestConstant.APP_STATUS_UP.equalsIgnoreCase(appStauts)) {
                         Log.i(TAG, APP_SERVER_IS_ONLINE);
-                        MainApplication.instance().setOnlineServer(Boolean.TRUE);
+                        instance.setOnlineServer(Boolean.TRUE);
+                        instance.setMaintenanceServer(Boolean.FALSE);
+
+                    } else if (RestConstant.APP_STATUS_HEAL.equalsIgnoreCase(appStauts)) {
+                        Log.i(TAG, APP_SERVER_IS_MAINTENANCE);
+                        instance.setOnlineServer(Boolean.TRUE);
+                        instance.setMaintenanceServer(Boolean.TRUE);
 
                     } else {
                         Log.i(TAG, APP_SERVER_IS_OFFLINE);
-                        MainApplication.instance().setOnlineServer(Boolean.FALSE);
+                        instance.setOnlineServer(Boolean.FALSE);
+                        instance.setMaintenanceServer(Boolean.FALSE);
                     }
                 } else {
                     Log.e(TAG, "Failed to check health the app server!");
                     Log.i(TAG, APP_SERVER_IS_OFFLINE);
-                    MainApplication.instance().setOnlineServer(Boolean.FALSE);
+                    instance.setOnlineServer(Boolean.FALSE);
 
                 }
             }

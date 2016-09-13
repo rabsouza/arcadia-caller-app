@@ -45,6 +45,8 @@ public class MainApplication extends MultiDexApplication {
 
     private Boolean onlineServer = Boolean.FALSE;
 
+    private Boolean maintenanceServer = Boolean.FALSE;
+
     private SharedPreferences preferences;
 
     public static MainApplication instance() {
@@ -84,6 +86,14 @@ public class MainApplication extends MultiDexApplication {
 
     public void setOnlineServer(Boolean onlineServer) {
         this.onlineServer = onlineServer;
+    }
+
+    public Boolean getMaintenanceServer() {
+        return maintenanceServer;
+    }
+
+    public void setMaintenanceServer(Boolean maintenanceServer) {
+        this.maintenanceServer = maintenanceServer;
     }
 
     private void initializeLoadImage() {
