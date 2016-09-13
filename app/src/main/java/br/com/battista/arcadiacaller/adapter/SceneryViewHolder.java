@@ -16,6 +16,7 @@ public class SceneryViewHolder extends RecyclerView.ViewHolder {
 
     private TextView txtWonTitle;
 
+    private TextView txtBenefitTitles;
 
     public SceneryViewHolder(View view) {
         super(view);
@@ -24,6 +25,7 @@ public class SceneryViewHolder extends RecyclerView.ViewHolder {
         txtDifficulty = (TextView) view.findViewById(R.id.card_view_scenery_difficulty);
         txtWonReward = (TextView) view.findViewById(R.id.card_view_scenery_won_reward);
         txtWonTitle = (TextView) view.findViewById(R.id.card_view_scenery_won_title);
+        txtBenefitTitles = (TextView) view.findViewById(R.id.card_view_scenery_benefit_titles);
     }
 
     public TextView getTxtTitle() {
@@ -41,4 +43,9 @@ public class SceneryViewHolder extends RecyclerView.ViewHolder {
     public TextView getTxtWonTitle() {
         return txtWonTitle;
     }
+
+    public TextView getTxtBenefitTitles() {
+        return txtBenefitTitles;
+    }
+
 }

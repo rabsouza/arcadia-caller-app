@@ -35,6 +35,8 @@ public class SceneryRepository implements Repository<Scenery> {
         entity.synchronize();
         if (entity.getBenefitTitles() == null) {
             entity.setBenefitTitles(Lists.newArrayList(new String[0]));
+        } else {
+            entity.createStrBenefitTitles();
         }
 
         Card wonReward = entity.getWonReward();
@@ -85,6 +87,7 @@ public class SceneryRepository implements Repository<Scenery> {
                 .list();
 
         for (Scenery scenery : sceneries) {
+            scenery.loadBenefitTitles();
             loadWonReward(scenery);
         }
         return sceneries;

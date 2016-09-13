@@ -4,6 +4,7 @@ import static br.com.battista.arcadiacaller.repository.contract.DatabaseContract
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.orm.dsl.Column;
 import com.orm.dsl.Table;
@@ -18,6 +19,7 @@ import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 public class Scenery extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private static final String SEPARATOR_LIST = ";";
 
     @Column(name = SceneryEntry.COLUMN_NAME_NAME, notNull = true, unique = true)
     private String name;
@@ -39,6 +41,9 @@ public class Scenery extends BaseEntity implements Serializable {
 
     @Column(name = SceneryEntry.COLUMN_NAME_BENEFIT_TITLES)
     private List<String> benefitTitles = Lists.newArrayList();
+
+    @Column(name = SceneryEntry.COLUMN_NAME_STR_BENEFIT_TITLES)
+    private String strBenefitTitles;
 
     @Column(name = SceneryEntry.COLUMN_NAME_LOCATION, notNull = true)
     private LocationSceneryEnum location;
@@ -109,6 +114,26 @@ public class Scenery extends BaseEntity implements Serializable {
 
     public void setBenefitTitles(List<String> benefitTitles) {
         this.benefitTitles = benefitTitles;
+    }
+
+    public void createStrBenefitTitles() {
+        StringBuilder builder = new StringBuilder();
+        if (benefitTitles != null) {
+            for (String benefitTitle : benefitTitles) {
+                builder.append(benefitTitle).append(SEPARATOR_LIST);
+            }
+        }
+        strBenefitTitles = builder.toString();
+    }
+
+    public void loadBenefitTitles() {
+        if (!Strings.isNullOrEmpty(strBenefitTitles)) {
+            for (String benefitTitle : strBenefitTitles.split(SEPARATOR_LIST)) {
+                if (!Strings.isNullOrEmpty(benefitTitle)) {
+                    benefitTitles.add(benefitTitle);
+                }
+            }
+        }
     }
 
     public LocationSceneryEnum getLocation() {

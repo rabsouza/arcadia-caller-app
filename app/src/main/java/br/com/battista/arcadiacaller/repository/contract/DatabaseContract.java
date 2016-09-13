@@ -130,6 +130,7 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_KEY_WON_REWARD = "KEY_WON_REWARD";
         public static final String COLUMN_NAME_DIFFICULTY = "DIFFICULTY";
         public static final String COLUMN_NAME_BENEFIT_TITLES = "BENEFIT_TITLES";
+        public static final String COLUMN_NAME_STR_BENEFIT_TITLES = "STR_BENEFIT_TITLES";
         public static final String COLUMN_NAME_LOCATION = "LOCATION";
         public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
         public static final String COLUMN_NAME_REVISE = "REVISE";

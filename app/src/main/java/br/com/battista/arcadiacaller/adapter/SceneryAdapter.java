@@ -70,6 +70,13 @@ public class SceneryAdapter extends RecyclerView.Adapter<SceneryViewHolder> {
                 holder.getTxtWonTitle().setText(wonTitle);
             }
 
+            List<String> benefitTitles = scenery.getBenefitTitles();
+            if (benefitTitles == null || benefitTitles.isEmpty()) {
+                holder.getTxtBenefitTitles().setText(R.string.none);
+            } else {
+                holder.getTxtBenefitTitles().setText(benefitTitles.toString());
+            }
+
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
