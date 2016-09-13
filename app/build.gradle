@@ -41,13 +41,13 @@ android {
         }
         prod {
             applicationIdSuffix = ".app"
-            versionCode 8
-            versionName "1.2.5"
+            versionCode 9
+            versionName "1.2.6"
         }
         dev {
             applicationIdSuffix = ".dev"
-            versionCode 235
-            versionName "2.3.5"
+            versionCode 236
+            versionName "2.3.6"
         }
     }
     android.variantFilter { variant ->

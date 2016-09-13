@@ -6,6 +6,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.2.6
+**Date release**
+ - 12/09/2016
+
+**Features**
+ 
+**Bugs**
+
+**Improvements**
+ - Melhorias nas telas: Login e Criar usuário.
+ - Adicionar quem se beneficia na tela de Cenários.
+
+------------------------------------------------------------------------
+
 ### Version - 1.2.5
 **Date release**
  - 07/09/2016
@@ -133,6 +147,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 ## PHASE - BETA
+------------------------------------------------------------------------
+
+### Version - 2.3.6
+**Date release**
+ - 12/09/2016
+
+**Features**
+ 
+**Bugs**
+
+**Improvements**
+ - Melhorias nas telas: Login e Criar usuário.
+ - Adicionar quem se beneficia na tela de Cenários.
+
 ------------------------------------------------------------------------
 
 ### Version - 2.3.5
