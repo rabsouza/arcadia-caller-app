@@ -78,7 +78,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">48sp</item>
+        <item name="android:textSize">44sp</item>
         <item name="android:typeface">sans</item>
     </style>
 
@@ -87,7 +87,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">42sp</item>
+        <item name="android:textSize">40sp</item>
         <item name="android:typeface">sans</item>
     </style>
 
