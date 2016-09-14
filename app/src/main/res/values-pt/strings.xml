@@ -35,6 +35,7 @@
     <string name="btn_confirmation_dialog_exit">SAIR</string>
     <string name="btn_confirmation_dialog_cancel">CANCELAR</string>
     <string name="btn_confirmation_dialog_delete">EXCLUIR</string>
+    <string name="btn_confirmation_dialog_remove">REMOVER</string>
     <string name="btn_confirmation_dialog_play">JOGAR</string>
     <string name="btn_confirmation_dialog_finish">FINALIZAR</string>
 
@@ -116,8 +117,8 @@
     <string name="hint_complete_winner_text">A Guilda {0} vençeu o sexto e último cenário da campanha (o Confronto Final), Arcadia finalmente estará livre! Obrigado! Você tem o poder e glória por controlar Arcadia! Mas as suas ações ao longo da campanha vão determinar o quanto de controle você realmente tem sobre Arcadia, agora que a cidade foi reconquistada.</string>
     <string name="hint_add_friends_obs">Cadastre um novo amigo para jogar na sua campanha.</string>
     <string name="hint_add_friends_obs_1">Se o jogador tem interesse em utilizar o aplicativo, ele deve se cadastrar pela tela inicial.</string>
-    <string name="hint_add_friends_obs_2">Um jogador cadastrado como amigo, só poderá jogar campanhas de outro jogador.</string>
-    <string name="hint_add_friends_obs_3">Obs.: Ele não terá acesso a aplicação.</string>
+    <string name="hint_add_friends_obs_2">Um jogador cadastrado como amigo, só poderá jogar campanhas de outro jogador. Ele não terá acesso a aplicação.</string>
+    <string name="hint_add_friends_obs_3">Obs.: Você pode adicionar outro jogador como amigo.</string>
     <string name="hint_view_card_guild_name">Guilda {0}</string>
     <string name="hint_view_card_username">Usuário: {0}</string>
     <string name="hint_view_user_winner">Usuário vencedor: {0}</string>
@@ -148,6 +149,7 @@
     <string name="msg_action_loading">Aguarde! Carregando&#8230;</string>
     <string name="msg_action_saving">Aguarde! Salvando&#8230;</string>
     <string name="msg_action_login">Aguarde! Logando&#8230;</string>
+    <string name="msg_action_removing">Aguarde! Removendo&#8230;</string>
     <string name="msg_action_sign_in">Aguarde! Criando Conta&#8230;</string>
     <string name="msg_blank_fragment">Em construção, verifique em breve!</string>
     <string name="msg_empty_campaigns">Você ainda não tem nenhuma Campanha cadastrada. Por favor, crie uma nova!</string>
@@ -175,6 +177,7 @@
     <string name="alert_confirmation_dialog_text_exit">Você cancelou as alterações salvas nessa tela. Deseja sair sem salvar?</string>
     <string name="alert_confirmation_dialog_title_delete">Tem certeza?</string>
     <string name="alert_confirmation_dialog_text_delete">Deseja excluir a campanha {0}? Essa operação não pode ser revetida.</string>
+    <string name="alert_confirmation_dialog_text_remove">Deseja remover o amigo {0}? Essa operação não pode ser revetida.</string>
     <string name="alert_confirmation_dialog_title_play">Tem certeza?</string>
     <string name="alert_confirmation_dialog_text_play">Deseja iniciar a campanha {0}? Essa operação não pode ser revetida e a campanha não poderá ser editada ou excluída.</string>
     <string name="alert_confirmation_dialog_text_logout">Deseja terminar a sua sessão na aplicação?</string>

@@ -5,8 +5,9 @@ import static br.com.battista.arcadiacaller.constants.FriendConstant.URL_AVATAR;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,6 +46,8 @@ public class FriendsFragment extends BaseFragment {
     private RecyclerView recyclerView;
     private ImageButton btnAdd;
     private EditText txtUsername;
+    private SwipeRefreshLayout refreshLayout;
+
 
     public FriendsFragment() {
     }
@@ -63,7 +66,7 @@ public class FriendsFragment extends BaseFragment {
         final View viewFragment = inflater.inflate(R.layout.fragment_friends, container, false);
 
         recyclerView = (RecyclerView) viewFragment.findViewById(R.id.friends_recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(false);
 
@@ -78,6 +81,16 @@ public class FriendsFragment extends BaseFragment {
                 }
             }
         });
+
+        refreshLayout = (SwipeRefreshLayout) viewFragment.findViewById(R.id.refresh_layout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadFriends();
+                refreshLayout.setRefreshing(false);
+            }
+        });
+
 
         return viewFragment;
     }
@@ -107,7 +120,7 @@ public class FriendsFragment extends BaseFragment {
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_already_exists_friend);
                 } else {
                     txtUsername.setText("");
-                    recyclerView.setAdapter(new FriendAdapter(getContext(), Lists.newArrayList(friends)));
+                    recyclerView.setAdapter(new FriendAdapter(getActivity(), getContext(), Lists.newArrayList(friends)));
                     Log.d(TAG, "onPostExecute: Success in create user!");
                 }
                 dismissProgress();
@@ -205,7 +218,7 @@ public class FriendsFragment extends BaseFragment {
                 if (friends == null || friends.isEmpty()) {
                     AndroidUtils.snackbar(getView(), R.string.msg_empty_friends);
                 } else {
-                    recyclerView.setAdapter(new FriendAdapter(getContext(), Lists.newArrayList(friends)));
+                    recyclerView.setAdapter(new FriendAdapter(getActivity(), getContext(), Lists.newArrayList(friends)));
                 }
                 dismissProgress();
             }

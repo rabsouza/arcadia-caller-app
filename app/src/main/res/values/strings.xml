@@ -34,6 +34,7 @@
     <string name="btn_confirmation_dialog_exit">LEAVE</string>
     <string name="btn_confirmation_dialog_cancel">CANCEL</string>
     <string name="btn_confirmation_dialog_delete">DELETE</string>
+    <string name="btn_confirmation_dialog_remove">REMOVE</string>
     <string name="btn_confirmation_dialog_play">PLAY</string>
     <string name="btn_confirmation_dialog_finish">FINISH</string>
 
@@ -115,8 +116,8 @@
     <string name="hint_complete_winner_text">{0} guild won the sixth and last campaign scenario (the Final Showdown), Arcadia is finally free! You have the power and glory for taking back Arcadia! But your actions along the campaign will determine how much of Arcadia you really control, now that the city has been taken back.</string>
     <string name="hint_add_friends_obs">Register a new friend to play in your campaign.</string>
     <string name="hint_add_friends_obs_1">If a player is interested in using the app, he must register on first screen.</string>
-    <string name="hint_add_friends_obs_2">A player registered as friend can only play campaigns for another player registered as friend.</string>
-    <string name="hint_add_friends_obs_3">Obs.: He will not have access to the app.</string>
+    <string name="hint_add_friends_obs_2">A player registered as friend can only play campaigns for another player registered as friend. He will not have access to the app.</string>
+    <string name="hint_add_friends_obs_3">Obs.: You can add login another player as a friend.</string>
     <string name="hint_view_card_guild_name">Guild {0}</string>
     <string name="hint_view_card_username">User: {0}</string>
     <string name="hint_view_user_winner">Winning player: {0}</string>
@@ -146,6 +147,7 @@
     <string name="msg_mail_required">E-mail is mandatory!</string>
     <string name="msg_action_loading">Wait! Loading&#8230;</string>
     <string name="msg_action_saving">Wait! Saving&#8230;</string>
+    <string name="msg_action_removing">Wait! Removing&#8230;</string>
     <string name="msg_action_login">Wait! Logging in&#8230;</string>
     <string name="msg_action_sign_in">Wait! Creating Account&#8230;</string>
     <string name="msg_blank_fragment">Under construction, check again later!</string>
@@ -174,6 +176,7 @@
     <string name="alert_confirmation_dialog_text_exit">You canceled the changes made in this screen. Do you wish to leave without saving?</string>
     <string name="alert_confirmation_dialog_title_delete">Are you sure?</string>
     <string name="alert_confirmation_dialog_text_delete">Do you wish to delete campaign {0}? This operation can not be reversed.</string>
+    <string name="alert_confirmation_dialog_text_remove">Do you wish to remove the friend {0}? This operation can not be reversed.</string>
     <string name="alert_confirmation_dialog_title_play">Are you sure?</string>
     <string name="alert_confirmation_dialog_text_play">Do you wish to start campaign {0}? This can\'t be undone and you won\'t be able to edit or delete it.</string>
     <string name="alert_confirmation_dialog_text_logout">Do you wish to finish your session?</string>

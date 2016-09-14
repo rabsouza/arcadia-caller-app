@@ -51,6 +51,20 @@ public class User extends BaseEntity implements Serializable {
         return friendsDto.add(friend);
     }
 
+    public Boolean removeFriend(String friend) {
+        if (friends == null) {
+            friends = Sets.newLinkedHashSet();
+        }
+        return friends.remove(friend);
+    }
+
+    public Boolean removeFriend(FriendDto friend) {
+        if (friendsDto == null) {
+            friendsDto = Sets.newLinkedHashSet();
+        }
+        return friendsDto.remove(friend);
+    }
+
     public String getUsername() {
         return username;
     }
