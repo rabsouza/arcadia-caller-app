@@ -1,14 +1,15 @@
 package br.com.battista.arcadiacaller;
 
+import static org.junit.Assert.assertThat;
+
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static org.junit.Assert.assertEquals;
 
 @SmallTest
 @RunWith(AndroidJUnit4.class)
@@ -18,6 +19,6 @@ public class ApplicationTest {
     public void shouldValidAppPackageName() throws Exception {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("br.com.battista.arcadiacaller", appContext.getPackageName());
+        assertThat(appContext.getPackageName(), Matchers.containsString("br.com.battista.arcadiacaller"));
     }
 }
