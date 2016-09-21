@@ -9,6 +9,7 @@ import static br.com.battista.arcadiacaller.constants.FontsConstant.SANS_SERIF_F
 import static br.com.battista.arcadiacaller.constants.FontsConstant.SERIF;
 import static br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum.SERVER_ONLINE;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -53,6 +54,10 @@ public class MainApplication extends MultiDexApplication {
         return instance;
     }
 
+    public static void init(Application application) {
+        instance = (MainApplication) application;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -68,7 +73,7 @@ public class MainApplication extends MultiDexApplication {
         initializeCacheManager();
     }
 
-    public Locale getCurrentLocale(){
+    public Locale getCurrentLocale() {
         return getResources().getConfiguration().locale;
     }
 

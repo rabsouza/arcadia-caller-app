@@ -24,6 +24,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.widget.TextView;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -42,10 +43,22 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> mActivityTestRule =
             new ActivityTestRule<>(MainActivity.class);
 
+    private static User user;
+    private static String token;
+
     @BeforeClass
-    public static void setup() {
-        User user = LoginActivityHelper.createNewUser();
-        String token = LoginActivityHelper.loginUser(user.getUsername());
+    public static void init() {
+        user = LoginActivityHelper.createNewUser();
+        token = LoginActivityHelper.loginUser(user.getUsername());
+
+        MainApplication mainApplication = MainApplication.instance();
+        mainApplication.setToken(token);
+        mainApplication.setUser(user);
+    }
+
+    @Before
+    public void setup() {
+        MainApplication.init(mActivityTestRule.getActivity().getApplication());
         MainApplication mainApplication = MainApplication.instance();
         mainApplication.setToken(token);
         mainApplication.setUser(user);
@@ -76,6 +89,7 @@ public class MainActivityTest {
 
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_home));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_campaign));
+        assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_friends));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_heroes));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_cards));
         assertNotNull(navigationView.getMenu().findItem(R.id.nav_menu_sceneries));
@@ -116,6 +130,19 @@ public class MainActivityTest {
 
         onView(allOf(isAssignableFrom(TextView.class), withParent(isAssignableFrom(Toolbar.class))))
                 .check(matches(withText(R.string.title_campaigns)));
+    }
+
+    @Test
+    public void shouldShowFriendsWhenClickMenuFriends() {
+        onView(withId(R.id.drawer_layout))
+                .check(matches(isClosed(Gravity.LEFT)))
+                .perform(open());
+
+        onView(withId(R.id.nav_view))
+                .perform(navigateTo(R.id.nav_menu_friends));
+
+        onView(allOf(isAssignableFrom(TextView.class), withParent(isAssignableFrom(Toolbar.class))))
+                .check(matches(withText(R.string.title_friends)));
     }
 
     @Test
@@ -179,10 +206,7 @@ public class MainActivityTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_menu_logout));
 
-        onView(withId(R.id.btn_login))
-                .check(matches(isDisplayed()));
-
-        onView(withId(R.id.btn_sign_in))
+        onView(withText(R.string.alert_confirmation_dialog_title_exit))
                 .check(matches(isDisplayed()));
     }
 

@@ -33,26 +33,26 @@ public class SignInActivityTest {
     @Rule
     public ActivityTestRule<SignInActivity> mSignInActivityTestRule =
             new ActivityTestRule<>(SignInActivity.class);
-    private EditText mTxtUsername = null;
-    private EditText mTxtMail = null;
-    private Button mButtonCreate = null;
-    private Button mButtonCancel = null;
+    private EditText txtUsername = null;
+    private EditText txtMail = null;
+    private Button btnCreate = null;
+    private Button btnCancel = null;
 
     @Test
     public void checkExistsTheElementsActivity() {
         SignInActivity activity = mSignInActivityTestRule.getActivity();
 
-        mTxtUsername = (EditText) activity.findViewById(R.id.txt_username);
-        assertNotNull(mTxtUsername);
+        txtUsername = (EditText) activity.findViewById(R.id.txt_username);
+        assertNotNull(txtUsername);
 
-        mTxtMail = (EditText) activity.findViewById(R.id.txt_mail);
-        assertNotNull(mTxtMail);
+        txtMail = (EditText) activity.findViewById(R.id.txt_mail);
+        assertNotNull(txtMail);
 
-        mButtonCreate = (Button) activity.findViewById(R.id.btn_create);
-        assertNotNull(mButtonCreate);
+        btnCreate = (Button) activity.findViewById(R.id.btn_create);
+        assertNotNull(btnCreate);
 
-        mButtonCancel = (Button) activity.findViewById(R.id.btn_cancel);
-        assertNotNull(mButtonCancel);
+        btnCancel = (Button) activity.findViewById(R.id.btn_cancel);
+        assertNotNull(btnCancel);
     }
 
     @Test
