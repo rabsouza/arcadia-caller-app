@@ -6,6 +6,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.2.7
+**Date release**
+ - 13/09/2016
+
+**Features**
+ - Adiciona funcionalidade para remover amigo.
+ 
+**Bugs**
+
+**Improvements**
+ - Melhoria na tela: Amigos.
+
+------------------------------------------------------------------------
+
 ### Version - 1.2.6
 **Date release**
  - 12/09/2016
@@ -147,6 +161,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 ## PHASE - BETA
+------------------------------------------------------------------------
+
+### Version - 2.3.7
+**Date release**
+ - 13/09/2016
+
+**Features**
+ - Adiciona funcionalidade para remover amigo.
+ 
+**Bugs**
+
+**Improvements**
+ - Melhoria na tela: Amigos.
+
 ------------------------------------------------------------------------
 
 ### Version - 2.3.6
