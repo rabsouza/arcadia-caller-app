@@ -45,10 +45,9 @@ import br.com.battista.arcadiacaller.util.ProgressApp;
 public class CampaignInventoryFragment extends BaseFragment {
 
     private static final String TAG = CampaignInventoryFragment.class.getSimpleName();
+    private final Map<String, Card> cardMap = Maps.newTreeMap();
     public Integer position = 0;
     private Campaign campaign;
-
-    private final Map<String, Card> cardMap = Maps.newTreeMap();
 
     public CampaignInventoryFragment() {
     }

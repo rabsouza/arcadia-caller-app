@@ -163,6 +163,22 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+### Version - 2.3.8
+**Date release**
+ - 25/10/2016
+
+**Features**
+ - Adiciona animações para as telas e listas
+ - Adiciona timeout para as requisições do retrofit
+ 
+**Bugs**
+
+**Improvements**
+ - Melhoria de layouts e tamanho de fonte.
+
+------------------------------------------------------------------------
+
+
 ### Version - 2.3.7
 **Date release**
  - 13/09/2016

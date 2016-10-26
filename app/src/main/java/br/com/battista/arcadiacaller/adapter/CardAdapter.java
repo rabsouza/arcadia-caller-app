@@ -5,7 +5,6 @@ import static br.com.battista.arcadiacaller.util.CardUtils.getCardDeathCurseRes;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +20,7 @@ import br.com.battista.arcadiacaller.model.enuns.GroupCardEnum;
 import br.com.battista.arcadiacaller.model.enuns.TypeCardEnum;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
-public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
+public class CardAdapter extends BaseAdapterAnimation<CardViewHolder> {
     private static final String TAG = CardAdapter.class.getSimpleName();
 
     private Context context;
@@ -29,6 +28,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
     private View view;
 
     public CardAdapter(Context context, List<Card> cards) {
+        super(context);
         this.context = context;
         this.cards = cards;
     }
@@ -43,6 +43,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
     @Override
     public void onBindViewHolder(CardViewHolder holder, int position) {
         if (cards != null && !cards.isEmpty()) {
+            setAnimationHolder(holder.itemView, position);
+
             final Card card = cards.get(position);
             Log.i(TAG, String.format(
                     "onBindViewHolder: Fill to row position: %S with %s.", position, card));

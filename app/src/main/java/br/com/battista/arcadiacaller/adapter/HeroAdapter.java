@@ -4,7 +4,6 @@ import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroDefenseRes;
 import static br.com.battista.arcadiacaller.util.HeroUtils.getHeroLifeRes;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +16,15 @@ import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.Hero;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
-public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
+public class HeroAdapter extends BaseAdapterAnimation<HeroViewHolder> {
     private static final String TAG = HeroAdapter.class.getSimpleName();
 
     private Context context;
     private List<Hero> heroes;
 
+
     public HeroAdapter(Context context, List<Hero> heroes) {
+        super(context);
         this.context = context;
         this.heroes = heroes;
     }
@@ -38,6 +39,8 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
     @Override
     public void onBindViewHolder(HeroViewHolder holder, int position) {
         if (heroes != null && !heroes.isEmpty()) {
+            setAnimationHolder(holder.itemView, position);
+
             final Hero hero = heroes.get(position);
             Log.i(TAG, String.format(
                     "onBindViewHolder: Fill to row position: %S with %s.", position, hero));
@@ -69,6 +72,7 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
         }
 
     }
+
 
     @Override
     public int getItemCount() {

@@ -44,7 +44,7 @@ import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
 
-public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
+public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
 
     private static final String TAG = CampaignAdapter.class.getSimpleName();
 
@@ -56,6 +56,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     private View viewCampaign;
 
     public CampaignAdapter(Activity activity, Context context, List<Campaign> campaigns) {
+        super(context);
         this.activity = activity;
         this.context = context;
         this.campaigns = campaigns;
@@ -106,6 +107,8 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
     @Override
     public void onBindViewHolder(CampaignViewHolder holder, int position) {
         if (campaigns != null && !campaigns.isEmpty()) {
+            setAnimationHolder(holder.itemView, position);
+
             final Campaign campaign = campaigns.get(position);
             Log.i(TAG, String.format(
                     "onBindViewHolder: Fill to row position: %S with %s.", position, campaign));

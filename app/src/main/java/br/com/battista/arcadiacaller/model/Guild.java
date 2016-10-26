@@ -148,7 +148,7 @@ public class Guild extends BaseEntity implements Serializable {
     }
 
     public Boolean getSavedMoney() {
-        if(savedMoney == null){
+        if (savedMoney == null) {
             savedMoney = Boolean.FALSE;
         }
         return savedMoney;

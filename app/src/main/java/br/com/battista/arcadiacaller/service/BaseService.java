@@ -13,6 +13,7 @@ import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.constants.HttpStatus;
@@ -43,6 +44,9 @@ public class BaseService {
         HttpLoggingInterceptor logging = createHttpLoggingInterceptor();
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.readTimeout(60, TimeUnit.SECONDS);
+        httpClient.connectTimeout(60, TimeUnit.SECONDS);
+
         httpClient.addInterceptor(logging);
         if (MainApplication.instance() != null) {
             Cache cache = createCache();
@@ -54,7 +58,6 @@ public class BaseService {
                 .baseUrl(RestConstant.REST_API_ENDPOINT.concat(RestConstant.REST_API_V1))
                 .addConverterFactory(JacksonConverterFactory.create())
                 .client(httpClient.build()).build();
-        ;
     }
 
     protected Retrofit getBuilder() {

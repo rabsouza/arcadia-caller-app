@@ -10,10 +10,6 @@ import java.util.Map;
 
 public class LocaleService {
 
-    public enum SupportedLocale {
-        PT, EN;
-    }
-
     private Map<String, String> supportedLocales;
 
     public LocaleService() {
@@ -27,6 +23,10 @@ public class LocaleService {
             return EN.name();
         }
         return supportedLocales.get(locale.getLanguage().toLowerCase());
+    }
+
+    public enum SupportedLocale {
+        PT, EN;
     }
 
 }

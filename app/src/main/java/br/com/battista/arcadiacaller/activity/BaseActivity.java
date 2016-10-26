@@ -5,6 +5,7 @@ import static br.com.battista.arcadiacaller.constants.CrashlyticsConstant.KEY_OP
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -31,6 +32,7 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
 import br.com.battista.arcadiacaller.model.User;
+import br.com.battista.arcadiacaller.util.AnimationUtils;
 import br.com.battista.arcadiacaller.util.AppUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
@@ -58,6 +60,10 @@ public class BaseActivity extends AppCompatActivity {
                 .putContentType(KEY_ACTIVITY));
 
         AppUtils.goToHomeIfApplicationIsNull(getContext());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setEnterTransition(AnimationUtils.makeEnterTransition());
+        }
     }
 
     @Override

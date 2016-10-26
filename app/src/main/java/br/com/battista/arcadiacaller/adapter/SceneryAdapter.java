@@ -2,7 +2,6 @@ package br.com.battista.arcadiacaller.adapter;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +18,14 @@ import br.com.battista.arcadiacaller.model.Card;
 import br.com.battista.arcadiacaller.model.Scenery;
 import br.com.battista.arcadiacaller.model.enuns.LocationSceneryEnum;
 
-public class SceneryAdapter extends RecyclerView.Adapter<SceneryViewHolder> {
+public class SceneryAdapter extends BaseAdapterAnimation<SceneryViewHolder> {
     private static final String TAG = SceneryAdapter.class.getSimpleName();
 
     private Context context;
     private List<Scenery> sceneries;
-    private View view;
 
     public SceneryAdapter(Context context, List<Scenery> sceneries) {
+        super(context);
         this.context = context;
         this.sceneries = sceneries;
     }
@@ -41,6 +40,8 @@ public class SceneryAdapter extends RecyclerView.Adapter<SceneryViewHolder> {
     @Override
     public void onBindViewHolder(SceneryViewHolder holder, int position) {
         if (sceneries != null && !sceneries.isEmpty()) {
+            setAnimationHolder(holder.itemView, position);
+
             final Scenery scenery = sceneries.get(position);
             Log.i(TAG, String.format(
                     "onBindViewHolder: Fill to row position: %S with %s.", position, scenery));

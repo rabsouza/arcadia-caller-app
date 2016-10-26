@@ -165,9 +165,9 @@
                             android:id="@+id/card_view_campaign_sceneries_recycler_view"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:clipToPadding="false"
                             android:padding="@dimen/no_dimen"
+                            android:layout_margin="@dimen/no_dimen"
                             android:scrollbars="none"/>
 
                     </LinearLayout>
