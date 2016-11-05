@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    android:animateLayoutChanges="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
     android:padding="@dimen/no_dimen"
@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textAllCaps="true"
-            android:text="@string/title_app"/>
+            android:text="@string/title_app"
+            android:textAllCaps="true"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -79,8 +79,8 @@
                 android:onClick="signIn"
                 android:text="@string/btn_sign_in"/>
 
-
         </RelativeLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

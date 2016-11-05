@@ -1,4 +1,4 @@
-<android.support.design.widget.CoordinatorLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
@@ -261,8 +261,8 @@
                             android:id="@+id/view_card_view_guild_green_title"
                             style="@style/CardTitle02Style"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
 
                     </LinearLayout>
 
@@ -645,10 +645,12 @@
         android:id="@+id/fab_next_view_scenery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
         android:layout_margin="@dimen/fab_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@color/transparent"
         app:layout_anchor="@id/view_scroll_view"
-        app:layout_anchorGravity="bottom|right"
+        app:layout_anchorGravity="bottom|right|end"
         app:srcCompat="@drawable/ic_next"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

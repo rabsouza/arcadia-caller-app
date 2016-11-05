@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_sign_in"
-    android:animateLayoutChanges="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@drawable/background"
     android:fitsSystemWindows="true"
     android:padding="@dimen/no_dimen"
@@ -117,7 +117,6 @@
                     android:layout_toLeftOf="@id/btn_create"
                     android:onClick="cancel"
                     android:text="@string/btn_cancel"/>
-
 
             </RelativeLayout>
 

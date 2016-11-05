@@ -174,6 +174,7 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 **Improvements**
  - Atualização das dependencias e melhorias de fontes.
+ - Melhorias de layouts.
 
 ------------------------------------------------------------------------
 
