@@ -132,6 +132,7 @@
     <string name="hint_view_inventory_card_upgrade_03">Card 03</string>
     <string name="hint_view_inventory_card_upgrade_04">Card 04</string>
     <string name="hint_view_inventory_card_death_curse_01">Death Curse</string>
+    <string name="hint_view_inventory_comments">Comments</string>
     <string name="hint_share_camping">See details for my campaign [{0}] through {1} app!</string>
 
 

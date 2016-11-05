@@ -30,7 +30,6 @@ public class CampaignDetailCompleteActivity extends BaseActivity {
         changeTitleCollapsingToolbar(R.string.title_campaign_detail_complete);
 
         processDataActivity(getIntent().getExtras());
-
         SceneryCampaign sceneryCurrent = campaign.getSceneryCurrent();
         if (!sceneryCurrent.getCompleted()) {
             replaceDetailFragment(CampaignDetailCompleteSceneryFragment.newInstance(campaign), R.id.detail_container_complete);

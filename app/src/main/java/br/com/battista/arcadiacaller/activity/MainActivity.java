@@ -42,9 +42,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setUpToolbar(R.string.title_app);
         loadDrawer();
         loadNavigationViewHeader();
-        loadFragmentInitial(getIntent().getExtras());
         logUserCrashlytics();
 
+        loadFragmentInitial(getIntent().getExtras());
     }
 
     private void logUserCrashlytics() {

@@ -116,6 +116,7 @@ public class DatabaseContract {
         public static final String COLUMN_NAME_CARD_03 = "CARD_03";
         public static final String COLUMN_NAME_CARD_04 = "CARD_04";
         public static final String COLUMN_NAME_CURSE_CARD = "CURSE_CARD";
+        public static final String COLUMN_NAME_COMMENTS = "COMMENTS";
         public static final String COLUMN_NAME_ACTIVE = "ACTIVE";
         public static final String COLUMN_NAME_DELETED = "DELETED";
     }

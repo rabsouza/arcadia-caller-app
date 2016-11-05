@@ -221,6 +221,9 @@ public class CampaignInventoryFragment extends BaseFragment {
                 if (hero01.getCurseCard() != null) {
                     ((TextView) viewFragment.findViewById(R.id.view_card_inventory_guild_hero_01_card_death_curse_01)).setText(hero01.getCurseCard().getKey());
                 }
+                if (!Strings.isNullOrEmpty(hero01.getComments())) {
+                    ((TextView) viewFragment.findViewById(R.id.view_card_inventory_guild_hero_01_comments_01)).setText(hero01.getComments());
+                }
             } else {
                 ImageLoadUtils.loadImage(getContext(), R.drawable.hero_blank, imgHero01);
                 txtHero01.setText(R.string.none);
@@ -249,6 +252,9 @@ public class CampaignInventoryFragment extends BaseFragment {
                 if (hero02.getCurseCard() != null) {
                     ((TextView) viewFragment.findViewById(R.id.view_card_inventory_guild_hero_02_card_death_curse_01)).setText(hero02.getCurseCard().getKey());
                 }
+                if (!Strings.isNullOrEmpty(hero02.getComments())) {
+                    ((TextView) viewFragment.findViewById(R.id.view_card_inventory_guild_hero_02_comments_01)).setText(hero02.getComments());
+                }
             } else {
                 ImageLoadUtils.loadImage(getContext(), R.drawable.hero_blank, imgHero02);
                 txtHero02.setText(R.string.none);
@@ -276,6 +282,9 @@ public class CampaignInventoryFragment extends BaseFragment {
                 }
                 if (hero03.getCurseCard() != null) {
                     ((TextView) viewFragment.findViewById(R.id.view_card_inventory_guild_hero_03_card_death_curse_01)).setText(hero03.getCurseCard().getKey());
+                }
+                if (!Strings.isNullOrEmpty(hero03.getComments())) {
+                    ((TextView) viewFragment.findViewById(R.id.view_card_inventory_guild_hero_03_comments_01)).setText(hero03.getComments());
                 }
             } else {
                 ImageLoadUtils.loadImage(getContext(), R.drawable.hero_blank, imgHero03);
@@ -354,6 +363,10 @@ public class CampaignInventoryFragment extends BaseFragment {
                         ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_01_card_death_curse_01)).setError(getString(R.string.msg_warn_key_card));
                     }
                 }
+                final String comments = ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_01_comments_01)).getText().toString().trim().toUpperCase();
+                if (!Strings.isNullOrEmpty(comments)) {
+                    hero01.setComments(comments);
+                }
             }
 
             Log.i(TAG, "fillGuild: Fill data hero 02 in campaign!");
@@ -409,6 +422,10 @@ public class CampaignInventoryFragment extends BaseFragment {
                         ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_02_card_death_curse_01)).setError(getString(R.string.msg_warn_key_card));
                     }
                 }
+                final String comments = ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_02_comments_01)).getText().toString().trim().toUpperCase();
+                if (!Strings.isNullOrEmpty(comments)) {
+                    hero01.setComments(comments);
+                }
             }
 
             Log.i(TAG, "fillGuild: Fill data hero 03 in campaign!");
@@ -463,6 +480,10 @@ public class CampaignInventoryFragment extends BaseFragment {
                         hasError = Boolean.TRUE;
                         ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_03_card_death_curse_01)).setError(getString(R.string.msg_warn_key_card));
                     }
+                }
+                final String comments = ((TextView) view.findViewById(R.id.view_card_inventory_guild_hero_03_comments_01)).getText().toString().trim().toUpperCase();
+                if (!Strings.isNullOrEmpty(comments)) {
+                    hero01.setComments(comments);
                 }
             }
 

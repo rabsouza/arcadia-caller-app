@@ -133,6 +133,7 @@
     <string name="hint_view_inventory_card_upgrade_03">Carta 03</string>
     <string name="hint_view_inventory_card_upgrade_04">Carta 04</string>
     <string name="hint_view_inventory_card_death_curse_01">Maldição Mortal</string>
+    <string name="hint_view_inventory_comments">Comentários</string>
     <string name="hint_share_camping">Veja os detalhes da minha Campanha [{0}] pelo app {1}.</string>
 
 

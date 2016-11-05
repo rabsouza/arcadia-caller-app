@@ -31,7 +31,6 @@ public class CampaignDetailActivity extends BaseActivity {
         replaceDetailFragment(CampaignDetailNewFragment.newInstance(campaign), R.id.detail_container);
     }
 
-
     private void processDataActivity(Bundle bundle) {
         Log.d(TAG, "processDataActivity: Process bundle data Activity!");
         if (bundle.containsKey(BundleConstant.DATA)) {

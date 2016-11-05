@@ -163,6 +163,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+### Version - 2.3.9
+**Date release**
+ - 05/11/2016
+
+**Features**
+ - Adiciona campo para comentário no inventário da Guilda
+ 
+**Bugs**
+
+**Improvements**
+ - Atualização das dependencias e melhorias de fontes.
+
+------------------------------------------------------------------------
+
 ### Version - 2.3.8
 **Date release**
  - 25/10/2016

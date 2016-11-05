@@ -41,17 +41,20 @@ public class LoginActivity extends BaseActivity {
 
     private EditText mTxtUsername = null;
     private CheckBox chbSavedUsername = null;
-    private AppService appService = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        appService = Inject.provideAppService();
+        AppService appService = Inject.provideAppService();
         appService.ping();
         appService.health();
 
+        loadPreferences();
+    }
+
+    private void loadPreferences() {
         String username = MainApplication.instance().getPreferences(SharedPreferencesKeyEnum.SAVED_USERNAME);
         if (!Strings.isNullOrEmpty(username)) {
             mTxtUsername = (EditText) findViewById(R.id.txt_username);

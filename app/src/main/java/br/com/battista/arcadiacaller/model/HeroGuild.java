@@ -31,6 +31,9 @@ public class HeroGuild extends BaseEntity implements Serializable {
     @Column(name = HeroGuildEntry.COLUMN_NAME_CURSE_CARD)
     private Card curseCard;
 
+    @Column(name = HeroGuildEntry.COLUMN_NAME_COMMENTS)
+    private String comments;
+
     @Column(name = HeroGuildEntry.COLUMN_NAME_ACTIVE, notNull = true)
     private Boolean active = Boolean.TRUE;
 
@@ -85,6 +88,14 @@ public class HeroGuild extends BaseEntity implements Serializable {
         this.curseCard = curseCard;
     }
 
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
     public Boolean getActive() {
         return active;
     }
@@ -110,6 +121,7 @@ public class HeroGuild extends BaseEntity implements Serializable {
                 .add("card3", card3)
                 .add("card4", card4)
                 .add("curseCard", curseCard)
+                .add("comments", comments)
                 .add("active", active)
                 .add("deleted", deleted)
                 .toString();
@@ -143,6 +155,11 @@ public class HeroGuild extends BaseEntity implements Serializable {
 
     public HeroGuild curseCard(Card curseCard) {
         this.curseCard = curseCard;
+        return this;
+    }
+
+    public HeroGuild comments(String comments) {
+        this.comments = comments;
         return this;
     }
 

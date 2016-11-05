@@ -101,7 +101,6 @@ public class CampaignCompleteActivity extends BaseActivity {
 
         processDataActivity(getIntent().getExtras());
         loadFloatingAction();
-
     }
 
     private void loadGuildsImg() {

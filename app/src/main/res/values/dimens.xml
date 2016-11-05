@@ -24,6 +24,7 @@
     <dimen name="cards_button_height">45dp</dimen>
     <dimen name="item_img_width">38dp</dimen>
     <dimen name="item_img_height">38dp</dimen>
+    <dimen name="item_comments_height">76dp</dimen>
 
     <dimen name="mini_button_width">15dp</dimen>
     <dimen name="mini_button_height">15dp</dimen>

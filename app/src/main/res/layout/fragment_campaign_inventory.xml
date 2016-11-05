@@ -392,11 +392,46 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/element_vertical_margin"
-                                        android:completionThreshold="2"
+                                        android:completionThreshold="1"
                                         android:hint="@string/hint_view_inventory_card_death_curse_01"
                                         android:imeOptions="actionNext"
                                         android:inputType="textAutoComplete"
                                         android:maxLines="1"
+                                        android:textAllCaps="true"/>
+
+                                </android.support.design.widget.TextInputLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/view_card_inventory_guild_hero_01_img_comments_01"
+                                    android:layout_width="@dimen/item_img_width"
+                                    android:layout_height="@dimen/item_img_height"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                                    android:scaleType="fitCenter"
+                                    app:srcCompat="@drawable/ic_comments"/>
+
+                                <android.support.design.widget.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <EditText
+                                        android:id="@+id/view_card_inventory_guild_hero_01_comments_01"
+                                        style="@style/InputStyle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/item_comments_height"
+                                        android:layout_marginTop="@dimen/element_vertical_margin"
+                                        android:hint="@string/hint_view_inventory_comments"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="textAutoComplete"
+                                        android:lines="4"
+                                        android:minLines="2"
                                         android:textAllCaps="true"/>
 
                                 </android.support.design.widget.TextInputLayout>
@@ -629,6 +664,41 @@
 
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/view_card_inventory_guild_hero_02_img_comments_01"
+                                    android:layout_width="@dimen/item_img_width"
+                                    android:layout_height="@dimen/item_img_height"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                                    android:scaleType="fitCenter"
+                                    app:srcCompat="@drawable/ic_comments"/>
+
+                                <android.support.design.widget.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <EditText
+                                        android:id="@+id/view_card_inventory_guild_hero_02_comments_01"
+                                        style="@style/InputStyle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/item_comments_height"
+                                        android:layout_marginTop="@dimen/element_vertical_margin"
+                                        android:hint="@string/hint_view_inventory_comments"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="textAutoComplete"
+                                        android:lines="4"
+                                        android:minLines="2"
+                                        android:textAllCaps="true"/>
+
+                                </android.support.design.widget.TextInputLayout>
+
+                            </LinearLayout>
+
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
@@ -849,6 +919,41 @@
                                         android:imeOptions="actionDone"
                                         android:inputType="textAutoComplete"
                                         android:maxLines="1"
+                                        android:textAllCaps="true"/>
+
+                                </android.support.design.widget.TextInputLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/view_card_inventory_guild_hero_03_img_comments_01"
+                                    android:layout_width="@dimen/item_img_width"
+                                    android:layout_height="@dimen/item_img_height"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                                    android:scaleType="fitCenter"
+                                    app:srcCompat="@drawable/ic_comments"/>
+
+                                <android.support.design.widget.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <EditText
+                                        android:id="@+id/view_card_inventory_guild_hero_03_comments_01"
+                                        style="@style/InputStyle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/item_comments_height"
+                                        android:layout_marginTop="@dimen/element_vertical_margin"
+                                        android:hint="@string/hint_view_inventory_comments"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="textAutoComplete"
+                                        android:lines="4"
+                                        android:minLines="2"
                                         android:textAllCaps="true"/>
 
                                 </android.support.design.widget.TextInputLayout>

@@ -31,7 +31,6 @@ public class CampaignInventoryActivity extends BaseActivity {
         replaceDetailFragment(CampaignInventoryFragment.newInstance(campaign, POSITION_INITIAL), R.id.inventory_container);
     }
 
-
     private void processDataActivity(Bundle bundle) {
         Log.d(TAG, "processDataActivity: Process bundle data Activity!");
         if (bundle.containsKey(BundleConstant.DATA)) {
