@@ -6,6 +6,23 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.2.8
+**Date release**
+ - 05/11/2016
+
+**Features**
+ - Adiciona campo para comentário no inventário da Guilda
+ - Adiciona animações para as telas e listas
+ - Adiciona timeout para as requisições do retrofit
+ 
+**Bugs**
+
+**Improvements**
+ - Atualização das dependencias e melhorias de fontes.
+ - Melhorias de layouts.
+
+------------------------------------------------------------------------
+
 ### Version - 1.2.7
 **Date release**
  - 13/09/2016
