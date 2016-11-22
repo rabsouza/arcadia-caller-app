@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.LoginEvent;
@@ -53,6 +54,7 @@ public class LoginActivity extends BaseActivity implements
 
     private EditText mTxtUsername = null;
     private CheckBox chbSavedUsername = null;
+    private TextView title_text = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,17 @@ public class LoginActivity extends BaseActivity implements
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setOnClickListener(this);
         // [END customize_button
+
+        title_text = (TextView) findViewById(R.id.title_text);
+
+    }
+
+    private void updateUI(boolean signedIn) {
+        if (!signedIn) {
+            findViewById(R.id.title_text).setVisibility(View.GONE);
+        } else {
+            findViewById(R.id.title_text).setVisibility(View.VISIBLE);
+        }
     }
 
     // [START onActivityResult]
@@ -99,12 +112,14 @@ public class LoginActivity extends BaseActivity implements
     // [START handleSignInResult]
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess() + ", status: " + result.getStatus().getStatusCode());
+        updateUI(result.isSuccess());
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-            Log.i(TAG, "handleSignInResult: [email: " + acct.getEmail() + ", id: " + acct.getId() + ", photo: " + acct.getPhotoUrl() + "]");
+            title_text.setText("[email: " + acct.getEmail() + ", id: " + acct.getId() + ", photo: " + acct.getPhotoUrl() + "]");
         } else {
             // Signed out, show unauthenticated UI.
+            Auth.GoogleSignInApi.signOut(mGoogleApiClient);
         }
     }
     // [END handleSignInResult]
