@@ -16,6 +16,13 @@ import android.widget.EditText;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.LoginEvent;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.common.base.Strings;
 
 import java.text.MessageFormat;
@@ -36,8 +43,13 @@ import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements
+        GoogleApiClient.OnConnectionFailedListener,
+        View.OnClickListener {
     private static final String TAG = LoginActivity.class.getSimpleName();
+    private static final int RC_SIGN_IN = 9001;
+
+    private GoogleApiClient mGoogleApiClient;
 
     private EditText mTxtUsername = null;
     private CheckBox chbSavedUsername = null;
@@ -52,6 +64,63 @@ public class LoginActivity extends BaseActivity {
         appService.health();
 
         loadPreferences();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+// Build a GoogleApiClient with access to GoogleSignIn.API and the options above.
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        // [START customize_button]
+        // Set the dimensions of the sign-in button.
+        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        signInButton.setOnClickListener(this);
+        // [END customize_button
+    }
+
+    // [START onActivityResult]
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e(TAG, "onActivityResult: ERROR: " + requestCode);
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
+        }
+    }
+    // [END onActivityResult]
+
+    // [START handleSignInResult]
+    private void handleSignInResult(GoogleSignInResult result) {
+        Log.d(TAG, "handleSignInResult:" + result.isSuccess() + ", status: " + result.getStatus().getStatusCode());
+        if (result.isSuccess()) {
+            // Signed in successfully, show authenticated UI.
+            GoogleSignInAccount acct = result.getSignInAccount();
+            Log.i(TAG, "handleSignInResult: [email: " + acct.getEmail() + ", id: " + acct.getId() + ", photo: " + acct.getPhotoUrl() + "]");
+        } else {
+            // Signed out, show unauthenticated UI.
+        }
+    }
+    // [END handleSignInResult]
+
+    // [START signIn]
+    private void signIn() {
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+    // [END signIn]
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
+        // be available.
+        Log.d(TAG, "onConnectionFailed:" + connectionResult);
     }
 
     private void loadPreferences() {
@@ -196,4 +265,12 @@ public class LoginActivity extends BaseActivity {
         getContext().startActivity(intent);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.sign_in_button:
+                signIn();
+                break;
+        }
+    }
 }
