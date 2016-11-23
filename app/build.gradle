@@ -25,14 +25,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             resValue "string", "app_name", "Arcadia Companion"
             resValue "string", "title_app", "Arcadia Companion"
-            resValue "string", "arcadia_companion_client_id", "416379693475-khcsk63go0rgq5evqngk0vgs5nh94vn0.apps.googleusercontent.com"
         }
         debug {
             minifyEnabled false
             testCoverageEnabled = true
             resValue "string", "app_name", "Arcadia Companion - Debug"
             resValue "string", "title_app", "Arcadia Companion - Debug"
-            resValue "string", "arcadia_companion_client_id", "416379693475-khcsk63go0rgq5evqngk0vgs5nh94vn0.apps.googleusercontent.com"
         }
     }
     productFlavors {
