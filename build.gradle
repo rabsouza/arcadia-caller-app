@@ -42,7 +42,9 @@ ext {
     buildToolsVersion = '25'
 
     // App dependencies
-    supportLibraryVersion = '25.0.0'
+    firebaseVersion = '9.6.1'
+    googlePlayServicesVersion = '9.6.1'
+    supportLibraryVersion = '25.0.1'
     constraintVersion = '1.0.0-alpha4'
     guavaVersion = '20.0'
     circleimageviewVersion = '2.1.0'
