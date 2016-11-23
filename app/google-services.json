@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "416379693475",
+    "firebase_url": "https://arcadia-caller.firebaseio.com",
+    "project_id": "arcadia-caller",
+    "storage_bucket": "arcadia-caller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416379693475:android:4b0ab2dd14165cc4",
+        "android_client_info": {
+          "package_name": "br.com.battista.arcadiacaller.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416379693475-mqlhkjdpg82n3a3n9klvcd3j3uffidrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.battista.arcadiacaller.app",
+            "certificate_hash": "1DF5D23F1BE113D2350A87A0294FF9CED9CBFD9D"
+          }
+        },
+        {
+          "client_id": "416379693475-khcsk63go0rgq5evqngk0vgs5nh94vn0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.battista.arcadiacaller.app",
+            "certificate_hash": "CB9D931976537DE5422F9E7B2A4C4DDF3CDA491F"
+          }
+        },
+        {
+          "client_id": "416379693475-s7r9ffh6ko882uli2m66eojeu1c3c3hm.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "416379693475-v10tg9h085fo0pbkttjafn8681mk9uss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6V07dELW6rKxYnyJ7KTerwL_zJRGgFZ0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -25,12 +25,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             resValue "string", "app_name", "Arcadia Companion"
             resValue "string", "title_app", "Arcadia Companion"
+            resValue "string", "arcadia_companion_client_id", "416379693475-khcsk63go0rgq5evqngk0vgs5nh94vn0.apps.googleusercontent.com"
         }
         debug {
             minifyEnabled false
             testCoverageEnabled = true
             resValue "string", "app_name", "Arcadia Companion - Debug"
             resValue "string", "title_app", "Arcadia Companion - Debug"
+            resValue "string", "arcadia_companion_client_id", "416379693475-khcsk63go0rgq5evqngk0vgs5nh94vn0.apps.googleusercontent.com"
         }
     }
     productFlavors {
@@ -78,6 +80,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.google.firebase:firebase-core:9.6.1'
+    compile 'com.google.firebase:firebase-auth:9.6.1'
+    compile 'com.google.android.gms:play-services-auth:9.6.1'
 
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
@@ -145,3 +151,6 @@ configurations.compile.dependencies.each { compileDependency ->
         configurations.androidTestCompile.exclude module: "${compileDependency.getName()}"
     }
 }
+
+// ADD THIS AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'
