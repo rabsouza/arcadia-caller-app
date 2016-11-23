@@ -6,6 +6,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 1.3.0
+**Date release**
+ - 22/11/2016
+
+**Features**
+ - Adiciona integração com o Google +
+ 
+**Bugs**
+
+**Improvements**
+ - Melhorias de tamanho da fonte.
+
+------------------------------------------------------------------------
+
 ### Version - 1.2.8
 **Date release**
  - 05/11/2016
@@ -178,6 +192,21 @@ Os Pacotes liberados para testes e produção da aplicação.
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 ## PHASE - BETA
+------------------------------------------------------------------------
+
+
+### Version - 2.4.0
+**Date release**
+ - 22/11/2016
+
+**Features**
+ - Adiciona integração com o Google +
+ 
+**Bugs**
+
+**Improvements**
+ - Melhorias de tamanho da fonte.
+
 ------------------------------------------------------------------------
 
 ### Version - 2.3.9
