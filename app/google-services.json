@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "416379693475-mqlhkjdpg82n3a3n9klvcd3j3uffidrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.battista.arcadiacaller.app",
+            "certificate_hash": "1DF5D23F1BE113D2350A87A0294FF9CED9CBFD9D"
+          }
+        },
+        {
           "client_id": "416379693475-khcsk63go0rgq5evqngk0vgs5nh94vn0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

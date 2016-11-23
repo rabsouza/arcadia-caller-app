@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.LoginEvent;
@@ -24,6 +23,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.common.base.Strings;
 
 import java.text.MessageFormat;
@@ -42,11 +43,11 @@ import br.com.battista.arcadiacaller.service.AppService;
 import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
+import br.com.battista.arcadiacaller.util.MailUtil;
 import br.com.battista.arcadiacaller.util.ProgressApp;
 
-public class LoginActivity extends BaseActivity implements
-        GoogleApiClient.OnConnectionFailedListener,
-        View.OnClickListener {
+public class LoginActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
+
     private static final String TAG = LoginActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 9001;
 
@@ -54,7 +55,6 @@ public class LoginActivity extends BaseActivity implements
 
     private EditText mTxtUsername = null;
     private CheckBox chbSavedUsername = null;
-    private TextView title_text = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,76 +66,67 @@ public class LoginActivity extends BaseActivity implements
         appService.health();
 
         loadPreferences();
+        loadGoogleServicesApi();
 
+    }
+
+    private void loadGoogleServicesApi() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
-// Build a GoogleApiClient with access to GoogleSignIn.API and the options above.
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        // [START customize_button]
-        // Set the dimensions of the sign-in button.
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        signInButton.setSize(SignInButton.SIZE_WIDE);
         signInButton.setOnClickListener(this);
-        // [END customize_button
-
-        title_text = (TextView) findViewById(R.id.title_text);
-
     }
 
-    private void updateUI(boolean signedIn) {
-        if (!signedIn) {
-            findViewById(R.id.title_text).setVisibility(View.GONE);
-        } else {
-            findViewById(R.id.title_text).setVisibility(View.VISIBLE);
-        }
-    }
-
-    // [START onActivityResult]
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e(TAG, "onActivityResult: ERROR: " + requestCode);
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        Log.e(TAG, MessageFormat.format("onActivityResult: Sign in Google Services [requestCode: {0}, resultCode: {1}", requestCode,
+                resultCode));
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
+            if (result.isSuccess()) {
+                Log.i(TAG, "onActivityResult: Signed in successfully, show authenticated UI.");
+                GoogleSignInAccount acct = result.getSignInAccount();
+                String mail = acct.getEmail();
+                String username = MailUtil.extractUsernameByMail(mail);
+
+                mTxtUsername = (EditText) findViewById(R.id.txt_username);
+                mTxtUsername.setText(username);
+
+                chbSavedUsername = (CheckBox) findViewById(R.id.chb_saved_username);
+                chbSavedUsername.setChecked(Boolean.TRUE);
+
+                loginUsername(findViewById(R.id.activity_login), username, mail, Boolean.TRUE);
+            } else {
+                Log.i(TAG, "onActivityResult: Signed out, show unauthenticated UI.");
+                Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+            }
         }
     }
-    // [END onActivityResult]
 
-    // [START handleSignInResult]
-    private void handleSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess() + ", status: " + result.getStatus().getStatusCode());
-        updateUI(result.isSuccess());
-        if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
-            GoogleSignInAccount acct = result.getSignInAccount();
-            title_text.setText("[email: " + acct.getEmail() + ", id: " + acct.getId() + ", photo: " + acct.getPhotoUrl() + "]");
-        } else {
-            // Signed out, show unauthenticated UI.
-            Auth.GoogleSignInApi.signOut(mGoogleApiClient);
-        }
-    }
-    // [END handleSignInResult]
-
-    // [START signIn]
     private void signIn() {
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                        startActivityForResult(signInIntent, RC_SIGN_IN);
+                    }
+                });
     }
-    // [END signIn]
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
-        // be available.
-        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+        Log.d(TAG, "onConnectionFailed: An unresolvable error has occurred and Google APIs will not be available. ErrorMessage: " +
+                connectionResult.getErrorMessage());
     }
 
     private void loadPreferences() {
@@ -159,6 +150,10 @@ public class LoginActivity extends BaseActivity implements
         AndroidUtils.changeErrorEditText(mTxtUsername);
 
         final String username = mTxtUsername.getText().toString().trim();
+        loginUsername(view, username, null, Boolean.FALSE);
+    }
+
+    private void loginUsername(View view, final String username, final String mail, final boolean singin) {
         Log.d(TAG, MessageFormat.format("Login user with username: {0}", username));
 
         chbSavedUsername = (CheckBox) findViewById(R.id.chb_saved_username);
@@ -181,24 +176,17 @@ public class LoginActivity extends BaseActivity implements
                     Log.d(TAG, "onPostExecute: Failed in login!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
 
-                    Answers.getInstance().logLogin(new LoginEvent()
-                            .putMethod(ANSWERS_LOGIN_METHOD)
-                            .putSuccess(false));
+                    loginTracer(Boolean.FALSE);
                 } else if (ProfileAppConstant.FRIEND.equals(user.getProfile())) {
                     Log.d(TAG, "onPostExecute: Failed in login a Friend!");
                     AndroidUtils.snackbar(currentView, R.string.msg_failed_login_user);
 
-                    Answers.getInstance().logLogin(new LoginEvent()
-                            .putMethod(ANSWERS_LOGIN_METHOD)
-                            .putSuccess(false));
+                    loginTracer(Boolean.FALSE);
                 } else {
                     Log.d(TAG, "onPostExecute: Success in login!");
                     EventCache.createEvent(LOAD_CARD_DATA, LOAD_HERO_DATA, LOAD_SCENERY_DATA, LOAD_STATISTIC_USER_DATA);
 
-                    Answers.getInstance().logLogin(new LoginEvent()
-                            .putMethod(ANSWERS_LOGIN_METHOD)
-                            .putSuccess(true));
-
+                    loginTracer(Boolean.TRUE);
                     loadMainActivity();
                 }
                 dismissProgress();
@@ -211,6 +199,16 @@ public class LoginActivity extends BaseActivity implements
                     Log.d(TAG, MessageFormat.format("doInBackground: Login username: {}.", username));
 
                     token = service.login(username);
+                    if (Strings.isNullOrEmpty(token) && singin) {
+                        User userBuild = new User()
+                                .username(username)
+                                .mail(mail)
+                                .profile(ProfileAppConstant.APP);
+
+                        service.create(userBuild);
+                        token = service.login(username);
+                    }
+
                     if (!Strings.isNullOrEmpty(token)) {
                         UserService userService = Inject.provideUserService();
                         Log.d(TAG, MessageFormat.format("doInBackground: Find user by username: {}.", username));
@@ -256,6 +254,12 @@ public class LoginActivity extends BaseActivity implements
                 }
             }
         }.execute();
+    }
+
+    private void loginTracer(boolean success) {
+        Answers.getInstance().logLogin(new LoginEvent()
+                .putMethod(ANSWERS_LOGIN_METHOD)
+                .putSuccess(success));
     }
 
     public void signIn(View view) {
