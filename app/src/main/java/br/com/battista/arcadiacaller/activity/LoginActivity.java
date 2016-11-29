@@ -32,7 +32,7 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.cache.CacheManagerService;
+import br.com.battista.arcadiacaller.service.CacheManageService;
 import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.AuthenticationException;
@@ -221,7 +221,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                         loadAllFriend(user, token);
                         instance.setUser(user);
 
-                        new CacheManagerService().onActionCache(LOAD_STATISTIC_USER_DATA);
+                        new CacheManageService().onActionCache(LOAD_STATISTIC_USER_DATA);
                     }
                 } catch (AuthenticationException e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);

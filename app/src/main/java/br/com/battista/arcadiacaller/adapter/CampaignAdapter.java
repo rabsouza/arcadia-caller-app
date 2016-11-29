@@ -1,9 +1,6 @@
 package br.com.battista.arcadiacaller.adapter;
 
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
+import com.google.common.collect.Lists;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,8 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.google.common.collect.Lists;
 
 import java.text.MessageFormat;
 import java.util.Calendar;
@@ -41,8 +36,14 @@ import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
+import br.com.battista.arcadiacaller.service.ScreenShareService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
+
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
 
@@ -214,11 +215,11 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
 
             int visibilityBtnShare = Lists.newArrayList(EDITED_SCENERY, ADDED_SCENERY, COMPLETED_CAMPAIGN).contains(statusCurrent)
                     ? View.VISIBLE : View.GONE;
-            holder.getBtnShare().setVisibility(View.GONE);
+            holder.getBtnShare().setVisibility(visibilityBtnShare);
             holder.getBtnShare().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showShareCampaign(campaign);
+                    showShareImgCampaign(campaign);
                 }
             });
 
@@ -236,6 +237,10 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
 
+    }
+
+    private void showShareImgCampaign(Campaign campaign) {
+         new ScreenShareService(context).shareScrenshot(activity, campaign);
     }
 
     private void showShareCampaign(Campaign campaign) {
