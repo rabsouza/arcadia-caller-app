@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/dialog_view_campaign"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/no_dimen"
+    android:foreground="?attr/selectableItemBackground"
+    android:padding="@dimen/no_dimen"
+    app:cardBackgroundColor=""
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/element_padding">
+
+        <LinearLayout
+            android:id="@+id/screen_campaign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/card_view_campaign_title"
+                style="@style/CardTitle02Style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingLeft="@dimen/activity_padding"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/card_view_campaign_key"
+                    style="@style/CardTextBoldStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="4dp"
+                    android:layout_toLeftOf="@id/card_view_campaign_key"
+                    app:srcCompat="@drawable/ic_key"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/card_view_campaign_date"
+                style="@style/CardTextBoldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/card_view_campaign_status"
+                style="@style/CardTextBoldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_view_campaign_guilds"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/card_view_item_height"
+                    android:layout_margin="@dimen/no_dimen"
+                    android:layout_weight="1"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="@dimen/no_dimen"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="1dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="true"
+                    card_view:cardCornerRadius="2dp"
+                    card_view:cardElevation="1dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="vertical"
+                        android:padding="@dimen/no_dimen">
+
+                        <TextView
+                            android:id="@+id/card_view_campaign_guilds_title"
+                            style="@style/CardHead02Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/title_guilds"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginBottom="@dimen/element_vertical_margin"
+                            android:background="@color/gray"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/card_view_campaign_guilds_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:padding="@dimen/no_dimen"
+                            android:scrollbars="none"/>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_view_campaign_sceneries"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/card_view_item_height"
+                    android:layout_margin="@dimen/no_dimen"
+                    android:layout_weight="1"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="@dimen/no_dimen"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="1dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="true"
+                    card_view:cardCornerRadius="2dp"
+                    card_view:cardElevation="1dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/element_vertical_margin"
+                        android:orientation="vertical"
+                        android:padding="@dimen/no_dimen">
+
+                        <TextView
+                            android:id="@+id/card_view_campaign_sceneries_title"
+                            style="@style/CardHead02Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/title_sceneries"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginBottom="@dimen/element_vertical_margin"
+                            android:background="@color/gray"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/card_view_campaign_sceneries_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/no_dimen"
+                            android:clipToPadding="false"
+                            android:padding="@dimen/no_dimen"
+                            android:scrollbars="none"/>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -3,13 +3,10 @@ package br.com.battista.arcadiacaller.service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import java.io.File;
@@ -50,22 +47,6 @@ public class ScreenShareService {
         rootView.setDrawingCacheEnabled(false);
 
         return screenshot;
-    }
-
-    public static Bitmap drawToBitmap(Context context, final int layoutResId, final int width,
-                                      final int height) {
-        final Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        final Canvas canvas = new Canvas(bmp);
-        final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context
-                .LAYOUT_INFLATER_SERVICE);
-        final View layout = inflater.inflate(layoutResId, null);
-        layout.setDrawingCacheEnabled(true);
-        layout.measure(View.MeasureSpec.makeMeasureSpec(canvas.getWidth(), View.MeasureSpec
-                        .EXACTLY),
-                View.MeasureSpec.makeMeasureSpec(canvas.getHeight(), View.MeasureSpec.EXACTLY));
-        layout.layout(0, 0, layout.getMeasuredWidth(), layout.getMeasuredHeight());
-        canvas.drawBitmap(layout.getDrawingCache(), 0, 0, new Paint());
-        return bmp;
     }
 
     private boolean saveImageToDisk(Bitmap screenshot, String nameFile) {
