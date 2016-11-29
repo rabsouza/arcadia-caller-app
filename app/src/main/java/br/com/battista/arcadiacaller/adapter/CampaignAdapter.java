@@ -106,7 +106,7 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(CampaignViewHolder holder, int position) {
+    public void onBindViewHolder(final CampaignViewHolder holder, int position) {
         if (campaigns != null && !campaigns.isEmpty()) {
             setAnimationHolder(holder.itemView, position);
 
@@ -219,7 +219,7 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
             holder.getBtnShare().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showShareImgCampaign(campaign);
+                    showShareImgCampaign(campaign, holder.itemView);
                 }
             });
 
@@ -239,8 +239,8 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
 
     }
 
-    private void showShareImgCampaign(Campaign campaign) {
-         new ScreenShareService(context).shareScrenshot(activity, campaign);
+    private void showShareImgCampaign(Campaign campaign, View itemView) {
+         new ScreenShareService(context).shareScrenshot(itemView, campaign);
     }
 
     private void showShareCampaign(Campaign campaign) {

@@ -1,14 +1,15 @@
 package br.com.battista.arcadiacaller.service;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import java.io.File;
@@ -20,6 +21,7 @@ import br.com.battista.arcadiacaller.model.Campaign;
 
 
 public class ScreenShareService {
+
     private static final String TAG = "ScreenShareService";
     private static final String IMAGES_PATH_CACHE = "images";
     private final Context context;
@@ -28,21 +30,21 @@ public class ScreenShareService {
         this.context = context;
     }
 
-    public void shareScrenshot(@NonNull Activity activity, @NonNull Campaign campaign) {
-        String nameFile = "/ac-campaing-" + campaign.getKey() + ".png";
+    public void shareScrenshot(@NonNull View activity, @NonNull Campaign campaign) {
+        String nameFile = "ac-campaing-" + campaign.getKey() + ".png";
         Log.i(TAG, "shareScrenshot: nameFile: " + nameFile);
 
         Bitmap bitmap = takeScreenshot(activity);
-            Log.i(TAG, "shareScrenshot: success!");
-            shareImage(bitmap);
+        saveImageToDisk(bitmap, nameFile);
+
+        Log.i(TAG, "shareScrenshot: success!");
+        shareImage(nameFile);
     }
 
-    private Bitmap takeScreenshot(Activity activity) {
+    private Bitmap takeScreenshot(View rootView) {
         Log.i(TAG, "takeScreenshot");
-        View rootView = activity.getWindow().getDecorView().getRootView();
         rootView.setDrawingCacheEnabled(true);
 
-        rootView.setDrawingCacheEnabled(true);
         rootView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         Bitmap screenshot = Bitmap.createBitmap(rootView.getDrawingCache());
         rootView.setDrawingCacheEnabled(false);
@@ -50,13 +52,30 @@ public class ScreenShareService {
         return screenshot;
     }
 
+    public static Bitmap drawToBitmap(Context context, final int layoutResId, final int width,
+                                      final int height) {
+        final Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bmp);
+        final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context
+                .LAYOUT_INFLATER_SERVICE);
+        final View layout = inflater.inflate(layoutResId, null);
+        layout.setDrawingCacheEnabled(true);
+        layout.measure(View.MeasureSpec.makeMeasureSpec(canvas.getWidth(), View.MeasureSpec
+                        .EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(canvas.getHeight(), View.MeasureSpec.EXACTLY));
+        layout.layout(0, 0, layout.getMeasuredWidth(), layout.getMeasuredHeight());
+        canvas.drawBitmap(layout.getDrawingCache(), 0, 0, new Paint());
+        return bmp;
+    }
+
     private boolean saveImageToDisk(Bitmap screenshot, String nameFile) {
         Log.i(TAG, "saveImageToDisk");
         try {
             File cachePath = new File(context.getCacheDir(), IMAGES_PATH_CACHE);
             cachePath.mkdirs();
-            FileOutputStream stream = new FileOutputStream(cachePath.getPath() + nameFile);
+            FileOutputStream stream = new FileOutputStream(cachePath.getPath() + "/" + nameFile);
             screenshot.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            stream.flush();
             stream.close();
 
         } catch (FileNotFoundException e) {
@@ -69,25 +88,12 @@ public class ScreenShareService {
         return true;
     }
 
-    private void shareImage(Bitmap bitmap){
-        String pathofBmp = MediaStore.Images.Media.insertImage(context.getContentResolver(),
-                bitmap,"title", "description");
-        Uri bmpUri = Uri.parse(pathofBmp);
-
-        final Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-        shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-        shareIntent.setType("image/png");
-
-        context.startActivity(Intent.createChooser(shareIntent, "Choose an app"));
-        Log.i(TAG, "shareImage: startActivity");
-    }
-
     private void shareImage(String nameFile) {
         Log.i(TAG, "shareImage: ");
         File imagePath = new File(context.getCacheDir(), IMAGES_PATH_CACHE);
         File newFile = new File(imagePath, nameFile);
-        Uri contentUri = FileProvider.getUriForFile(context, context.getPackageName(), newFile);
+        Uri contentUri = FileProvider.getUriForFile(context, "br.com.battista.arcadiacaller",
+                newFile);
 
         if (contentUri != null) {
             Intent shareIntent = new Intent();
