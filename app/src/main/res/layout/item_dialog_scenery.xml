@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/element_horizontal_margin"
+    android:paddingRight="@dimen/element_horizontal_margin">
+
+    <ImageView
+        android:id="@+id/item_scenery_action"
+        android:layout_width="@dimen/item_dialog_img_width"
+        android:layout_height="@dimen/item_dialog_img_width"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/item_scenery_name"
+        style="@style/ItemTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_dialog_img_width"
+        android:layout_marginLeft="@dimen/element_horizontal_margin"
+        android:layout_marginStart="@dimen/element_horizontal_margin"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"/>
+
+</LinearLayout>

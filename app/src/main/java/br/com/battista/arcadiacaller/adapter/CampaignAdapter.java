@@ -1,8 +1,12 @@
 package br.com.battista.arcadiacaller.adapter;
 
-import com.google.common.collect.Lists;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
+import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +20,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.common.collect.Lists;
 
 import java.text.MessageFormat;
 import java.util.Calendar;
@@ -32,18 +38,13 @@ import br.com.battista.arcadiacaller.activity.CampaignViewActivity;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
 import br.com.battista.arcadiacaller.adapter.item.SceneryItemAdapter;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
+import br.com.battista.arcadiacaller.fragment.dialog.CampaignDialog;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
 import br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum;
-import br.com.battista.arcadiacaller.service.ScreenShareService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
-
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.ADDED_SCENERY;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.COMPLETED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREATED_CAMPAIGN;
-import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
 
@@ -87,7 +88,7 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
         return new CampaignViewHolder(viewCampaign);
     }
 
-    private void setupGuildsRecicleViewItem(View view, List<GuildDto> guildDtos) {
+    private void setupGuildsRecyclerViewItem(View view, List<GuildDto> guildDtos) {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_view_campaign_guilds_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -96,7 +97,7 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
         recyclerView.setAdapter(new GuildItemAdapter(getContext(), guildDtos));
     }
 
-    private void setupSceneriesRecicleViewItem(View view, List<SceneryDto> sceneryDtos) {
+    private void setupSceneriesRecyclerViewItem(View view, List<SceneryDto> sceneryDtos) {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_view_campaign_sceneries_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -219,37 +220,25 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
             holder.getBtnShare().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showShareImgCampaign(campaign, holder.itemView);
+                    FragmentManager fm = activity.getFragmentManager();
+                    CampaignDialog.newInstance(campaign).show(fm, null);
                 }
             });
 
             List<GuildDto> guildDtos = campaign.generateGuildsDto();
             Log.i(TAG, MessageFormat.format("onBindViewHolder: Load {0} guildDtos to campaign: {1}!"
                     , guildDtos.size(), campaign.getKey()));
-            setupGuildsRecicleViewItem(holder.itemView, guildDtos);
+            setupGuildsRecyclerViewItem(holder.itemView, guildDtos);
 
             List<SceneryDto> sceneryDtos = campaign.generateSceneriesDto();
             Log.i(TAG, MessageFormat.format("onBindViewHolder: Load {0} sceneryDtos to campaign: {1}!"
                     , sceneryDtos.size(), campaign.getKey()));
-            setupSceneriesRecicleViewItem(holder.itemView, sceneryDtos);
+            setupSceneriesRecyclerViewItem(holder.itemView, sceneryDtos);
 
         } else {
             Log.w(TAG, "onBindViewHolder: No content to holder!");
         }
 
-    }
-
-    private void showShareImgCampaign(Campaign campaign, View itemView) {
-         new ScreenShareService(context).shareScrenshot(itemView, campaign);
-    }
-
-    private void showShareCampaign(Campaign campaign) {
-        String textShare = MessageFormat.format(getContext().getString(R.string.hint_share_camping), campaign.getKey(), getContext().getText(R.string.app_name));
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, textShare);
-        sendIntent.setType("text/plain");
-        getContext().startActivity(sendIntent);
     }
 
     private void createEditCampaign(Campaign campaign, RecyclerView.Adapter adapterCurrent) {

@@ -32,6 +32,7 @@
     <string name="btn_create">CREATE</string>
     <string name="btn_cancel">CANCEL</string>
     <string name="btn_ok">OK</string>
+    <string name="btn_share">SHARE</string>
     <string name="btn_confirmation_dialog_exit">LEAVE</string>
     <string name="btn_confirmation_dialog_cancel">CANCEL</string>
     <string name="btn_confirmation_dialog_delete">DELETE</string>
@@ -135,6 +136,7 @@
     <string name="hint_view_inventory_card_death_curse_01">Death Curse</string>
     <string name="hint_view_inventory_comments">Comments</string>
     <string name="hint_share_camping">See details for my campaign [{0}] through {1} app!</string>
+    <string name="hint_title_share_camping">Details for campaign</string>
 
 
     <!-- ################### MSG #################### -->

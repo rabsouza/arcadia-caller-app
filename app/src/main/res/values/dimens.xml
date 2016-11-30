@@ -6,6 +6,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="element_horizontal_margin">8dp</dimen>
     <dimen name="element_vertical_margin">8dp</dimen>
+    <dimen name="item_horizontal_margin">8dp</dimen>
+    <dimen name="item_vertical_margin">8dp</dimen>
     <dimen name="element_padding">8dp</dimen>
     <dimen name="element_margin">8dp</dimen>
 
@@ -21,11 +23,14 @@
     <dimen name="dimen_card_scenery_view_height">250dp</dimen>
     <dimen name="dimen_card_campaign_view_height">495dp</dimen>
     <dimen name="card_view_item_height">330dp</dimen>
-    <dimen name="cards_button_width">45dp</dimen>
-    <dimen name="cards_button_height">45dp</dimen>
+    <dimen name="cards_button_width">40dp</dimen>
+    <dimen name="cards_button_height">40dp</dimen>
     <dimen name="item_img_width">38dp</dimen>
     <dimen name="item_img_height">38dp</dimen>
     <dimen name="item_comments_height">76dp</dimen>
+
+    <dimen name="item_dialog_img_width">25dp</dimen>
+    <dimen name="item_dialog_img_height">25dp</dimen>
 
     <dimen name="mini_button_width">15dp</dimen>
     <dimen name="mini_button_height">15dp</dimen>
@@ -41,7 +46,7 @@
     <dimen name="img_card_horizontal_margin">4dp</dimen>
     <dimen name="img_card_vertical_margin">4dp</dimen>
 
-    <dimen name="btn_card_action_horizontal_margin">4dp</dimen>
+    <dimen name="btn_card_action_horizontal_margin">2dp</dimen>
 
     <dimen name="item_text_card_scenery_height">55dp</dimen>
 
@@ -50,5 +55,6 @@
 
     <dimen name="dimen_big_friend_img_width">48dp</dimen>
     <dimen name="dimen_big_friend_img_height">48dp</dimen>
+    <dimen name="dialog_share_view_height">550dp</dimen>
 
 </resources>

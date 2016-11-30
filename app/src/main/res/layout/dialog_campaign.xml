@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:id="@+id/dialog_view_campaign"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:layout_height="match_parent"
     android:layout_margin="@dimen/no_dimen"
-    android:foreground="?attr/selectableItemBackground"
-    android:padding="@dimen/no_dimen"
-    app:cardBackgroundColor=""
-    app:cardElevation="2dp"
-    app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="2dp"
-    card_view:cardElevation="2dp"
-    card_view:cardUseCompatPadding="true">
+    android:orientation="vertical"
+    android:padding="@dimen/no_dimen">
 
     <RelativeLayout
+        android:id="@+id/dialog_view_campaign_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/element_padding">
+        android:layout_height="@dimen/dialog_share_view_height">
+
+        <ImageView
+            android:id="@+id/dialog_view_campaign_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
 
         <LinearLayout
-            android:id="@+id/screen_campaign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="2dp"
+            android:padding="@dimen/activity_padding">
 
             <TextView
-                android:id="@+id/card_view_campaign_title"
+                android:id="@+id/dialog_view_campaign_title"
                 style="@style/CardTitle02Style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:paddingLeft="@dimen/activity_padding"/>
+                android:layout_marginTop="@dimen/element_vertical_margin"
+                android:layout_marginBottom="@dimen/element_vertical_margin"
+                android:gravity="center_horizontal"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/card_view_campaign_key"
+                    android:id="@+id/dialog_view_campaign_key"
                     style="@style/CardTextBoldStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,134 +54,154 @@
                     android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="4dp"
-                    android:layout_toLeftOf="@id/card_view_campaign_key"
+                    android:layout_marginEnd="4dp"
+                    android:layout_toLeftOf="@id/dialog_view_campaign_key"
+                    android:layout_toStartOf="@id/dialog_view_campaign_key"
+                    android:tint="@color/colorText"
                     app:srcCompat="@drawable/ic_key"/>
 
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/card_view_campaign_date"
+                android:id="@+id/dialog_view_campaign_date"
                 style="@style/CardTextBoldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"/>
 
             <TextView
-                android:id="@+id/card_view_campaign_status"
+                android:id="@+id/dialog_view_campaign_status"
                 style="@style/CardTextBoldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"/>
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
+                android:id="@+id/dialog_view_campaign_guilds"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/element_vertical_margin"
-                android:orientation="horizontal">
+                android:layout_margin="@dimen/no_dimen"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="true">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_view_campaign_guilds"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_view_item_height"
-                    android:layout_margin="@dimen/no_dimen"
-                    android:layout_weight="1"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="@dimen/no_dimen"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardElevation="1dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:cardUseCompatPadding="true"
-                    card_view:cardCornerRadius="2dp"
-                    card_view:cardElevation="1dp"
-                    card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/element_vertical_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/no_dimen">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/dialog_view_campaign_guilds_title"
+                        style="@style/CardHead02Style"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/element_vertical_margin"
-                        android:orientation="vertical"
-                        android:padding="@dimen/no_dimen">
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/title_guilds"/>
 
-                        <TextView
-                            android:id="@+id/card_view_campaign_guilds_title"
-                            style="@style/CardHead02Style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="@string/title_guilds"/>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginBottom="@dimen/element_vertical_margin"
-                            android:background="@color/gray"/>
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/card_view_campaign_guilds_recycler_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:clipToPadding="false"
-                            android:padding="@dimen/no_dimen"
-                            android:scrollbars="none"/>
-
-                    </LinearLayout>
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_view_campaign_sceneries"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_view_item_height"
-                    android:layout_margin="@dimen/no_dimen"
-                    android:layout_weight="1"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="@dimen/no_dimen"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardElevation="1dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:cardUseCompatPadding="true"
-                    card_view:cardCornerRadius="2dp"
-                    card_view:cardElevation="1dp"
-                    card_view:cardUseCompatPadding="true">
-
-                    <LinearLayout
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/element_vertical_margin"
-                        android:orientation="vertical"
-                        android:padding="@dimen/no_dimen">
+                        android:layout_height="2px"
+                        android:background="@color/gray"/>
 
-                        <TextView
-                            android:id="@+id/card_view_campaign_sceneries_title"
-                            style="@style/CardHead02Style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="@string/title_sceneries"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/dialog_view_campaign_guilds_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:padding="@dimen/no_dimen"
+                        android:scrollbars="none"/>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_marginBottom="@dimen/element_vertical_margin"
-                            android:background="@color/gray"/>
+                </LinearLayout>
 
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/card_view_campaign_sceneries_recycler_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/no_dimen"
-                            android:clipToPadding="false"
-                            android:padding="@dimen/no_dimen"
-                            android:scrollbars="none"/>
+            </android.support.v7.widget.CardView>
 
-                    </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:id="@+id/dialog_view_campaign_sceneries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/no_dimen"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="@dimen/no_dimen"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="1dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="1dp"
+                card_view:cardUseCompatPadding="true">
 
-                </android.support.v7.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/element_vertical_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/no_dimen">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/dialog_view_campaign_sceneries_title"
+                        style="@style/CardHead02Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/title_sceneries"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:background="@color/gray"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/dialog_view_campaign_sceneries_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/no_dimen"
+                        android:clipToPadding="false"
+                        android:padding="@dimen/no_dimen"
+                        android:scrollbars="none"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
     </RelativeLayout>
 
-</android.support.v7.widget.CardView>
+    <RelativeLayout
+        android:id="@+id/dialog_view_campaign_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/activity_padding">
+
+        <Button
+            android:id="@+id/btn_share"
+            style="@style/ButtonStyleActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:text="@string/btn_share"/>
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="@style/ButtonStyleWithBorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btn_share"
+            android:layout_toStartOf="@id/btn_share"
+            android:text="@string/btn_cancel"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
