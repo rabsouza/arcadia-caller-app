@@ -1,12 +1,12 @@
-package br.com.battista.arcadiacaller.cache;
+package br.com.battista.arcadiacaller.service;
+
+import com.google.common.base.Strings;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
-
-import com.google.common.base.Strings;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -28,10 +28,10 @@ import br.com.battista.arcadiacaller.repository.HeroRepository;
 import br.com.battista.arcadiacaller.repository.SceneryRepository;
 import br.com.battista.arcadiacaller.repository.StatisticUserRepository;
 
-public class CacheManagerService extends Service {
+public class CacheManageService extends Service {
 
     public static final Boolean CACHED = Boolean.FALSE;
-    private static final String TAG = CacheManagerService.class.getSimpleName();
+    private static final String TAG = CacheManageService.class.getSimpleName();
 
     @Override
     public void onCreate() {

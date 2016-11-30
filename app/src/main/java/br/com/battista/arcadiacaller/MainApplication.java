@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 import br.com.battista.arcadiacaller.adapter.FontsAdapter;
-import br.com.battista.arcadiacaller.cache.CacheManagerService;
+import br.com.battista.arcadiacaller.service.CacheManageService;
 import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -107,7 +107,7 @@ public class MainApplication extends MultiDexApplication {
 
     private void initializeCacheManager() {
         Log.i(TAG, "initializeCacheManager: Initialize event cache manager!");
-        getApplicationContext().startService(new Intent(getApplicationContext(), CacheManagerService.class));
+        getApplicationContext().startService(new Intent(getApplicationContext(), CacheManageService.class));
     }
 
     private void initializePreferences() {
@@ -190,7 +190,7 @@ public class MainApplication extends MultiDexApplication {
 
     private void terminateCacheManager() {
         Log.i(TAG, "terminateCacheManager: Terminate event cache manager!");
-        getApplicationContext().stopService(new Intent(getApplicationContext(), CacheManagerService.class));
+        getApplicationContext().stopService(new Intent(getApplicationContext(), CacheManageService.class));
         SugarContext.terminate();
     }
 

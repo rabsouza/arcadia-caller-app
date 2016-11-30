@@ -32,7 +32,6 @@ import java.text.MessageFormat;
 import br.com.battista.arcadiacaller.Inject;
 import br.com.battista.arcadiacaller.MainApplication;
 import br.com.battista.arcadiacaller.R;
-import br.com.battista.arcadiacaller.cache.CacheManagerService;
 import br.com.battista.arcadiacaller.cache.EventCache;
 import br.com.battista.arcadiacaller.constants.ProfileAppConstant;
 import br.com.battista.arcadiacaller.exception.AuthenticationException;
@@ -40,6 +39,7 @@ import br.com.battista.arcadiacaller.model.User;
 import br.com.battista.arcadiacaller.model.dto.FriendDto;
 import br.com.battista.arcadiacaller.model.enuns.SharedPreferencesKeyEnum;
 import br.com.battista.arcadiacaller.service.AppService;
+import br.com.battista.arcadiacaller.service.CacheManageService;
 import br.com.battista.arcadiacaller.service.LoginService;
 import br.com.battista.arcadiacaller.service.UserService;
 import br.com.battista.arcadiacaller.util.AndroidUtils;
@@ -112,15 +112,20 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
         }
     }
 
-    private void signIn() {
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-                        startActivityForResult(signInIntent, RC_SIGN_IN);
-                    }
-                });
+    private void signInGoogleServices(View view) {
+        try {
+            Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                    new ResultCallback<Status>() {
+                        @Override
+                        public void onResult(Status status) {
+                            Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                            startActivityForResult(signInIntent, RC_SIGN_IN);
+                        }
+                    });
+        } catch (IllegalStateException e) {
+            Log.e(TAG, "signIn: Error to logout account in Google Services!", e);
+            AndroidUtils.snackbar(view, R.string.msg_failed_login_user);
+        }
     }
 
     @Override
@@ -221,7 +226,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                         loadAllFriend(user, token);
                         instance.setUser(user);
 
-                        new CacheManagerService().onActionCache(LOAD_STATISTIC_USER_DATA);
+                        new CacheManageService().onActionCache(LOAD_STATISTIC_USER_DATA);
                     }
                 } catch (AuthenticationException e) {
                     Log.e(TAG, e.getLocalizedMessage(), e);
@@ -288,7 +293,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in_button:
-                signIn();
+                signInGoogleServices(v);
                 break;
         }
     }
