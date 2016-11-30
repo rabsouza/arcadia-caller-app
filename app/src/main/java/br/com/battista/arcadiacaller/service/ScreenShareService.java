@@ -94,6 +94,7 @@ public class ScreenShareService {
 
             shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
             shareIntent.putExtra(Intent.EXTRA_TEXT, description);
+            shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, context.getString(R.string.hint_title_share_camping));
 
             context.startActivity(Intent.createChooser(shareIntent, description));
             Log.i(TAG, "shareImage: success and start to share!");

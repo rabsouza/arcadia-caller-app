@@ -6,6 +6,22 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+
+### Version - 2.0.0
+**Date release**
+ - 29/11/2016
+
+**Features**
+ - Adiciona compartilhamento de campanha com imagem.
+ 
+**Bugs**
+ - Corrige o error ao tentar conectar no Google Services sem internet.
+
+**Improvements**
+ - Melhorias layouts das telas.
+
+------------------------------------------------------------------------
+
 ### Version - 1.3.0
 **Date release**
  - 22/11/2016
@@ -194,6 +210,21 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+
+### Version - 3.0.0
+**Date release**
+ - 29/11/2016
+
+**Features**
+ - Adiciona compartilhamento de campanha com imagem.
+ 
+**Bugs**
+ - Corrige o error ao tentar conectar no Google Services sem internet.
+
+**Improvements**
+ - Melhorias layouts das telas.
+
+------------------------------------------------------------------------
 
 ### Version - 2.4.0
 **Date release**
