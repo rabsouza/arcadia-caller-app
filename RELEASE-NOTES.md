@@ -7,7 +7,7 @@ Os Pacotes liberados para testes e produção da aplicação.
 ------------------------------------------------------------------------
 
 
-### Version - 2.0.1
+### Version - 2.0.1/2.0.2
 **Date release**
  - 29/11/2016
  
