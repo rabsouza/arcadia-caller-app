@@ -202,3 +202,10 @@
 ################### CONFIG SPINNER MATERIAL DESIGN ###########################
 -dontwarn com.weiwangcn.betterspinner.**
 -keep class com.weiwangcn.betterspinner.** { *; }
+
+##################### SUPPORT  #################################
+-keep class android.support.v4.app.** { *; }
+-keep class android.support.v4.content.** { *; }
+-keep interface android.support.v4.app.** { *; }
+-keep interface android.support.v4.content.** { *; }
+-keep class * extends android.content.ContentProvider
