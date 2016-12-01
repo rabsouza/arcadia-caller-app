@@ -12,6 +12,9 @@ public interface CampaignService {
     List<Campaign> findByUser(@NonNull String token, @NonNull String username);
 
     @NonNull
+    Campaign findByKey(@NonNull String token, @NonNull String key);
+
+    @NonNull
     Campaign create(@NonNull String token, @NonNull Campaign campaign);
 
     @NonNull

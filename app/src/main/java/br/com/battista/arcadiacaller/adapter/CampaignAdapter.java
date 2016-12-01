@@ -6,7 +6,6 @@ import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.CREAT
 import static br.com.battista.arcadiacaller.model.enuns.CampaignStatusEnum.EDITED_SCENERY;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,7 +37,7 @@ import br.com.battista.arcadiacaller.activity.CampaignViewActivity;
 import br.com.battista.arcadiacaller.adapter.item.GuildItemAdapter;
 import br.com.battista.arcadiacaller.adapter.item.SceneryItemAdapter;
 import br.com.battista.arcadiacaller.constants.BundleConstant;
-import br.com.battista.arcadiacaller.fragment.dialog.CampaignDialog;
+import br.com.battista.arcadiacaller.fragment.dialog.ShareCampaignDialog;
 import br.com.battista.arcadiacaller.model.Campaign;
 import br.com.battista.arcadiacaller.model.dto.GuildDto;
 import br.com.battista.arcadiacaller.model.dto.SceneryDto;
@@ -220,8 +219,7 @@ public class CampaignAdapter extends BaseAdapterAnimation<CampaignViewHolder> {
             holder.getBtnShare().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    FragmentManager fm = activity.getFragmentManager();
-                    CampaignDialog.newInstance(campaign).show(fm, null);
+                    ShareCampaignDialog.newInstance(campaign).showDialog(activity);
                 }
             });
 

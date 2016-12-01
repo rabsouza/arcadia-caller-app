@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.crashlytics.android.Crashlytics;
 
@@ -45,6 +46,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         logUserCrashlytics();
 
         loadFragmentInitial(getIntent().getExtras());
+
     }
 
     private void logUserCrashlytics() {
@@ -96,6 +98,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         int id = menuItem.getItemId();
 
+        changeBtnOpenCampaign(View.GONE);
         if (id == R.id.nav_menu_home) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Home.");
             changeToolbarTitleByMenu(menuItem);
@@ -104,6 +107,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (id == nav_menu_campaign) {
             Log.d(TAG, "onNavigationItemSelected: Go to menu Campaign.");
             changeToolbarTitleByMenu(menuItem);
+            changeBtnOpenCampaign(View.VISIBLE);
             replaceFragment(CampaignsFragment.newInstance());
 
         } else if (id == nav_menu_friends) {

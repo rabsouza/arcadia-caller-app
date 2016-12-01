@@ -8,6 +8,7 @@ public class BundleConstant {
 
     public static final String ACTION = "ACTION";
     public static final String DATA = "DATA";
+    public static final String KEY = "KEY";
     public static final String SCENERY = "SCENERY";
     public static final String POSITION = "POSITION";
     public static final String FILTER_LOCATION_SCENERY = "FILTER_LOCATION_SCENERY";

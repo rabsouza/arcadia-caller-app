@@ -45,7 +45,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_menu_about"
-            android:icon="@drawable/ic_menu_help"
+            android:icon="@drawable/ic_menu_info"
             android:title="@string/title_about"/>
 
         <item

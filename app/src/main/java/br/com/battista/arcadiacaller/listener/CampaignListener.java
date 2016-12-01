@@ -15,12 +15,16 @@ import retrofit2.http.Path;
 public interface CampaignListener {
 
     String URI_FIND_BY_USER = "campaign/user/{username}";
+    String URI_FIND_BY_KEY = "campaign/{key}";
     String URI_CREATE = "campaign/";
     String URI_UPDATE = "campaign/";
     String URI_DELETE = "campaign/{key}";
 
     @GET(URI_FIND_BY_USER)
     Call<List<Campaign>> findByUser(@Header("token") String token, @Path("username") String username);
+
+    @GET(URI_FIND_BY_KEY)
+    Call<Campaign> findByKey(@Header("token") String token, @Path("key") String key);
 
     @POST(URI_CREATE)
     Call<Campaign> create(@Header("token") String token, @Body Campaign campaign);

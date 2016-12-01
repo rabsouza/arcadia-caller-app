@@ -1,6 +1,10 @@
 package br.com.battista.arcadiacaller.fragment.dialog;
 
+import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,9 +34,10 @@ import br.com.battista.arcadiacaller.util.AndroidUtils;
 import br.com.battista.arcadiacaller.util.DateUtils;
 import br.com.battista.arcadiacaller.util.ImageLoadUtils;
 
-public class CampaignDialog extends DialogFragment {
+public class ShareCampaignDialog extends DialogFragment {
 
-    private static final String TAG = CampaignDialog.class.getSimpleName();
+    private static final String TAG = ShareCampaignDialog.class.getSimpleName();
+    private static final String DIALOG_SHARE_CAMPAIGN = "dialog_share_campaign";
 
     private View container;
 
@@ -46,21 +51,32 @@ public class CampaignDialog extends DialogFragment {
     private Button btnShare;
     private Button btnCancel;
 
-
-    public CampaignDialog() {
+    public ShareCampaignDialog() {
     }
 
-    public static CampaignDialog newInstance(Campaign campaign) {
-        CampaignDialog fragment = new CampaignDialog();
+    public static ShareCampaignDialog newInstance(Campaign campaign) {
+        ShareCampaignDialog fragment = new ShareCampaignDialog();
         Bundle args = new Bundle();
         args.putSerializable(BundleConstant.DATA, campaign);
         fragment.setArguments(args);
         return fragment;
     }
 
+    public void showDialog(Activity activity) {
+        Log.i(TAG, "showAbout: Show dialog share campaign!");
+        FragmentManager fm = activity.getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Fragment prev = fm.findFragmentByTag(DIALOG_SHARE_CAMPAIGN);
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+        show(ft, DIALOG_SHARE_CAMPAIGN);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View viewFragment = inflater.inflate(R.layout.dialog_campaign, container, true);
+        View viewFragment = inflater.inflate(R.layout.dialog_share_campaign, container, false);
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         loadViews(viewFragment);
