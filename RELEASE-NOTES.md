@@ -7,6 +7,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ------------------------------------------------------------------------
 
 
+### Version - 2.0.3
+**Date release**
+ - 01/12/2016
+
+**Features**
+ - Adiciona botão para visualizar uma campanha.
+ 
+**Bugs**
+
+**Improvements**
+ - Melhorias layouts das telas.
+
+------------------------------------------------------------------------
+
 ### Version - 2.0.1/2.0.2
 **Date release**
  - 29/11/2016
@@ -218,6 +232,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+
+### Version - 3.0.1
+**Date release**
+ - 01/12/2016
+
+**Features**
+ - Adiciona botão para visualizar uma campanha.
+ 
+**Bugs**
+
+**Improvements**
+ - Melhorias layouts das telas.
+
+------------------------------------------------------------------------
 
 ### Version - 3.0.0
 **Date release**
