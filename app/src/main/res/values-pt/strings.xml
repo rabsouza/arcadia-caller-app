@@ -24,6 +24,8 @@
     <string name="title_home_detail_campaigns">Estat. Campanhas</string>
     <string name="title_home_detail_sceneries">Estat. Cenários</string>
     <string name="title_observation">Observação</string>
+    <string name="title_share_campaign">Compartilhar Campanha</string>
+    <string name="title_open_campaign">Visualizar Campanha</string>
 
     <!-- ################### ELEMENTS #################### -->
     <string name="btn_login">ENTRAR</string>
@@ -33,6 +35,7 @@
     <string name="btn_cancel">CANCELAR</string>
     <string name="btn_ok">OK</string>
     <string name="btn_share">COMPARTILHAR</string>
+    <string name="btn_open">ABRIR</string>
     <string name="btn_confirmation_dialog_exit">SAIR</string>
     <string name="btn_confirmation_dialog_cancel">CANCELAR</string>
     <string name="btn_confirmation_dialog_delete">EXCLUIR</string>
@@ -137,6 +140,7 @@
     <string name="hint_view_inventory_comments">Comentários</string>
     <string name="hint_share_camping">Veja os detalhes da minha Campanha [{0}] pelo app {1}.</string>
     <string name="hint_title_share_camping">Detalhes da Campanha</string>
+    <string name="hint_key_camping">Chave da Campanha (Ex: AQ-CB-XX)</string>
 
 
     <!-- ################### MSG #################### -->
@@ -146,7 +150,9 @@
     <string name="msg_failed_create_campaign">Erro ao criar a Campanha! Siga as orientações da tela!</string>
     <string name="msg_failed_update_campaign">Erro ao atualizar a Campanha! Siga as orientações da tela!</string>
     <string name="msg_failed_login_user">Login invalido! Verifique se seu usuário existe! Por favor, tente novamente!</string>
+    <string name="msg_failed_key_campaign">Chave da Campanha invalida! Verifique se a campanha existe!</string>
     <string name="msg_failed_login_friend">Login invalido! Usuário cadastrado como amigo não tem acesso a aplicação! Por favor, crie um novo usuário!</string>
+    <string name="msg_key_required">Chave da Campanha é obrigatório!</string>
     <string name="msg_username_required">Login é obrigatório!</string>
     <string name="msg_mail_required">E-mail é obrigatório!</string>
     <string name="msg_action_loading">Aguarde! Carregando&#8230;</string>

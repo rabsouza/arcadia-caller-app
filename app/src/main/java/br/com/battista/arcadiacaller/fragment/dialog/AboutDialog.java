@@ -25,16 +25,17 @@ import br.com.battista.arcadiacaller.util.DateUtils;
 public class AboutDialog extends DialogFragment {
 
     private static final String TAG = AboutDialog.class.getSimpleName();
+    private static final String DIALOG_ABOUT = "dialog_about";
 
     public static void showAbout(android.support.v4.app.FragmentManager fm) {
         Log.i(TAG, "showAbout: Show dialog about!");
         FragmentTransaction ft = fm.beginTransaction();
-        Fragment prev = fm.findFragmentByTag("dialog_about");
+        Fragment prev = fm.findFragmentByTag(DIALOG_ABOUT);
         if (prev != null) {
             ft.remove(prev);
         }
         ft.addToBackStack(null);
-        new AboutDialog().show(ft, "dialog_about");
+        new AboutDialog().show(ft, DIALOG_ABOUT);
     }
 
     @Override
@@ -55,6 +56,7 @@ public class AboutDialog extends DialogFragment {
 
         return new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.title_about)
+                .setIcon(R.drawable.ic_info)
                 .setView(view)
                 .setPositiveButton(R.string.btn_ok,
                         new DialogInterface.OnClickListener() {

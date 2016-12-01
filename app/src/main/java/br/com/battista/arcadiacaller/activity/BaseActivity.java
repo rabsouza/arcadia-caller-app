@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -82,6 +83,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void setUpToolbar(int title) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         if (toolbar != null) {
             changeTitleToolbar(title);
 
@@ -106,6 +108,11 @@ public class BaseActivity extends AppCompatActivity {
         if (title != 0) {
             toolbar.setTitle(title);
         }
+    }
+
+    protected void changeBtnOpenCampaign(int visibility){
+        ImageButton btnOpenCampaign = (ImageButton) findViewById(R.id.btn_open_campaign);
+        btnOpenCampaign.setVisibility(visibility);
     }
 
     protected void changeToolbarTitleByMenu(@NonNull MenuItem menuItem) {

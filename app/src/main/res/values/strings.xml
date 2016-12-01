@@ -24,6 +24,8 @@
     <string name="title_home_detail_campaigns">Stat. Campaigns</string>
     <string name="title_home_detail_sceneries">Stat. Scenarios</string>
     <string name="title_observation">Obs</string>
+    <string name="title_share_campaign">Share Campaign</string>
+    <string name="title_open_campaign">View Campaign</string>
 
     <!-- ################### ELEMENTS #################### -->
     <string name="btn_login">LOG IN</string>
@@ -33,6 +35,7 @@
     <string name="btn_cancel">CANCEL</string>
     <string name="btn_ok">OK</string>
     <string name="btn_share">SHARE</string>
+    <string name="btn_open">OPEN</string>
     <string name="btn_confirmation_dialog_exit">LEAVE</string>
     <string name="btn_confirmation_dialog_cancel">CANCEL</string>
     <string name="btn_confirmation_dialog_delete">DELETE</string>
@@ -137,6 +140,7 @@
     <string name="hint_view_inventory_comments">Comments</string>
     <string name="hint_share_camping">See details for my campaign [{0}] through {1} app!</string>
     <string name="hint_title_share_camping">Details for campaign</string>
+    <string name="hint_key_camping">Campaign key (Ex: AQ-CB-XX)</string>
 
 
     <!-- ################### MSG #################### -->
@@ -147,6 +151,8 @@
     <string name="msg_failed_update_campaign">Error updating Campaign! Follow screen steps!</string>
     <string name="msg_failed_login_user">Invalid login! Check if your user exists. Please try again!</string>
     <string name="msg_failed_login_friend">Invalid login! User registered as friend does not have access to this app! Please, create a new user!</string>
+    <string name="msg_failed_key_campaign">Invalid Campaign Key! Check if the campaign exists!</string>
+    <string name="msg_key_required">Campaign key is mandatory!</string>
     <string name="msg_username_required">Login is mandatory!</string>
     <string name="msg_mail_required">E-mail is mandatory!</string>
     <string name="msg_action_loading">Wait! Loading&#8230;</string>

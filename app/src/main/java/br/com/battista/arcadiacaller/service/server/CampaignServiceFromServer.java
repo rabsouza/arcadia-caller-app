@@ -58,6 +58,33 @@ public class CampaignServiceFromServer extends BaseService implements CampaignSe
     }
 
     @Override
+    public Campaign findByKey(@NonNull String token, @NonNull String key) {
+        Log.i(TAG, MessageFormat.format("Find campaign by key: {0} in app server url:[{1}]!",
+                key, RestConstant.REST_API_ENDPOINT.concat(URI_FIND_BY_USER)));
+
+        CampaignListener listener = builder.create(CampaignListener.class);
+        try {
+            Response<Campaign> response = listener.findByKey(token, key).execute();
+            if (response != null && response.code() == HttpStatus.NO_CONTENT.value()) {
+                Log.i(GifHeaderParser.TAG, "Campaign not found!");
+            } else if (response != null && response.code() == HttpStatus.OK.value() && response.body() != null) {
+                Campaign campaign = response.body();
+                Log.i(GifHeaderParser.TAG, MessageFormat.format("Found campaigns {0} by key!", campaign));
+                return campaign;
+            } else {
+                String errorMessage = MessageFormat.format(
+                        "Campaign not found! Return the code status: {0}.",
+                        HttpStatus.valueOf(response.code()));
+                validateErrorResponse(response, errorMessage);
+            }
+        } catch (IOException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return null;
+    }
+
+    @Override
     public Campaign create(@NonNull String token, @NonNull Campaign campaign) {
         if (campaign == null) {
             throw new ValidatorException("Campaign can not be null!");
