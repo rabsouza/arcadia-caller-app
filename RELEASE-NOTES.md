@@ -9,6 +9,20 @@ Os Pacotes liberados para testes e produção da aplicação.
 
 ### Version - 2.0.3
 **Date release**
+ - 10/07/2017
+
+**Features**
+ 
+**Bugs**
+ - Corrigi error ao tentar logar com Android 7.0+
+ 
+**Improvements**
+ - Atualização das libs.
+
+------------------------------------------------------------------------
+
+### Version - 2.0.3
+**Date release**
  - 01/12/2016
 
 **Features**
@@ -232,6 +246,19 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - BETA
 ------------------------------------------------------------------------
 
+### Version - 3.0.2
+**Date release**
+ - 10/07/2017
+
+**Features**
+ 
+**Bugs**
+ - Corrigi error ao tentar logar com Android 7.0+
+ 
+**Improvements**
+ - Atualização das libs.
+
+------------------------------------------------------------------------
 
 ### Version - 3.0.1
 **Date release**

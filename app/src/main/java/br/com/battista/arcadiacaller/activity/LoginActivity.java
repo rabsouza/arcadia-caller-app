@@ -201,7 +201,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
             protected Boolean doInBackground(Void... params) {
                 try {
                     LoginService service = Inject.provideLoginService();
-                    Log.d(TAG, MessageFormat.format("doInBackground: Login username: {}.", username));
+                    Log.d(TAG, MessageFormat.format("doInBackground: Login username: {0}.", username));
 
                     token = service.login(username);
                     if (Strings.isNullOrEmpty(token) && singin) {
@@ -216,7 +216,7 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
 
                     if (!Strings.isNullOrEmpty(token)) {
                         UserService userService = Inject.provideUserService();
-                        Log.d(TAG, MessageFormat.format("doInBackground: Find user by username: {}.", username));
+                        Log.d(TAG, MessageFormat.format("doInBackground: Find user by username: {0}.", username));
 
                         user = userService.findByUsername(token, username);
                         MainApplication instance = MainApplication.instance();

@@ -260,7 +260,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         }
                         campaign.setGuild01(loginBlue);
                         campaign.setHeroesGuild01(guild);
-                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Blue: {} in campaign!", guild));
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Blue: {0} in campaign!", guild));
                     } else {
                         Log.i(TAG, "doInBackground: Clear data guild Blue!");
                         campaign.setGuild01(null);
@@ -278,7 +278,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         }
                         campaign.setGuild02(loginGreen);
                         campaign.setHeroesGuild02(guild);
-                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Green: {} in campaign!", guild));
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Green: {0} in campaign!", guild));
                     } else {
                         Log.i(TAG, "doInBackground: Clear data guild Green!");
                         campaign.setGuild02(null);
@@ -296,7 +296,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         }
                         campaign.setGuild03(loginRed);
                         campaign.setHeroesGuild03(guild);
-                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Red: {} in campaign!", guild));
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Red: {0} in campaign!", guild));
                     } else {
                         Log.i(TAG, "doInBackground: Clear data guild Red!");
                         campaign.setGuild03(null);
@@ -314,7 +314,7 @@ public class CampaignDetailGuildsFragment extends BaseFragment {
                         }
                         campaign.setGuild04(loginOrange);
                         campaign.setHeroesGuild04(guild);
-                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Orange: {} in campaign!", guild));
+                        Log.i(TAG, MessageFormat.format("doInBackground: Fill the guild Orange: {0} in campaign!", guild));
                     } else {
                         Log.i(TAG, "doInBackground: Clear data guild Orange!");
                         campaign.setGuild04(null);
