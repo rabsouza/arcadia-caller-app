@@ -6,6 +6,14 @@ Os Pacotes liberados para testes e produção da aplicação.
 ## PHASE - PRD
 ------------------------------------------------------------------------
 
+### Version - 2.0.4
+**Date release**
+ - 23/09/2018
+ 
+Adiciona política de privacidade
+
+------------------------------------------------------------------------
+
 
 ### Version - 2.0.3
 **Date release**
